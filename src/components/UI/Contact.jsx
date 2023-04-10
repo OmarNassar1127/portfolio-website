@@ -1,6 +1,39 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import { message } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const Contact = ({ language }) => {
+  const form = useRef();
+  const [loading, setLoading] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs
+      .sendForm(
+        "service_a7vkxnt",
+        "template_e8yb2rm",
+        form.current,
+        "TSqjyuUZdiEwALBRn"
+      )
+      .then(
+        () => {
+          form.current.reset();
+          message.success(language === "EN" ? "Thank you for your message!" : "Bedankt voor uw bericht!");
+        },
+        () => {
+          message.error("Sorry, something went wrong. Please try again");
+        }
+      )
+      .finally(() => {
+        setTimeout(() => {
+          setLoading(false);
+        }, 1300);
+      });
+  };
+
   return (
     <section id="contact" className="pb-16 m-[5px]">
       <div className="contact container">
@@ -19,24 +52,43 @@ const Contact = ({ language }) => {
             ></iframe>
           </div>
           <div className="tune2 w-full mt-8 md:mt-0 md:w-1/2 sm:h-[450px]  lg:flex items-center bg-black-100 px-4 lg:px-8 py-8">
-            <form action="" className="w-full">
+            <form
+              className="w-full"
+              ref={form}
+              onSubmit={(e) => {
+                sendEmail(e);
+                form.current.reset();
+              }}
+            >
               <div className="mb-5">
                 <input
                   type="text"
-                  placeholder={language === "EN" ? "Enter your name" : "Vul uw naam in"}
+                  name="user_name"
+                  required
+                  placeholder={
+                    language === "EN" ? "Enter your name" : "Vul uw naam in"
+                  }
                   className="contactInput w-full p-3 focus:outline-none rounded-[5px]"
                 />
               </div>
               <div className="mb-5">
                 <input
                   type="email"
-                  placeholder={language === "EN" ? "Enter your email" : "Voer uw e-mailadres in"}
+                  name="user_email"
+                  required
+                  placeholder={
+                    language === "EN"
+                      ? "Enter your email"
+                      : "Voer uw e-mailadres in"
+                  }
                   className="contactInput w-full p-3 focus:outline-none rounded-[5px]"
                 />
               </div>
               <div className="mb-5">
                 <input
                   type="text"
+                  name="user_subject"
+                  required
                   placeholder={language === "EN" ? "Subject" : "Onderwerp"}
                   className="contactInput w-full p-3 focus:outline-none rounded-[5px]"
                 />
@@ -44,16 +96,28 @@ const Contact = ({ language }) => {
               <div className="mb-5">
                 <textarea
                   type="text"
+                  name="message"
+                  required
                   rows={3}
-                  placeholder={language === "EN" ? "Write your message" : "Schrijf uw bericht"}
+                  placeholder={
+                    language === "EN"
+                      ? "Write your message"
+                      : "Schrijf uw bericht"
+                  }
                   className="contactInput w-full p-3 focus:outline-none rounded-[5px]"
                 />
               </div>
               <button
-                className="w-full p-3 focus:outline-none rounded-[5px] bg-primaryColor text-white
-                hover:bg-smallTextColor text-center ease-linear duration-150"
+                type="submit"
+                className="w-full p-3 focus:outline-none rounded-[5px] bg-primaryColor text-white hover:bg-smallTextColor text-center ease-linear duration-150"
               >
-                {language === "EN" ? "Send Message" : "Bericht versturen"}
+                {loading ? (
+                  <LoadingOutlined className="animate-spin" />
+                ) : language === "EN" ? (
+                  "Send"
+                ) : (
+                  "Versturen"
+                )}
               </button>
             </form>
           </div>
