@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/portfolio-website/static/css/main.261ede70.css",
+    "main.js": "/portfolio-website/static/js/main.49883aec.js",
+    "static/media/remixicon.svg?t=1680703320261": "/portfolio-website/static/media/remixicon.70a2c520013c3c5b5aff.svg",
+    "static/media/remixicon.eot?t=1680703320261": "/portfolio-website/static/media/remixicon.84395c0272b9277a8dd4.eot",
+    "static/media/remixicon.ttf?t=1680703320261": "/portfolio-website/static/media/remixicon.b44cfa02ce58f6eb1f8d.ttf",
+    "static/media/portfolio-06.jpg": "/portfolio-website/static/media/portfolio-06.ea07d96454b4d7036952.jpg",
+    "static/media/portfolio-03.jpg": "/portfolio-website/static/media/portfolio-03.78e7f47277db062e42ce.jpg",
+    "static/media/portfolio-05.jpg": "/portfolio-website/static/media/portfolio-05.48fc29908a42185ebcac.jpg",
+    "static/media/portfolio-04.jpg": "/portfolio-website/static/media/portfolio-04.b181b68b278c583999d7.jpg",
+    "static/media/portfolio-02.jpg": "/portfolio-website/static/media/portfolio-02.18f98e2c71da9c1289b0.jpg",
+    "static/media/portfolio-01.jpg": "/portfolio-website/static/media/portfolio-01.89a346463c90b2965a9e.jpg",
+    "static/media/portfolio-07.jpg": "/portfolio-website/static/media/portfolio-07.7e51d9d8fbe739866e5c.jpg",
+    "static/media/remixicon.woff?t=1680703320261": "/portfolio-website/static/media/remixicon.9a029bb2b868444bd914.woff",
+    "static/media/remixicon.woff2?t=1680703320261": "/portfolio-website/static/media/remixicon.0e8f9f369f20b858578c.woff2",
+    "static/media/me2.png": "/portfolio-website/static/media/me2.e5fbf88fb1324be1ad2d.png",
+    "static/media/me.png": "/portfolio-website/static/media/me.872066dbeabf1ead9912.png",
+    "index.html": "/portfolio-website/index.html",
+    "main.261ede70.css.map": "/portfolio-website/static/css/main.261ede70.css.map",
+    "main.49883aec.js.map": "/portfolio-website/static/js/main.49883aec.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.261ede70.css",
+    "static/js/main.49883aec.js"
+  ]
+}
