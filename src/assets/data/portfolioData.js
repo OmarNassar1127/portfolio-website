@@ -20,7 +20,7 @@ const portfolios = [
   },
   {
     id: "02",
-    imgUrl: portfolioImg04,
+    imgUrl: portfolioImg02,
     category: "School project",
     title: "First ever portfolio website",
     descriptionEN: "For my second school project, I designed and developed a portfolio website to showcase my background, personality, hobbies and experiences. Through an interactive timeline, I aimed to provide visitors with an engaging overview of my life journey, achievements, and aspirations.",
@@ -30,7 +30,7 @@ const portfolios = [
   },
   {
     id: "03",
-    imgUrl: portfolioImg02,
+    imgUrl: portfolioImg03,
     category: "School project",
     title: "Yamba",
     descriptionEN: "This was the first major project I undertook, where we were tasked with developing a website for a festival company. The site needed to be able to handle ticket purchases, send email notifications, and more. Additionally, we were required to create an admin panel for the owners, allowing them to monitor ticket sales, email registrations, merchandise sales, and other key data. Throughout the development process, I gained valuable experience in planning and prioritizing tasks, which ultimately resulted in the successful delivery of an exceptional product.",
@@ -40,7 +40,7 @@ const portfolios = [
   },
   {
     id: "04",
-    imgUrl: portfolioImg05,
+    imgUrl: portfolioImg04,
     category: "School project",
     title: "Tic Tac Toe",
     descriptionEN: "For this collaborative project, I worked with two fellow classmates to create a web-based version of the classic game Tic Tac Toe using only Javascript and HTML/CSS. Although challenging, this project was immensely rewarding as we had to rely on extensive research to build the game's functionality. Despite limited prior experience with Javascript, we were able to develop our coding skills significantly through this project.",
@@ -50,7 +50,7 @@ const portfolios = [
   },
   {
     id: "05",
-    imgUrl: portfolioImg03,
+    imgUrl: portfolioImg05,
     category: "School project",
     title: "Snake 3D",
     descriptionEN: "Out of all the projects I've worked on, Snake 3D was the most enjoyable to create. I spent a lot of time playing the game myself to ensure it was both fun and challenging. In this game, I included unique features such as apples that made the snake grow three times larger and obstacles that appeared unexpectedly, requiring quick reflexes to avoid them.",
