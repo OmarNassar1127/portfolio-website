@@ -1,6 +1,6 @@
 import React from "react";
 
-const Footer = () => {
+const Footer = ({ language }) => {
   const year = new Date().getFullYear();
   return (
     <footer className="bg-[#12141e] pt-12">
@@ -9,7 +9,9 @@ const Footer = () => {
         <div className="sm:flex items-center justify-between md:gao-8">
           <div className="w-full sm:w-1/2">
             <h2 className="text-[26px] leading-10 text-white font-[600] mb-5 md:text-[2rem]">
-              Let's get in touch
+              {language === "EN"
+                ? "Let's get in touch!"
+                : "Neem contact met mij op!"}
             </h2>
             <a href="#contact">
               <button
@@ -17,20 +19,17 @@ const Footer = () => {
                                         hover:bg-smallTextColor ease-in duration-300 py-2 px-4 rounded-[8px]"
               >
                 <i class="ri-mail-line"></i>
-                Contact me
+                {language === "EN" ? "Contact me" : "Neem contact met mij op"}
               </button>
             </a>
           </div>
           <div className="w-full sm:w-1/2">
             <p className="text-white leading-7 mt-4 sm:mt-0">
-              Thank you for visiting my portfolio. If you have any questions or
-              would like to work together, feel free to contact me, or you can
-              also connect with me on:
+              {language === "EN"
+                ? "Thank you for visiting my portfolio. If you have any questions or would like to work together, feel free to contact me, or you can also connect with me on:"
+                : "Bedankt voor het bezoeken van mijn portfolio. Als u vragen heeft of samen wilt werken, neem dan gerust contact met mij op. U kunt ook verbinding met mij maken via:"}
             </p>
             <div className="flex items-center gap-4 flex-wrap md:gap-8 mt-2">
-              <span className="text-gray-300 font-[600] text-[15px]">
-                Get in touch through:
-              </span>
               <span className="w-[35px] h-[35px] bg-[#2b2d33] p-1 rounded-[50px] cursor-pointer text-center">
                 <a
                   href="mailto:omarnassar1127@gmail.com"
@@ -83,7 +82,7 @@ const Footer = () => {
           <ul className="flex items-center justify-center gap-10 mt-10 flex-wrap">
             <li>
               <a className="text-white font-[100]" href="#about">
-                About
+                {language === "EN" ? "About" : "Over mij"}
               </a>
             </li>
             <li>
@@ -93,12 +92,12 @@ const Footer = () => {
             </li>
             <li>
               <a className="text-white font-[100]" href="#portfolio">
-                Portfolio
+                {language === "EN" ? "Portfolio" : "Portefeuille"}
               </a>
             </li>
             <li>
               <a className="text-white font-[100]" href="#skills">
-                Skills
+                {language === "EN" ? "Skills" : "Vaardigheden"}
               </a>
             </li>
             <li>
