@@ -3,7 +3,6 @@ import data from "../../assets/data/portfolioData";
 import Modal from "./Modal";
 
 const Portfolio = ({ language }) => {
-
   const [nextItems, setNextItems] = useState(6);
   const [portfolios, setPortfolios] = useState(data);
   const [selectTab, setSelectTab] = useState("all");
@@ -59,7 +58,7 @@ const Portfolio = ({ language }) => {
               className="text-smallTextColor border border-solid border-smallTextColor py-2 px-4
                     rounded-[8px]"
             >
-               {language === "EN" ? "School projects" : "School projecten"}
+              {language === "EN" ? "School projects" : "School projecten"}
             </button>
             <button
               onClick={() => setSelectTab("professional")}
@@ -79,8 +78,13 @@ const Portfolio = ({ language }) => {
               data-aos-duration="1000"
               className="group max-w-full sm:w-[48.5%] md:w-[31.8%] lg:2-[32.2%] relative z-[1]"
             >
-              <figure>
-                <img className="rounded-[8px]" src={portfolio.imgUrl} alt="" />
+              <figure style={{ width: "100%", height: "200px" }}>
+                <img
+                  className="rounded-[8px]"
+                  src={portfolio.imgUrl}
+                  alt=""
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
               </figure>
               <div
                 className="w-full h-full bg-primaryColor bg-opacity-40 absolute top-0 left-0 z-[5] 
@@ -111,7 +115,13 @@ const Portfolio = ({ language }) => {
           )}
         </div>
       </div>
-      {showModal && <Modal setShowModal={setShowModal} activeID={activeID} language={language}/>}
+      {showModal && (
+        <Modal
+          setShowModal={setShowModal}
+          activeID={activeID}
+          language={language}
+        />
+      )}
     </section>
   );
 };

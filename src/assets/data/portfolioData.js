@@ -5,6 +5,7 @@ import portfolioImg04 from "../images/portfolio-04.jpg";
 import portfolioImg05 from "../images/portfolio-05.jpg";
 import portfolioImg06 from "../images/portfolio-06.jpg";
 import portfolioImg07 from "../images/portfolio-07.jpg";
+import portfolioImg08 from "../images/portfolio-08.jpg";
 
 const portfolios = [
   {
@@ -94,7 +95,7 @@ const portfolios = [
   },
   {
     id: "08",
-    imgUrl: portfolioImg07,
+    imgUrl: portfolioImg08,
     category: "Professional",
     title: "Sliced Marketplace",
     descriptionEN: "At Bitsliced, my role involves more than just programming. As a overseer of the platform's development, I manage a range of tasks to ensure our team is successful. This includes overseeing deadlines, quality assurance, and ensuring that our team meets its goals. Maintaining a positive team environment is also a top priority. Additionally, I am responsible for researching new technologies, keeping up with market standards, hiring new team members, and overseeing audits, among other responsibilities.",
