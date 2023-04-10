@@ -37,7 +37,7 @@ const Hero = ({ language }) => {
               data-aos-duration="1500"
               className="text-blueGray-700 font-bold text-sm md:text-base"
             >
-              {language === "EN" ? "Hello, my name is" : "Hallo, ik ben"}
+              {language === "EN" ? "Hello kkrraaa, my name is" : "Hallo, ik ben"}
             </h5>
             <h1
               data-aos="fade-up"
