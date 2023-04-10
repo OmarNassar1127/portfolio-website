@@ -51,7 +51,7 @@ const Contact = ({ language }) => {
               </div>
               <button
                 className="w-full p-3 focus:outline-none rounded-[5px] bg-primaryColor text-white
-                hover:bg-smallTextColor text-center ease-linear duration-150 "
+                hover:bg-smallTextColor text-center ease-linear duration-150"
               >
                 {language === "EN" ? "Send Message" : "Bericht versturen"}
               </button>
