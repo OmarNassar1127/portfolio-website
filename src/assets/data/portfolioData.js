@@ -16,7 +16,7 @@ const portfolios = [
     descriptionEN: "This was the first project I ever coded, where we created a website allowing users to view phones, tablets, and laptops. Additionally, we integrated a functionality to connect it with a tech store so that users could directly purchase the products they liked. We also utilized jQuery and JavaScript to enable filtering and implemented some animations to enhance the user experience.",
     descriptionNL: "Dit was mijn allereerste project dat ik heb gecodeerd. Voor dit project moesten we een website maken waar gebruikers telefoons, tablets en laptops konden bekijken. Daarnaast was een andere functionaliteit om deze te koppelen aan een technische winkel, zodat gebruikers er direct op konden klikken en het kopen. Daarnaast gebruikten we ook jQuery en JavaScript voor filtering en een beetje animatie.",
     technologies: ["Sublime Text", "HTML/CSS", "Javascript", "jQuery"],
-    siteUrl: "#",
+    siteUrl: "",
   },
   {
     id: "02",
