@@ -27,7 +27,7 @@ function App() {
   return (
     <>
       <Header toggleLanguage={toggleLanguage} language={language} />
-      <main>
+      <main className="test" >
         <Hero language={language} />
         <Journey language={language} />
         <Portfolio language={language} />
