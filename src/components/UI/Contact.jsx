@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { message } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = ({ language }) => {
   const form = useRef();
@@ -21,10 +22,14 @@ const Contact = ({ language }) => {
       .then(
         () => {
           form.current.reset();
-          message.success(language === "EN" ? "Thank you for your message!" : "Bedankt voor uw bericht!");
+          toast.success(
+            language === "EN"
+              ? "Thank you for your message!"
+              : "Bedankt voor uw bericht!"
+          );
         },
         () => {
-          message.error("Sorry, something went wrong. Please try again");
+          toast.error("Sorry, something went wrong. Please try again");
         }
       )
       .finally(() => {
@@ -36,6 +41,7 @@ const Contact = ({ language }) => {
 
   return (
     <section id="contact" className="pb-16 m-[5px]">
+      <ToastContainer />
       <div className="contact container">
         <h2 className="text-headingColor font-[700] text-[2.5rem] mb-8 flex items-center justify-center">
           {language === "EN" ? "Get in touch!" : "Neem contact op!"}
