@@ -28,8 +28,8 @@ const Contact = ({ language }) => {
               : "Bedankt voor uw bericht!",
             {
               position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
+              autoClose: 3000,
+              hideProgressBar: true,
               closeOnClick: true,
               pauseOnHover: true,
               draggable: true,
@@ -51,7 +51,7 @@ const Contact = ({ language }) => {
 
   return (
     <section id="contact" className="pb-16 m-[5px]">
-        <ToastContainer />
+      <ToastContainer />
       <div className="contact container">
         <h2 className="text-headingColor font-[700] text-[2.5rem] mb-8 flex items-center justify-center">
           {language === "EN" ? "Get in touch!" : "Neem contact op!"}
