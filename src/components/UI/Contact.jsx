@@ -25,7 +25,17 @@ const Contact = ({ language }) => {
           toast.success(
             language === "EN"
               ? "Thank you for your message!"
-              : "Bedankt voor uw bericht!"
+              : "Bedankt voor uw bericht!",
+            {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            }
           );
         },
         () => {
@@ -35,13 +45,13 @@ const Contact = ({ language }) => {
       .finally(() => {
         setTimeout(() => {
           setLoading(false);
-        }, 1300);
+        }, 1000);
       });
   };
 
   return (
     <section id="contact" className="pb-16 m-[5px]">
-      <ToastContainer />
+        <ToastContainer />
       <div className="contact container">
         <h2 className="text-headingColor font-[700] text-[2.5rem] mb-8 flex items-center justify-center">
           {language === "EN" ? "Get in touch!" : "Neem contact op!"}
