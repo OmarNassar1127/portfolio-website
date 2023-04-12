@@ -177,7 +177,7 @@ const Hero = ({ language }) => {
             </div>
             <div className="mb-10">
               <h2 className="text-headingColor font-[700] text-[32px]">
-                <CountUp start={0} end={24} duration={1} suffix="+" />
+                <CountUp start={0} end={24} duration={1} suffix="" />
               </h2>
               <h4 className="text-headingColor font-[700] text-[18px]">
                 {language === "EN" ? "Age" : "Leeftijd"}
