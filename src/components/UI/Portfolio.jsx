@@ -65,7 +65,7 @@ const Portfolio = ({ language }) => {
               className="text-smallTextColor border border-solid border-smallTextColor py-2 px-4
                     rounded-[8px]"
             >
-              Junior Dev
+              Junior Dev / Product Manager
             </button>
           </div>
         </div>
