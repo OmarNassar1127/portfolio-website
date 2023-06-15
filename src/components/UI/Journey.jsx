@@ -205,7 +205,7 @@ const Journey = ({ language }) => {
                           className="bg-white p-4 rounded shadow group hover:bg-primaryColor cursor-pointer easi-in duration-150"
                         >
                           <h3 className="text-primaryColor font-[700] mt-3 mb-3 group-hover:text-white group-hover:font-[600] text-xl">
-                            Co-Founder and Product Manager
+                            Product Manager
                           </h3>
                           <h5 className=" font-[700] mb-3 group-hover:text-white group-hover:font-[600] text-[15px]">
                             {language === "EN"
