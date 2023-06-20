@@ -3,7 +3,7 @@ import data from "../../assets/data/portfolioData";
 import Modal from "./Modal";
 
 const Portfolio = ({ language }) => {
-  const [nextItems, setNextItems] = useState(8);
+  const [nextItems, setNextItems] = useState(9);
   const [portfolios, setPortfolios] = useState(data);
   const [selectTab, setSelectTab] = useState("all");
   const [showModal, setShowModal] = useState(false);
