@@ -3,7 +3,7 @@ import data from "../../assets/data/portfolioData";
 import Modal from "./Modal";
 
 const Portfolio = ({ language }) => {
-  const [nextItems, setNextItems] = useState(9);
+  const [nextItems, setNextItems] = useState(30);
   const [portfolios, setPortfolios] = useState(data);
   const [selectTab, setSelectTab] = useState("all");
   const [showModal, setShowModal] = useState(false);
@@ -70,7 +70,7 @@ const Portfolio = ({ language }) => {
               className="text-smallTextColor border border-solid border-smallTextColor py-2 px-4
                     rounded-[8px]"
             >
-              Junior Dev / Product Manager
+              Proffessional projects
             </button>
           </div>
         </div>
@@ -109,7 +109,7 @@ const Portfolio = ({ language }) => {
           ))}
         </div>
         <div className="text-center mt-6">
-          {nextItems < portfolios.length && data.length > 8 && (
+          {nextItems < portfolios.length && data.length > 20 && (
             <button
               onClick={loadMoreHandler}
               className="text-white bg-primaryColor hover:bg-smallTextColor py-2 px-4 rounded-[8px]

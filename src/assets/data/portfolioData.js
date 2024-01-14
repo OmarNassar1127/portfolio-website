@@ -7,6 +7,7 @@ import portfolioImg06 from "../images/portfolio-06.jpg";
 import portfolioImg07 from "../images/portfolio-07.jpg";
 import portfolioImg08 from "../images/portfolio-08.jpg";
 import portfolioImg09 from "../images/portfolio-09.png";
+import portfolioImg10 from "../images/portfolio-10.png";
 
 const portfolios = [
   {
@@ -149,6 +150,29 @@ const portfolios = [
       "HTML/CSS",
     ],
     siteUrl: "#",
+  },
+  {
+    id: "10",
+    imgUrl: portfolioImg10,
+    category: "Professional",
+    title: "Vloto B.V.",
+    descriptionEN:
+      "At Vloto B.V., I have been responsible for constructing an administrative dashboard, which I continue to work on to this day. Additionally, I have implemented various intricate features for our app, such as family sharing and coupon integration. These features involve complex backend development due to the extensive data testing requirements they entail. In my role at Vloto, I leverage a diverse range of technologies, with a primary focus on building robust APIs. Looking ahead, our next milestone involves harnessing the power of AI for automation.",
+    descriptionNL:
+      "Bij Vloto B.V. ben ik verantwoordelijk geweest voor de ontwikkeling van een administratief dashboard, een project waar ik nog steeds aan werk. Daarnaast heb ik complexe functies geïmplementeerd voor onze app, zoals familiedeling en kortingsbonintegratie. Deze functies vergen een ingewikkelde backend-ontwikkeling vanwege de uitgebreide datatestvereisten. In mijn rol bij Vloto maak ik gebruik van een breed scala aan technologieën, met een nadruk op het bouwen van robuuste API's. Vooruitkijkend houdt onze volgende mijlpaal in dat we de kracht van AI gaan benutten voor automatisering.",
+    technologies: [
+      "VsCode",
+      "PHP",
+      "Laravel",
+      "API's",
+      "MySql",
+      "AI",
+      "HTML/CSS",
+      "Composer",
+      "Imagick",
+      "RapidAPI",
+    ],
+    siteUrl: "https://vloto.nl/",
   },
 ];
 
