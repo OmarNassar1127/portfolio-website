@@ -7,8 +7,8 @@ import appsdImg from "../../assets/images/apps.png";
 const Journey = ({ language }) => {
   const text =
     language === "EN"
-      ? "In 2017, I began my software development career at MBO Amstelland, where I learned HTML/CSS and later PHP, Javascript, and MySQL. I excelled in coding, finding it engrossing and comfortable. After interning for a year at CSDM, I continued working there for another year after graduation. I graduated at the top of my class, and subsequently worked for another year before starting my own company, Bitsliced. As a product manager, I am pursuing my passion for blockchain and cryptocurrencies by building an NFT marketplace for trading real-world assets as digital assets."
-      : "In 2017 begon ik mijn loopbaan in de softwareontwikkeling bij MBO Amstelland, waar ik HTML/CSS leerde en later PHP, Javascript en MySQL. Ik blonk uit in programmeren en vond het boeiend en comfortabel. Na een jaar stage te hebben gelopen bij CSDM, werkte ik daar nog een jaar na mijn afstuderen. Ik ben afgestudeerd als beste van mijn klas en heb vervolgens nog een jaar gewerkt voordat ik mijn eigen bedrijf, Bitsliced, startte. Als productmanager volg ik mijn passie voor blockchain en cryptocurrencies door een NFT-marktplaats te bouwen voor de handel in real-world assets als digitale assets.";
+      ? "In 2017, I began my software development career at MBO Amstelland, learning HTML/CSS, PHP, Javascript, and MySQL, and quickly excelling in coding. After a year-long internship and an additional year of work at CSDM post-graduation, topping my class, I ventured into entrepreneurship with Bitsliced, focusing on blockchain and cryptocurrencies to create an NFT marketplace for trading real-world assets. In 2023, I further expanded my career by joining Vloto B.V as a Backend Developer. At Vloto, a luxury car-sharing service boasting a fleet from Audi e-tron Q8 to Polestar 2 Dual Motor, I used Laravel for creating RestFul APIs, initially enhancing our internal dashboard. My work has also involved innovating our app with features like discount coupons and flexible booking date edits, thereby significantly enriching user experience, and currently, I am automating various manual processes to elevate service efficiency."
+      : "In 2017 begon ik mijn carrière in softwareontwikkeling bij MBO Amstelland, waar ik HTML/CSS, PHP, Javascript en MySQL leerde, en ik blonk snel uit in coderen. Na een jaar stage en een extra jaar werk bij CSDM na mijn afstuderen, aan de top van mijn klas, waagde ik me aan het ondernemerschap met Bitsliced, gericht op blockchain en cryptocurrencies om een NFT-marktplaats te creëren voor het verhandelen van echte activa. In 2023 breidde ik mijn carrière verder uit door me aan te sluiten bij Vloto B.V. als Backend Ontwikkelaar. Bij Vloto, een luxe autodeelservice met een vloot van Audi e-tron Q8 tot Polestar 2 Dual Motor, gebruikte ik Laravel voor het creëren van RestFul API's, aanvankelijk om ons interne dashboard te verbeteren. Mijn werk heeft ook betrekking gehad op het innoveren van onze app met functies zoals kortingscoupons en flexibele boekingsdatumaanpassingen, waardoor de gebruikerservaring aanzienlijk is verrijkt, en momenteel automatiseer ik verschillende handmatige processen om de service-efficiëntie te verhogen.";
   const text1 =
     language === "EN"
       ? "During the initial 18 months of my education, the emphasis was on frontend development, where I gained a comprehensive understanding of HTML/CSS and the integration of JavaScript to enhance the functionality and interactivity of web applications. Although the curriculum leaned towards frontend development, I thoroughly enjoyed every aspect of it."
@@ -74,8 +74,8 @@ const Journey = ({ language }) => {
                         >
                           <h3 className="text-primaryColor font-[700] mt-3 mb-3 group-hover:text-white group-hover:font-[600] text-xl">
                             {language === "EN"
-                              ? "First 18 months of the career"
-                              : "Eerste 18 maanden van de opleiding"}
+                              ? "2017 - First 18 months of the career"
+                              : "2017 - Eerste 18 maanden van de opleiding"}
                           </h3>
                           <h5 className=" font-[700] mb-3 group-hover:text-white group-hover:font-[600] text-[15px]">
                             Frontend Development
@@ -109,8 +109,8 @@ const Journey = ({ language }) => {
                         >
                           <h3 className="text-primaryColor mt-3 font-[700] mb-3 group-hover:text-white group-hover:font-[600] text-xl">
                             {language === "EN"
-                              ? "Last 18 months of the career"
-                              : "Laatste 18 maanden van de opleiding"}
+                              ? "2020 - Last 18 months of the career"
+                              : "2020 - Laatste 18 maanden van de opleiding"}
                           </h3>
                           <h5 className=" font-[700] mb-3 group-hover:text-white group-hover:font-[600] text-[15px]">
                             Backend Development
@@ -143,7 +143,7 @@ const Journey = ({ language }) => {
                           className="bg-white p-4 rounded shadow group hover:bg-primaryColor cursor-pointer easi-in duration-150"
                         >
                           <h3 className="text-primaryColor mt-3 font-[700] mb-3 group-hover:text-white group-hover:font-[600] text-xl">
-                            Frontend Developer
+                            2020 - 2021 Frontend Developer
                           </h3>
                           <h5 className=" font-[700] mb-3 group-hover:text-white group-hover:font-[600] text-[15px]">
                             {language === "EN" ? "at CSDM" : "bij CSDM"}
@@ -177,8 +177,8 @@ const Journey = ({ language }) => {
                         >
                           <h3 className="text-primaryColor font-[700] mt-3 mb-3 group-hover:text-white group-hover:font-[600] text-xl">
                             {language === "EN"
-                              ? "Self development year"
-                              : "Jaar van zelfontwikkeling"}
+                              ? "2021 - Self development year"
+                              : "2021 - Jaar van zelfontwikkeling"}
                           </h3>
                           <p className="text-[15px] text-smallTextColor group-hover:text-white group-hover:font-[500] leading-7">
                             {text3}
@@ -208,7 +208,7 @@ const Journey = ({ language }) => {
                           className="bg-white p-4 rounded shadow group hover:bg-primaryColor cursor-pointer easi-in duration-150"
                         >
                           <h3 className="text-primaryColor font-[700] mt-3 mb-3 group-hover:text-white group-hover:font-[600] text-xl">
-                            Product Manager
+                            2021 - 2023 Product Manager
                           </h3>
                           <h5 className=" font-[700] mb-3 group-hover:text-white group-hover:font-[600] text-[15px]">
                             {language === "EN"
@@ -244,8 +244,8 @@ const Journey = ({ language }) => {
                         >
                           <h3 className="text-primaryColor font-[700] mt-3 mb-3 group-hover:text-white group-hover:font-[600] text-xl">
                             {language === "EN"
-                              ? "Backend Developer at Vloto"
-                              : "Backend Developer bij Vloto"}
+                              ? "2023 - Backend Developer at Vloto"
+                              : "2023 - Backend Developer bij Vloto"}
                           </h3>
                           <p className="text-[15px] text-smallTextColor group-hover:text-white group-hover:font-[500] leading-7">
                             {text6}
