@@ -29,7 +29,10 @@ const Journey = ({ language }) => {
     language === "EN"
       ? "After a year of focusing on self-development, I embarked on a teaching career where I imparted the fundamentals to aspiring learners. During this time, a student introduced me to a compelling business idea that I couldn't refuse: Bitsliced. As mentioned earlier, Bitsliced is an NFT marketplace that leverages blockchain technology to create digital representations of real-world assets as NFTs, thereby streamlining the trading process while ensuring safety and efficiency. To bring this idea to fruition, I assembled a team of four professionals whom I currently manage while overseeing project development and ensuring quality assurance."
       : "Na een jaar gericht te hebben op zelfontwikkeling, begon ik aan een carrière in het onderwijs waarbij ik de basisprincipes overbracht aan aspirant-leerlingen. Tijdens deze periode introduceerde een student me bij een boeiend bedrijfsidee dat ik niet kon weigeren: Bitsliced. Zoals eerder vermeld, is Bitsliced een NFT-marktplaats die gebruikmaakt van blockchaintechnologie om digitale representaties van real-world assets als NFT's te creëren, waardoor het handelsproces wordt gestroomlijnd terwijl de veiligheid en efficiëntie worden gegarandeerd. Om dit idee te verwezenlijken, heb ik een team van vier professionals samengesteld die ik momenteel beheer terwijl ik het projectontwikkeling superviseer en zorg voor kwaliteitsborging.";
-
+  const text6 =
+    language === "EN"
+      ? "I joined Vloto B.V as a Backend Developer in mid-2023, quickly diving into exciting challenges. Our company, a luxury car-sharing service, boasts an impressive fleet from the Audi e-tron Q8 to the Polestar 2 Dual Motor, all accessible through our proprietary app. My initial focus was enhancing our internal dashboard, but I've also innovated our app with complex features like discount coupons and flexible booking date edits, significantly enriching the user experience. Currently, I'm working on automating some of our manual processes, aiming to streamline operations and elevate our service efficiency."
+      : "Ik ben in het midden van 2023 bij Vloto B.V. begonnen als Backend Ontwikkelaar en heb me snel op boeiende uitdagingen gestort. Ons bedrijf, een luxe autodeel service, pronkt met een indrukwekkende vloot variërend van de Audi e-tron Q8 tot de Polestar 2 Dual Motor, allemaal toegankelijk via onze eigen app. Aanvankelijk concentreerde ik me op het verbeteren van ons interne dashboard, maar ik heb ook complexe functies aan onze app toegevoegd, zoals kortingscoupons en flexibele boekingsdatumaanpassingen, wat de gebruikerservaring aanzienlijk verrijkte. Momenteel werk ik aan het automatiseren van enkele van onze handmatige processen, met als doel onze bedrijfsvoering te stroomlijnen en de efficiëntie van onze service te verhogen.";
   return (
     <div>
       <section id="journey">
@@ -224,6 +227,38 @@ const Journey = ({ language }) => {
                     >
                       <figure>
                         <img src={frontendImg} alt="" />
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+                {/* ============= Right card ================= */}
+                <div className="mt-6 sm:mt-0 sm:mb-12">
+                  <div className="flex items-center flex-col sm:flex-row">
+                    <div className="flex justify-end w-full mx-auto items-center">
+                      <div className="w-full sm:w-1/2 sm:pl-8">
+                        <div
+                          data-aos="fade-left"
+                          data-aos-delay="50"
+                          data-aos-duration="1200"
+                          className="bg-white p-4 rounded shadow group hover:bg-primaryColor cursor-pointer easi-in duration-150"
+                        >
+                          <h3 className="text-primaryColor font-[700] mt-3 mb-3 group-hover:text-white group-hover:font-[600] text-xl">
+                            {language === "EN"
+                              ? "Backend Developer at Vloto"
+                              : "Backend Developer bij Vloto"}
+                          </h3>
+                          <p className="text-[15px] text-smallTextColor group-hover:text-white group-hover:font-[500] leading-7">
+                            {text6}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="rounded-full bg-primaryColor border-white border-4 w-10 h-10 absolute left-1/2 transform -translate-x-1/2 -translate-y-4 sm:translate-y-0 flex items-center
+                    justify-center"
+                    >
+                      <figure>
+                        <img src={appsdImg} alt="" />
                       </figure>
                     </div>
                   </div>
