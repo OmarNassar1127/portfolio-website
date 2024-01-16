@@ -169,10 +169,10 @@ const Hero = ({ language }) => {
           >
             <div className="mb-10">
               <h2 className="text-headingColor font-[700] text-[32px]">
-                <CountUp start={0} end={100} duration={2} suffix="%" />
+                <CountUp start={0} end={120} duration={2} suffix="+" />
               </h2>
               <h4 className="text-headingColor font-[700] text-[18px]">
-                {language === "EN" ? "Success Rate" : "Slaagkans"}
+                {language === "EN" ? "APIs Developed" : "APIs Onwikkeld"}
               </h4>
             </div>
             <div className="mb-10">
@@ -185,10 +185,10 @@ const Hero = ({ language }) => {
             </div>
             <div className="mb-10">
               <h2 className="text-headingColor font-[700] text-[32px]">
-                <CountUp start={0} end={5} duration={2} suffix="" />
+                <CountUp start={0} end={7} duration={2} suffix="+" />
               </h2>
               <h4 className="text-headingColor font-[700] text-[18px]">
-                {language === "EN" ? "Languages Spoken" : "Talen"}
+                {language === "EN" ? "Automations Implemented" : "Geimplementeerde Automatiseringen"}
               </h4>
             </div>
             <div className="mb-10">
