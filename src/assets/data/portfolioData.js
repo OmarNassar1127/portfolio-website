@@ -8,6 +8,8 @@ import portfolioImg07 from "../images/portfolio-07.jpg";
 import portfolioImg08 from "../images/portfolio-08.jpg";
 import portfolioImg09 from "../images/portfolio-09.png";
 import portfolioImg10 from "../images/portfolio-10.png";
+import portfolioImg11 from "../images/portfolio-11.png";
+import portfolioImg12 from "../images/portfolio-12.png";
 
 const portfolios = [
   {
@@ -173,6 +175,45 @@ const portfolios = [
       "RapidAPI",
     ],
     siteUrl: "https://vloto.nl/",
+  },
+  {
+    id: "11",
+    imgUrl: portfolioImg11,
+    category: "ai/ml",
+    title: "AI - Document Q&A",
+    descriptionEN: "Developed an AI-driven Question Answering (QA) system that leverages OpenAI's models and Meilisearch for document retrieval. This system enhances document comprehension and retrieval by providing users with precise answers based on the context of uploaded documents. The project utilized Retrieval-Augmented Generation (RAG) to combine the power of document retrieval and generative models, ensuring contextually accurate answers. Additionally, question optimization techniques were employed using AI to refine and enhance user queries, improving the overall performance of the system. The project involved creating a seamless interface and integrating backend services to ensure efficient performance.",
+    descriptionNL: "Ontwikkelde een AI-gestuurd Vraag-Antwoord (QA) systeem dat gebruikmaakt van OpenAI's modellen en Meilisearch voor documentophaling. Dit systeem verbetert documentbegrip en -ophaling door gebruikers nauwkeurige antwoorden te geven op basis van de context van geüploade documenten. Het project maakte gebruik van Retrieval-Augmented Generation (RAG) om de kracht van documentophaling en generatieve modellen te combineren, waardoor contextueel nauwkeurige antwoorden werden gegarandeerd. Bovendien werden technieken voor vraagoptimalisatie toegepast met behulp van AI om gebruikersvragen te verfijnen en te verbeteren, wat de algehele prestaties van het systeem verbeterde. Het project omvatte het creëren van een naadloze interface en het integreren van backend-services om een efficiënte werking te garanderen.",
+    technologies: [
+      "Python",
+      "Flask",
+      "Streamlit",
+      "OpenAI API",
+      "Meilisearch",
+      "HTML/CSS",
+      "JavaScript",
+      "Docker",
+      "REST APIs"
+    ],
+    siteUrl: "#",
+  },
+  {
+    id: "12",
+    imgUrl: portfolioImg12,
+    category: "ai/ml",
+    title: "Image Segmentation Model",
+    descriptionEN: "Engineered a deep learning model for image segmentation that effectively highlights specific regions within images. The project encompassed dataset preparation, model architecture design, training, and evaluation. Utilizing advanced techniques in computer vision, we achieved high accuracy and robust performance in segmenting various objects within images.",
+    descriptionNL: "Ontwikkelde een deep learning-model voor beeldsegmentatie dat specifieke regio's binnen beelden effectief markeert. Het project omvatte datasetvoorbereiding, modelarchitectuurontwerp, training en evaluatie. Door gebruik te maken van geavanceerde technieken in computervisie, bereikten we een hoge nauwkeurigheid en robuuste prestaties bij het segmenteren van verschillende objecten binnen beelden.",
+    technologies: [
+      "VsCode",
+      "Python",
+      "TensorFlow",
+      "Keras",
+      "OpenCV",
+      "Pandas",
+      "NumPy",
+      "Matplotlib"
+    ],
+    siteUrl: "#",
   },
 ];
 

@@ -34,6 +34,12 @@ const Portfolio = ({ language }) => {
       );
       setPortfolios(filteredData);
     }
+    if (selectTab === "ai") {
+      const filteredData = data.filter(
+        (item) => item.category === "ai/ml"
+      );
+      setPortfolios(filteredData);
+    }
   }, [selectTab]);
 
   return (
@@ -71,6 +77,13 @@ const Portfolio = ({ language }) => {
                     rounded-[8px]"
             >
               Proffessional projects
+            </button>
+            <button
+              onClick={() => setSelectTab("ai")}
+              className="text-smallTextColor border border-solid border-smallTextColor py-2 px-4
+                    rounded-[8px]"
+            >
+              AI / ML
             </button>
           </div>
         </div>
