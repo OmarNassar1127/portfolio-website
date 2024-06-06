@@ -201,8 +201,8 @@ const portfolios = [
     imgUrl: portfolioImg12,
     category: "ai/ml",
     title: "Image Segmentation Model",
-    descriptionEN: "Engineered a deep learning model for image segmentation that effectively highlights specific regions within images. The project encompassed dataset preparation, model architecture design, training, and evaluation. Utilizing advanced techniques in computer vision, we achieved high accuracy and robust performance in segmenting various objects within images.",
-    descriptionNL: "Ontwikkelde een deep learning-model voor beeldsegmentatie dat specifieke regio's binnen beelden effectief markeert. Het project omvatte datasetvoorbereiding, modelarchitectuurontwerp, training en evaluatie. Door gebruik te maken van geavanceerde technieken in computervisie, bereikten we een hoge nauwkeurigheid en robuuste prestaties bij het segmenteren van verschillende objecten binnen beelden.",
+    descriptionEN: "Engineered a deep learning model for image segmentation that effectively highlights specific regions within images. The project encompassed dataset preparation, model architecture design, training, and evaluation. Utilizing advanced techniques in computer vision, I achieved high accuracy and robust performance in segmenting various objects within images.",
+    descriptionNL: "Ontwikkelde een deep learning-model voor beeldsegmentatie dat specifieke regio's binnen beelden effectief markeert. Het project omvatte datasetvoorbereiding, modelarchitectuurontwerp, training en evaluatie. Door gebruik te maken van geavanceerde technieken in computervisie, bereikte ik een hoge nauwkeurigheid en robuuste prestaties bij het segmenteren van verschillende objecten binnen beelden.",
     technologies: [
       "VsCode",
       "Python",
