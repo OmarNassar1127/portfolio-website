@@ -1,9 +1,10 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import me2 from "../../assets/images/me2.png";
 
 const Header = ({ toggleLanguage, language }) => {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
+  const [activeSection, setActiveSection] = useState("#about");
 
   const stickyHeaderFunc = () => {
     window.addEventListener("scroll", () => {
@@ -20,7 +21,7 @@ const Header = ({ toggleLanguage, language }) => {
 
   useEffect(() => {
     stickyHeaderFunc();
-    return window.removeEventListener("scroll", stickyHeaderFunc);
+    return () => window.removeEventListener("scroll", stickyHeaderFunc);
   }, []);
 
   const handleClick = (e) => {
@@ -32,7 +33,19 @@ const Header = ({ toggleLanguage, language }) => {
     window.scrollTo({
       top: location - 80,
       left: 0,
+      behavior: "smooth", // Enable smooth scrolling
     });
+
+    setActiveSection(targetAttr);
+
+    // Scroll smoothly
+    setTimeout(() => {
+      window.scrollTo({
+        top: location - 80,
+        left: 0,
+        behavior: "smooth", // Enable smooth scrolling
+      });
+    }, 200); // Adjust the delay as needed for smoother effect
   };
 
   const toggleMenu = () => menuRef.current.classList.toggle("show__menu");
@@ -70,7 +83,7 @@ const Header = ({ toggleLanguage, language }) => {
               <li>
                 <a
                   onClick={handleClick}
-                  className="text-smallTextColor font-[600]"
+                  className={`text-smallTextColor font-[600] ${activeSection === "#about" ? "active" : ""}`}
                   href="#about"
                 >
                   {language === "EN" ? "About" : "Over mij"}
@@ -79,7 +92,7 @@ const Header = ({ toggleLanguage, language }) => {
               <li>
                 <a
                   onClick={handleClick}
-                  className="text-smallTextColor font-[600]"
+                  className={`text-smallTextColor font-[600] ${activeSection === "#journey" ? "active" : ""}`}
                   href="#journey"
                 >
                   Journey
@@ -88,7 +101,7 @@ const Header = ({ toggleLanguage, language }) => {
               <li>
                 <a
                   onClick={handleClick}
-                  className="text-smallTextColor font-[600]"
+                  className={`text-smallTextColor font-[600] ${activeSection === "#portfolio" ? "active" : ""}`}
                   href="#portfolio"
                 >
                   {language === "EN" ? "Portfolio" : "Portefeuille"}
@@ -97,7 +110,7 @@ const Header = ({ toggleLanguage, language }) => {
               <li>
                 <a
                   onClick={handleClick}
-                  className="text-smallTextColor font-[600]"
+                  className={`text-smallTextColor font-[600] ${activeSection === "#skills" ? "active" : ""}`}
                   href="#skills"
                 >
                   {language === "EN" ? "Skills" : "Vaardigheden"}
@@ -106,7 +119,7 @@ const Header = ({ toggleLanguage, language }) => {
               <li>
                 <a
                   onClick={handleClick}
-                  className="text-smallTextColor font-[600]"
+                  className={`text-smallTextColor font-[600] ${activeSection === "#contact" ? "active" : ""}`}
                   href="#contact"
                 >
                   Contact
@@ -117,12 +130,6 @@ const Header = ({ toggleLanguage, language }) => {
           {/* ============= MENU END ================= */}
           {/* ============= MENU RIGHT ================= */}
           <div className="flex items-center gap-4">
-            {/* <a
-              className="flex items-center gap-2 text-white font border bg-primaryColor py-2 px-4 rounded-[8px] max-h-[40px] hover:bg-smallTextColor hover:text-white hover:font-[600] ease-in duration-300"
-              href="#contact"
-            >
-              <i class="ri-send-plane-line"></i> {language === "EN" ? "Let's talk!" : "DM me!"}
-            </a> */}
             <button
               onClick={toggleLanguage}
               className="text-white flex items-center justify-center border bg-primaryColor hover:bg-headingColor py-2 px-4 rounded-[10px] max-h-[35px]  max-w-[60px]"
@@ -131,9 +138,9 @@ const Header = ({ toggleLanguage, language }) => {
             </button>
             <span
               onClick={toggleMenu}
-              className="text-2xl text-smallTextColor md:hidden current-pointer"
+              className="text-2xl text-smallTextColor md:hidden cursor-pointer"
             >
-              <i class="ri-menu-line"></i>
+              <i className="ri-menu-line"></i>
             </span>
           </div>
           {/* ============= MENU END ================= */}

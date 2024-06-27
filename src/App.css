@@ -38,6 +38,11 @@ section {
   z-index: 99;
 }
 
+.menu ul li a.active {
+  border-bottom: 2px solid #6c63ff;
+  color: #6c63ff;
+}
+
 @media only screen and (max-width: 768px) {
   .menu {
     width: 100%;
@@ -48,6 +53,7 @@ section {
     background: #00000084;
     z-index: 100;
     display: none;
+    transition: all 0.5s ease-in-out; /* Increased duration */
   }
 
   .menu ul {
@@ -62,11 +68,19 @@ section {
     line-height: 30px;
     justify-content: center;
     align-items: center;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out; /* Increased duration */
   }
+
+  .show__menu ul {
+    transform: translateX(0);
+  }
+
   .show__menu {
     display: block;
   }
 }
+
 .contact {
   border-radius: 15px;
   padding: 8px;
@@ -84,5 +98,3 @@ section {
 .contactInput {
   border: 1px solid black;
 }
-
-
