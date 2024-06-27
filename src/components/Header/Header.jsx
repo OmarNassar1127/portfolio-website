@@ -33,19 +33,16 @@ const Header = ({ toggleLanguage, language }) => {
     window.scrollTo({
       top: location - 80,
       left: 0,
-      behavior: "smooth", // Enable smooth scrolling
     });
 
     setActiveSection(targetAttr);
 
-    // Scroll smoothly
     setTimeout(() => {
       window.scrollTo({
         top: location - 80,
         left: 0,
-        behavior: "smooth", // Enable smooth scrolling
       });
-    }, 200); // Adjust the delay as needed for smoother effect
+    }, 200); 
   };
 
   const toggleMenu = () => menuRef.current.classList.toggle("show__menu");
