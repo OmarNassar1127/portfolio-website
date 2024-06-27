@@ -1,5 +1,5 @@
 {
-  "homepage": "https://omarnassar1127.github.io/portfolio-website/",
+  "homepage": "https://omardev.xyz/",
   "name": "mysave",
   "version": "0.1.0",
   "private": true,
@@ -25,10 +25,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "add-domain": "echo \"omardev.xyz\" > build/CNAME",
+    "deploy": "npm run add-domain && gh-pages -d build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "bd": "npm run build && npm run deploy"
   },
   "eslintConfig": {
     "extends": [

@@ -2,14 +2,17 @@ import React, { useEffect, useRef } from "react";
 import me from "../../assets/images/me.png";
 import CountUp from "react-countup";
 import Typed from "typed.js";
+import EnglishCV from "../../assets/cv/Omar-cv-en.pdf";
+import DutchCV from "../../assets/cv/Omar-cv-nl.pdf";
 
 const Hero = ({ language }) => {
   const typedRef = useRef(null);
+  const cvLink = language === 'EN' ? EnglishCV : DutchCV;
 
   const text =
     language === "EN"
-      ? "As a passionate coder, I dive into a world filled with infinite possibilities, where creativity knows no bounds and ideas come to life through the power of code. My love for building things began at an early age and as a Fullstack developer, I strive for excellence every day. My ultimate ambition is to develop cutting-edge websites and applications from scratch for large corporations. To achieve this, I continuously enhance my programming skills and embrace new challenges. Currently, I serve as a Product Manager for Bitsliced LLC (GmbH), where we're pioneering a revolutionary NFT marketplace that enables the safe trading of real-world assets in digital form. As the head of product management, I oversee the product's logic, features, audits, and goals to ensure a smooth and timely delivery. During my free time, I hone my Front-end skills, mastering HTML, CSS, Javascript, and React. For a more detailed look at my work experience, please visit my page."
-      : "Als een gepassioneerde programmeur duik ik in een wereld vol oneindige mogelijkheden, waar creativiteit geen grenzen kent en ideeën tot leven komen door de kracht van code. Mijn liefde voor het bouwen van dingen begon op jonge leeftijd en als Fullstack ontwikkelaar streef ik elke dag naar excellentie. Mijn ultieme ambitie is om geavanceerde websites en applicaties vanaf de basis te ontwikkelen voor grote bedrijven. Om dit te bereiken, verbeter ik voortdurend mijn programmeervaardigheden en omarm ik nieuwe uitdagingen. Momenteel werk ik als Product Manager voor Bitsliced LLC (GmbH), waar we een revolutionaire NFT-marktplaats ontwikkelen die de veilige handel in real-world assets in digitale vorm mogelijk maakt. Als hoofd van productbeheer zie ik toe op de logica, functies, audits en doelstellingen van het product om een soepele en tijdige levering te garanderen. In mijn vrije tijd verfijn ik mijn Front-end vaardigheden, waarbij ik HTML, CSS, Javascript en React beheers. Voor een meer gedetailleerde kijk op mijn werkervaring, bezoek mijn pagina.";
+      ? "As a quick learner who thrives on challenges, I began in cryptocurrency trading, founding CIWW to educate on market strategies. At Vloto B.V., I’m a Backend Developer, building efficient APIs and enhancing automation. Recently, I've been focusing on AI projects, including a Private Document QA system using RAG and vector databases, and a neural network for recognizing nails even in blurry images. I’m passionate about shaping the future of digital technologies. Let’s connect to drive innovation forward."
+      : "Als snelle leerling die gedijt op uitdagingen, begon ik in cryptocurrency-handel en richtte CIWW op om marktstrategieën te onderwijzen. Bij Vloto B.V. werk ik als Backend Developer, waar ik efficiënte API's bouw en automatisering verbeter. Recentelijk heb ik me gericht op AI-projecten, waaronder een Private Document QA-systeem met RAG en vectordatabases en een neuraal netwerk voor het herkennen van nagels. Ik ben gepassioneerd over het vormgeven van de toekomst van digitale technologieën. Laten we verbinden om innovatie vooruit te drijven.";
 
   useEffect(() => {
     const options = {
@@ -82,6 +85,15 @@ const Hero = ({ language }) => {
                 className="text-smallTextColor font-[600] text-[16px] border-b border-solid border-smallTextColor"
               >
                 {language === "EN" ? "See my portfolio" : "Zie mijn portfolio"}
+              </a>
+              <a href={cvLink} target="_blank" rel="noopener noreferrer">
+                <button
+                  className="bg-primaryColor text-white font-[500] flex items-center gap-2
+                                        hover:bg-smallTextColor ease-in duration-300 py-2 px-4 rounded-[8px]"
+                >
+                  <i class="ri-article-line"></i>
+                  {language === "EN" ? "CV" : "CV"}
+                </button>
               </a>
             </div>
             <div>
@@ -161,46 +173,23 @@ const Hero = ({ language }) => {
               <img src={me} alt="" />
             </figure>
           </div>
-          {/* ============= hero img end ================= */}
           {/* ============= hero content right ================= */}
-          <div
-            className="md:basis-1/5 flex justify-between text-center mt-10 flex-wrap gap-3 md:mt-0
-          md:flex-col md:justify-end md:text-end"
-          >
-            <div className="mb-10">
-              <h2 className="text-headingColor font-[700] text-[32px]">
-                <CountUp start={0} end={120} duration={2} suffix="+" />
-              </h2>
-              <h4 className="text-headingColor font-[700] text-[18px]">
-                {language === "EN" ? "APIs Developed" : "APIs Onwikkeld"}
-              </h4>
-            </div>
-            <div className="mb-10">
-              <h2 className="text-headingColor font-[700] text-[32px]">
-                <CountUp start={0} end={25} duration={1} suffix="" />
-              </h2>
-              <h4 className="text-headingColor font-[700] text-[18px]">
-                {language === "EN" ? "Age" : "Leeftijd"}
-              </h4>
-            </div>
-            <div className="mb-10">
-              <h2 className="text-headingColor font-[700] text-[32px]">
-                <CountUp start={0} end={7} duration={2} suffix="+" />
-              </h2>
-              <h4 className="text-headingColor font-[700] text-[18px]">
-                {language === "EN" ? "Automations Implemented" : "Geimplementeerde Automatiseringen"}
-              </h4>
-            </div>
-            <div className="mb-10">
-              <h2 className="text-headingColor font-[700] text-[32px]">
-                <CountUp start={0} end={10} duration={2} suffix="+" />
-              </h2>
-              <h4 className="text-headingColor font-[700] text-[18px]">
-                {language === "EN"
-                  ? "Projects Completed"
-                  : "Projecten afgerond"}
-              </h4>
-            </div>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-1 text-center mt-10 md:mt-0 md:text-end">
+            {[
+              { end: 120, labelEN: "APIs Developed", labelNL: "APIs Onwikkeld" },
+              { end: 10, labelEN: "Automations Implemented", labelNL: "Geimplementeerde Automatiseringen" },
+              { end: 15, labelEN: "Projects Completed", labelNL: "Projecten afgerond" },
+              { end: 4, labelEN: "AI projects", labelNL: "AI-projecten" },
+            ].map((item, index) => (
+              <div className="mb-10" key={index}>
+                <h2 className="text-headingColor font-[700] text-[32px]">
+                  <CountUp start={0} end={item.end} duration={2} suffix={index === 1 ? "" : "+"} />
+                </h2>
+                <h4 className="text-headingColor font-[700] text-[18px]">
+                  {language === "EN" ? item.labelEN : item.labelNL}
+                </h4>
+              </div>
+            ))}
           </div>
           {/* ============= hero content right end ================= */}
         </div>

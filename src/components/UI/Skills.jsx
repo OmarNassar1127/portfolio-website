@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import "../../../src/styles.css";
 import {
   atlassian,
   bootstrap,
@@ -20,7 +21,7 @@ import {
 } from "../../assets/images/SVG/object/Icons";
 
 const Skills = ({ language }) => {
-  const [icons, setIcons] = useState([
+  const icons = [
     html,
     css,
     javascript,
@@ -38,34 +39,39 @@ const Skills = ({ language }) => {
     vscode,
     c,
     wordpress,
-  ]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIcons((prevIcons) => [...prevIcons.slice(1), prevIcons[0]]);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
+  ];
 
   return (
     <section id="skills">
       <div className="container">
         <div className="flex items-center justify-center">
-          <h1 className="text-smallTextColor font-[800] text-[35px]">{language === "EN" ? "I have experience with:" : "Ik heb ervaring met:"} </h1>
+          <h1 className="text-smallTextColor font-[800] text-[35px]">
+            {language === "EN" ? "I have experience with:" : "Ik heb ervaring met:"}
+          </h1>
         </div>
-        <div className="flex items-center gap-2 flex-wrap justify-center mt-5">
-          {icons.map((icon, index) => (
-            <figure key={index} className="max-w-[50px] mx-1">
-              <svg
-                width="50"
-                height="50"
-                viewBox="0 0 1024 1024"
-                dangerouslySetInnerHTML={{ __html: icon }}
-                className="icon-animation"
-              />
-            </figure>
-          ))}
+        <div className="icon-carousel mt-5">
+          <div className="icon-list">
+            {icons.map((icon, index) => (
+              <figure key={index} className="icon-item">
+                <svg
+                  width="50"
+                  height="50"
+                  viewBox="0 0 1024 1024"
+                  dangerouslySetInnerHTML={{ __html: icon }}
+                />
+              </figure>
+            ))}
+            {icons.map((icon, index) => (
+              <figure key={index + icons.length} className="icon-item">
+                <svg
+                  width="50"
+                  height="50"
+                  viewBox="0 0 1024 1024"
+                  dangerouslySetInnerHTML={{ __html: icon }}
+                />
+              </figure>
+            ))}
+          </div>
         </div>
       </div>
     </section>
