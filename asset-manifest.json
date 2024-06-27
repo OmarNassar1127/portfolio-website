@@ -1,10 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.81054072.css",
-    "main.js": "/static/js/main.e9f909f6.js",
+    "main.css": "/static/css/main.4af33899.css",
+    "main.js": "/static/js/main.51f76a6c.js",
     "static/media/portfolio-10.png": "/static/media/portfolio-10.e428f77ed3e8cd96c4ed.png",
     "static/media/portfolio-03.jpg": "/static/media/portfolio-03.2fb25fd71e90ee651f42.jpg",
     "static/media/remixicon.svg?t=1680703320261": "/static/media/remixicon.70a2c520013c3c5b5aff.svg",
+    "static/media/Omar-cv-nl.pdf": "/static/media/Omar-cv-nl.b3f42df299dee76d5921.pdf",
+    "static/media/Omar-cv-en.pdf": "/static/media/Omar-cv-en.2e150b51d35ad2b84ef0.pdf",
     "static/media/portfolio-01.jpg": "/static/media/portfolio-01.443187793e15d82f1ca4.jpg",
     "static/media/portfolio-02.jpg": "/static/media/portfolio-02.b4f4561f38f51b353a06.jpg",
     "static/media/portfolio-08.jpg": "/static/media/portfolio-08.ce687f72b8b1199a0749.jpg",
@@ -22,11 +24,11 @@
     "static/media/portfolio-12.png": "/static/media/portfolio-12.dfc45dcbdbb924d67aad.png",
     "static/media/portfolio-06.jpg": "/static/media/portfolio-06.6fa5f3310049b9c63dca.jpg",
     "index.html": "/index.html",
-    "main.81054072.css.map": "/static/css/main.81054072.css.map",
-    "main.e9f909f6.js.map": "/static/js/main.e9f909f6.js.map"
+    "main.4af33899.css.map": "/static/css/main.4af33899.css.map",
+    "main.51f76a6c.js.map": "/static/js/main.51f76a6c.js.map"
   },
   "entrypoints": [
-    "static/css/main.81054072.css",
-    "static/js/main.e9f909f6.js"
+    "static/css/main.4af33899.css",
+    "static/js/main.51f76a6c.js"
   ]
 }
