@@ -1,25 +1,17 @@
-import { useState, useEffect } from "react"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./card"
-import { Button } from "./button"
-import { Badge } from "./badge"
-import { motion, AnimatePresence } from "framer-motion"
-import { ExternalLink, Github } from "lucide-react"
+import { useState, useEffect } from "react";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./card";
+import { Button } from "./button";
+import { Badge } from "./badge";
+import { motion, AnimatePresence } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 import portfolioData from '../../assets/data/portfolioData';
 
 const Portfolio = ({ language }) => {
   const [nextItems, setNextItems] = useState(30);
   const [portfolios, setPortfolios] = useState(portfolioData);
   const [selectTab, setSelectTab] = useState("all");
-  const [showModal, setShowModal] = useState(false);
-  const [activeID, setActiveID] = useState(null);
-
   const loadMoreHandler = () => {
     setNextItems((prev) => prev + 3);
-  };
-
-  const showModalHandler = (id) => {
-    setShowModal(true);
-    setActiveID(id);
   };
 
   useEffect(() => {
@@ -91,39 +83,60 @@ const Portfolio = ({ language }) => {
             </button>
           </div>
         </div>
-        <div className="flex items-center gap-4 flex-wrap mt-12">
-          {portfolios?.slice(0, nextItems)?.map((portfolio, index) => (
-            <div
-              key={index}
-              data-aos="fade-zoom-in"
-              data-aos-delay="50"
-              data-aos-duration="1000"
-              className="group max-w-full sm:w-[48.5%] md:w-[31.8%] lg:2-[32.2%] relative z-[1]"
-            >
-              <figure style={{ width: "100%", height: "200px" }}>
-                <img
-                  className="rounded-[8px]"
-                  src={portfolio.imgUrl}
-                  alt=""
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              </figure>
-              <div
-                className="w-full h-full bg-primaryColor bg-opacity-40 absolute top-0 left-0 z-[5] 
-                        hidden group-hover:block"
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+          <AnimatePresence mode="popLayout">
+            {portfolios?.slice(0, nextItems)?.map((portfolio, index) => (
+              <motion.div
+                key={portfolio.id}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
               >
-                <div className="w-full h-full flex items-center justify-center">
-                  <button
-                    onClick={() => showModalHandler(portfolio.id)}
-                    className="text-white bg-headingColor hover:bg-smallTextColor py-2 px-4 rounded-[8px]
-                  font-[500] ease-in duration-200"
-                  >
-                    See Details
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
+                <Card className="h-full hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="aspect-video relative overflow-hidden rounded-lg mb-4">
+                      <img 
+                        src={portfolio.imgUrl} 
+                        alt={portfolio.title}
+                        className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <CardTitle>{portfolio.title}</CardTitle>
+                    <CardDescription>{portfolio.category}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground line-clamp-3">
+                      {language === "EN" ? portfolio.descriptionEN : portfolio.descriptionNL}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {portfolio.technologies.slice(0, 3).map((tech, index) => (
+                        <Badge key={index} variant="secondary">
+                          {tech}
+                        </Badge>
+                      ))}
+                      {portfolio.technologies.length > 3 && (
+                        <Badge variant="outline">
+                          +{portfolio.technologies.length - 3}
+                        </Badge>
+                      )}
+                    </div>
+                  </CardContent>
+                  <CardFooter>
+                    {portfolio.siteUrl && portfolio.siteUrl !== "#" && (
+                      <Button variant="outline" className="w-full" asChild>
+                        <a href={portfolio.siteUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="mr-2 h-4 w-4" />
+                          Visit Project
+                        </a>
+                      </Button>
+                    )}
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
         <div className="text-center mt-6">
           {nextItems < portfolios.length && portfolios.length > 20 && (
@@ -137,13 +150,7 @@ const Portfolio = ({ language }) => {
           )}
         </div>
       </div>
-      {showModal && (
-        <Modal
-          setShowModal={setShowModal}
-          activeID={activeID}
-          language={language}
-        />
-      )}
+      {/* Modal removed in favor of card-based design */}
     </section>
   );
 };
