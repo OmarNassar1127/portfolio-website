@@ -56,11 +56,11 @@ const Hero = ({ language }) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* ============= hero left content ================= */}
-          <motion.div 
-            variants={container}
-            className="space-y-6"
-          >
-            <motion.h5
+          <div className="space-y-6">
+            <motion.div 
+              variants={container}
+              className="space-y-4">
+              <motion.h5
               variants={item}
               className="text-muted-foreground font-medium text-sm sm:text-base tracking-wide"
             >
@@ -221,6 +221,7 @@ const Hero = ({ language }) => {
                 ))}
               </motion.div>
             </motion.div>
+            </motion.div>
           </div>
           {/* ============= hero right content ================= */}
 
@@ -254,28 +255,29 @@ const Hero = ({ language }) => {
                 { end: 15, labelEN: "Projects Completed", labelNL: "Projecten afgerond" },
                 { end: 4, labelEN: "AI projects", labelNL: "AI-projecten" },
               ].map((item, index) => (
-              <motion.div
-                key={index}
-                variants={item}
-                whileHover={{ scale: 1.05 }}
-                className="p-4 rounded-lg bg-primary/5 backdrop-blur-sm"
-              >
-                <motion.h2 
-                  className="text-2xl sm:text-3xl font-bold text-primary"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <CountUp start={0} end={item.end} duration={2} suffix={index === 1 ? "" : "+"} />
-                </motion.h2>
-                <motion.h4 
-                  className="text-sm sm:text-base font-medium text-muted-foreground mt-2"
+                <motion.div
+                  key={index}
                   variants={item}
+                  whileHover={{ scale: 1.05 }}
+                  className="p-4 rounded-lg bg-primary/5 backdrop-blur-sm"
                 >
-                  {language === "EN" ? item.labelEN : item.labelNL}
-                </motion.h4>
-              </motion.div>
-            ))}
-          </motion.div>
+                  <motion.h2 
+                    className="text-2xl sm:text-3xl font-bold text-primary"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <CountUp start={0} end={item.end} duration={2} suffix={index === 1 ? "" : "+"} />
+                  </motion.h2>
+                  <motion.h4 
+                    className="text-sm sm:text-base font-medium text-muted-foreground mt-2"
+                    variants={item}
+                  >
+                    {language === "EN" ? item.labelEN : item.labelNL}
+                  </motion.h4>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
           {/* ============= hero content right end ================= */}
         </div>
       </div>

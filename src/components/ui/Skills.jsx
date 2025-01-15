@@ -1,45 +1,20 @@
-import React from "react";
+import { Card, CardContent } from "./card"
 import { motion } from "framer-motion";
-import "../../../src/styles.css";
-import {
-  atlassian,
-  bootstrap,
-  css,
-  figma,
-  github,
-  graphQL,
-  html,
-  javascript,
-  jira,
-  mysql,
-  nodejs,
-  php,
-  react,
-  tailwind,
-  vscode,
-  c,
-  wordpress,
-} from "../../assets/images/SVG/object/Icons";
 
 const Skills = ({ language }) => {
-  const icons = [
-    html,
-    css,
-    javascript,
-    php,
-    bootstrap,
-    mysql,
-    nodejs,
-    tailwind,
-    react,
-    github,
-    graphQL,
-    atlassian,
-    jira,
-    figma,
-    vscode,
-    c,
-    wordpress,
+  const skills = [
+    { name: "React", icon: "/SVG/react.svg" },
+    { name: "JavaScript", icon: "/SVG/javascript.svg" },
+    { name: "Node.js", icon: "/SVG/nodejs.svg" },
+    { name: "HTML", icon: "/SVG/html.svg" },
+    { name: "CSS", icon: "/SVG/css.svg" },
+    { name: "Tailwind", icon: "/SVG/tailwind.svg" },
+    { name: "PHP", icon: "/SVG/php.svg" },
+    { name: "MySQL", icon: "/SVG/mysql.svg" },
+    { name: "GraphQL", icon: "/SVG/graphQL.svg" },
+    { name: "Git", icon: "/SVG/github.svg" },
+    { name: "VSCode", icon: "/SVG/vscode.svg" },
+    { name: "Figma", icon: "/SVG/figma.svg" },
   ];
 
   const container = {
@@ -81,20 +56,20 @@ const Skills = ({ language }) => {
           animate="show"
           className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-8 mt-12"
         >
-          {icons.map((icon, index) => (
+          {skills.map((skill, index) => (
               <motion.figure
                 key={index}
                 variants={item}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="icon-item p-4 rounded-lg hover:bg-primary/5 transition-colors"
+                className="p-4 rounded-lg hover:bg-primary/5 transition-colors"
               >
-                <svg
-                  width="50"
-                  height="50"
-                  viewBox="0 0 1024 1024"
-                  dangerouslySetInnerHTML={{ __html: icon }}
+                <img
+                  src={skill.icon}
+                  alt={skill.name}
+                  className="w-12 h-12 mx-auto mb-2"
                 />
+                <p className="text-sm text-center font-medium">{skill.name}</p>
               </motion.figure>
             ))}
           </motion.div>

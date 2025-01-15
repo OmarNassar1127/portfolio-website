@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from "react";
-import data from "../../assets/data/portfolioData";
-import Modal from "./Modal";
+import { useState, useEffect } from "react"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./card"
+import { Button } from "./button"
+import { Badge } from "./badge"
+import { motion, AnimatePresence } from "framer-motion"
+import { ExternalLink, Github } from "lucide-react"
+import portfolioData from '../../assets/data/portfolioData';
 
 const Portfolio = ({ language }) => {
   const [nextItems, setNextItems] = useState(30);
-  const [portfolios, setPortfolios] = useState(data);
+  const [portfolios, setPortfolios] = useState(portfolioData);
   const [selectTab, setSelectTab] = useState("all");
   const [showModal, setShowModal] = useState(false);
   const [activeID, setActiveID] = useState(null);
@@ -20,22 +24,22 @@ const Portfolio = ({ language }) => {
 
   useEffect(() => {
     if (selectTab === "all") {
-      setPortfolios(data);
+      setPortfolios(portfolioData);
     }
     if (selectTab === "school-project") {
-      const filteredData = data.filter(
+      const filteredData = portfolioData.filter(
         (item) => item.category === "School project"
       );
       setPortfolios(filteredData);
     }
     if (selectTab === "professional") {
-      const filteredData = data.filter(
+      const filteredData = portfolioData.filter(
         (item) => item.category === "Professional"
       );
       setPortfolios(filteredData);
     }
     if (selectTab === "ai") {
-      const filteredData = data.filter(
+      const filteredData = portfolioData.filter(
         (item) => item.category === "ai/ml"
       );
       setPortfolios(filteredData);
@@ -122,7 +126,7 @@ const Portfolio = ({ language }) => {
           ))}
         </div>
         <div className="text-center mt-6">
-          {nextItems < portfolios.length && data.length > 20 && (
+          {nextItems < portfolios.length && portfolios.length > 20 && (
             <button
               onClick={loadMoreHandler}
               className="text-white bg-primaryColor hover:bg-smallTextColor py-2 px-4 rounded-[8px]
