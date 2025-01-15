@@ -1,9 +1,25 @@
 import React, { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import me from "../../assets/images/me.png";
 import CountUp from "react-countup";
 import Typed from "typed.js";
 import EnglishCV from "../../assets/cv/Omar-cv-en.pdf";
 import DutchCV from "../../assets/cv/Omar-cv-nl.pdf";
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 }
+};
 
 const Hero = ({ language }) => {
   const typedRef = useRef(null);
@@ -30,172 +46,243 @@ const Hero = ({ language }) => {
   }, []);
 
   return (
-    <section className="pt-0" id="about">
-      <div className="container pt-14">
-        <div className="md:flex items-center justify-between sm:flex-col md:flex-row">
+    <motion.section 
+      variants={container}
+      initial="hidden"
+      animate="show"
+      className="min-h-[90vh] flex items-center py-16 sm:py-20" 
+      id="about"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* ============= hero left content ================= */}
-          <div className="w-full md:w-1/2">
-            <h5
-              data-aos="fade-right"
-              data-aos-duration="1500"
-              className="text-blueGray-700 font-bold text-sm md:text-base"
+          <motion.div 
+            variants={container}
+            className="space-y-6"
+          >
+            <motion.h5
+              variants={item}
+              className="text-muted-foreground font-medium text-sm sm:text-base tracking-wide"
             >
               {language === "EN" ? "Hello, my name is" : "Hallo, ik ben"}
-            </h5>
-            <h1
-              data-aos="fade-up"
-              data-aos-duration="1500"
-              className="text-blueGray-700 font-black tracking-wide text-3xl md:text-5xl leading-tight"
+            </motion.h5>
+            <motion.div
+              variants={container}
+              className="space-y-2"
             >
-              Omar Nassar{" "}
-              <h5
-                data-aos="fade-right"
-                data-aos-duration="1500"
-                className="text-blueGray-700 font-bold text-sm md:text-base"
+              <motion.h1 
+                variants={item}
+                className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary-foreground bg-clip-text text-transparent"
               >
-                {language === "EN" ? "and I'm a" : "en ik ben een"}
-              </h5>{" "}
-              <span>Developer</span>
-            </h1>
-            <h5
-              data-aos="fade-right"
-              data-aos-duration="1500"
-              className="text-blueGray-700 font-bold text-sm md:text-base mt-1"
-            >
-              {language === "EN" ? "With experience in :" : "Met ervaring in:"}{" "}
-              <span className="text-primaryColor" id="typed-text" />
-            </h5>
-            <div
-              data-aos="fade-up"
-              data-aos-duration="1800"
-              data-aos-delay="200"
-              className="flex items-center gap-6 mt-7"
-            >
-              <a href="#contact">
-                <button
-                  className="bg-primaryColor text-white font-[500] flex items-center gap-2
-                                        hover:bg-smallTextColor ease-in duration-300 py-2 px-4 rounded-[8px]"
+                Omar Nassar
+              </motion.h1>
+              <motion.div variants={item} className="flex items-center gap-2 text-muted-foreground">
+                <span className="text-sm sm:text-base">
+                  {language === "EN" ? "and I'm a" : "en ik ben een"}
+                </span>
+                <motion.span
+                  variants={item}
+                  whileHover={{ scale: 1.1, color: "hsl(var(--primary))" }}
+                  className="text-lg sm:text-xl font-semibold text-primary"
                 >
-                  <i class="ri-mail-line"></i>
+                  Developer
+                </motion.span>
+              </motion.div>
+            </motion.div>
+            <motion.div
+              variants={item}
+              className="flex items-center gap-2 text-muted-foreground"
+            >
+              <span className="text-sm sm:text-base font-medium">
+                {language === "EN" ? "With experience in:" : "Met ervaring in:"}{" "}
+              </span>
+              <motion.span 
+                variants={item}
+                className="text-primary font-semibold" 
+                id="typed-text"
+              ></motion.span>
+            </motion.div>
+            <motion.div
+              variants={container}
+              className="flex flex-wrap items-center gap-4 sm:gap-6"
+            >
+              <motion.a 
+                href="#contact"
+                variants={item}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <motion.button
+                  className="bg-primary text-primary-foreground font-[500] flex items-center gap-2
+                            hover:bg-primary/90 transition-colors duration-300 py-2 px-4 rounded-[8px]"
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: "0 0 8px rgba(var(--primary), 0.5)"
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <i className="ri-mail-line"></i>
                   {language === "EN" ? "Contact me" : "Neem contact met mij op"}
-                </button>
-              </a>
-              <a
+                </motion.button>
+              </motion.a>
+              <motion.a
                 href="#portfolio"
-                className="text-smallTextColor font-[600] text-[16px] border-b border-solid border-smallTextColor"
+                variants={item}
+                className="text-primary font-[600] text-[16px] border-b-2 border-transparent hover:border-primary transition-colors duration-300"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
               >
                 {language === "EN" ? "See my portfolio" : "Zie mijn portfolio"}
-              </a>
-              <a href={cvLink} target="_blank" rel="noopener noreferrer">
-                <button
-                  className="bg-primaryColor text-white font-[500] flex items-center gap-2
-                                        hover:bg-smallTextColor ease-in duration-300 py-2 px-4 rounded-[8px]"
-                >
-                  <i class="ri-article-line"></i>
-                  {language === "EN" ? "CV" : "CV"}
-                </button>
-              </a>
-            </div>
-            <div>
-              <p
-                data-aos="fade-left"
-                data-aos-duration="1500"
-                className="flex gap-2 lg:max-w-[700px] text-headingColor lg:max-w-[400px]text-sm font-[500] lg:mx-auto mt-12 sm:pr-10 leading-7"
+              </motion.a>
+              <motion.a 
+                href={cvLink} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                variants={item}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <span>
+                <motion.button
+                  className="bg-primary/10 text-primary font-[500] flex items-center gap-2
+                            hover:bg-primary hover:text-primary-foreground transition-all duration-300 py-2 px-4 rounded-[8px]"
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: "0 0 8px rgba(var(--primary), 0.3)"
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <i className="ri-article-line"></i>
+                  {language === "EN" ? "CV" : "CV"}
+                </motion.button>
+              </motion.a>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 1.0 }}
+            >
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4, delay: 1.1 }}
+                className="flex gap-2 text-muted-foreground text-sm sm:text-base leading-relaxed max-w-prose"
+              >
+                <motion.span
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ type: "spring", stiffness: 500, delay: 1.2 }}
+                >
                   <i className="ri-apps-line"></i>
-                </span>
+                </motion.span>
                 {text}
-              </p>
-            </div>
-            <div className="flex items-center flex-wrap gap-4 mt-14">
-              <span className="text-blueGray-700 text-sm font-bold w-full mb-2">
+              </motion.p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 1.3 }}
+              className="flex items-center flex-wrap gap-4 mt-14"
+            >
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4, delay: 1.4 }}
+                className="text-blueGray-700 text-sm font-bold w-full mb-2"
+              >
                 {language === "EN" ? "My socials:" : "Mijn socials:"}
-              </span>
-              <div className="flex flex-wrap gap-4">
-                <span className="w-[35px] h-[35px] bg-primaryColor p-1 rounded-[50px] cursor-pointer text-center">
-                  <a
-                    href="mailto:omarnassar1127@gmail.com"
-                    className="text-white font-bold text-[18px]"
-                    target="blank"
+              </motion.span>
+              <motion.div
+                variants={container}
+                className="flex flex-wrap gap-4"
+              >
+                {[
+                  { icon: "ri-mail-line", href: "mailto:omarnassar1127@gmail.com" },
+                  { icon: "ri-twitter-line", href: "https://twitter.com/GodelTrabuco69" },
+                  { icon: "ri-facebook-circle-fill", href: "https://www.facebook.com/omar.portero13" },
+                  { icon: "ri-linkedin-box-fill", href: "https://www.linkedin.com/in/omar-nassar-93a176155/" },
+                  { icon: "ri-github-fill", href: "https://github.com/OmarNassar1127" }
+                ].map((social, index) => (
+                  <motion.span
+                    key={social.href}
+                    variants={item}
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="w-[35px] h-[35px] bg-primaryColor p-1 rounded-[50px] cursor-pointer text-center"
                   >
-                    <i class="ri-mail-line"></i>
-                  </a>
-                </span>{" "}
-                <span className="w-[35px] h-[35px] bg-primaryColor p-1 rounded-[50px] cursor-pointer text-center">
-                  <a
-                    href="https://twitter.com/GodelTrabuco69"
-                    className="text-white font-bold text-[18px]"
-                    target="blank"
-                  >
-                    <i class="ri-twitter-line"></i>
-                  </a>
-                </span>{" "}
-                <span className="w-[35px] h-[35px] bg-primaryColor p-1 rounded-[50px] cursor-pointer text-center">
-                  <a
-                    href="https://www.facebook.com/omar.portero13"
-                    className="text-white font-bold text-[18px]"
-                    target="blank"
-                  >
-                    <i class="ri-facebook-circle-fill"></i>
-                  </a>
-                </span>{" "}
-                <span className="w-[35px] h-[35px] bg-primaryColor p-1 rounded-[50px] cursor-pointer text-center">
-                  <a
-                    href="https://www.linkedin.com/in/omar-nassar-93a176155/"
-                    className="text-white font-bold text-[18px]"
-                    target="blank"
-                  >
-                    <i class="ri-linkedin-box-fill"></i>
-                  </a>
-                </span>
-                <span className="w-[35px] h-[35px] bg-primaryColor p-1 rounded-[50px] cursor-pointer text-center">
-                  <a
-                    href="https://github.com/OmarNassar1127"
-                    className="text-white font-bold text-[18px]"
-                    target="blank"
-                  >
-                    <i class="ri-github-fill"></i>
-                  </a>
-                </span>
-              </div>
-            </div>
+                    <a
+                      href={social.href}
+                      className="text-white font-bold text-[18px]"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i className={social.icon}></i>
+                    </a>
+                  </motion.span>
+                ))}
+              </motion.div>
+            </motion.div>
           </div>
           {/* ============= hero right content ================= */}
 
-          <div
-            data-aos="fade-zoom-in"
-            data-aos-delay="250"
-            data-aos-duration="1000"
-            className="basis-1/3 sm:mt-0"
-          >
-            <figure className="flex items-center justify-center">
-              <img src={me} alt="" />
-            </figure>
-          </div>
-          {/* ============= hero content right ================= */}
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-1 text-center mt-10 md:mt-0 md:text-end">
-            {[
-              { end: 120, labelEN: "APIs Developed", labelNL: "APIs Onwikkeld" },
-              { end: 10, labelEN: "Automations Implemented", labelNL: "Geimplementeerde Automatiseringen" },
-              { end: 15, labelEN: "Projects Completed", labelNL: "Projecten afgerond" },
-              { end: 4, labelEN: "AI projects", labelNL: "AI-projecten" },
-            ].map((item, index) => (
-              <div className="mb-10" key={index}>
-                <h2 className="text-headingColor font-[700] text-[32px]">
+          <div className="space-y-8">
+            <motion.div
+              variants={container}
+              className="relative w-48 h-48 sm:w-64 sm:h-64 mx-auto"
+            >
+              <motion.figure 
+                variants={item}
+                className="w-full h-full"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <img 
+                  src={me} 
+                  alt="Omar Nassar" 
+                  className="w-full h-full object-cover rounded-full border-4 border-primary/20" 
+                />
+              </motion.figure>
+            </motion.div>
+            
+            {/* Stats Grid */}
+            <motion.div 
+              variants={container}
+              className="grid grid-cols-2 sm:grid-cols-4 gap-4"
+            >
+              {[
+                { end: 120, labelEN: "APIs Developed", labelNL: "APIs Onwikkeld" },
+                { end: 10, labelEN: "Automations Implemented", labelNL: "Geimplementeerde Automatiseringen" },
+                { end: 15, labelEN: "Projects Completed", labelNL: "Projecten afgerond" },
+                { end: 4, labelEN: "AI projects", labelNL: "AI-projecten" },
+              ].map((item, index) => (
+              <motion.div
+                key={index}
+                variants={item}
+                whileHover={{ scale: 1.05 }}
+                className="p-4 rounded-lg bg-primary/5 backdrop-blur-sm"
+              >
+                <motion.h2 
+                  className="text-2xl sm:text-3xl font-bold text-primary"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
                   <CountUp start={0} end={item.end} duration={2} suffix={index === 1 ? "" : "+"} />
-                </h2>
-                <h4 className="text-headingColor font-[700] text-[18px]">
+                </motion.h2>
+                <motion.h4 
+                  className="text-sm sm:text-base font-medium text-muted-foreground mt-2"
+                  variants={item}
+                >
                   {language === "EN" ? item.labelEN : item.labelNL}
-                </h4>
-              </div>
+                </motion.h4>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
           {/* ============= hero content right end ================= */}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
+
+
 
 export default Hero;

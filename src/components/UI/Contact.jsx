@@ -1,146 +1,160 @@
-import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
-import { LoadingOutlined } from "@ant-design/icons";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { motion } from "framer-motion"
+import { Mail, Phone, MapPin, Send } from "lucide-react"
 
 const Contact = ({ language }) => {
-  const form = useRef();
   const [loading, setLoading] = useState(false);
 
-  const sendEmail = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    emailjs
-      .sendForm(
-        "service_a7vkxnt",
-        "template_e8yb2rm",
-        form.current,
-        "TSqjyuUZdiEwALBRn"
-      )
-      .then(
-        () => {
-          form.current.reset();
-          toast.success(
-            language === "EN"
-              ? "Thank you for your message!"
-              : "Bedankt voor uw bericht!",
-            {
-              position: "top-right",
-              autoClose: 3000,
-              hideProgressBar: true,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            }
-          );
-        },
-        () => {
-          toast.error("Sorry, something went wrong. Please try again");
-        }
-      )
-      .finally(() => {
-        setTimeout(() => {
-          setLoading(false);
-        }, 1000);
-      });
+    // Construct email URL with form data
+    const formData = new FormData(e.target);
+    const subject = formData.get('subject');
+    const message = formData.get('message');
+    const mailtoUrl = `mailto:contact@omardev.xyz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+
+    // Simulate sending delay for UX
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    setLoading(false);
+
+    // Open email client
+    window.location.href = mailtoUrl;
   };
 
   return (
-    <section id="contact" className="pb-16 m-[5px]">
-      <ToastContainer />
-      <div className="contact container">
-        <h2 className="text-headingColor font-[700] text-[2.5rem] mb-8 flex items-center justify-center">
-          {language === "EN" ? "Get in touch!" : "Neem contact op!"}
-        </h2>
-        <div className="md:flex justify-between items-center">
-          <div className="w-full md:w-1/2 h-[300px] sm:h-[450px]">
-            <iframe
-              title="google-maps"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19500.474268381622!2d4.848801944608884!3d52.342140875020675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c609fd919e5b05%3A0xfadb36a3b89991d8!2sAmsterdam-Zuid%2C%20Amsterdam!5e0!3m2!1sen!2snl!4v1680872096824!5m2!1sen!2snl"
-              className="tune w-full h-full"
-              allowFullScreen=""
-              loading="lazy"
-              ferrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-          <div className="tune2 w-full mt-8 md:mt-0 md:w-1/2 sm:h-[450px]  lg:flex items-center bg-black-100 px-4 lg:px-8 py-8">
-            <form
-              className="w-full"
-              ref={form}
-              onSubmit={(e) => {
-                sendEmail(e);
-                form.current.reset();
-              }}
-            >
-              <div className="mb-5">
-                <input
-                  type="text"
-                  name="user_name"
-                  required
-                  placeholder={
-                    language === "EN" ? "Enter your name" : "Vul uw naam in"
-                  }
-                  className="contactInput w-full p-3 focus:outline-none rounded-[5px]"
-                />
-              </div>
-              <div className="mb-5">
-                <input
-                  type="email"
-                  name="user_email"
-                  required
-                  placeholder={
-                    language === "EN"
-                      ? "Enter your email"
-                      : "Voer uw e-mailadres in"
-                  }
-                  className="contactInput w-full p-3 focus:outline-none rounded-[5px]"
-                />
-              </div>
-              <div className="mb-5">
-                <input
-                  type="text"
-                  name="user_subject"
-                  required
-                  placeholder={language === "EN" ? "Subject" : "Onderwerp"}
-                  className="contactInput w-full p-3 focus:outline-none rounded-[5px]"
-                />
-              </div>
-              <div className="mb-5">
-                <textarea
-                  type="text"
-                  name="message"
-                  required
-                  rows={3}
-                  placeholder={
-                    language === "EN"
-                      ? "Write your message"
-                      : "Schrijf uw bericht"
-                  }
-                  className="contactInput w-full p-3 focus:outline-none rounded-[5px]"
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full p-3 focus:outline-none rounded-[5px] bg-primaryColor text-white hover:bg-smallTextColor text-center ease-linear duration-150"
-              >
-                {loading ? (
-                  <LoadingOutlined className="animate-spin" />
-                ) : language === "EN" ? (
-                  "Send"
-                ) : (
-                  "Versturen"
-                )}
-              </button>
-            </form>
-          </div>
+    <section className="relative py-16 sm:py-24 px-4 overflow-hidden bg-gradient-to-b from-background to-secondary/20">
+      <div className="absolute inset-0 bg-grid-white/10 bg-[size:20px_20px] [mask-image:radial-gradient(white,transparent_70%)]" />
+      
+      <div className="relative max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary-foreground bg-clip-text text-transparent">
+            {language === "EN" ? "Get in Touch" : "Neem contact op"}
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            {language === "EN" 
+              ? "Let's discuss your project or potential collaboration. I'm always open to new opportunities and interesting ideas."
+              : "Laten we uw project of mogelijke samenwerking bespreken. Ik sta altijd open voor nieuwe kansen en interessante ideeën."}
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <Card className="h-full bg-card/50 backdrop-blur-sm">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Mail className="h-5 w-5 text-primary" />
+                  {language === "EN" ? "Contact Information" : "Contactgegevens"}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <motion.div 
+                  className="flex items-center space-x-4"
+                  whileHover={{ x: 10 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                >
+                  <Mail className="h-5 w-5 text-primary" />
+                  <a href="mailto:contact@omardev.xyz" className="hover:text-primary transition-colors">
+                    contact@omardev.xyz
+                  </a>
+                </motion.div>
+                <motion.div 
+                  className="flex items-center space-x-4"
+                  whileHover={{ x: 10 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                >
+                  <Phone className="h-5 w-5 text-primary" />
+                  <span>{language === "EN" ? "Available upon request" : "Beschikbaar op aanvraag"}</span>
+                </motion.div>
+                <motion.div 
+                  className="flex items-center space-x-4"
+                  whileHover={{ x: 10 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                >
+                  <MapPin className="h-5 w-5 text-primary" />
+                  <span>Netherlands</span>
+                </motion.div>
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <Card className="bg-card/50 backdrop-blur-sm">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Send className="h-5 w-5 text-primary" />
+                  {language === "EN" ? "Send Message" : "Stuur Bericht"}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <Input 
+                      name="name"
+                      placeholder={language === "EN" ? "Name" : "Naam"}
+                      required
+                      className="bg-background/50"
+                    />
+                    <Input 
+                      name="email"
+                      type="email" 
+                      placeholder={language === "EN" ? "Email" : "E-mail"}
+                      required
+                      className="bg-background/50"
+                    />
+                  </div>
+                  <Input 
+                    name="subject"
+                    placeholder={language === "EN" ? "Subject" : "Onderwerp"}
+                    required
+                    className="bg-background/50"
+                  />
+                  <Textarea 
+                    name="message"
+                    placeholder={language === "EN" ? "Your message" : "Uw bericht"}
+                    className="min-h-[120px] bg-background/50"
+                    required
+                  />
+                  <Button className="w-full" disabled={loading}>
+                    {loading ? (
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                        className="mr-2 h-4 w-4"
+                      >
+                        ◌
+                      </motion.div>
+                    ) : (
+                      <Send className="mr-2 h-4 w-4" />
+                    )}
+                    {loading ? (language === "EN" ? "Sending..." : "Verzenden...") : (language === "EN" ? "Send Message" : "Verstuur Bericht")}
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact
