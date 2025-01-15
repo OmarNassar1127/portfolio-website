@@ -5,8 +5,6 @@ import Typed from "typed.js";
 import { Button } from "./button";
 import { Card } from "./card";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
-import EnglishCV from "../../assets/cv/Omar-cv-en.pdf";
-import DutchCV from "../../assets/cv/Omar-cv-nl.pdf";
 
 const container = {
   hidden: { opacity: 0 },
@@ -25,7 +23,7 @@ const item = {
 
 const Hero = ({ language }) => {
   const typedRef = useRef(null);
-  const cvLink = language === 'EN' ? EnglishCV : DutchCV;
+  const cvLink = language === 'EN' ? '/cv/Omar-cv-en.pdf' : '/cv/Omar-cv-nl.pdf';
 
   const text =
     language === "EN"
