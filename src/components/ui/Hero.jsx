@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import me from "../../assets/images/me.png";
 import CountUp from "react-countup";
 import Typed from "typed.js";
-import EnglishCV from "../../assets/cv/Omar-cv-en.pdf";
-import DutchCV from "../../assets/cv/Omar-cv-nl.pdf";
+import { Button } from "./button";
+import { Card } from "./card";
+import { Github, Linkedin, Mail, Download } from "lucide-react";
 
 const container = {
   hidden: { opacity: 0 },
@@ -237,7 +237,7 @@ const Hero = ({ language }) => {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <img 
-                  src={me} 
+                  src="/images/me.png" 
                   alt="Omar Nassar" 
                   className="w-full h-full object-cover rounded-full border-4 border-primary/20" 
                 />
