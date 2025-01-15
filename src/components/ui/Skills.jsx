@@ -3,18 +3,18 @@ import { Card, CardContent } from "./card";
 
 const Skills = ({ language }) => {
   const skills = [
-    { name: "React", icon: "/SVG/SVG/react.svg" },
-    { name: "JavaScript", icon: "/SVG/SVG/javascript.svg" },
-    { name: "Node.js", icon: "/SVG/SVG/nodejs.svg" },
-    { name: "HTML", icon: "/SVG/SVG/html.svg" },
-    { name: "CSS", icon: "/SVG/SVG/css.svg" },
-    { name: "Tailwind", icon: "/SVG/SVG/tailwind.svg" },
-    { name: "PHP", icon: "/SVG/SVG/php.svg" },
-    { name: "MySQL", icon: "/SVG/SVG/mysql.svg" },
-    { name: "GraphQL", icon: "/SVG/SVG/graphQL.svg" },
-    { name: "Git", icon: "/SVG/SVG/github.svg" },
-    { name: "VSCode", icon: "/SVG/SVG/vscode.svg" },
-    { name: "Figma", icon: "/SVG/SVG/figma.svg" },
+    { name: "React", icon: "/SVG/react.svg" },
+    { name: "JavaScript", icon: "/SVG/javascript.svg" },
+    { name: "Node.js", icon: "/SVG/nodejs.svg" },
+    { name: "HTML", icon: "/SVG/html.svg" },
+    { name: "CSS", icon: "/SVG/css.svg" },
+    { name: "Tailwind", icon: "/SVG/tailwind.svg" },
+    { name: "PHP", icon: "/SVG/php.svg" },
+    { name: "MySQL", icon: "/SVG/mysql.svg" },
+    { name: "GraphQL", icon: "/SVG/graphQL.svg" },
+    { name: "Git", icon: "/SVG/github.svg" },
+    { name: "VSCode", icon: "/SVG/vscode.svg" },
+    { name: "Figma", icon: "/SVG/figma.svg" },
   ];
 
   const container = {

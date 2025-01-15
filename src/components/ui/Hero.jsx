@@ -5,6 +5,8 @@ import Typed from "typed.js";
 import { Button } from "./button";
 import { Card } from "./card";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
+import EnglishCV from "../../assets/cv/Omar-cv-en.pdf";
+import DutchCV from "../../assets/cv/Omar-cv-nl.pdf";
 
 const container = {
   hidden: { opacity: 0 },
