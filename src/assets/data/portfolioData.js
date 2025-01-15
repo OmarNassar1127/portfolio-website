@@ -1,20 +1,7 @@
-import portfolioImg01 from "../images/portfolio-01.jpg";
-import portfolioImg02 from "../images/portfolio-02.jpg";
-import portfolioImg03 from "../images/portfolio-03.jpg";
-import portfolioImg04 from "../images/portfolio-04.jpg";
-import portfolioImg05 from "../images/portfolio-05.jpg";
-import portfolioImg06 from "../images/portfolio-06.jpg";
-import portfolioImg07 from "../images/portfolio-07.jpg";
-import portfolioImg08 from "../images/portfolio-08.jpg";
-import portfolioImg09 from "../images/portfolio-09.png";
-import portfolioImg10 from "../images/portfolio-10.png";
-import portfolioImg11 from "../images/portfolio-11.png";
-import portfolioImg12 from "../images/portfolio-12.png";
-
 const portfolios = [
   {
     id: "01",
-    imgUrl: portfolioImg01,
+    imgUrl: "/images/portfolio-01.jpg",
     category: "School project",
     title: "Tablet4U",
     descriptionEN:
@@ -26,7 +13,7 @@ const portfolios = [
   },
   {
     id: "02",
-    imgUrl: portfolioImg02,
+    imgUrl: "/images/portfolio-02.jpg",
     category: "School project",
     title: "First ever portfolio website",
     descriptionEN:
@@ -38,7 +25,7 @@ const portfolios = [
   },
   {
     id: "03",
-    imgUrl: portfolioImg03,
+    imgUrl: "/images/portfolio-03.jpg",
     category: "School project",
     title: "Yamba",
     descriptionEN:
@@ -50,7 +37,7 @@ const portfolios = [
   },
   {
     id: "04",
-    imgUrl: portfolioImg04,
+    imgUrl: "/images/portfolio-04.jpg",
     category: "School project",
     title: "Tic Tac Toe",
     descriptionEN:
@@ -62,7 +49,7 @@ const portfolios = [
   },
   {
     id: "05",
-    imgUrl: portfolioImg05,
+    imgUrl: "/images/portfolio-05.jpg",
     category: "School project",
     title: "Snake 3D",
     descriptionEN:
@@ -75,7 +62,7 @@ const portfolios = [
 
   {
     id: "06",
-    imgUrl: portfolioImg06,
+    imgUrl: "/images/portfolio-06.jpg",
     category: "School project",
     title: "Restaurant webApp",
     descriptionEN:
@@ -94,7 +81,7 @@ const portfolios = [
   },
   {
     id: "07",
-    imgUrl: portfolioImg07,
+    imgUrl: "/images/portfolio-07.jpg",
     category: "Professional",
     title: "MyAddBooker",
     descriptionEN:
@@ -113,7 +100,7 @@ const portfolios = [
   },
   {
     id: "08",
-    imgUrl: portfolioImg08,
+    imgUrl: "/images/portfolio-08.jpg",
     category: "Professional",
     title: "Sliced Marketplace",
     descriptionEN:
@@ -133,7 +120,7 @@ const portfolios = [
   },
   {
     id: "09",
-    imgUrl: portfolioImg09,
+    imgUrl: "/images/portfolio-09.png",
     category: "Professional",
     title: "Blog Website",
     descriptionEN:
@@ -155,7 +142,7 @@ const portfolios = [
   },
   {
     id: "10",
-    imgUrl: portfolioImg10,
+    imgUrl: "/images/portfolio-10.png",
     category: "Professional",
     title: "Vloto B.V.",
     descriptionEN:
@@ -178,7 +165,7 @@ const portfolios = [
   },
   {
     id: "11",
-    imgUrl: portfolioImg11,
+    imgUrl: "/images/portfolio-11.png",
     category: "ai/ml",
     title: "AI - Document Q&A",
     descriptionEN: "Developed an AI-driven Question Answering (QA) system that leverages OpenAI's models and Meilisearch for document retrieval. This system enhances document comprehension and retrieval by providing users with precise answers based on the context of uploaded documents. The project utilized Retrieval-Augmented Generation (RAG) to combine the power of document retrieval and generative models, ensuring contextually accurate answers. Additionally, question optimization techniques were employed using AI to refine and enhance user queries, improving the overall performance of the system. The project involved creating a seamless interface and integrating backend services to ensure efficient performance.",
@@ -198,7 +185,7 @@ const portfolios = [
   },
   {
     id: "12",
-    imgUrl: portfolioImg12,
+    imgUrl: "/images/portfolio-12.png",
     category: "ai/ml",
     title: "Image Segmentation Model",
     descriptionEN: "Engineered a deep learning model for image segmentation that effectively highlights specific regions within images. The project encompassed dataset preparation, model architecture design, training, and evaluation. Utilizing advanced techniques in computer vision, I achieved high accuracy and robust performance in segmenting various objects within images.",
