@@ -39,50 +39,46 @@ const Portfolio = ({ language }) => {
   }, [selectTab]);
 
   return (
-    <section id="portfolio">
-      <div className="container">
-        <div className="flex items-center justify-between flex-wrap">
-          <div className="mb-7 sm:mb-0">
-            <h3 className="text-headingColor text-[2rem] font-[700]">
-              {language === "EN" ? "My projects" : "Mijn projecten"}
-            </h3>
-            <h2 className="text-headingColor text-[1rem] font-[600]">
-              {language === "EN"
-                ? "Organized by timeline"
-                : "Georganiseerd op basis van tijdlijn"}
-            </h2>
+    <section id="portfolio" className="py-16 px-4 bg-secondary/5">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary-foreground bg-clip-text text-transparent">
+            {language === "EN" ? "My Projects" : "Mijn Projecten"}
+          </h2>
+          <p className="text-muted-foreground text-lg mb-8">
+            {language === "EN"
+              ? "Explore my latest projects and achievements"
+              : "Ontdek mijn laatste projecten en prestaties"}
+          </p>
+          
+          <div className="flex flex-wrap gap-2 justify-center">
+            {[
+              { id: "all", labelEN: "All", labelNL: "Alles" },
+              { id: "school-project", labelEN: "School Projects", labelNL: "School Projecten" },
+              { id: "professional", labelEN: "Professional", labelNL: "Professioneel" },
+              { id: "ai", labelEN: "AI / ML", labelNL: "AI / ML" }
+            ].map((category) => (
+              <motion.div
+                key={category.id}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  variant={selectTab === category.id ? "default" : "outline"}
+                  onClick={() => setSelectTab(category.id)}
+                  className="rounded-full"
+                >
+                  {language === "EN" ? category.labelEN : category.labelNL}
+                </Button>
+              </motion.div>
+            ))}
           </div>
-          <div className="flex gap-3">
-            <button
-              onClick={() => setSelectTab("all")}
-              className="text-smallTextColor border border-solid border-smallTextColor py-2 px-4
-                    rounded-[8px]"
-            >
-              {language === "EN" ? "All" : "Alles"}
-            </button>
-            <button
-              onClick={() => setSelectTab("school-project")}
-              className="text-smallTextColor border border-solid border-smallTextColor py-2 px-4
-                    rounded-[8px]"
-            >
-              {language === "EN" ? "School projects" : "School projecten"}
-            </button>
-            <button
-              onClick={() => setSelectTab("professional")}
-              className="text-smallTextColor border border-solid border-smallTextColor py-2 px-4
-                    rounded-[8px]"
-            >
-              Proffessional projects
-            </button>
-            <button
-              onClick={() => setSelectTab("ai")}
-              className="text-smallTextColor border border-solid border-smallTextColor py-2 px-4
-                    rounded-[8px]"
-            >
-              AI / ML
-            </button>
-          </div>
-        </div>
+        </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
           <AnimatePresence mode="popLayout">
             {portfolios?.slice(0, nextItems)?.map((portfolio, index) => (
@@ -138,17 +134,28 @@ const Portfolio = ({ language }) => {
             ))}
           </AnimatePresence>
         </div>
-        <div className="text-center mt-6">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="text-center mt-12"
+        >
           {nextItems < portfolios.length && portfolios.length > 20 && (
-            <button
-              onClick={loadMoreHandler}
-              className="text-white bg-primaryColor hover:bg-smallTextColor py-2 px-4 rounded-[8px]
-                  font-[500] ease-in duration-200"
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              Load More
-            </button>
+              <Button
+                onClick={loadMoreHandler}
+                variant="outline"
+                size="lg"
+                className="rounded-full"
+              >
+                {language === "EN" ? "Load More" : "Laad Meer"}
+              </Button>
+            </motion.div>
           )}
-        </div>
+        </motion.div>
       </div>
       {/* Modal removed in favor of card-based design */}
     </section>

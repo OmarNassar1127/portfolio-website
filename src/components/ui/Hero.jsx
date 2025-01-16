@@ -196,28 +196,31 @@ const Hero = ({ language }) => {
                 className="flex flex-wrap gap-4"
               >
                 {[
-                  { icon: "ri-mail-line", href: "mailto:omarnassar1127@gmail.com" },
-                  { icon: "ri-twitter-line", href: "https://twitter.com/GodelTrabuco69" },
-                  { icon: "ri-facebook-circle-fill", href: "https://www.facebook.com/omar.portero13" },
-                  { icon: "ri-linkedin-box-fill", href: "https://www.linkedin.com/in/omar-nassar-93a176155/" },
-                  { icon: "ri-github-fill", href: "https://github.com/OmarNassar1127" }
+                  { icon: Github, href: "https://github.com/OmarNassar1127", label: "GitHub" },
+                  { icon: Linkedin, href: "https://www.linkedin.com/in/omar-nassar-b63b93220/", label: "LinkedIn" },
+                  { icon: Mail, href: "mailto:contact@omardev.xyz", label: "Email" },
+                  { icon: Twitter, href: "https://twitter.com/GodelTrabuco69", label: "Twitter" }
                 ].map((social, index) => (
-                  <motion.span
-                    key={social.href}
+                  <motion.div
+                    key={social.label}
                     variants={item}
-                    whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="w-[35px] h-[35px] bg-primaryColor p-1 rounded-[50px] cursor-pointer text-center"
                   >
-                    <a
-                      href={social.href}
-                      className="text-white font-bold text-[18px]"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      asChild
+                      className="hover:bg-primary/10"
                     >
-                      <i className={social.icon}></i>
-                    </a>
-                  </motion.span>
+                      <a
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.label}
+                      >
+                        <social.icon className="h-5 w-5" />
+                      </a>
+                    </Button>
+                  </motion.div>
                 ))}
               </motion.div>
             </motion.div>
