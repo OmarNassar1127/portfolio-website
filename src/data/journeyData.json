@@ -1,0 +1,64 @@
+{
+  "stages": [
+    {
+      "id": "frontend-basics",
+      "year": "2017",
+      "period": "First 18 months",
+      "titleEN": "Frontend Development",
+      "titleNL": "Frontend Ontwikkeling",
+      "descriptionEN": "During the initial 18 months of my education, the emphasis was on frontend development, where I gained a comprehensive understanding of HTML/CSS and the integration of JavaScript to enhance the functionality and interactivity of web applications. Although the curriculum leaned towards frontend development, I thoroughly enjoyed every aspect of it.",
+      "descriptionNL": "Gedurende de eerste 18 maanden van mijn opleiding lag de nadruk op frontend-ontwikkeling, waar ik een grondig begrip van HTML/CSS verwierf en van de integratie van JavaScript om de functionaliteit en interactiviteit van webapplicaties te verbeteren. Hoewel het curriculum gericht was op frontend-ontwikkeling, heb ik elk aspect ervan grondig genoten.",
+      "icon": "/images/front-end.png"
+    },
+    {
+      "id": "backend-basics",
+      "year": "2020",
+      "period": "Last 18 months",
+      "titleEN": "Backend Development",
+      "titleNL": "Backend Ontwikkeling",
+      "descriptionEN": "During the last 18 months of school, we were introduced to a range of technologies including PHP, MySQL, C# and Wordpress. However, the focus was primarily on PHP and MySQL, where we learned how to create tables, establish connections between them, retrieve data from databases, and build applications with essential CRUD functionalities.",
+      "descriptionNL": "Gedurende de laatste 18 maanden van school werden we geïntroduceerd aan verschillende technologieën, waaronder PHP, MySQL, C# en Wordpress. De nadruk lag echter voornamelijk op PHP en MySQL, waar we hebben geleerd hoe we tabellen kunnen creëren, verbindingen tussen hen kunnen opzetten, gegevens uit databases kunnen ophalen en applicaties kunnen bouwen met de essentiële CRUD-functionaliteiten.",
+      "icon": "/images/backend.png"
+    },
+    {
+      "id": "csdm",
+      "year": "2020-2021",
+      "period": "Frontend Developer",
+      "titleEN": "Frontend Developer at CSDM",
+      "titleNL": "Frontend Developer bij CSDM",
+      "descriptionEN": "During my time at CSDM, I served as a front-end developer, utilizing ReactJS and myGraphQL to develop web applications. Through my internship experience, I gained valuable insight into the workings of a company. Following my graduation, I took on more significant responsibilities, including the opportunity to stay at CSDM as a junior software developer. In this new role, I had the chance to design and implement features for high-profile clients such as Coca-Cola, Shell, and Schiphol, to name a few. This offer to continue my journey at CSDM further validated my capabilities and allowed me to expand my skills in a professional setting.",
+      "descriptionNL": "Tijdens mijn tijd bij CSDM werkte ik als front-end ontwikkelaar, waarbij ik gebruik maakte van ReactJS en myGraphQL om webapplicaties te ontwikkelen. Via mijn stage-ervaring heb ik waardevol inzicht gekregen in hoe een bedrijf functioneert. Na mijn afstuderen kreeg ik de mogelijkheid om als junior softwareontwikkelaar bij CSDM te blijven. In deze nieuwe rol kreeg ik de kans om belangrijkere verantwoordelijkheden op me te nemen, waaronder het ontwerpen en implementeren van functies voor gerenommeerde klanten zoals Coca-Cola, Shell en Schiphol, om er een paar te noemen. Dit aanbod om mijn traject bij CSDM voort te zetten bevestigde mijn capaciteiten en bood mij de gelegenheid om mijn vaardigheden verder uit te breiden in een professionele omgeving.",
+      "icon": "/images/design.png"
+    },
+    {
+      "id": "blockchain",
+      "year": "2021",
+      "period": "Self development year",
+      "titleEN": "Blockchain Development",
+      "titleNL": "Blockchain Ontwikkeling",
+      "descriptionEN": "This year, I delved into the fascinating world of blockchain and cryptography. I gained extensive knowledge about blockchains, including the various types and consensus mechanisms. However, the most intriguing aspect for me was exploring the limitless possibilities of smart contracts. These contracts are capable of automating complex tasks that would otherwise require days or even weeks to complete.",
+      "descriptionNL": "Dit jaar dook ik in de fascinerende wereld van blockchain en cryptografie. Ik heb uitgebreide kennis opgedaan over blockchains, inclusief de verschillende soorten en consensusmechanismen. Het meest intrigerende aspect voor mij was echter het verkennen van de onbegrensde mogelijkheden van smart contracts. Deze contracten zijn in staat om complexe taken te automatiseren die anders dagen of zelfs weken zouden kosten om te voltooien.",
+      "icon": "/images/apps.png"
+    },
+    {
+      "id": "bitsliced",
+      "year": "2022",
+      "period": "Entrepreneurship",
+      "titleEN": "Bitsliced Founder",
+      "titleNL": "Bitsliced Oprichter",
+      "descriptionEN": "After a year of focusing on self-development, I embarked on a teaching career where I imparted the fundamentals to aspiring learners. During this time, a student introduced me to a compelling business idea that I couldn't refuse: Bitsliced. As mentioned earlier, Bitsliced is an NFT marketplace that leverages blockchain technology to create digital representations of real-world assets as NFTs, thereby streamlining the trading process while ensuring safety and efficiency. To bring this idea to fruition, I assembled a team of four professionals whom I currently manage while overseeing project development and ensuring quality assurance.",
+      "descriptionNL": "Na een jaar gericht te hebben op zelfontwikkeling, begon ik aan een carrière in het onderwijs waarbij ik de basisprincipes overbracht aan aspirant-leerlingen. Tijdens deze periode introduceerde een student me bij een boeiend bedrijfsidee dat ik niet kon weigeren: Bitsliced. Zoals eerder vermeld, is Bitsliced een NFT-marktplaats die gebruikmaakt van blockchaintechnologie om digitale representaties van real-world assets als NFT's te creëren, waardoor het handelsproces wordt gestroomlijnd terwijl de veiligheid en efficiëntie worden gegarandeerd. Om dit idee te verwezenlijken, heb ik een team van vier professionals samengesteld die ik momenteel beheer terwijl ik het projectontwikkeling superviseer en zorg voor kwaliteitsborging.",
+      "icon": "/images/apps.png"
+    },
+    {
+      "id": "vloto",
+      "year": "2023",
+      "period": "Backend Developer",
+      "titleEN": "Vloto B.V.",
+      "titleNL": "Vloto B.V.",
+      "descriptionEN": "I joined Vloto B.V as a Backend Developer in mid-2023, quickly diving into exciting challenges. Our company, a luxury car-sharing service, boasts an impressive fleet from the Audi e-tron Q8 to the Polestar 2 Dual Motor, all accessible through our proprietary app. My initial focus was enhancing our internal dashboard, but I've also innovated our app with complex features like discount coupons and flexible booking date edits, significantly enriching the user experience. Currently, I'm working on automating some of our manual processes, aiming to streamline operations and elevate our service efficiency.",
+      "descriptionNL": "Ik ben in het midden van 2023 bij Vloto B.V. begonnen als Backend Ontwikkelaar en heb me snel op boeiende uitdagingen gestort. Ons bedrijf, een luxe autodeel service, pronkt met een indrukwekkende vloot variërend van de Audi e-tron Q8 tot de Polestar 2 Dual Motor, allemaal toegankelijk via onze eigen app. Aanvankelijk concentreerde ik me op het verbeteren van ons interne dashboard, maar ik heb ook complexe functies aan onze app toegevoegd, zoals kortingscoupons en flexibele boekingsdatumaanpassingen, wat de gebruikerservaring aanzienlijk verrijkte. Momenteel werk ik aan het automatiseren van enkele van onze handmatige processen, met als doel onze bedrijfsvoering te stroomlijnen en de efficiëntie van onze service te verhogen.",
+      "icon": "/images/apps.png"
+    }
+  ]
+}
