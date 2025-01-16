@@ -4,33 +4,33 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
- 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
- 
-    --primary: 262.1 83.3% 57.8%;
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 213 31% 91%;
+
+    --primary: 263 90% 51%;
     --primary-foreground: 210 20% 98%;
- 
-    --secondary: 220 14.3% 95.9%;
-    --secondary-foreground: 220.9 39.3% 11%;
- 
-    --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
- 
-    --accent: 262.1 83.3% 57.8%;
+
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+
+    --accent: 170 100% 40%;
     --accent-foreground: 210 20% 98%;
- 
-    --destructive: 0 84.2% 60.2%;
+
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 20% 98%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 262.1 83.3% 57.8%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 263 90% 51%;
  
     --radius: 0.75rem;
   }
@@ -71,8 +71,28 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
   }
+  
+  /* Improved Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
+  
+  p {
+    @apply leading-relaxed text-base text-muted-foreground/90;
+  }
+
+  /* Improved focus styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary/50 ring-offset-2 ring-offset-background;
+  }
+}
+
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 100px 100px;
 }
 
 @keyframes gradient {
@@ -88,33 +108,94 @@
 }
 
 .container {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
 }
 
 .section-padding {
-  @apply py-16 md:py-24;
+  @apply py-20 md:py-32;
 }
 
 .heading-1 {
-  @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+  @apply text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight;
 }
 
 .heading-2 {
-  @apply text-3xl md:text-4xl font-bold tracking-tight;
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
 }
 
 .heading-3 {
-  @apply text-2xl md:text-3xl font-bold tracking-tight;
+  @apply text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight;
 }
 
 .body-large {
-  @apply text-lg leading-relaxed;
+  @apply text-lg md:text-xl leading-relaxed;
 }
 
 .body-base {
-  @apply text-base leading-relaxed;
+  @apply text-base leading-relaxed tracking-wide;
 }
 
 .body-small {
-  @apply text-sm leading-relaxed;
+  @apply text-sm leading-relaxed tracking-wide;
+}
+
+/* Advanced animations */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.fade-in-down {
+  animation: fadeInDown 0.6s ease-out forwards;
+}
+
+.fade-in-left {
+  animation: fadeInLeft 0.6s ease-out forwards;
+}
+
+.fade-in-right {
+  animation: fadeInRight 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

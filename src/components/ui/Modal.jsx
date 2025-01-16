@@ -47,7 +47,7 @@ const Modal = ({ activeID, setShowModal, language }) => {
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50"
+        className="fixed inset-0 bg-background/90 backdrop-blur-md z-50"
         variants={backdrop}
         initial="hidden"
         animate="visible"
@@ -55,8 +55,14 @@ const Modal = ({ activeID, setShowModal, language }) => {
         onClick={() => setShowModal(false)}
       >
         <motion.div
+          className="absolute inset-0 bg-grid-white/5 bg-[size:20px_20px] [mask-image:radial-gradient(white,transparent_70%)]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.5 }}
+          exit={{ opacity: 0 }}
+        />
+        <motion.div
           onClick={(e) => e.stopPropagation()}
-          className="w-11/12 md:max-w-2xl mx-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-card rounded-lg shadow-lg overflow-hidden"
+          className="w-11/12 md:max-w-2xl mx-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-card/95 backdrop-blur-sm rounded-lg shadow-2xl border border-primary/10 overflow-hidden"
           variants={modal}
           initial="hidden"
           animate="visible"
@@ -89,14 +95,28 @@ const Modal = ({ activeID, setShowModal, language }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <h2 className="text-2xl font-bold bg-gradient-to-r from-primary to-primary-foreground bg-clip-text text-transparent mb-2">
+              <motion.h2 
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-2xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-2"
+              >
                 {portfolio.title}
-              </h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="text-muted-foreground leading-relaxed mb-6"
+              >
                 {language === "EN" ? portfolio.descriptionEN : portfolio.descriptionNL}
-              </p>
+              </motion.p>
 
-              <div className="space-y-4">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="space-y-4"
+              >
                 <h4 className="font-semibold text-foreground">
                   {language === "EN" ? "Technologies Used:" : "Gebruikte Technologieën:"}
                 </h4>
@@ -108,11 +128,13 @@ const Modal = ({ activeID, setShowModal, language }) => {
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.1 * index }}
                     >
-                      <Badge variant="secondary">{item}</Badge>
+                      <Badge variant="secondary" className="bg-primary/10 hover:bg-primary/20 transition-colors">
+                        {item}
+                      </Badge>
                     </motion.div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
 
               {portfolio.siteUrl && portfolio.siteUrl !== "#" && (
                 <motion.div

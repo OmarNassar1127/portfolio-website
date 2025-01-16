@@ -28,10 +28,10 @@ const Contact = ({ language }) => {
   };
 
   return (
-    <section className="relative py-16 sm:py-24 px-4 overflow-hidden bg-gradient-to-b from-background to-secondary/20">
+    <section className="relative section-padding overflow-hidden bg-gradient-to-b from-background to-secondary/20">
       <div className="absolute inset-0 bg-grid-white/10 bg-[size:20px_20px] [mask-image:radial-gradient(white,transparent_70%)]" />
       
-      <div className="relative max-w-6xl mx-auto">
+      <div className="container fade-in-up relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

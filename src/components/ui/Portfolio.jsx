@@ -39,8 +39,8 @@ const Portfolio = ({ language }) => {
   }, [selectTab]);
 
   return (
-    <section id="portfolio" className="py-16 px-4 bg-secondary/5">
-      <div className="max-w-6xl mx-auto">
+    <section id="portfolio" className="section-padding bg-secondary/5">
+      <div className="container fade-in-up">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -90,17 +90,18 @@ const Portfolio = ({ language }) => {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow">
+                <Card className="group h-full hover:shadow-xl transition-all duration-300 hover:border-primary/30">
                   <CardHeader>
                     <div className="aspect-video relative overflow-hidden rounded-lg mb-4">
                       <img 
                         src={portfolio.imgUrl} 
                         alt={portfolio.title}
-                        className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-300"
+                        className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
-                    <CardTitle>{portfolio.title}</CardTitle>
-                    <CardDescription>{portfolio.category}</CardDescription>
+                    <CardTitle className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{portfolio.title}</CardTitle>
+                    <CardDescription className="text-muted-foreground/80">{portfolio.category}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-muted-foreground line-clamp-3">

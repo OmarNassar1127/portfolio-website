@@ -50,10 +50,32 @@ const Hero = ({ language }) => {
       variants={container}
       initial="hidden"
       animate="show"
-      className="min-h-[90vh] flex items-center py-16 sm:py-20" 
+      className="relative min-h-[90vh] flex items-center py-16 sm:py-20 overflow-hidden" 
       id="about"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Animated background layers */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      />
+      <motion.div
+        className="absolute inset-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(var(--primary),0.1),transparent_70%)]" />
+      </motion.div>
+      <motion.div
+        className="absolute inset-0 bg-grid-white/10 bg-[size:20px_20px] [mask-image:radial-gradient(white,transparent_70%)]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.05 }}
+        transition={{ duration: 1, delay: 0.7 }}
+      />
+
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* ============= hero left content ================= */}
           <div className="space-y-6">
@@ -209,16 +231,18 @@ const Hero = ({ language }) => {
                       variant="ghost"
                       size="icon"
                       asChild
-                      className="hover:bg-primary/10"
+                      className="hover:bg-primary/10 hover:text-primary transition-all duration-300"
                     >
-                      <a
+                      <motion.a
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={social.label}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
                       >
                         <social.icon className="h-5 w-5" />
-                      </a>
+                      </motion.a>
                     </Button>
                   </motion.div>
                 ))}
@@ -233,24 +257,70 @@ const Hero = ({ language }) => {
               variants={container}
               className="relative w-48 h-48 sm:w-64 sm:h-64 mx-auto"
             >
-              <motion.figure 
-                variants={item}
-                className="w-full h-full"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <img 
-                  src="/images/me.png" 
-                  alt="Omar Nassar" 
-                  className="w-full h-full object-cover rounded-full border-4 border-primary/20" 
+              <div className="relative">
+                {/* Animated rings */}
+                <motion.div
+                  className="absolute -inset-4 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 blur-lg"
+                  animate={{
+                    scale: [1, 1.1, 1],
+                    rotate: [0, 180, 360],
+                  }}
+                  transition={{
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
                 />
-              </motion.figure>
+                <motion.div
+                  className="absolute -inset-4 rounded-full bg-gradient-to-r from-accent/20 to-primary/20 blur-lg"
+                  animate={{
+                    scale: [1.1, 1, 1.1],
+                    rotate: [360, 180, 0],
+                  }}
+                  transition={{
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                />
+                
+                {/* Profile image */}
+                <motion.figure 
+                  variants={item}
+                  className="relative w-full h-full rounded-full border-4 border-primary/20 overflow-hidden"
+                  whileHover={{ scale: 1.05 }}
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{
+                    y: {
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    },
+                    scale: {
+                      type: "spring",
+                      stiffness: 300
+                    }
+                  }}
+                >
+                  <img 
+                    src="/images/me.png" 
+                    alt="Omar Nassar" 
+                    className="w-full h-full object-cover"
+                  />
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                  />
+                </motion.figure>
+              </div>
             </motion.div>
             
             {/* Stats Grid */}
             <motion.div 
               variants={container}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-4"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-6"
             >
               {[
                 { end: 120, labelEN: "APIs Developed", labelNL: "APIs Onwikkeld" },
@@ -262,21 +332,36 @@ const Hero = ({ language }) => {
                   key={index}
                   variants={item}
                   whileHover={{ scale: 1.05 }}
-                  className="p-4 rounded-lg bg-primary/5 backdrop-blur-sm"
+                  className="relative p-6 rounded-lg overflow-hidden"
                 >
-                  <motion.h2 
-                    className="text-2xl sm:text-3xl font-bold text-primary"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <CountUp start={0} end={item.end} duration={2} suffix={index === 1 ? "" : "+"} />
-                  </motion.h2>
-                  <motion.h4 
-                    className="text-sm sm:text-base font-medium text-muted-foreground mt-2"
-                    variants={item}
-                  >
-                    {language === "EN" ? item.labelEN : item.labelNL}
-                  </motion.h4>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/5 to-background"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  />
+                  <motion.div
+                    className="absolute inset-0 bg-grid-white/5"
+                    style={{ backgroundSize: "10px 10px" }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
+                  />
+                  <div className="relative">
+                    <motion.h2 
+                      className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <CountUp start={0} end={item.end} duration={2} suffix={index === 1 ? "" : "+"} />
+                    </motion.h2>
+                    <motion.h4 
+                      className="text-sm sm:text-base font-medium text-muted-foreground mt-2"
+                      variants={item}
+                    >
+                      {language === "EN" ? item.labelEN : item.labelNL}
+                    </motion.h4>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>

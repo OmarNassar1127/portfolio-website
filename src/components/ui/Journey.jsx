@@ -2,6 +2,11 @@ import React from "react";
 import journeyData from "../../data/journeyData.json";
 import { motion } from "framer-motion";
 
+const introText = {
+  EN: `In 2017, I began my software development career at MBO Amstelland, learning HTML/CSS, PHP, Javascript, and MySQL, and quickly excelling in coding. After a year-long internship and an additional year of work at CSDM post-graduation, topping my class, I ventured into entrepreneurship with Bitsliced, focusing on blockchain and cryptocurrencies to create an NFT marketplace for trading real-world assets. In 2023, I further expanded my career by joining Vloto B.V as a Backend Developer. At Vloto, a luxury car-sharing service boasting a fleet from Audi e-tron Q8 to Polestar 2 Dual Motor, I used Laravel for creating RestFul APIs, initially enhancing our internal dashboard. My work has also involved innovating our app with features like discount coupons and flexible booking date edits, thereby significantly enriching user experience, and currently, I am automating various manual processes to elevate service efficiency.`,
+  NL: `In 2017 begon ik mijn softwareontwikkelingscarrière bij MBO Amstelland, waar ik HTML/CSS, PHP, Javascript en MySQL leerde en snel uitblonk in programmeren. Na een jaar stage en een extra jaar werk bij CSDM na mijn afstuderen, waarbij ik de beste van mijn klas was, waagde ik me aan het ondernemerschap met Bitsliced, met focus op blockchain en cryptocurrencies om een NFT-marktplaats te creëren voor het verhandelen van real-world assets. In 2023 breidde ik mijn carrière verder uit door me aan te sluiten bij Vloto B.V. als Backend Developer. Bij Vloto, een luxe auto-deelservice met een indrukwekkende vloot van Audi e-tron Q8 tot Polestar 2 Dual Motor, gebruikte ik Laravel voor het creëren van RestFul API's, waarbij ik aanvankelijk ons interne dashboard verbeterde. Mijn werk heeft ook betrekking gehad op het innoveren van onze app met functies zoals kortingsbonnen en flexibele boekingsdatum aanpassingen, waardoor de gebruikerservaring aanzienlijk werd verrijkt, en momenteel ben ik bezig met het automatiseren van verschillende handmatige processen om de service-efficiëntie te verhogen.`
+};
+
 const Journey = ({ language }) => {
   const container = {
     hidden: { opacity: 0 },
@@ -47,8 +52,8 @@ const Journey = ({ language }) => {
       initial="hidden"
       animate="show"
     >
-      <section id="journey" className="py-16 px-4">
-        <div className="container mx-auto">
+      <section id="journey" className="section-padding">
+        <div className="container fade-in-up">
           <motion.div 
             variants={item}
             className="text-center mb-12"
@@ -56,11 +61,20 @@ const Journey = ({ language }) => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary-foreground bg-clip-text text-transparent">
               {language === "EN" ? "My Journey" : "Mijn Reis"}
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <motion.p
+              variants={item}
+              className="text-muted-foreground text-lg max-w-4xl mx-auto leading-relaxed"
+            >
+              {language === "EN" ? introText.EN : introText.NL}
+            </motion.p>
+            <motion.p
+              variants={item}
+              className="text-muted-foreground text-base mt-6 max-w-2xl mx-auto"
+            >
               {language === "EN" 
-                ? journeyData.stages[0].descriptionEN 
-                : journeyData.stages[0].descriptionNL}
-            </p>
+                ? "Here below is a timeline with more details about my journey."
+                : "Hieronder staat een tijdlijn met meer details over mijn reis."}
+            </motion.p>
           </motion.div>
           <div className="relative">
             <motion.div 
@@ -105,10 +119,10 @@ const Journey = ({ language }) => {
                     whileHover={{ 
                       scale: 1.02,
                       y: -5,
-                      boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
+                      boxShadow: "0 20px 40px rgba(var(--primary), 0.1)"
                     }}
                     style={{ animation: "float 6s ease-in-out infinite" }}
-                    className="bg-card/50 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-primary/10 transition-all duration-300"
+                    className="group bg-card/50 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-primary/10 hover:border-primary/30 transition-all duration-300"
                   >
                     <h3 className="text-xl font-bold mb-2 bg-gradient-to-r from-primary to-primary-foreground bg-clip-text text-transparent">
                       {`${stage.year} - ${stage.period}`}

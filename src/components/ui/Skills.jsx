@@ -38,8 +38,9 @@ const Skills = ({ language }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       id="skills"
+      className="section-padding"
     >
-      <div className="container">
+      <div className="container fade-in-up">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

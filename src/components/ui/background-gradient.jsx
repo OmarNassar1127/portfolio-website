@@ -2,36 +2,39 @@ import { motion } from "framer-motion";
 
 const BackgroundGradient = () => {
   return (
-    <div className="fixed inset-0 -z-10 h-full w-full bg-background overflow-hidden">
+    <div className="fixed inset-0 -z-10 h-full w-full bg-background/95 overflow-hidden">
       <motion.div
         animate={{
-          scale: [1, 1.1, 1],
-          opacity: [0.3, 0.2, 0.3],
-          rotate: [0, 5, 0],
+          scale: [1, 1.2, 1],
+          opacity: [0.15, 0.25, 0.15],
+          rotate: [0, 10, 0],
         }}
         transition={{
-          duration: 10,
+          duration: 15,
           repeat: Infinity,
           repeatType: "reverse",
           ease: "easeInOut",
         }}
-        className="absolute inset-0 bg-gradient-to-r from-primary/20 via-secondary/30 to-accent/20 blur-3xl"
+        className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary blur-[100px]"
       />
       <motion.div
         animate={{
           scale: [1.2, 1, 1.2],
-          opacity: [0.2, 0.3, 0.2],
-          rotate: [0, -5, 0],
+          opacity: [0.1, 0.2, 0.1],
+          rotate: [0, -10, 0],
         }}
         transition={{
-          duration: 10,
+          duration: 15,
           repeat: Infinity,
           repeatType: "reverse",
           ease: "easeInOut",
         }}
-        className="absolute inset-0 bg-gradient-to-l from-accent/30 via-primary/20 to-secondary/30 blur-3xl"
+        className="absolute inset-0 bg-gradient-to-l from-accent via-primary to-accent blur-[120px]"
       />
-      <div className="absolute inset-0 bg-grid-white/10 bg-[size:20px_20px] [mask-image:radial-gradient(white,transparent_70%)]" />
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-grid-white/20 bg-[size:20px_20px] [mask-image:radial-gradient(white,transparent_70%)]" />
+        <div className="absolute inset-0 bg-noise opacity-20" />
+      </div>
     </div>
   );
 };
