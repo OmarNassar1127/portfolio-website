@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Button } from "./button"
-import { Menu, X, User, Code, Briefcase, Mail, Download, Languages } from "lucide-react"
+import { Menu, X, User, Code, Briefcase, Mail, Download, Languages, History } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
 const Navigation = ({ language, onToggleLanguage }) => {
@@ -27,6 +27,12 @@ const Navigation = ({ language, onToggleLanguage }) => {
       labelNL: 'Vaardigheden',
       href: '#skills',
       icon: Code
+    },
+    {
+      labelEN: 'Journey',
+      labelNL: 'Reis',
+      href: '#journey',
+      icon: History
     },
     {
       labelEN: 'Portfolio',

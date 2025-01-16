@@ -15,14 +15,15 @@ function App() {
   const mainRef = useRef(null)
   
   const { scrollYProgress } = useScroll({
-    target: mainRef,
-    offset: ["start start", "end end"]
+    offset: ["start start", "end end"],
+    smooth: true
   })
 
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
-    restDelta: 0.001
+    restDelta: 0.001,
+    bounce: 0
   })
 
   const toggleLanguage = () => {
@@ -62,8 +63,11 @@ function App() {
 
       {/* Progress bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-primary z-50 origin-[0%]"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary z-[100] origin-[0%] backdrop-blur-sm"
         style={{ scaleX }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
       />
 
       <Navigation 

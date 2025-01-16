@@ -62,7 +62,7 @@ const Modal = ({ activeID, setShowModal, language }) => {
         />
         <motion.div
           onClick={(e) => e.stopPropagation()}
-          className="w-11/12 md:max-w-2xl mx-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-card/95 backdrop-blur-sm rounded-lg shadow-2xl border border-primary/10 overflow-hidden"
+          className="w-11/12 md:max-w-2xl mx-auto fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-card/95 backdrop-blur-sm rounded-lg shadow-2xl border border-primary/10 overflow-y-auto max-h-[90vh] md:max-h-[85vh]"
           variants={modal}
           initial="hidden"
           animate="visible"

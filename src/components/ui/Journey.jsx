@@ -28,8 +28,25 @@ const Journey = ({ language }) => {
       transition: {
         type: "spring",
         stiffness: 100,
+        damping: 10,
+        duration: 0.5
+      }
+    }
+  };
+
+  const cardAnimation = {
+    hover: {
+      scale: 1.02,
+      y: -5,
+      boxShadow: "0 20px 40px rgba(var(--primary), 0.1)",
+      transition: {
+        type: "spring",
+        stiffness: 400,
         damping: 10
       }
+    },
+    tap: {
+      scale: 0.98
     }
   };
 
@@ -111,19 +128,66 @@ const Journey = ({ language }) => {
                 key={stage.id}
                 variants={item}
                 className={`flex items-center mb-12 ${
-                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                }`}
+                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                } flex-col relative`}
               >
-                <div className={`w-1/2 ${index % 2 === 0 ? "pr-12" : "pl-12"}`}>
-                  <motion.div
-                    whileHover={{ 
-                      scale: 1.02,
-                      y: -5,
-                      boxShadow: "0 20px 40px rgba(var(--primary), 0.1)"
-                    }}
-                    style={{ animation: "float 6s ease-in-out infinite" }}
-                    className="group bg-card/50 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-primary/10 hover:border-primary/30 transition-all duration-300"
+                {/* Vertical connector line for mobile */}
+                <motion.div 
+                  className="absolute left-1/2 transform -translate-x-1/2 h-full md:hidden"
+                  initial={{ height: 0 }}
+                  animate={{ height: "100%" }}
+                  transition={{ duration: 1, ease: "easeInOut" }}
+                >
+                  <div className="w-px h-full bg-gradient-to-b from-primary/40 via-primary/20 to-transparent" />
+                </motion.div>
+                <div className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pr-12" : "md:pl-12"} mb-16 md:mb-0 relative`}>
+                  {/* Vertical connector line for mobile */}
+                  <motion.div 
+                    className="absolute left-1/2 -bottom-16 w-px h-16 bg-gradient-to-b from-primary/40 to-transparent md:hidden"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "4rem", opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
                   >
+                    <motion.div 
+                      className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 rounded-full bg-primary/40"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 0.3, delay: 0.4 }}
+                    />
+                  </motion.div>
+                  
+                  <motion.div
+                    variants={cardAnimation}
+                    whileHover="hover"
+                    whileTap="tap"
+                    initial={{ opacity: 0, y: 30, scale: 0.8 }}
+                    animate={{ 
+                      opacity: 1, 
+                      y: 0, 
+                      scale: 1,
+                      transition: {
+                        type: "spring",
+                        stiffness: 100,
+                        damping: 10,
+                        delay: index * 0.1
+                      }
+                    }}
+                    className="group relative bg-card/50 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-primary/10 hover:border-primary/30 transition-all duration-300"
+                  >
+                    {/* Bottom connector for mobile */}
+                    <motion.div 
+                      className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full h-16 w-px bg-gradient-to-b from-primary/40 to-transparent md:hidden"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "4rem", opacity: 1 }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
+                    >
+                      <motion.div 
+                        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2 h-2 rounded-full bg-primary/40"
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 0.3, delay: 0.4 }}
+                      />
+                    </motion.div>
                     <h3 className="text-xl font-bold mb-2 bg-gradient-to-r from-primary to-primary-foreground bg-clip-text text-transparent">
                       {`${stage.year} - ${stage.period}`}
                     </h3>
@@ -143,8 +207,11 @@ const Journey = ({ language }) => {
                     rotate: 360,
                     transition: { duration: 0.8, ease: "easeInOut" }
                   }}
-                  className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border-4 border-background flex items-center justify-center relative z-10 shadow-lg"
+                  className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border-4 border-background flex items-center justify-center relative z-10 shadow-lg mx-auto md:mx-0 mb-8 md:mb-0"
                 >
+                  <motion.div
+                    className="absolute top-full left-1/2 transform -translate-x-1/2 w-px h-8 bg-gradient-to-b from-primary/40 to-transparent md:hidden"
+                  />
                   <motion.img 
                     src={stage.icon} 
                     alt="" 
