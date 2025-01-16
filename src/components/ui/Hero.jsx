@@ -4,7 +4,7 @@ import CountUp from "react-countup";
 import Typed from "typed.js";
 import { Button } from "./button";
 import { Card } from "./card";
-import { Github, Linkedin, Mail, Download } from "lucide-react";
+import { Github, Linkedin, Mail, Download, Twitter } from "lucide-react";
 
 const container = {
   hidden: { opacity: 0 },
