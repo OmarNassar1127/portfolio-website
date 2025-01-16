@@ -127,6 +127,26 @@ const Journey = ({ language }) => {
               <motion.div
                 key={stage.id}
                 variants={item}
+                initial={index === 0 ? {
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  "@media (max-width: 768px)": {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1
+                  }
+                } : "hidden"}
+                animate={index === 0 ? {
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  "@media (max-width: 768px)": {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1
+                  }
+                } : "show"}
                 className={`flex items-center mb-12 ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 } flex-col relative`}
@@ -160,10 +180,33 @@ const Journey = ({ language }) => {
                     variants={cardAnimation}
                     whileHover="hover"
                     whileTap="tap"
-                    initial={{ opacity: 0, y: 30, scale: 0.8 }}
-                    animate={{ 
-                      opacity: 1, 
-                      y: 0, 
+                    initial={index === 0 ? {
+                      "@media (max-width: 768px)": {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1
+                      },
+                      opacity: 0,
+                      y: 30,
+                      scale: 0.8
+                    } : { opacity: 0, y: 30, scale: 0.8 }}
+                    animate={index === 0 ? {
+                      "@media (max-width: 768px)": {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1
+                      },
+                      opacity: 1,
+                      y: 0,
+                      scale: 1,
+                      transition: {
+                        type: "spring",
+                        stiffness: 100,
+                        damping: 10
+                      }
+                    } : {
+                      opacity: 1,
+                      y: 0,
                       scale: 1,
                       transition: {
                         type: "spring",

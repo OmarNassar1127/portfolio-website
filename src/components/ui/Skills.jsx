@@ -2,20 +2,25 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "./card";
 
 const Skills = ({ language }) => {
+  // Ensure no duplicate skills by using a single source of truth for similar technologies
   const skills = [
-    { name: "React", icon: "/SVG/react.svg" },
+    { name: "Python", icon: "/SVG/python.svg" },
+    { name: "TypeScript", icon: "/SVG/typescript.svg" },
     { name: "JavaScript", icon: "/SVG/javascript.svg" },
+    { name: "React", icon: "/SVG/react.svg" },
     { name: "Node.js", icon: "/SVG/nodejs.svg" },
-    { name: "HTML", icon: "/SVG/html.svg" },
-    { name: "CSS", icon: "/SVG/css.svg" },
-    { name: "Tailwind", icon: "/SVG/tailwind.svg" },
+    { name: "Redux", icon: "/SVG/redux.svg" },
+    { name: "Laravel", icon: "/SVG/laravel.svg" },
+    { name: "PostgreSQL", icon: "/SVG/postgresql.svg" },
     { name: "PHP", icon: "/SVG/php.svg" },
+    { name: "CSS3", icon: "/SVG/css.svg" },
+    { name: "HTML5", icon: "/SVG/html.svg" },
+    { name: "AI", icon: "/SVG/ai.svg" },
     { name: "MySQL", icon: "/SVG/mysql.svg" },
-    { name: "GraphQL", icon: "/SVG/graphQL.svg" },
-    { name: "Git", icon: "/SVG/github.svg" },
-    { name: "VSCode", icon: "/SVG/vscode.svg" },
-    { name: "Figma", icon: "/SVG/figma.svg" },
-  ];
+    { name: "Shopify", icon: "/SVG/shopify.svg" },
+    { name: "WordPress", icon: "/SVG/wordpress.svg" },
+    { name: "Tailwind CSS", icon: "/SVG/tailwind.svg" },
+  ].sort((a, b) => a.name.localeCompare(b.name));
 
   const container = {
     hidden: { opacity: 0 },
@@ -55,7 +60,11 @@ const Skills = ({ language }) => {
           variants={container}
           initial="hidden"
           animate="show"
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-12"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-12 overflow-auto scrollbar-hide scroll-smooth"
+          style={{
+            scrollBehavior: "smooth",
+            WebkitOverflowScrolling: "touch"
+          }}
         >
           {skills.map((skill, index) => (
               <motion.figure
