@@ -47,15 +47,15 @@ const Skills = ({ language }) => {
           transition={{ duration: 0.4, delay: 0.2 }}
           className="flex items-center justify-center"
         >
-          <h1 className="text-smallTextColor font-[800] text-[35px]">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary-foreground bg-clip-text text-transparent">
             {language === "EN" ? "I have experience with:" : "Ik heb ervaring met:"}
-          </h1>
+          </h2>
         </motion.div>
         <motion.div
           variants={container}
           initial="hidden"
           animate="show"
-          className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-8 mt-12"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-12"
         >
           {skills.map((skill, index) => (
               <motion.figure
@@ -63,14 +63,28 @@ const Skills = ({ language }) => {
                 variants={item}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="p-4 rounded-lg hover:bg-primary/5 transition-colors"
+                className="group relative p-6 rounded-lg bg-card/50 backdrop-blur-sm border border-primary/10 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
               >
-                <img
-                  src={skill.icon}
-                  alt={skill.name}
-                  className="w-12 h-12 mx-auto mb-2"
+                <motion.div
+                  className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-accent/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500"
+                  animate={{
+                    opacity: [0.2, 0.3, 0.2],
+                    scale: [1, 1.05, 1],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
                 />
-                <p className="text-sm text-center font-medium">{skill.name}</p>
+                <div className="relative">
+                  <img
+                    src={skill.icon}
+                    alt={skill.name}
+                    className="w-12 h-12 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <p className="text-sm text-center font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300">{skill.name}</p>
+                </div>
               </motion.figure>
             ))}
           </motion.div>

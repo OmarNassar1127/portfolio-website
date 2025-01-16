@@ -1,24 +1,54 @@
 import React, { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import CountUp from "react-countup";
 import Typed from "typed.js";
 import { Button } from "./button";
 import { Card } from "./card";
-import { Github, Linkedin, Mail, Download, Twitter } from "lucide-react";
+import { Github, Linkedin, Mail, Download, Twitter, ChevronDown, ExternalLink, Code, Sparkles } from "lucide-react";
 
 const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1
+      staggerChildren: 0.1,
+      delayChildren: 0.2
     }
   }
 };
 
 const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 }
+  hidden: { opacity: 0, y: 20, scale: 0.9 },
+  show: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 10
+    }
+  }
+};
+
+const floatingAnimation = {
+  y: [-10, 10],
+  transition: {
+    duration: 2,
+    repeat: Infinity,
+    repeatType: "reverse",
+    ease: "easeInOut"
+  }
+};
+
+const glowAnimation = {
+  opacity: [0.5, 1, 0.5],
+  scale: [1, 1.05, 1],
+  transition: {
+    duration: 3,
+    repeat: Infinity,
+    ease: "easeInOut"
+  }
 };
 
 const Hero = ({ language }) => {
@@ -45,12 +75,19 @@ const Hero = ({ language }) => {
     };
   }, []);
 
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  const springY = useSpring(y, { stiffness: 100, damping: 30 });
+
   return (
     <motion.section 
       variants={container}
       initial="hidden"
       animate="show"
-      className="relative min-h-[90vh] flex items-center py-16 sm:py-20 overflow-hidden" 
+      style={{ opacity }}
+      className="relative min-h-screen flex items-center justify-center py-20 overflow-hidden" 
       id="about"
     >
       {/* Animated background layers */}
@@ -82,35 +119,49 @@ const Hero = ({ language }) => {
             <motion.div 
               variants={container}
               className="space-y-4">
-              <motion.h5
-              variants={item}
-              className="text-muted-foreground font-medium text-sm sm:text-base tracking-wide"
-            >
-              {language === "EN" ? "Hello, my name is" : "Hallo, ik ben"}
-            </motion.h5>
-            <motion.div
-              variants={container}
-              className="space-y-2"
-            >
-              <motion.h1 
+              {/* Badge */}
+              <motion.div
                 variants={item}
-                className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary-foreground bg-clip-text text-transparent"
+                className="inline-block"
+                whileHover={{ scale: 1.05 }}
               >
-                Omar Nassar
-              </motion.h1>
-              <motion.div variants={item} className="flex items-center gap-2 text-muted-foreground">
-                <span className="text-sm sm:text-base">
-                  {language === "EN" ? "and I'm a" : "en ik ben een"}
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium backdrop-blur-sm border border-primary/20">
+                  <Code className="w-4 h-4" />
+                  {language === "EN" ? "Full Stack Developer" : "Full Stack Ontwikkelaar"}
                 </span>
-                <motion.span
-                  variants={item}
-                  whileHover={{ scale: 1.1, color: "hsl(var(--primary))" }}
-                  className="text-lg sm:text-xl font-semibold text-primary"
-                >
-                  Developer
-                </motion.span>
               </motion.div>
-            </motion.div>
+
+              {/* Main heading */}
+              <motion.div
+                variants={container}
+                className="space-y-4"
+              >
+                <motion.div className="space-y-2">
+                  <motion.p
+                    variants={item}
+                    className="text-lg text-muted-foreground font-medium"
+                  >
+                    {language === "EN" ? "Hello, I'm" : "Hallo, ik ben"}
+                  </motion.p>
+                  <motion.h1 
+                    variants={item}
+                    className="text-6xl sm:text-7xl md:text-8xl font-bold tracking-tight"
+                  >
+                    <span className="inline-block bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent pb-2">
+                      Omar Nassar
+                    </span>
+                  </motion.h1>
+                </motion.div>
+                <motion.div 
+                  variants={item}
+                  className="flex items-center gap-3"
+                >
+                  <div className="h-px w-12 bg-primary/30" />
+                  <span className="text-xl sm:text-2xl text-muted-foreground/90 font-medium">
+                    <span id="typed-text"></span>
+                  </span>
+                </motion.div>
+              </motion.div>
             <motion.div
               variants={item}
               className="flex items-center gap-2 text-muted-foreground"
@@ -124,59 +175,90 @@ const Hero = ({ language }) => {
                 id="typed-text"
               ></motion.span>
             </motion.div>
+            {/* CTA Buttons */}
             <motion.div
               variants={container}
-              className="flex flex-wrap items-center gap-4 sm:gap-6"
+              className="flex flex-wrap items-center gap-6 mt-8"
             >
-              <motion.a 
-                href="#contact"
+              <motion.div
                 variants={item}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="relative group"
               >
-                <motion.button
-                  className="bg-primary text-primary-foreground font-[500] flex items-center gap-2
-                            hover:bg-primary/90 transition-colors duration-300 py-2 px-4 rounded-[8px]"
-                  whileHover={{ 
-                    scale: 1.05,
-                    boxShadow: "0 0 8px rgba(var(--primary), 0.5)"
-                  }}
-                  whileTap={{ scale: 0.95 }}
+                <motion.div
+                  className="absolute -inset-1 bg-gradient-to-r from-primary via-accent to-primary rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"
+                  animate={glowAnimation}
+                />
+                <Button
+                  asChild
+                  className="relative px-8 py-6 bg-background/80 backdrop-blur-sm border border-primary/20 hover:border-primary/40 transition-all duration-300"
                 >
-                  <i className="ri-mail-line"></i>
-                  {language === "EN" ? "Contact me" : "Neem contact met mij op"}
-                </motion.button>
-              </motion.a>
-              <motion.a
-                href="#portfolio"
+                  <motion.a
+                    href="#contact"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center gap-3"
+                  >
+                    <Mail className="w-5 h-5" />
+                    <span className="font-medium">
+                      {language === "EN" ? "Contact me" : "Neem contact met mij op"}
+                    </span>
+                  </motion.a>
+                </Button>
+              </motion.div>
+
+              <motion.div
                 variants={item}
-                className="text-primary font-[600] text-[16px] border-b-2 border-transparent hover:border-primary transition-colors duration-300"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
+                className="relative group"
               >
-                {language === "EN" ? "See my portfolio" : "Zie mijn portfolio"}
-              </motion.a>
-              <motion.a 
-                href={cvLink} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                variants={item}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <motion.button
-                  className="bg-primary/10 text-primary font-[500] flex items-center gap-2
-                            hover:bg-primary hover:text-primary-foreground transition-all duration-300 py-2 px-4 rounded-[8px]"
-                  whileHover={{ 
-                    scale: 1.05,
-                    boxShadow: "0 0 8px rgba(var(--primary), 0.3)"
-                  }}
-                  whileTap={{ scale: 0.95 }}
+                <motion.div
+                  className="absolute -inset-1 bg-gradient-to-r from-accent via-primary to-accent rounded-lg blur opacity-20 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"
+                  animate={glowAnimation}
+                />
+                <Button
+                  asChild
+                  variant="outline"
+                  className="relative px-8 py-6 hover:bg-primary/5 backdrop-blur-sm border border-primary/20 hover:border-primary/40 transition-all duration-300"
                 >
-                  <i className="ri-article-line"></i>
-                  {language === "EN" ? "CV" : "CV"}
-                </motion.button>
-              </motion.a>
+                  <motion.a
+                    href="#portfolio"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center gap-3"
+                  >
+                    <Sparkles className="w-5 h-5" />
+                    <span className="font-medium">
+                      {language === "EN" ? "View Portfolio" : "Bekijk Portfolio"}
+                    </span>
+                  </motion.a>
+                </Button>
+              </motion.div>
+
+              <motion.div
+                variants={item}
+                className="relative group"
+              >
+                <motion.div
+                  className="absolute -inset-1 bg-gradient-to-r from-primary/50 to-accent/50 rounded-lg blur opacity-20 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"
+                  animate={glowAnimation}
+                />
+                <Button
+                  asChild
+                  variant="outline"
+                  className="relative px-8 py-6 hover:bg-primary/5 backdrop-blur-sm border border-primary/20 hover:border-primary/40 transition-all duration-300"
+                >
+                  <motion.a
+                    href={cvLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center gap-3"
+                  >
+                    <Download className="w-5 h-5" />
+                    <span className="font-medium">Download CV</span>
+                  </motion.a>
+                </Button>
+              </motion.div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -199,39 +281,46 @@ const Hero = ({ language }) => {
                 {text}
               </motion.p>
             </motion.div>
+            {/* Social Links */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 1.3 }}
-              className="flex items-center flex-wrap gap-4 mt-14"
+              variants={container}
+              className="flex flex-col gap-6 mt-14"
             >
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.4, delay: 1.4 }}
-                className="text-blueGray-700 text-sm font-bold w-full mb-2"
+              <motion.div
+                variants={item}
+                className="flex items-center gap-3"
               >
-                {language === "EN" ? "My socials:" : "Mijn socials:"}
-              </motion.span>
+                <div className="h-px flex-1 bg-primary/20" />
+                <span className="text-sm font-medium text-muted-foreground">
+                  {language === "EN" ? "Connect with me" : "Verbind met mij"}
+                </span>
+                <div className="h-px flex-1 bg-primary/20" />
+              </motion.div>
+
               <motion.div
                 variants={container}
-                className="flex flex-wrap gap-4"
+                className="flex flex-wrap gap-4 justify-center"
               >
                 {[
-                  { icon: Github, href: "https://github.com/OmarNassar1127", label: "GitHub" },
-                  { icon: Linkedin, href: "https://www.linkedin.com/in/omar-nassar-b63b93220/", label: "LinkedIn" },
-                  { icon: Mail, href: "mailto:contact@omardev.xyz", label: "Email" },
-                  { icon: Twitter, href: "https://twitter.com/GodelTrabuco69", label: "Twitter" }
+                  { icon: Github, href: "https://github.com/OmarNassar1127", label: "GitHub", color: "group-hover:text-[#333]" },
+                  { icon: Linkedin, href: "https://www.linkedin.com/in/omar-nassar-b63b93220/", label: "LinkedIn", color: "group-hover:text-[#0077b5]" },
+                  { icon: Mail, href: "mailto:contact@omardev.xyz", label: "Email", color: "group-hover:text-primary" },
+                  { icon: Twitter, href: "https://twitter.com/GodelTrabuco69", label: "Twitter", color: "group-hover:text-[#1DA1F2]" }
                 ].map((social, index) => (
                   <motion.div
                     key={social.label}
                     variants={item}
+                    className="relative group"
                   >
+                    <motion.div
+                      className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-accent/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500"
+                      animate={glowAnimation}
+                    />
                     <Button
+                      asChild
                       variant="ghost"
                       size="icon"
-                      asChild
-                      className="hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                      className="relative bg-background/80 backdrop-blur-sm border border-primary/10 hover:border-primary/30 hover:bg-background/90"
                     >
                       <motion.a
                         href={social.href}
@@ -240,8 +329,9 @@ const Hero = ({ language }) => {
                         aria-label={social.label}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
+                        className={social.color}
                       >
-                        <social.icon className="h-5 w-5" />
+                        <social.icon className="h-5 w-5 transition-colors duration-300" />
                       </motion.a>
                     </Button>
                   </motion.div>

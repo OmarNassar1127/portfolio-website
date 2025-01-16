@@ -1,0 +1,117 @@
+/* Section layouts */
+.section-container {
+  @apply container mx-auto px-4 sm:px-6 lg:px-8 relative;
+}
+
+.section-padding {
+  @apply py-20 md:py-32;
+}
+
+.section-grid {
+  @apply grid gap-8 md:gap-12;
+}
+
+/* Grid layouts */
+.grid-auto-fit {
+  @apply grid grid-cols-1;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+
+.grid-auto-fill {
+  @apply grid grid-cols-1;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+}
+
+/* Flex layouts */
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+.flex-between {
+  @apply flex items-center justify-between;
+}
+
+.flex-start {
+  @apply flex items-start justify-start;
+}
+
+.flex-end {
+  @apply flex items-end justify-end;
+}
+
+/* Container sizes */
+.container-sm {
+  @apply max-w-4xl mx-auto px-4 sm:px-6;
+}
+
+.container-md {
+  @apply max-w-6xl mx-auto px-4 sm:px-6;
+}
+
+.container-lg {
+  @apply max-w-7xl mx-auto px-4 sm:px-6;
+}
+
+/* Spacing utilities */
+.space-section {
+  @apply space-y-12 md:space-y-16 lg:space-y-20;
+}
+
+.space-content {
+  @apply space-y-6 md:space-y-8;
+}
+
+.space-items {
+  @apply space-y-4 md:space-y-6;
+}
+
+/* Background patterns */
+.bg-grid {
+  background-size: 20px 20px;
+  background-image: linear-gradient(to right, rgba(255,255,255,.1) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255,255,255,.1) 1px, transparent 1px);
+}
+
+.bg-dots {
+  background-image: radial-gradient(rgba(255,255,255,.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Backdrop blur variations */
+.backdrop-blur-xs {
+  @apply backdrop-blur-[2px];
+}
+
+.backdrop-blur-sm {
+  @apply backdrop-blur-[4px];
+}
+
+.backdrop-blur-md {
+  @apply backdrop-blur-[8px];
+}
+
+.backdrop-blur-lg {
+  @apply backdrop-blur-[16px];
+}
+
+/* Glass effect */
+.glass {
+  @apply bg-white/10 backdrop-blur-md border border-white/20;
+}
+
+.glass-dark {
+  @apply bg-black/10 backdrop-blur-md border border-black/20;
+}
+
+/* Responsive paddings */
+.responsive-p {
+  @apply p-4 sm:p-6 md:p-8 lg:p-10;
+}
+
+.responsive-px {
+  @apply px-4 sm:px-6 md:px-8 lg:px-10;
+}
+
+.responsive-py {
+  @apply py-4 sm:py-6 md:py-8 lg:py-10;
+}

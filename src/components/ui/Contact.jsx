@@ -3,8 +3,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "./card"
 import { Button } from "./button"
 import { Input } from "./input"
 import { Textarea } from "./textarea"
-import { motion } from "framer-motion"
-import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from "lucide-react"
+import { siteConfig } from "../../config/site"
 
 const Contact = ({ language }) => {
   const [loading, setLoading] = useState(false);
@@ -97,56 +98,91 @@ const Contact = ({ language }) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <Card className="bg-card/50 backdrop-blur-sm">
+            <Card className="bg-card/50 backdrop-blur-sm border-primary/20">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+                <CardTitle className="flex items-center gap-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                   <Send className="h-5 w-5 text-primary" />
                   {language === "EN" ? "Send Message" : "Stuur Bericht"}
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Input 
+                        name="name"
+                        placeholder={language === "EN" ? "Name" : "Naam"}
+                        required
+                        className="bg-background/50 border-primary/20 focus:border-primary/40 transition-colors"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Input 
+                        name="email"
+                        type="email" 
+                        placeholder={language === "EN" ? "Email" : "E-mail"}
+                        required
+                        className="bg-background/50 border-primary/20 focus:border-primary/40 transition-colors"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
                     <Input 
-                      name="name"
-                      placeholder={language === "EN" ? "Name" : "Naam"}
+                      name="subject"
+                      placeholder={language === "EN" ? "Subject" : "Onderwerp"}
                       required
-                      className="bg-background/50"
-                    />
-                    <Input 
-                      name="email"
-                      type="email" 
-                      placeholder={language === "EN" ? "Email" : "E-mail"}
-                      required
-                      className="bg-background/50"
+                      className="bg-background/50 border-primary/20 focus:border-primary/40 transition-colors"
                     />
                   </div>
-                  <Input 
-                    name="subject"
-                    placeholder={language === "EN" ? "Subject" : "Onderwerp"}
-                    required
-                    className="bg-background/50"
-                  />
-                  <Textarea 
-                    name="message"
-                    placeholder={language === "EN" ? "Your message" : "Uw bericht"}
-                    className="min-h-[120px] bg-background/50"
-                    required
-                  />
-                  <Button className="w-full" disabled={loading}>
-                    {loading ? (
-                      <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                        className="mr-2 h-4 w-4"
-                      >
-                        ◌
-                      </motion.div>
-                    ) : (
-                      <Send className="mr-2 h-4 w-4" />
-                    )}
-                    {loading ? (language === "EN" ? "Sending..." : "Verzenden...") : (language === "EN" ? "Send Message" : "Verstuur Bericht")}
-                  </Button>
+                  <div className="space-y-2">
+                    <Textarea 
+                      name="message"
+                      placeholder={language === "EN" ? "Your message" : "Uw bericht"}
+                      className="min-h-[120px] bg-background/50 border-primary/20 focus:border-primary/40 transition-colors resize-none"
+                      required
+                    />
+                  </div>
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Button 
+                      className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity"
+                      disabled={loading}
+                    >
+                      <AnimatePresence mode="wait">
+                        {loading ? (
+                          <motion.div
+                            key="loading"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="flex items-center"
+                          >
+                            <motion.div
+                              animate={{ rotate: 360 }}
+                              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                              className="mr-2 h-4 w-4"
+                            >
+                              ◌
+                            </motion.div>
+                            {language === "EN" ? "Sending..." : "Verzenden..."}
+                          </motion.div>
+                        ) : (
+                          <motion.div
+                            key="send"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="flex items-center"
+                          >
+                            <Send className="mr-2 h-4 w-4" />
+                            {language === "EN" ? "Send Message" : "Verstuur Bericht"}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </Button>
+                  </motion.div>
                 </form>
               </CardContent>
             </Card>

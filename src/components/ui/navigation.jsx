@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { Button } from "./button"
-import { Menu, X } from "lucide-react"
+import { Menu, X, User, Code, Briefcase, Mail, Download, Languages } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
-const Navigation = () => {
+const Navigation = ({ language, onToggleLanguage }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -16,10 +16,30 @@ const Navigation = () => {
   }, [])
 
   const menuItems = [
-    { label: 'About', href: '#about' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Portfolio', href: '#portfolio' },
-    { label: 'Contact', href: '#contact' },
+    { 
+      labelEN: 'About',
+      labelNL: 'Over mij',
+      href: '#about',
+      icon: User
+    },
+    {
+      labelEN: 'Skills',
+      labelNL: 'Vaardigheden',
+      href: '#skills',
+      icon: Code
+    },
+    {
+      labelEN: 'Portfolio',
+      labelNL: 'Portfolio',
+      href: '#portfolio',
+      icon: Briefcase
+    },
+    {
+      labelEN: 'Contact',
+      labelNL: 'Contact',
+      href: '#contact',
+      icon: Mail
+    },
   ]
 
   return (
@@ -28,23 +48,40 @@ const Navigation = () => {
     }`}>
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <a href="/" className="text-xl font-bold">
+          <motion.a 
+            href="/" 
+            className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             Omar Nassar
-          </a>
+          </motion.a>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
             {menuItems.map((item) => (
               <a
-                key={item.label}
+                key={item.labelEN}
                 href={item.href}
-                className="text-sm font-medium hover:text-primary transition-colors"
+                className="text-sm font-medium hover:text-primary transition-all duration-300 hover:scale-105"
               >
-                {item.label}
+                <span className="flex items-center gap-2">
+                  <item.icon className="h-4 w-4" />
+                  {language === "EN" ? item.labelEN : item.labelNL}
+                </span>
               </a>
             ))}
-            <Button>
-              Download CV
+            <Button onClick={onToggleLanguage} variant="outline" className="mr-4">
+              {language === "EN" ? "NL" : "EN"}
+            </Button>
+            <Button asChild>
+              <a 
+                href={language === "EN" ? "/cv/Omar-cv-en.pdf" : "/cv/Omar-cv-nl.pdf"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {language === "EN" ? "Download CV" : "Download CV"}
+              </a>
             </Button>
           </div>
 
@@ -71,16 +108,28 @@ const Navigation = () => {
               <div className="py-4 space-y-4">
                 {menuItems.map((item) => (
                   <a
-                    key={item.label}
+                    key={item.labelEN}
                     href={item.href}
-                    className="block text-sm font-medium hover:text-primary transition-colors"
+                    className="block text-sm font-medium hover:text-primary transition-all duration-300 hover:translate-x-2"
                     onClick={() => setIsOpen(false)}
                   >
-                    {item.label}
+                    <span className="flex items-center gap-2">
+                      <item.icon className="h-4 w-4" />
+                      {language === "EN" ? item.labelEN : item.labelNL}
+                    </span>
                   </a>
                 ))}
-                <Button className="w-full">
-                  Download CV
+                <Button onClick={onToggleLanguage} variant="outline" className="w-full mb-2">
+                  {language === "EN" ? "NL" : "EN"}
+                </Button>
+                <Button className="w-full" asChild>
+                  <a 
+                    href={language === "EN" ? "/cv/Omar-cv-en.pdf" : "/cv/Omar-cv-nl.pdf"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {language === "EN" ? "Download CV" : "Download CV"}
+                  </a>
                 </Button>
               </div>
             </motion.div>

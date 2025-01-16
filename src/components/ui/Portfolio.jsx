@@ -4,12 +4,20 @@ import { Button } from "./button";
 import { Badge } from "./badge";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import Modal from "./Modal";
 import portfolioData from '../../assets/data/portfolioData';
 
 const Portfolio = ({ language }) => {
   const [nextItems, setNextItems] = useState(30);
   const [portfolios, setPortfolios] = useState(portfolioData);
   const [selectTab, setSelectTab] = useState("all");
+  const [showModal, setShowModal] = useState(false);
+  const [activeID, setActiveID] = useState(null);
+
+  const showModalHandler = (id) => {
+    setShowModal(true);
+    setActiveID(id);
+  };
   const loadMoreHandler = () => {
     setNextItems((prev) => prev + 3);
   };
@@ -90,7 +98,10 @@ const Portfolio = ({ language }) => {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="group h-full hover:shadow-xl transition-all duration-300 hover:border-primary/30">
+                <Card 
+                  className="group h-full hover:shadow-xl transition-all duration-300 hover:border-primary/30 cursor-pointer"
+                  onClick={() => showModalHandler(portfolio.id)}
+                >
                   <CardHeader>
                     <div className="aspect-video relative overflow-hidden rounded-lg mb-4">
                       <img 
@@ -98,7 +109,11 @@ const Portfolio = ({ language }) => {
                         alt={portfolio.title}
                         className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <Button variant="ghost" className="bg-background/20 backdrop-blur-sm border border-primary/20">
+                          {language === "EN" ? "View Details" : "Bekijk Details"}
+                        </Button>
+                      </div>
                     </div>
                     <CardTitle className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{portfolio.title}</CardTitle>
                     <CardDescription className="text-muted-foreground/80">{portfolio.category}</CardDescription>
@@ -120,12 +135,23 @@ const Portfolio = ({ language }) => {
                       )}
                     </div>
                   </CardContent>
-                  <CardFooter>
+                  <CardFooter className="flex gap-2">
+                    <Button variant="outline" className="flex-1" onClick={(e) => {
+                      e.stopPropagation();
+                      showModalHandler(portfolio.id);
+                    }}>
+                      {language === "EN" ? "View Details" : "Bekijk Details"}
+                    </Button>
                     {portfolio.siteUrl && portfolio.siteUrl !== "#" && (
-                      <Button variant="outline" className="w-full" asChild>
-                        <a href={portfolio.siteUrl} target="_blank" rel="noopener noreferrer">
+                      <Button variant="outline" className="flex-1" asChild>
+                        <a 
+                          href={portfolio.siteUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                        >
                           <ExternalLink className="mr-2 h-4 w-4" />
-                          Visit Project
+                          {language === "EN" ? "Visit" : "Bezoek"}
                         </a>
                       </Button>
                     )}
@@ -158,7 +184,13 @@ const Portfolio = ({ language }) => {
           )}
         </motion.div>
       </div>
-      {/* Modal removed in favor of card-based design */}
+      {showModal && (
+        <Modal
+          setShowModal={setShowModal}
+          activeID={activeID}
+          language={language}
+        />
+      )}
     </section>
   );
 };
