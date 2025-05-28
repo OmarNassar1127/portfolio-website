@@ -1,14 +1,13 @@
 import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
 
 const Contact = ({ language }) => {
   const form = useRef();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    user_name: "",
-    user_email: "",
-    user_subject: "",
+    name: "",
+    email: "",
+    subject: "",
     message: ""
   });
 
@@ -49,9 +48,9 @@ const Contact = ({ language }) => {
 
   const resetForm = () => {
     setFormData({
-      user_name: "",
-      user_email: "",
-      user_subject: "",
+      name: "",
+      email: "",
+      subject: "",
       message: ""
     });
     form.current.reset();
@@ -62,25 +61,30 @@ const Contact = ({ language }) => {
     setLoading(true);
 
     try {
-      await emailjs.sendForm(
-        "service_a7vkxnt",
-        "template_e8yb2rm",
-        form.current,
-        "TSqjyuUZdiEwALBRn"
-      );
-      
-      resetForm();
-      toast.success(currentContent.successToast, {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        theme: "colored",
+      const response = await fetch("https://formspree.io/f/mqaqryyn", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
+
+      if (response.ok) {
+        resetForm();
+        toast.success(currentContent.successToast, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "colored",
+        });
+      } else {
+        throw new Error("Form submission failed");
+      }
     } catch (error) {
-      console.error("EmailJS Error:", error);
+      console.error("Form submission error:", error);
       toast.error(currentContent.errorToast, {
         position: "top-right",
         autoClose: 3000,
@@ -143,14 +147,14 @@ const Contact = ({ language }) => {
               <form ref={form} onSubmit={sendEmail} className="space-y-6">
                 {/* Name Input */}
                 <div>
-                  <label htmlFor="user_name" className="sr-only">
+                  <label htmlFor="name" className="sr-only">
                     {currentContent.namePlaceholder}
                   </label>
                   <input
                     type="text"
-                    id="user_name"
-                    name="user_name"
-                    value={formData.user_name}
+                    id="name"
+                    name="name"
+                    value={formData.name}
                     onChange={handleInputChange}
                     required
                     placeholder={currentContent.namePlaceholder}
@@ -160,14 +164,14 @@ const Contact = ({ language }) => {
 
                 {/* Email Input */}
                 <div>
-                  <label htmlFor="user_email" className="sr-only">
+                  <label htmlFor="email" className="sr-only">
                     {currentContent.emailPlaceholder}
                   </label>
                   <input
                     type="email"
-                    id="user_email"
-                    name="user_email"
-                    value={formData.user_email}
+                    id="email"
+                    name="email"
+                    value={formData.email}
                     onChange={handleInputChange}
                     required
                     placeholder={currentContent.emailPlaceholder}
@@ -177,14 +181,14 @@ const Contact = ({ language }) => {
 
                 {/* Subject Input */}
                 <div>
-                  <label htmlFor="user_subject" className="sr-only">
+                  <label htmlFor="subject" className="sr-only">
                     {currentContent.subjectPlaceholder}
                   </label>
                   <input
                     type="text"
-                    id="user_subject"
-                    name="user_subject"
-                    value={formData.user_subject}
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
                     onChange={handleInputChange}
                     required
                     placeholder={currentContent.subjectPlaceholder}

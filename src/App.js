@@ -8,6 +8,8 @@ import Journey from "./components/UI/Journey";
 import Portfolio from "./components/UI/Portfolio";
 import Contact from "./components/UI/Contact";
 import Skills from "./components/UI/Skills";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -35,6 +37,7 @@ function App() {
         <Contact language={language} />
       </main>
       <Footer language={language} />
+      <ToastContainer />
     </>
   );
 }
