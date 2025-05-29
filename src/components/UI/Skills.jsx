@@ -1,26 +1,26 @@
 import React, { useState } from "react";
 import "../../../src/styles.css";
-import {
-  atlassian,
-  bootstrap,
-  css,
-  figma,
-  github,
-  graphQL,
-  html,
-  javascript,
-  jira,
-  mysql,
-  nodejs,
-  php,
-  react,
-  tailwind,
-  vscode,
-  c,
-  cplus,
-  laravel,
-  wordpress,
-} from "../../assets/images/SVG/object/Icons";
+
+// Import SVG files directly
+import atlassianSvg from "../../assets/images/SVG/SVGs/atlassian.svg";
+import bootstrapSvg from "../../assets/images/SVG/SVGs/bootstrap.svg";
+import cssSvg from "../../assets/images/SVG/SVGs/css.svg";
+import figmaSvg from "../../assets/images/SVG/SVGs/figma.svg";
+import githubSvg from "../../assets/images/SVG/SVGs/github.svg";
+import graphQLSvg from "../../assets/images/SVG/SVGs/graphQL.svg";
+import htmlSvg from "../../assets/images/SVG/SVGs/html.svg";
+import javascriptSvg from "../../assets/images/SVG/SVGs/javascript.svg";
+import jiraSvg from "../../assets/images/SVG/SVGs/jira.svg";
+import mysqlSvg from "../../assets/images/SVG/SVGs/mysql.svg";
+import nodejsSvg from "../../assets/images/SVG/SVGs/nodejs.svg";
+import phpSvg from "../../assets/images/SVG/SVGs/php.svg";
+import reactSvg from "../../assets/images/SVG/SVGs/react.svg";
+import tailwindSvg from "../../assets/images/SVG/SVGs/tailwind.svg";
+import vscodeSvg from "../../assets/images/SVG/SVGs/vscode.svg";
+import cSvg from "../../assets/images/SVG/SVGs/c.svg";
+import cplusSvg from "../../assets/images/SVG/SVGs/cplus.svg";
+import laravelSvg from "../../assets/images/SVG/SVGs/laravel.svg";
+import wordpressSvg from "../../assets/images/SVG/SVGs/wordpress-svgrepo-com.svg";
 
 const Skills = ({ language }) => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -68,7 +68,7 @@ const Skills = ({ language }) => {
     {
       name: "HTML5",
       category: "frontend",
-      icon: html,
+      icon: htmlSvg,
       proficiency: 95,
       description: language === "EN" ? "Semantic markup & accessibility" : "Semantische markup & toegankelijkheid",
       color: "from-orange-400 to-red-500"
@@ -76,7 +76,7 @@ const Skills = ({ language }) => {
     {
       name: "CSS3",
       category: "frontend",
-      icon: css,
+      icon: cssSvg,
       proficiency: 90,
       description: language === "EN" ? "Modern layouts & animations" : "Moderne layouts & animaties",
       color: "from-blue-400 to-blue-600"
@@ -84,7 +84,7 @@ const Skills = ({ language }) => {
     {
       name: "JavaScript",
       category: "frontend",
-      icon: javascript,
+      icon: javascriptSvg,
       proficiency: 88,
       description: language === "EN" ? "ES6+ & DOM manipulation" : "ES6+ & DOM manipulatie",
       color: "from-yellow-400 to-orange-500"
@@ -92,7 +92,7 @@ const Skills = ({ language }) => {
     {
       name: "React",
       category: "frontend",
-      icon: react,
+      icon: reactSvg,
       proficiency: 85,
       description: language === "EN" ? "Hooks, Context & state management" : "Hooks, Context & state management",
       color: "from-cyan-400 to-blue-500"
@@ -100,7 +100,7 @@ const Skills = ({ language }) => {
     {
       name: "Tailwind CSS",
       category: "frontend",
-      icon: tailwind,
+      icon: tailwindSvg,
       proficiency: 92,
       description: language === "EN" ? "Utility-first CSS framework" : "Utility-first CSS framework",
       color: "from-teal-400 to-cyan-500"
@@ -108,7 +108,7 @@ const Skills = ({ language }) => {
     {
       name: "Bootstrap",
       category: "frontend",
-      icon: bootstrap,
+      icon: bootstrapSvg,
       proficiency: 80,
       description: language === "EN" ? "Responsive grid systems" : "Responsieve grid systemen",
       color: "from-purple-400 to-purple-600"
@@ -118,7 +118,7 @@ const Skills = ({ language }) => {
     {
       name: "PHP",
       category: "backend",
-      icon: php,
+      icon: phpSvg,
       proficiency: 90,
       description: language === "EN" ? "Laravel & modern PHP practices" : "Laravel & moderne PHP praktijken",
       color: "from-indigo-400 to-purple-600"
@@ -126,15 +126,15 @@ const Skills = ({ language }) => {
     {
       name: "Laravel",
       category: "backend",
-      icon: laravel,
+      icon: laravelSvg,
       proficiency: 90,
-      description: language === "EN" ? "Laravel & modern PHP practices" : "Laravel & moderne PHP praktijken",
-      color: "from-indigo-400 to-purple-600"
+      description: language === "EN" ? "Eloquent ORM & Artisan CLI" : "Eloquent ORM & Artisan CLI",
+      color: "from-red-400 to-red-600"
     },
     {
       name: "Node.js",
       category: "backend",
-      icon: nodejs,
+      icon: nodejsSvg,
       proficiency: 82,
       description: language === "EN" ? "Server-side JavaScript & APIs" : "Server-side JavaScript & APIs",
       color: "from-green-400 to-green-600"
@@ -142,7 +142,7 @@ const Skills = ({ language }) => {
     {
       name: "GraphQL",
       category: "backend",
-      icon: graphQL,
+      icon: graphQLSvg,
       proficiency: 75,
       description: language === "EN" ? "Query language for APIs" : "Query taal voor APIs",
       color: "from-pink-400 to-rose-500"
@@ -150,7 +150,7 @@ const Skills = ({ language }) => {
     {
       name: "C#",
       category: "backend",
-      icon: c,
+      icon: cSvg,
       proficiency: 70,
       description: language === "EN" ? ".NET development" : ".NET ontwikkeling",
       color: "from-blue-500 to-indigo-600"
@@ -158,7 +158,7 @@ const Skills = ({ language }) => {
     {
       name: "C++",
       category: "backend",
-      icon: cplus,
+      icon: cplusSvg,
       proficiency: 30,
       description: language === "EN" ? "Object-oriented programming" : "Object-georiënteerd programmeren",
       color: "from-indigo-500 to-purple-600"
@@ -168,7 +168,7 @@ const Skills = ({ language }) => {
     {
       name: "MySQL",
       category: "databases",
-      icon: mysql,
+      icon: mysqlSvg,
       proficiency: 88,
       description: language === "EN" ? "Relational database design" : "Relationele database ontwerp",
       color: "from-blue-400 to-blue-600"
@@ -178,7 +178,7 @@ const Skills = ({ language }) => {
     {
       name: "GitHub",
       category: "tools",
-      icon: github,
+      icon: githubSvg,
       proficiency: 90,
       description: language === "EN" ? "Version control & collaboration" : "Versiebeheer & samenwerking",
       color: "from-gray-600 to-gray-800"
@@ -186,7 +186,7 @@ const Skills = ({ language }) => {
     {
       name: "VS Code",
       category: "tools",
-      icon: vscode,
+      icon: vscodeSvg,
       proficiency: 95,
       description: language === "EN" ? "Code editor & extensions" : "Code editor & extensies",
       color: "from-blue-500 to-cyan-600"
@@ -194,7 +194,7 @@ const Skills = ({ language }) => {
     {
       name: "Figma",
       category: "tools",
-      icon: figma,
+      icon: figmaSvg,
       proficiency: 78,
       description: language === "EN" ? "UI/UX design & prototyping" : "UI/UX ontwerp & prototyping",
       color: "from-purple-400 to-pink-500"
@@ -202,7 +202,7 @@ const Skills = ({ language }) => {
     {
       name: "Jira",
       category: "tools",
-      icon: jira,
+      icon: jiraSvg,
       proficiency: 82,
       description: language === "EN" ? "Project management & tracking" : "Projectbeheer & tracking",
       color: "from-blue-400 to-blue-600"
@@ -210,7 +210,7 @@ const Skills = ({ language }) => {
     {
       name: "Atlassian",
       category: "tools",
-      icon: atlassian,
+      icon: atlassianSvg,
       proficiency: 80,
       description: language === "EN" ? "Team collaboration tools" : "Team samenwerkingstools",
       color: "from-blue-500 to-indigo-600"
@@ -218,7 +218,7 @@ const Skills = ({ language }) => {
     {
       name: "WordPress",
       category: "tools",
-      icon: wordpress,
+      icon: wordpressSvg,
       proficiency: 85,
       description: language === "EN" ? "CMS & custom development" : "CMS & custom ontwikkeling",
       color: "from-blue-600 to-indigo-700"
@@ -338,12 +338,10 @@ const Skills = ({ language }) => {
                   flex items-center justify-center shadow-md group-hover:shadow-lg
                   transform group-hover:scale-110 transition-all duration-300
                 `}>
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 1024 1024"
-                    className="filter brightness-0 invert"
-                    dangerouslySetInnerHTML={{ __html: skill.icon }}
+                  <img
+                    src={skill.icon}
+                    alt={skill.name}
+                    className="w-6 h-6 filter brightness-0 invert"
                   />
                 </div>
               </div>
