@@ -15,9 +15,9 @@ const Journey = ({ language }) => {
       companies: "Companies",
       projects: "Projects",
       milestones: {
-        experience: "5+",
-        companies: "4", 
-        projects: "26+"
+        experience: "7+",
+        companies: "6+", 
+        projects: "25+"
       }
     },
     NL: {
@@ -29,9 +29,9 @@ const Journey = ({ language }) => {
       companies: "Bedrijven",
       projects: "Projecten",
       milestones: {
-        experience: "5+",
-        companies: "4",
-        projects: "26+"
+        experience: "7+",
+        companies: "6+",
+        projects: "25+"
       }
     }
   };
@@ -42,44 +42,87 @@ const Journey = ({ language }) => {
     {
       id: 1,
       year: "2017-2019",
-      period: "2019",
-      title: language === "EN" ? "First Steps" : "Eerste Stappen",
-      subtitle: "Frontend Development",
+      period: "2017-2019",
+      title: language === "EN" ? "Education Journey" : "Opleidingsreis",
+      subtitle: "Frontend & Backend Development",
       company: "MBO Amstelland",
       icon: frontendImg,
       color: "from-blue-500 to-blue-600",
-      technologies: ["HTML/CSS", "JavaScript", "Web Design"],
+      technologies: ["HTML/CSS", "JavaScript", "PHP", "MySQL", "C#", "WordPress"],
       description: language === "EN"
-        ? "Started my programming journey learning the fundamentals of web development, focusing on HTML/CSS, JavaScript, PHP and C#."
-        : "Begon mijn programmeertraject met het leren van de fundamenten van webontwikkeling, gericht op HTML/CSS, JavaScript, PHP en C#.",
+        ? "Started with frontend development during the first 18 months, mastering HTML/CSS and JavaScript. The last 18 months focused on backend technologies including PHP, MySQL, and C#, learning database design and CRUD functionalities."
+        : "Begon met frontend-ontwikkeling in de eerste 18 maanden, beheersing van HTML/CSS en JavaScript. De laatste 18 maanden gericht op backend-technologieën waaronder PHP, MySQL en C#, leren van database-ontwerp en CRUD-functionaliteiten.",
     },
     {
       id: 2,
       year: "2019-2021",
-      period: "2021",
-      title: language === "EN" ? "Professional Start" : "Professionele Start",
-      subtitle: "Full-Stack Development",
+      period: "2019-2021",
+      title: language === "EN" ? "Frontend Developer" : "Frontend Ontwikkelaar",
+      subtitle: "Professional Start",
       company: "CSDM",
       icon: backendImg,
       color: "from-green-500 to-green-600",
-      technologies: ["ReactJS", "PHP", "MySQL", "GraphQL"],
+      technologies: ["ReactJS", "GraphQL", "Frontend Architecture"],
       description: language === "EN"
-        ? "First professional role working with enterprise clients, developing modern React applications and backend systems."
-        : "Eerste professionele rol met enterprise klanten, ontwikkelen van moderne React applicaties en backend systemen.",
+        ? "Served as a front-end developer utilizing ReactJS and GraphQL. Gained valuable company insights through internship, then promoted to junior developer working with high-profile clients like Coca-Cola, Shell, and Schiphol."
+        : "Diende als front-end ontwikkelaar met ReactJS en GraphQL. Waardevolle bedrijfsinzichten opgedaan via stage, daarna gepromoveerd tot junior ontwikkelaar werkend met vooraanstaande klanten zoals Coca-Cola, Shell en Schiphol.",
     },
     {
       id: 3,
-      year: "2021-2024",
-      period: "2024",
-      title: language === "EN" ? "AI & Innovation" : "AI & Innovatie",
-      subtitle: "Product & Backend Development",
-      company: "Vloto B.V.",
+      year: "2021",
+      period: "2021",
+      title: language === "EN" ? "Self-Development Year" : "Zelfontwikkelingsjaar",
+      subtitle: "Blockchain & Cryptography",
+      company: language === "EN" ? "Independent Study" : "Zelfstandige Studie",
       icon: appsdImg,
       color: "from-purple-500 to-purple-600",
-      technologies: ["Laravel", "AI/ML", "API Development", "Product Management"],
+      technologies: ["Blockchain", "Smart Contracts", "Cryptography", "Web3"],
       description: language === "EN"
-        ? "Building scalable backend systems and AI-powered features for luxury car-sharing platform."
-        : "Bouwen van schaalbare backend-systemen en AI-aangedreven functies voor luxe autodeel platform.",
+        ? "Delved deep into blockchain and cryptography, gaining extensive knowledge about various blockchain types, consensus mechanisms, and the limitless possibilities of smart contracts for automating complex tasks."
+        : "Dook diep in blockchain en cryptografie, uitgebreide kennis opgedaan over verschillende blockchain-types, consensus mechanismen en de grenzeloze mogelijkheden van smart contracts voor het automatiseren van complexe taken.",
+    },
+    {
+      id: 4,
+      year: "2021-2023",
+      period: "2021-2023",
+      title: language === "EN" ? "Product Manager" : "Product Manager",
+      subtitle: "Entrepreneurship & Teaching",
+      company: "Bitsliced",
+      icon: uiImg,
+      color: "from-orange-500 to-orange-600",
+      technologies: ["NFT", "Product Strategy", "Team Leadership", "Teaching"],
+      description: language === "EN"
+        ? "Started teaching career sharing knowledge with aspiring learners. Co-founded Bitsliced, an NFT marketplace leveraging blockchain for real-world asset digitization. Assembled and managed a team of four professionals while overseeing project development and quality assurance."
+        : "Begon onderwijscarrière door kennis te delen met aspirant-leerlingen. Mede-oprichter van Bitsliced, een NFT-marktplaats die blockchain gebruikt voor digitalisering van echte assets. Team van vier professionals samengesteld en geleid terwijl projectontwikkeling en kwaliteitsborging werd overzien.",
+    },
+    {
+      id: 5,
+      year: "2023-Present",
+      period: "2023-Nu",
+      title: language === "EN" ? "Backend Developer" : "Backend Ontwikkelaar",
+      subtitle: "AI Integration & Automation",
+      company: "Vloto B.V.",
+      icon: appsdImg,
+      color: "from-teal-500 to-teal-600",
+      technologies: ["Laravel", "API Development", "AI/ML", "Automation"],
+      description: language === "EN"
+        ? "Joined luxury car-sharing service with fleet from Audi e-tron Q8 to Polestar 2 Dual Motor. Enhanced internal dashboard, innovated app features like discount coupons and flexible booking edits. Currently automating manual processes to streamline operations."
+        : "Toegetreden tot luxe autodeel-service met vloot van Audi e-tron Q8 tot Polestar 2 Dual Motor. Intern dashboard verbeterd, app-functies geïnnoveerd zoals kortingscoupons en flexibele boekingswijzigingen. Momenteel bezig met automatisering van handmatige processen.",
+      current: true
+    },
+    {
+      id: 6,
+      year: "2023-Present",
+      period: "2023-Nu",
+      title: language === "EN" ? "Freelance Developer" : "Freelance Ontwikkelaar",
+      subtitle: "Multi-Technology Projects",
+      company: language === "EN" ? "Various Clients" : "Verschillende Klanten",
+      icon: frontendImg,
+      color: "from-indigo-500 to-indigo-600",
+      technologies: ["Python", "NodeJS", "C#", "C++"],
+      description: language === "EN"
+        ? "Providing freelance development services alongside full-time role, working with diverse technologies including Python, NodeJS, C#, and C++ to deliver custom solutions for various clients."
+        : "Freelance ontwikkelingsdiensten verlenen naast fulltime rol, werkend met diverse technologieën waaronder Python, NodeJS, C# en C++ om aangepaste oplossingen te leveren voor verschillende klanten.",
       current: true
     }
   ];
@@ -124,7 +167,7 @@ const Journey = ({ language }) => {
                   <div 
                     className="relative"
                     data-aos="fade-up"
-                    data-aos-delay={index * 150}
+                    data-aos-delay={index * 100}
                   >
                     {/* Timeline dot for larger screens */}
                     <div className="hidden sm:flex absolute left-6 top-6 w-4 h-4 bg-white border-4 border-primaryColor rounded-full z-10"></div>
