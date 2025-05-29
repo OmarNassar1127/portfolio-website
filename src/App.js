@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Aos from "aos";
+import "aos/dist/aos.css";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -25,6 +26,17 @@ function App() {
 
   useEffect(() => {
     Aos.init();
+    
+    // Mobile-specific fix for hero section
+    if (window.innerWidth <= 768) {
+      setTimeout(() => {
+        // Trigger hero animations immediately on mobile
+        const heroElements = document.querySelectorAll('#about [data-aos]');
+        heroElements.forEach(el => {
+          el.classList.add('aos-animate');
+        });
+      }, 100);
+    }
   }, []);
   return (
     <>

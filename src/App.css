@@ -102,3 +102,15 @@ section {
 .contactInput {
   border: 1px solid black;
 }
+
+/* Mobile hero animation fix - only affects hero section */
+@media (max-width: 768px) {
+  #about [data-aos] {
+    transition: all 0.6s ease;
+  }
+  
+  #about [data-aos].aos-animate {
+    opacity: 1;
+    transform: none;
+  }
+}
