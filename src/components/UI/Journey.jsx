@@ -106,8 +106,8 @@ const Journey = ({ language }) => {
       color: "from-teal-500 to-teal-600",
       technologies: ["Laravel", "API Development", "AI/ML", "Automation"],
       description: language === "EN"
-        ? "Joined luxury car-sharing service with fleet from Audi e-tron Q8 to Polestar 2 Dual Motor. Enhanced internal dashboard, innovated app features like discount coupons and flexible booking edits. Currently automating manual processes to streamline operations."
-        : "Toegetreden tot luxe autodeel-service met vloot van Audi e-tron Q8 tot Polestar 2 Dual Motor. Intern dashboard verbeterd, app-functies geïnnoveerd zoals kortingscoupons en flexibele boekingswijzigingen. Momenteel bezig met automatisering van handmatige processen.",
+        ? "Joined luxury car-sharing service with fleet from Audi e-tron Q8 to Polestar 2 Dual Motor. Enhanced internal dashboard, innovated app features like discount coupons and flexible booking edits. Implemented AI solutions including WhatsApp Assistant for clients, email automation flow with AI auto-replies, and enhanced fine processing. Currently automating manual processes to streamline operations."
+        : "Toegetreden tot luxe autodeel-service met vloot van Audi e-tron Q8 tot Polestar 2 Dual Motor. Intern dashboard verbeterd, app-functies geïnnoveerd zoals kortingscoupons en flexibele boekingswijzigingen. AI-oplossingen geïmplementeerd waaronder WhatsApp Assistent voor klanten, e-mail automatisering met AI auto-antwoorden en verbeterde boeteverwerking. Momenteel bezig met automatisering van handmatige processen.",
       current: true
     },
     {
