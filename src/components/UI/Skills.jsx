@@ -383,7 +383,7 @@ const Skills = ({ language }) => {
                         'bg-orange-100 text-orange-800'
                   }
                 `}>
-                  {skill.proficiency >= 90 ? (language === "EN" ? "Expert" : "Expert") :
+                  {skill.proficiency >= 90 ? (language === "EN" ? "Advanced" : "Gevorderd") :
                     skill.proficiency >= 80 ? (language === "EN" ? "Advanced" : "Gevorderd") :
                       skill.proficiency >= 70 ? (language === "EN" ? "Intermediate" : "Gemiddeld") :
                         (language === "EN" ? "Learning" : "Lerende")}

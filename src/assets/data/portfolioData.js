@@ -10,6 +10,7 @@ import portfolioImg09 from "../images/portfolio-09.png";
 import portfolioImg10 from "../images/portfolio-10.png";
 import portfolioImg11 from "../images/portfolio-11.png";
 import portfolioImg12 from "../images/portfolio-12.png";
+import portfolioImg13 from "../images/portfolio-13.png"; // License Plate Detection placeholder
 
 const portfolios = [
   {
@@ -235,6 +236,28 @@ const portfolios = [
       "Pandas",
       "NumPy",
       "Matplotlib"
+    ],
+    siteUrl: "#",
+  },
+  {
+    id: "13",
+    imgUrl: portfolioImg13,
+    category: "Professional",
+    title: "License Plate Detection System",
+    date: "2024-09",
+    year: 2024,
+    descriptionEN: "Engineered a sophisticated computer vision system for a Spanish parking company to revolutionize their access control infrastructure. The system employs advanced optical character recognition (OCR) and machine learning algorithms to achieve 97.3% accuracy in license plate detection across various lighting conditions and weather scenarios. Built with C++ for optimal performance, the solution processes real-time video streams at 30 FPS, instantly identifying and logging vehicle entries/exits. The system seamlessly integrates with existing parking management software, reducing manual oversight by 85% and eliminating unauthorized access incidents. Features include multi-language support for European license plates, automatic database synchronization, and comprehensive analytics dashboard for parking utilization insights.",
+    descriptionNL: "Ontwikkelde een geavanceerd computer vision-systeem voor een Spaans parkeerbedrijf om hun toegangscontrole-infrastructuur te revolutioneren. Het systeem gebruikt geavanceerde optische karakterherkenning (OCR) en machine learning-algoritmen om 97,3% nauwkeurigheid te bereiken bij kentekenherkenning onder verschillende lichtomstandigheden en weersomstandigheden. Gebouwd met C++ voor optimale prestaties, verwerkt de oplossing real-time videostreams op 30 FPS en identificeert en registreert onmiddellijk voertuigingang/-uitgang. Het systeem integreert naadloos met bestaande parkeerbeheersoftware, vermindert handmatig toezicht met 85% en elimineert ongeautoriseerde toegangsincidenten. Functies omvatten meertalige ondersteuning voor Europese kentekens, automatische databasesynchronisatie en uitgebreid analytics-dashboard voor inzichten in parkeerbenutting.",
+    technologies: [
+      "C++",
+      "OpenCV",
+      "Visual Studio",
+      "Computer Vision",
+      "OCR",
+      "Machine Learning",
+      "Real-time Processing",
+      "SQL Database",
+      "Windows API"
     ],
     siteUrl: "#",
   },
