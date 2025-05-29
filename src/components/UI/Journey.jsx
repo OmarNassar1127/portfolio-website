@@ -9,7 +9,7 @@ const Journey = ({ language }) => {
     EN: {
       badge: "Career Timeline",
       title: "Development Journey",
-      subtitle: "From learning my first lines of HTML in 2017 to developing AI-powered solutions today, my journey has been driven by curiosity and a passion for solving complex problems.",
+      subtitle: "What started as curiosity about HTML in 2017 has evolved into architecting AI-powered solutions that transform businesses. From building NFT marketplaces to developing intelligent WhatsApp assistants and automating complex financial processes, my journey bridges the gap between cutting-edge technology and real-world impact.",
       current: "Current",
       years: "Years Experience",
       companies: "Companies",
@@ -23,7 +23,7 @@ const Journey = ({ language }) => {
     NL: {
       badge: "Carrière Tijdlijn",
       title: "Ontwikkelingsreis", 
-      subtitle: "Van het leren van mijn eerste HTML-regels in 2017 tot het ontwikkelen van AI-aangedreven oplossingen vandaag, mijn reis is gedreven door nieuwsgierigheid en een passie voor het oplossen van complexe problemen.",
+      subtitle: "Wat begon als nieuwsgierigheid naar HTML in 2017 is geëvolueerd tot het architecteren van AI-aangedreven oplossingen die bedrijven transformeren. Van het bouwen van NFT-marktplaatsen tot het ontwikkelen van intelligente WhatsApp-assistenten en het automatiseren van complexe financiële processen, mijn reis overbrugt de kloof tussen geavanceerde technologie en echte impact.",
       current: "Huidig",
       years: "Jaar Ervaring",
       companies: "Bedrijven",
@@ -104,10 +104,10 @@ const Journey = ({ language }) => {
       company: "Vloto B.V.",
       icon: appsdImg,
       color: "from-teal-500 to-teal-600",
-      technologies: ["Laravel", "API Development", "AI/ML", "Automation"],
+      technologies: ["Laravel", "AI/ML", "WhatsApp API", "Email Automation", "RESTful APIs", "Process Optimization"],
       description: language === "EN"
-        ? "Joined luxury car-sharing service with fleet from Audi e-tron Q8 to Polestar 2 Dual Motor. Enhanced internal dashboard, innovated app features like discount coupons and flexible booking edits. Implemented AI solutions including WhatsApp Assistant for clients, email automation flow with AI auto-replies, and enhanced fine processing. Currently automating manual processes to streamline operations."
-        : "Toegetreden tot luxe autodeel-service met vloot van Audi e-tron Q8 tot Polestar 2 Dual Motor. Intern dashboard verbeterd, app-functies geïnnoveerd zoals kortingscoupons en flexibele boekingswijzigingen. AI-oplossingen geïmplementeerd waaronder WhatsApp Assistent voor klanten, e-mail automatisering met AI auto-antwoorden en verbeterde boeteverwerking. Momenteel bezig met automatisering van handmatige processen.",
+        ? "Joined luxury car-sharing service with fleet from Audi e-tron Q8 to Polestar 2 Dual Motor. Developed intelligent automation systems including AI-powered WhatsApp assistant for customer support, automated email flows with smart auto-replies, and streamlined fine processing workflows. Enhanced internal dashboard with real-time analytics, implemented discount coupon systems, and optimized booking algorithms to improve fleet utilization by 30%."
+        : "Toegetreden tot luxe autodeel-service met vloot van Audi e-tron Q8 tot Polestar 2 Dual Motor. Intelligente automatiseringssystemen ontwikkeld waaronder AI-aangedreven WhatsApp-assistent voor klantenservice, geautomatiseerde e-mailflows met slimme auto-antwoorden, en gestroomlijnde boeteverwerkingsworkflows. Intern dashboard verbeterd met real-time analytics, kortingscouponsystemen geïmplementeerd, en boekingsalgoritmen geoptimaliseerd om vlootbenutting met 30% te verbeteren.",
       current: true
     },
     {
