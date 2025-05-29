@@ -12,23 +12,23 @@ const Portfolio = ({ language }) => {
 
   const filterOptions = [
     { key: "all", labelEN: "All (Public) Projects", labelNL: "Alle (Publieke) Projecten", count: data.length },
-    { 
-      key: "school-project", 
-      labelEN: "School Projects", 
-      labelNL: "School Projecten", 
-      count: data.filter(item => item.category === "School project").length 
+    {
+      key: "school-project",
+      labelEN: "School Projects",
+      labelNL: "School Projecten",
+      count: data.filter(item => item.category === "School project").length
     },
-    { 
-      key: "professional", 
-      labelEN: "Professional", 
-      labelNL: "Professioneel", 
-      count: data.filter(item => item.category === "Professional").length 
+    {
+      key: "professional",
+      labelEN: "Professional",
+      labelNL: "Professioneel",
+      count: data.filter(item => item.category === "Professional").length
     },
-    { 
-      key: "ai", 
-      labelEN: "AI / ML", 
-      labelNL: "AI / ML", 
-      count: data.filter(item => item.category === "ai/ml").length 
+    {
+      key: "ai",
+      labelEN: "AI / ML",
+      labelNL: "AI / ML",
+      count: data.filter(item => item.category === "ai/ml").length
     },
   ];
 
@@ -51,7 +51,7 @@ const Portfolio = ({ language }) => {
 
   useEffect(() => {
     let filteredData = data;
-    
+
     if (selectTab === "school-project") {
       filteredData = data.filter(item => item.category === "School project");
     } else if (selectTab === "professional") {
@@ -59,7 +59,7 @@ const Portfolio = ({ language }) => {
     } else if (selectTab === "ai") {
       filteredData = data.filter(item => item.category === "ai/ml");
     }
-    
+
     const sortedData = sortProjects(filteredData, sortOrder);
     setPortfolios(sortedData);
   }, [selectTab, sortOrder]);
@@ -100,8 +100,8 @@ const Portfolio = ({ language }) => {
             {language === "EN" ? "My Projects" : "Mijn Projecten"}
           </h3>
           <p className="text-smallTextColor text-lg max-w-2xl mx-auto">
-            {language === "EN" 
-              ? "A chronological journey through my development career, from first steps to AI innovations" 
+            {language === "EN"
+              ? "A chronological journey through my development career, from first steps to AI innovations"
               : "Een chronologische reis door mijn ontwikkelingscarrière, van eerste stappen tot AI-innovaties"}
           </p>
         </div>
@@ -127,8 +127,8 @@ const Portfolio = ({ language }) => {
                   {language === "EN" ? option.labelEN : option.labelNL}
                   <span className={`
                     px-2 py-1 text-xs rounded-full
-                    ${selectTab === option.key 
-                      ? 'bg-white/20 text-white' 
+                    ${selectTab === option.key
+                      ? 'bg-white/20 text-white'
                       : 'bg-gray-100 text-gray-600'
                     }
                   `}>
@@ -212,7 +212,7 @@ const Portfolio = ({ language }) => {
                   alt={portfolio.title}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
+
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-primaryColor/90 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
                   <button
@@ -231,7 +231,7 @@ const Portfolio = ({ language }) => {
                 <h4 className="text-xl font-bold text-headingColor mb-3 group-hover:text-primaryColor transition-colors duration-300">
                   {portfolio.title}
                 </h4>
-                
+
                 <p className="text-smallTextColor text-sm leading-relaxed mb-4 line-clamp-3">
                   {language === "EN" ? portfolio.descriptionEN : portfolio.descriptionNL}
                 </p>
@@ -275,39 +275,6 @@ const Portfolio = ({ language }) => {
             >
               {language === "EN" ? "Load More Projects" : "Meer Projecten Laden"}
             </button>
-          </div>
-        )}
-
-        {/* Timeline Summary */}
-        {selectTab === "all" && (
-          <div className="mt-16 bg-gradient-to-r from-primaryColor/5 to-blue-50 rounded-2xl p-8">
-            <div className="text-center">
-              <h4 className="text-2xl font-bold text-headingColor mb-4">
-                {language === "EN" ? "Development Journey" : "Ontwikkelingsreis"}
-              </h4>
-              <div className="flex justify-center items-center gap-8 flex-wrap">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primaryColor">2019</div>
-                  <div className="text-sm text-smallTextColor">
-                    {language === "EN" ? "First Steps" : "Eerste Stappen"}
-                  </div>
-                </div>
-                <div className="w-8 h-px bg-primaryColor"></div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primaryColor">2021</div>
-                  <div className="text-sm text-smallTextColor">
-                    {language === "EN" ? "Professional Start" : "Professionele Start"}
-                  </div>
-                </div>
-                <div className="w-8 h-px bg-primaryColor"></div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primaryColor">2024</div>
-                  <div className="text-sm text-smallTextColor">
-                    {language === "EN" ? "AI & Innovation" : "AI & Innovatie"}
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         )}
       </div>
