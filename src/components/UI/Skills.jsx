@@ -18,6 +18,7 @@ import {
   vscode,
   c,
   cplus,
+  laravel,
   wordpress,
 } from "../../assets/images/SVG/object/Icons";
 
@@ -123,6 +124,14 @@ const Skills = ({ language }) => {
       color: "from-indigo-400 to-purple-600"
     },
     {
+      name: "Laravel",
+      category: "backend",
+      icon: laravel,
+      proficiency: 90,
+      description: language === "EN" ? "Laravel & modern PHP practices" : "Laravel & moderne PHP praktijken",
+      color: "from-indigo-400 to-purple-600"
+    },
+    {
       name: "Node.js",
       category: "backend",
       icon: nodejs,
@@ -216,15 +225,15 @@ const Skills = ({ language }) => {
     }
   ];
 
-  const filteredSkills = activeCategory === "all" 
-    ? skillsData 
+  const filteredSkills = activeCategory === "all"
+    ? skillsData
     : skillsData.filter(skill => skill.category === activeCategory);
 
   const getOverallProficiency = (category) => {
-    const categorySkills = category === "all" 
-      ? skillsData 
+    const categorySkills = category === "all"
+      ? skillsData
       : skillsData.filter(skill => skill.category === category);
-    
+
     const average = categorySkills.reduce((sum, skill) => sum + skill.proficiency, 0) / categorySkills.length;
     return Math.round(average);
   };
@@ -250,29 +259,29 @@ const Skills = ({ language }) => {
             <i className="ri-code-s-slash-line text-base"></i>
             {language === "EN" ? "Technical Expertise" : "Technische Expertise"}
           </div>
-          
-          <h2 
+
+          <h2
             data-aos="fade-up"
             data-aos-duration="800"
             className="text-headingColor font-bold text-3xl md:text-4xl mb-4"
           >
             {language === "EN" ? "My Skills" : "Mijn Vaardigheden"}
           </h2>
-          
-          <p 
+
+          <p
             data-aos="fade-up"
             data-aos-duration="800"
             data-aos-delay="200"
             className="lg:max-w-2xl mx-auto text-gray-600 text-base leading-relaxed"
           >
-            {language === "EN" 
+            {language === "EN"
               ? "Technical skills and proficiencies across different technologies and tools."
               : "Technische vaardigheden en expertise in verschillende technologieën en tools."}
           </p>
         </div>
 
         {/* Category Filter */}
-        <div 
+        <div
           data-aos="fade-up"
           data-aos-duration="800"
           data-aos-delay="300"
@@ -293,12 +302,12 @@ const Skills = ({ language }) => {
             >
               <i className={`${category.icon} text-lg`}></i>
               <span>{language === "EN" ? category.labelEN : category.labelNL}</span>
-              
+
               {/* Proficiency indicator */}
               <div className={`
                 px-2 py-1 text-xs rounded-full font-bold
-                ${activeCategory === category.id 
-                  ? 'bg-white/20 text-white' 
+                ${activeCategory === category.id
+                  ? 'bg-white/20 text-white'
                   : 'bg-gray-100 text-gray-600'
                 }
               `}>
@@ -357,7 +366,7 @@ const Skills = ({ language }) => {
                   </span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-                  <div 
+                  <div
                     className={`h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000 ease-out relative`}
                     style={{ width: `${skill.proficiency}%` }}
                   >
@@ -372,14 +381,14 @@ const Skills = ({ language }) => {
                   px-2 py-1 rounded-full text-xs font-bold
                   ${skill.proficiency >= 90 ? 'bg-green-100 text-green-800' :
                     skill.proficiency >= 80 ? 'bg-blue-100 text-blue-800' :
-                    skill.proficiency >= 70 ? 'bg-yellow-100 text-yellow-800' :
-                    'bg-orange-100 text-orange-800'
+                      skill.proficiency >= 70 ? 'bg-yellow-100 text-yellow-800' :
+                        'bg-orange-100 text-orange-800'
                   }
                 `}>
                   {skill.proficiency >= 90 ? (language === "EN" ? "Expert" : "Expert") :
-                   skill.proficiency >= 80 ? (language === "EN" ? "Advanced" : "Gevorderd") :
-                   skill.proficiency >= 70 ? (language === "EN" ? "Intermediate" : "Gemiddeld") :
-                   (language === "EN" ? "Learning" : "Lerende")}
+                    skill.proficiency >= 80 ? (language === "EN" ? "Advanced" : "Gevorderd") :
+                      skill.proficiency >= 70 ? (language === "EN" ? "Intermediate" : "Gemiddeld") :
+                        (language === "EN" ? "Learning" : "Lerende")}
                 </span>
               </div>
 
@@ -393,7 +402,7 @@ const Skills = ({ language }) => {
         </div>
 
         {/* Skills Summary */}
-        <div 
+        <div
           data-aos="fade-up"
           data-aos-duration="800"
           data-aos-delay="500"
@@ -427,7 +436,7 @@ const Skills = ({ language }) => {
         </div>
 
         {/* Learning Path */}
-        <div 
+        <div
           data-aos="fade-up"
           data-aos-duration="800"
           data-aos-delay="600"
@@ -436,8 +445,8 @@ const Skills = ({ language }) => {
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-primaryColor to-blue-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
             <i className="ri-lightbulb-line text-lg"></i>
             <span className="text-sm">
-              {language === "EN" 
-                ? "Always learning new technologies" 
+              {language === "EN"
+                ? "Always learning new technologies"
                 : "Altijd nieuwe technologieën leren"}
             </span>
             <i className="ri-arrow-right-line group-hover:translate-x-1 transition-transform duration-300"></i>
