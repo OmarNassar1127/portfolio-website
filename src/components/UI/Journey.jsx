@@ -5,270 +5,289 @@ import uiImg from "../../assets/images/design.png";
 import appsdImg from "../../assets/images/apps.png";
 
 const Journey = ({ language }) => {
-  const text =
-    language === "EN"
-      ? "In 2017, I began my software development career at MBO Amstelland, learning HTML/CSS, PHP, Javascript, and MySQL, and quickly excelling in coding. After a year-long internship and an additional year of work at CSDM post-graduation, topping my class, I ventured into entrepreneurship with Bitsliced, focusing on blockchain and cryptocurrencies to create an NFT marketplace for trading real-world assets. In 2023, I further expanded my career by joining Vloto B.V as a Backend Developer. At Vloto, a luxury car-sharing service boasting a fleet from Audi e-tron Q8 to Polestar 2 Dual Motor, I used Laravel for creating RestFul APIs, initially enhancing our internal dashboard. My work has also involved innovating our app with features like discount coupons and flexible booking date edits, thereby significantly enriching user experience, and currently, I am automating various manual processes to elevate service efficiency."
-      : "In 2017 begon ik mijn carrière in softwareontwikkeling bij MBO Amstelland, waar ik HTML/CSS, PHP, Javascript en MySQL leerde, en ik blonk snel uit in coderen. Na een jaar stage en een extra jaar werk bij CSDM na mijn afstuderen, aan de top van mijn klas, waagde ik me aan het ondernemerschap met Bitsliced, gericht op blockchain en cryptocurrencies om een NFT-marktplaats te creëren voor het verhandelen van echte activa. In 2023 breidde ik mijn carrière verder uit door me aan te sluiten bij Vloto B.V. als Backend Ontwikkelaar. Bij Vloto, een luxe autodeelservice met een vloot van Audi e-tron Q8 tot Polestar 2 Dual Motor, gebruikte ik Laravel voor het creëren van RestFul API's, aanvankelijk om ons interne dashboard te verbeteren. Mijn werk heeft ook betrekking gehad op het innoveren van onze app met functies zoals kortingscoupons en flexibele boekingsdatumaanpassingen, waardoor de gebruikerservaring aanzienlijk is verrijkt, en momenteel automatiseer ik verschillende handmatige processen om de service-efficiëntie te verhogen.";
-  const text1 =
-    language === "EN"
-      ? "During the initial 18 months of my education, the emphasis was on frontend development, where I gained a comprehensive understanding of HTML/CSS and the integration of JavaScript to enhance the functionality and interactivity of web applications. Although the curriculum leaned towards frontend development, I thoroughly enjoyed every aspect of it."
-      : "Gedurende de eerste 18 maanden van mijn opleiding lag de nadruk op frontend-ontwikkeling, waar ik een grondig begrip van HTML/CSS verwierf en van de integratie van JavaScript om de functionaliteit en interactiviteit van webapplicaties te verbeteren. Hoewel het curriculum gericht was op frontend-ontwikkeling, heb ik elk aspect ervan grondig genoten.";
-  const text2 =
-    language === "EN"
-      ? "During the last 18 months of school, we were introduced to a range of technologies including PHP, MySQL, C# and Wordpress. However, the focus was primarily on PHP and MySQL, where we learned how to create tables, establish connections between them, retrieve data from databases, and build applications with essential CRUD functionalities."
-      : "Gedurende de laatste 18 maanden van school werden we geïntroduceerd aan verschillende technologieën, waaronder PHP, MySQL, C# en Wordpress. De nadruk lag echter voornamelijk op PHP en MySQL, waar we hebben geleerd hoe we tabellen kunnen creëren, verbindingen tussen hen kunnen opzetten, gegevens uit databases kunnen ophalen en applicaties kunnen bouwen met de essentiële CRUD-functionaliteiten.";
-  const text3 =
-    language === "EN"
-      ? "This year, I delved into the fascinating world of blockchain and cryptography. I gained extensive knowledge about blockchains, including the various types and consensus mechanisms. However, the most intriguing aspect for me was exploring the limitless possibilities of smart contracts. These contracts are capable of automating complex tasks that would otherwise require days or even weeks to complete."
-      : "Dit jaar dook ik in de fascinerende wereld van blockchain en cryptografie. Ik heb uitgebreide kennis opgedaan over blockchains, inclusief de verschillende soorten en consensusmechanismen. Het meest intrigerende aspect voor mij was echter het verkennen van de onbegrensde mogelijkheden van smart contracts. Deze contracten zijn in staat om complexe taken te automatiseren die anders dagen of zelfs weken zouden kosten om te voltooien.";
-  const text4 =
-    language === "EN"
-      ? "During my time at CSDM, I served as a front-end developer, utilizing ReactJS and myGraphQL to develop web applications. Through my internship experience, I gained valuable insight into the workings of a company. Following my graduation, I took on more significant responsibilities, including the opportunity to stay at CSDM as a junior software developer. In this new role, I had the chance to design and implement features for high-profile clients such as Coca-Cola, Shell, and Schiphol, to name a few. This offer to continue my journey at CSDM further validated my capabilities and allowed me to expand my skills in a professional setting."
-      : "Tijdens mijn tijd bij CSDM werkte ik als front-end ontwikkelaar, waarbij ik gebruik maakte van ReactJS en myGraphQL om webapplicaties te ontwikkelen. Via mijn stage-ervaring heb ik waardevol inzicht gekregen in hoe een bedrijf functioneert. Na mijn afstuderen kreeg ik de mogelijkheid om als junior softwareontwikkelaar bij CSDM te blijven. In deze nieuwe rol kreeg ik de kans om belangrijkere verantwoordelijkheden op me te nemen, waaronder het ontwerpen en implementeren van functies voor gerenommeerde klanten zoals Coca-Cola, Shell en Schiphol, om er een paar te noemen. Dit aanbod om mijn traject bij CSDM voort te zetten bevestigde mijn capaciteiten en bood mij de gelegenheid om mijn vaardigheden verder uit te breiden in een professionele omgeving.";
-  const text5 =
-    language === "EN"
-      ? "After a year of focusing on self-development, I embarked on a teaching career where I imparted the fundamentals to aspiring learners. During this time, a student introduced me to a compelling business idea that I couldn't refuse: Bitsliced. As mentioned earlier, Bitsliced is an NFT marketplace that leverages blockchain technology to create digital representations of real-world assets as NFTs, thereby streamlining the trading process while ensuring safety and efficiency. To bring this idea to fruition, I assembled a team of four professionals whom I currently manage while overseeing project development and ensuring quality assurance."
-      : "Na een jaar gericht te hebben op zelfontwikkeling, begon ik aan een carrière in het onderwijs waarbij ik de basisprincipes overbracht aan aspirant-leerlingen. Tijdens deze periode introduceerde een student me bij een boeiend bedrijfsidee dat ik niet kon weigeren: Bitsliced. Zoals eerder vermeld, is Bitsliced een NFT-marktplaats die gebruikmaakt van blockchaintechnologie om digitale representaties van real-world assets als NFT's te creëren, waardoor het handelsproces wordt gestroomlijnd terwijl de veiligheid en efficiëntie worden gegarandeerd. Om dit idee te verwezenlijken, heb ik een team van vier professionals samengesteld die ik momenteel beheer terwijl ik het projectontwikkeling superviseer en zorg voor kwaliteitsborging.";
-  const text6 =
-    language === "EN"
-      ? "I joined Vloto B.V as a Backend Developer in mid-2023, quickly diving into exciting challenges. Our company, a luxury car-sharing service, boasts an impressive fleet from the Audi e-tron Q8 to the Polestar 2 Dual Motor, all accessible through our proprietary app. My initial focus was enhancing our internal dashboard, but I've also innovated our app with complex features like discount coupons and flexible booking date edits, significantly enriching the user experience. Currently, I'm working on automating some of our manual processes, aiming to streamline operations and elevate our service efficiency."
-      : "Ik ben in het midden van 2023 bij Vloto B.V. begonnen als Backend Ontwikkelaar en heb me snel op boeiende uitdagingen gestort. Ons bedrijf, een luxe autodeel service, pronkt met een indrukwekkende vloot variërend van de Audi e-tron Q8 tot de Polestar 2 Dual Motor, allemaal toegankelijk via onze eigen app. Aanvankelijk concentreerde ik me op het verbeteren van ons interne dashboard, maar ik heb ook complexe functies aan onze app toegevoegd, zoals kortingscoupons en flexibele boekingsdatumaanpassingen, wat de gebruikerservaring aanzienlijk verrijkte. Momenteel werk ik aan het automatiseren van enkele van onze handmatige processen, met als doel onze bedrijfsvoering te stroomlijnen en de efficiëntie van onze service te verhogen.";
+  const content = {
+    EN: {
+      badge: "Career Timeline",
+      title: "Development Journey",
+      subtitle: "From learning my first lines of HTML in 2017 to developing AI-powered solutions today, my journey has been driven by curiosity and a passion for solving complex problems.",
+      current: "Current",
+      years: "Years Experience",
+      companies: "Companies",
+      projects: "Projects",
+      milestones: {
+        experience: "5+",
+        companies: "4+", 
+        projects: "26+"
+      }
+    },
+    NL: {
+      badge: "Carrière Tijdlijn",
+      title: "Ontwikkelingsreis", 
+      subtitle: "Van het leren van mijn eerste HTML-regels in 2017 tot het ontwikkelen van AI-aangedreven oplossingen vandaag, mijn reis is gedreven door nieuwsgierigheid en een passie voor het oplossen van complexe problemen.",
+      current: "Huidig",
+      years: "Jaar Ervaring",
+      companies: "Bedrijven",
+      projects: "Projecten",
+      milestones: {
+        experience: "5+",
+        companies: "4+",
+        projects: "26+"
+      }
+    }
+  };
+
+  const currentContent = content[language];
+
+  const journeyData = [
+    {
+      id: 1,
+      year: "2017-2019",
+      period: "2017-2019",
+      title: language === "EN" ? "Education Journey" : "Opleidingsreis",
+      subtitle: "Frontend & Backend Development",
+      company: "MBO Amstelland",
+      icon: frontendImg,
+      color: "from-blue-500 to-blue-600",
+      technologies: ["HTML/CSS", "JavaScript", "PHP", "MySQL", "C#", "WordPress"],
+      description: language === "EN"
+        ? "Started with frontend development during the first 18 months, mastering HTML/CSS and JavaScript. The last 18 months focused on backend technologies including PHP, MySQL, and C#, learning database design and CRUD functionalities."
+        : "Begon met frontend-ontwikkeling in de eerste 18 maanden, beheersing van HTML/CSS en JavaScript. De laatste 18 maanden gericht op backend-technologieën waaronder PHP, MySQL en C#, leren van database-ontwerp en CRUD-functionaliteiten.",
+    },
+    {
+      id: 2,
+      year: "2019-2021",
+      period: "2019-2021",
+      title: language === "EN" ? "Frontend Developer" : "Frontend Ontwikkelaar",
+      subtitle: "Professional Start",
+      company: "CSDM",
+      icon: backendImg,
+      color: "from-green-500 to-green-600",
+      technologies: ["ReactJS", "GraphQL", "Frontend Architecture"],
+      description: language === "EN"
+        ? "Served as a front-end developer utilizing ReactJS and GraphQL. Gained valuable company insights through internship, then promoted to junior developer working with high-profile clients like Coca-Cola, Shell, and Schiphol."
+        : "Diende als front-end ontwikkelaar met ReactJS en GraphQL. Waardevolle bedrijfsinzichten opgedaan via stage, daarna gepromoveerd tot junior ontwikkelaar werkend met vooraanstaande klanten zoals Coca-Cola, Shell en Schiphol.",
+    },
+    {
+      id: 3,
+      year: "2021",
+      period: "2021",
+      title: language === "EN" ? "Self-Development Year" : "Zelfontwikkelingsjaar",
+      subtitle: "Blockchain & Cryptography",
+      company: language === "EN" ? "Independent Study" : "Zelfstandige Studie",
+      icon: appsdImg,
+      color: "from-purple-500 to-purple-600",
+      technologies: ["Blockchain", "Smart Contracts", "Cryptography", "Web3"],
+      description: language === "EN"
+        ? "Delved deep into blockchain and cryptography, gaining extensive knowledge about various blockchain types, consensus mechanisms, and the limitless possibilities of smart contracts for automating complex tasks."
+        : "Dook diep in blockchain en cryptografie, uitgebreide kennis opgedaan over verschillende blockchain-types, consensus mechanismen en de grenzeloze mogelijkheden van smart contracts voor het automatiseren van complexe taken.",
+    },
+    {
+      id: 4,
+      year: "2021-2023",
+      period: "2021-2023",
+      title: language === "EN" ? "Product Manager" : "Product Manager",
+      subtitle: "Entrepreneurship & Teaching",
+      company: "Bitsliced",
+      icon: uiImg,
+      color: "from-orange-500 to-orange-600",
+      technologies: ["NFT", "Product Strategy", "Team Leadership", "Teaching"],
+      description: language === "EN"
+        ? "Started teaching career sharing knowledge with aspiring learners. Co-founded Bitsliced, an NFT marketplace leveraging blockchain for real-world asset digitization. Assembled and managed a team of four professionals while overseeing project development and quality assurance."
+        : "Begon onderwijscarrière door kennis te delen met aspirant-leerlingen. Mede-oprichter van Bitsliced, een NFT-marktplaats die blockchain gebruikt voor digitalisering van echte assets. Team van vier professionals samengesteld en geleid terwijl projectontwikkeling en kwaliteitsborging werd overzien.",
+    },
+    {
+      id: 5,
+      year: "2023-Present",
+      period: "2023-Nu",
+      title: language === "EN" ? "Backend Developer" : "Backend Ontwikkelaar",
+      subtitle: "AI Integration & Automation",
+      company: "Vloto B.V.",
+      icon: appsdImg,
+      color: "from-teal-500 to-teal-600",
+      technologies: ["Laravel", "API Development", "AI/ML", "Automation"],
+      description: language === "EN"
+        ? "Joined luxury car-sharing service with fleet from Audi e-tron Q8 to Polestar 2 Dual Motor. Enhanced internal dashboard, innovated app features like discount coupons and flexible booking edits. Implemented AI solutions including WhatsApp Assistant for clients, email automation flow with AI auto-replies, and enhanced fine processing. Currently automating manual processes to streamline operations."
+        : "Toegetreden tot luxe autodeel-service met vloot van Audi e-tron Q8 tot Polestar 2 Dual Motor. Intern dashboard verbeterd, app-functies geïnnoveerd zoals kortingscoupons en flexibele boekingswijzigingen. AI-oplossingen geïmplementeerd waaronder WhatsApp Assistent voor klanten, e-mail automatisering met AI auto-antwoorden en verbeterde boeteverwerking. Momenteel bezig met automatisering van handmatige processen.",
+      current: true
+    },
+    {
+      id: 6,
+      year: "2023-Present",
+      period: "2023-Nu",
+      title: language === "EN" ? "Freelance Developer" : "Freelance Ontwikkelaar",
+      subtitle: "Multi-Technology Projects",
+      company: language === "EN" ? "Various Clients" : "Verschillende Klanten",
+      icon: frontendImg,
+      color: "from-indigo-500 to-indigo-600",
+      technologies: ["Python", "NodeJS", "C#", "C++"],
+      description: language === "EN"
+        ? "Providing freelance development services alongside full-time role, working with diverse technologies including Python, NodeJS, C#, and C++ to deliver custom solutions for various clients."
+        : "Freelance ontwikkelingsdiensten verlenen naast fulltime rol, werkend met diverse technologieën waaronder Python, NodeJS, C# en C++ om aangepaste oplossingen te leveren voor verschillende klanten.",
+      current: true
+    }
+  ];
+
   return (
-    <div>
-      <section id="journey">
-        <div className="container lg:pt-5">
-          <div className="text-center">
-            <h2 className="text-headingColor font-[800] text-[2.4rem] mb-5">
-              {language === "EN" ? "My journey" : "Mijn reis"}
-            </h2>
-            <p className="lg:max-w-[800px] lg:mx-auto text-headingColor font-[500] text-[16px] leading-7">
-              {text}
-            </p>
-            <div className="mt-2">
-              <span className="text-primaryColor font-bold text-[20px] mt-5">
-                {" "}
-                {language === "EN"
-                  ? "Here below is a timline with more details about my journey."
-                  : "Hieronder is een tijdlijn met meer details over mijn journey."}
-              </span>
+    <section id="journey" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 opacity-40">
+        <div className="absolute top-20 left-10 sm:left-20 w-32 sm:w-72 h-32 sm:h-72 bg-primaryColor/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 sm:right-20 w-32 sm:w-72 h-32 sm:h-72 bg-blue-400/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 bg-primaryColor/10 text-primaryColor px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-4">
+            <i className="ri-map-pin-time-line text-sm sm:text-base"></i>
+            {currentContent.badge}
+          </div>
+          
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-headingColor mb-4 sm:mb-6" data-aos="fade-up">
+            {currentContent.title}
+          </h2>
+          
+          <p className="text-base sm:text-lg text-smallTextColor max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-4" data-aos="fade-up" data-aos-delay="200">
+            {currentContent.subtitle}
+          </p>
+        </div>
+
+        {/* Mobile-First Timeline */}
+        <div className="max-w-4xl mx-auto">
+          <div className="relative">
+            {/* Timeline line - only visible on larger screens */}
+            <div className="hidden sm:block absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primaryColor to-purple-500"></div>
+            
+            {/* Mobile center line */}
+            <div className="sm:hidden absolute left-1/2 transform -translate-x-0.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primaryColor to-purple-500 opacity-30"></div>
+            
+            <div className="space-y-0 sm:space-y-8">
+              {journeyData.map((item, index) => (
+                <div key={item.id}>
+                  <div 
+                    className="relative"
+                    data-aos="fade-up"
+                    data-aos-delay={index * 100}
+                  >
+                    {/* Timeline dot for larger screens */}
+                    <div className="hidden sm:flex absolute left-6 top-6 w-4 h-4 bg-white border-4 border-primaryColor rounded-full z-10"></div>
+                    
+                    {/* Mobile timeline dot */}
+                    <div className="sm:hidden absolute left-1/2 transform -translate-x-1/2 top-8 w-6 h-6 bg-white border-4 border-primaryColor rounded-full z-10 shadow-lg">
+                      <div className="w-full h-full bg-primaryColor rounded-full scale-50"></div>
+                    </div>
+                  
+                    {/* Card */}
+                    <div className={`bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 mx-4 sm:mx-0 sm:ml-20 ${
+                      item.current ? 'ring-2 ring-primaryColor/30 shadow-primaryColor/10' : ''
+                    }`}>
+                    
+                    {/* Mobile year badge */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div className={`inline-flex items-center gap-2 bg-gradient-to-r ${item.color} text-white px-3 py-1.5 rounded-xl text-sm font-bold`}>
+                        <img src={item.icon} alt={item.title} className="w-4 h-4 filter brightness-0 invert" />
+                        <span className="text-xs sm:text-sm">{item.period}</span>
+                      </div>
+                      
+                      {/* Current badge */}
+                      {item.current && (
+                        <div className="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-1 rounded-lg text-xs font-semibold">
+                          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                          {currentContent.current}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Content */}
+                    <div className="mb-4">
+                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-headingColor mb-2">
+                        {item.title}
+                      </h3>
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-3 text-sm sm:text-base">
+                        <span className="text-smallTextColor font-medium">{item.subtitle}</span>
+                        <span className="hidden sm:inline text-gray-300">•</span>
+                        <span className="text-primaryColor font-semibold">{item.company}</span>
+                      </div>
+                    </div>
+
+                    <p className="text-smallTextColor mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                      {item.description}
+                    </p>
+
+                    {/* Technologies */}
+                    <div className="flex flex-wrap gap-2">
+                      {item.technologies.map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className="px-2 sm:px-3 py-1 bg-primaryColor/10 text-primaryColor text-xs sm:text-sm font-medium rounded-lg hover:bg-primaryColor/20 transition-colors duration-200"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    </div>
+                  </div>
+                  
+                  {/* Mobile Arrow - only show between items, not after last */}
+                  {index < journeyData.length - 1 && (
+                    <div className="sm:hidden flex justify-center py-4">
+                      <div className="flex flex-col items-center">
+                        <div className="w-8 h-8 bg-gradient-to-r from-primaryColor to-purple-600 rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                          <i className="ri-arrow-down-line text-white text-sm"></i>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
-          <div className="flex flex-col justify-center sm:py-12">
-            <div className="w-full py-3 px-2 sm:max-w-6xl sm:mx-auto sm:px-0">
-              <div className="relative text-gray-700 antialiased text-sm font-semibold">
-                {/* ============= Vertical line running through the middle ================= */}
-                <div
-                  className="hidden absolute w-1 sm:block bg-indigo-300 h-full left-1/2 transform 
-                    -translate-x-1/2"
-                ></div>
-                {/* ============= Left card ================= */}
-                <div className="mt-6 sm:mt-0 sm:mb-12">
-                  <div className="flex items-center flex-col sm:flex-row">
-                    <div className="flex justify-start w-full mx-auto items-center">
-                      <div className="w-full sm:w-1/2 sm:pr-8">
-                        <div
-                          data-aos="fade-right"
-                          data-aos-delay="100"
-                          data-aos-duration="1300"
-                          className="bg-white p-4 rounded shadow group hover:bg-primaryColor cursor-pointer easi-in duration-150"
-                        >
-                          <h3 className="text-primaryColor font-[700] mt-3 mb-3 group-hover:text-white group-hover:font-[600] text-xl">
-                            {language === "EN"
-                              ? "2017 - First 18 months of the career"
-                              : "2017 - Eerste 18 maanden van de opleiding"}
-                          </h3>
-                          <h5 className=" font-[700] mb-3 group-hover:text-white group-hover:font-[600] text-[15px]">
-                            Frontend Development
-                          </h5>
-                          <p className="text-[15px] text-gray-600 group-hover:text-white group-hover:font-[500] leading-7">
-                            {text1}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="rounded-full bg-primaryColor border-white border-4 w-10 h-10 absolute left-1/2 transform -translate-x-1/2 -translate-y-4 sm:translate-y-0 flex items-center
-                    justify-center"
-                    >
-                      <figure>
-                        <img src={frontendImg} alt="" />
-                      </figure>
-                    </div>
-                  </div>
+        </div>
+
+        {/* Stats Section */}
+        <div className="mt-12 sm:mt-16 lg:mt-20" data-aos="fade-up">
+          <div className="bg-gradient-to-r from-primaryColor/5 to-blue-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8">
+            <div className="grid grid-cols-3 gap-4 sm:gap-8 text-center">
+              <div className="space-y-2 sm:space-y-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-r from-primaryColor to-purple-600 rounded-xl sm:rounded-2xl flex items-center justify-center">
+                  <i className="ri-code-box-line text-lg sm:text-2xl text-white"></i>
                 </div>
-                {/* ============= Right card ================= */}
-                <div className="mt-6 sm:mt-0 sm:mb-12">
-                  <div className="flex items-center flex-col sm:flex-row">
-                    <div className="flex justify-end w-full mx-auto items-center">
-                      <div className="w-full sm:w-1/2 sm:pl-8">
-                        <div
-                          data-aos="fade-left"
-                          data-aos-delay="50"
-                          data-aos-duration="1400"
-                          className="bg-white p-4 rounded shadow group hover:bg-primaryColor cursor-pointer easi-in duration-150"
-                        >
-                          <h3 className="text-primaryColor mt-3 font-[700] mb-3 group-hover:text-white group-hover:font-[600] text-xl">
-                            {language === "EN"
-                              ? "2020 - Last 18 months of the career"
-                              : "2020 - Laatste 18 maanden van de opleiding"}
-                          </h3>
-                          <h5 className=" font-[700] mb-3 group-hover:text-white group-hover:font-[600] text-[15px]">
-                            Backend Development
-                          </h5>
-                          <p className="text-[15px] text-smallTextColor group-hover:text-white group-hover:font-[500] leading-7">
-                            {text2}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="rounded-full bg-primaryColor border-white border-4 w-10 h-10 absolute left-1/2 transform -translate-x-1/2 -translate-y-4 sm:translate-y-0 flex items-center
-                    justify-center"
-                    >
-                      <figure>
-                        <img src={backendImg} alt="" />
-                      </figure>
-                    </div>
-                  </div>
+                <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-headingColor">
+                  {currentContent.milestones.experience}
+                </h4>
+                <p className="text-xs sm:text-sm lg:text-base text-smallTextColor">
+                  {currentContent.years}
+                </p>
+              </div>
+              
+              <div className="space-y-2 sm:space-y-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl sm:rounded-2xl flex items-center justify-center">
+                  <i className="ri-building-line text-lg sm:text-2xl text-white"></i>
                 </div>
-                {/* ============= Left card ================= */}
-                <div className="mt-6 sm:mt-0 sm:mb-12">
-                  <div className="flex items-center flex-col sm:flex-row">
-                    <div className="flex justify-start w-full mx-auto items-center">
-                      <div className="w-full sm:w-1/2 sm:pr-8">
-                        <div
-                          data-aos="fade-right"
-                          data-aos-delay="50"
-                          data-aos-duration="1300"
-                          className="bg-white p-4 rounded shadow group hover:bg-primaryColor cursor-pointer easi-in duration-150"
-                        >
-                          <h3 className="text-primaryColor mt-3 font-[700] mb-3 group-hover:text-white group-hover:font-[600] text-xl">
-                            2020 - 2021 Frontend Developer
-                          </h3>
-                          <h5 className=" font-[700] mb-3 group-hover:text-white group-hover:font-[600] text-[15px]">
-                            {language === "EN" ? "at CSDM" : "bij CSDM"}
-                          </h5>
-                          <p className="text-[15px] text-smallTextColor group-hover:text-white group-hover:font-[500] leading-7">
-                            {text4}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="rounded-full bg-primaryColor border-white border-4 w-10 h-10 absolute left-1/2 transform -translate-x-1/2 -translate-y-4 sm:translate-y-0 flex items-center
-                    justify-center"
-                    >
-                      <figure>
-                        <img src={uiImg} alt="" />
-                      </figure>
-                    </div>
-                  </div>
+                <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-headingColor">
+                  {currentContent.milestones.companies}
+                </h4>
+                <p className="text-xs sm:text-sm lg:text-base text-smallTextColor">
+                  {currentContent.companies}
+                </p>
+              </div>
+              
+              <div className="space-y-2 sm:space-y-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl sm:rounded-2xl flex items-center justify-center">
+                  <i className="ri-trophy-line text-lg sm:text-2xl text-white"></i>
                 </div>
-                {/* ============= Right card ================= */}
-                <div className="mt-6 sm:mt-0 sm:mb-12">
-                  <div className="flex items-center flex-col sm:flex-row">
-                    <div className="flex justify-end w-full mx-auto items-center">
-                      <div className="w-full sm:w-1/2 sm:pl-8">
-                        <div
-                          data-aos="fade-left"
-                          data-aos-delay="50"
-                          data-aos-duration="1200"
-                          className="bg-white p-4 rounded shadow group hover:bg-primaryColor cursor-pointer easi-in duration-150"
-                        >
-                          <h3 className="text-primaryColor font-[700] mt-3 mb-3 group-hover:text-white group-hover:font-[600] text-xl">
-                            {language === "EN"
-                              ? "2021 - Self development year"
-                              : "2021 - Jaar van zelfontwikkeling"}
-                          </h3>
-                          <p className="text-[15px] text-smallTextColor group-hover:text-white group-hover:font-[500] leading-7">
-                            {text3}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="rounded-full bg-primaryColor border-white border-4 w-10 h-10 absolute left-1/2 transform -translate-x-1/2 -translate-y-4 sm:translate-y-0 flex items-center
-                    justify-center"
-                    >
-                      <figure>
-                        <img src={appsdImg} alt="" />
-                      </figure>
-                    </div>
-                  </div>
-                </div>
-                {/* ============= Left card ================= */}
-                <div className="mt-6 sm:mt-0 sm:mb-12">
-                  <div className="flex items-center flex-col sm:flex-row">
-                    <div className="flex justify-start w-full mx-auto items-center">
-                      <div className="w-full sm:w-1/2 sm:pr-8">
-                        <div
-                          data-aos="fade-right"
-                          data-aos-delay="50"
-                          data-aos-duration="1300"
-                          className="bg-white p-4 rounded shadow group hover:bg-primaryColor cursor-pointer easi-in duration-150"
-                        >
-                          <h3 className="text-primaryColor font-[700] mt-3 mb-3 group-hover:text-white group-hover:font-[600] text-xl">
-                            2021 - 2023 Product Manager
-                          </h3>
-                          <h5 className=" font-[700] mb-3 group-hover:text-white group-hover:font-[600] text-[15px]">
-                            {language === "EN"
-                              ? "at Bitsliced"
-                              : "bij Bitsliced"}
-                          </h5>
-                          <p className="text-[15px] text-smallTextColor group-hover:text-white group-hover:font-[500] leading-7">
-                            {text5}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="rounded-full bg-primaryColor border-white border-4 w-10 h-10 absolute left-1/2 transform -translate-x-1/2 -translate-y-4 sm:translate-y-0 flex items-center
-                    justify-center"
-                    >
-                      <figure>
-                        <img src={frontendImg} alt="" />
-                      </figure>
-                    </div>
-                  </div>
-                </div>
-                {/* ============= Right card ================= */}
-                <div className="mt-6 sm:mt-0 sm:mb-12">
-                  <div className="flex items-center flex-col sm:flex-row">
-                    <div className="flex justify-end w-full mx-auto items-center">
-                      <div className="w-full sm:w-1/2 sm:pl-8">
-                        <div
-                          data-aos="fade-left"
-                          data-aos-delay="50"
-                          data-aos-duration="1200"
-                          className="bg-white p-4 rounded shadow group hover:bg-primaryColor cursor-pointer easi-in duration-150"
-                        >
-                          <h3 className="text-primaryColor font-[700] mt-3 mb-3 group-hover:text-white group-hover:font-[600] text-xl">
-                            {language === "EN"
-                              ? "2023 - Backend Developer at Vloto"
-                              : "2023 - Backend Developer bij Vloto"}
-                          </h3>
-                          <p className="text-[15px] text-smallTextColor group-hover:text-white group-hover:font-[500] leading-7">
-                            {text6}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="rounded-full bg-primaryColor border-white border-4 w-10 h-10 absolute left-1/2 transform -translate-x-1/2 -translate-y-4 sm:translate-y-0 flex items-center
-                    justify-center"
-                    >
-                      <figure>
-                        <img src={appsdImg} alt="" />
-                      </figure>
-                    </div>
-                  </div>
-                </div>
+                <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-headingColor">
+                  {currentContent.milestones.projects}
+                </h4>
+                <p className="text-xs sm:text-sm lg:text-base text-smallTextColor">
+                  {currentContent.projects}
+                </p>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 

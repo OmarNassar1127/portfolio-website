@@ -1,149 +1,315 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import me2 from "../../assets/images/me2.png";
 
 const Header = ({ toggleLanguage, language }) => {
-  const headerRef = useRef(null);
-  const menuRef = useRef(null);
   const [activeSection, setActiveSection] = useState("#about");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const stickyHeaderFunc = () => {
-    window.addEventListener("scroll", () => {
-      if (
-        document.body.scrollTop > 80 ||
-        document.documentElement.scrollTop > 80
-      ) {
-        headerRef.current.classList.add("sticky__header");
-      } else {
-        headerRef.current.classList.remove("sticky__header");
-      }
-    });
+  const content = {
+    EN: {
+      navigation: {
+        about: "About",
+        journey: "Journey",
+        portfolio: "Portfolio", 
+        skills: "Skills",
+        contact: "Contact"
+      },
+      logoText: "Personal",
+      menuClose: "Close menu",
+      emailLabel: "Get in touch",
+      availableText: "Available for projects"
+    },
+    NL: {
+      navigation: {
+        about: "Over mij",
+        journey: "Journey",
+        portfolio: "Portefeuille",
+        skills: "Vaardigheden", 
+        contact: "Contact"
+      },
+      logoText: "Persoonlijk",
+      menuClose: "Menu sluiten",
+      emailLabel: "Neem contact op",
+      availableText: "Beschikbaar voor projecten"
+    }
   };
 
+  const currentContent = content[language];
+
+  const navigationItems = [
+    { href: "#about", label: currentContent.navigation.about, icon: "ri-user-line" },
+    { href: "#journey", label: currentContent.navigation.journey, icon: "ri-road-map-line" },
+    { href: "#portfolio", label: currentContent.navigation.portfolio, icon: "ri-briefcase-line" },
+    { href: "#skills", label: currentContent.navigation.skills, icon: "ri-code-line" },
+    { href: "#contact", label: currentContent.navigation.contact, icon: "ri-mail-line" }
+  ];
+
+  // Handle scroll effect
   useEffect(() => {
-    stickyHeaderFunc();
-    return () => window.removeEventListener("scroll", stickyHeaderFunc);
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 20);
+      
+      // Update active section based on scroll position
+      const sections = navigationItems.map(item => item.href);
+      let current = sections[0];
+      
+      sections.forEach(section => {
+        const element = document.querySelector(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100) {
+            current = section;
+          }
+        }
+      });
+      
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check initial position
+    
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleClick = (e) => {
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMenuOpen && !event.target.closest('.mobile-menu') && !event.target.closest('.menu-toggle')) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMenuOpen]);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
+  const handleNavClick = (e, href) => {
     e.preventDefault();
+    const element = document.querySelector(href);
+    
+    if (element) {
+      const headerHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
 
-    const targetAttr = e.target.getAttribute("href");
-    const location = document.querySelector(targetAttr).offsetTop;
-
-    window.scrollTo({
-      top: location - 80,
-      left: 0,
-    });
-
-    setActiveSection(targetAttr);
-
-    setTimeout(() => {
       window.scrollTo({
-        top: location - 80,
-        left: 0,
+        top: offsetPosition,
+        behavior: "smooth",
       });
-    }, 200); 
+    }
+
+    setActiveSection(href);
+    setIsMenuOpen(false);
   };
 
-  const toggleMenu = () => menuRef.current.classList.toggle("show__menu");
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
-    <header
-      ref={headerRef}
-      className="w-full h-[80px] leading-[80px] flex items-center"
-    >
-      <div className="container">
-        <div className="flex items-center justify-between">
-          {/* =============LOGO================= */}
-          <div>
-            <a className="flex items-center gap-[10px]" href="#about">
-              <span
-                className="w-[35px] h-[35px] bg-primaryColor text-white text-[18px] font-[500] 
-            rounded-full flex items-center justify-center "
+    <>
+      <header
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+          isScrolled 
+            ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100' 
+            : 'bg-transparent'
+        }`}
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
+            
+            {/* Logo */}
+            <div className="flex items-center">
+              <a 
+                href="#about" 
+                onClick={(e) => handleNavClick(e, '#about')}
+                className="flex items-center gap-3 group"
               >
-                <figure className="flex items-center justify-center">
-                  <img src={me2} alt="" />
-                </figure>
-              </span>
-              <div className="leading-[20px]">
-                <h2 className="text-xl text-smallTextColor font-[700]">Omar</h2>
-                <p className="text-smallTextColor text-[18px] font-[500]">
-                  Personal
-                </p>
+                <div className="relative">
+                  <div className="w-12 h-12 bg-gradient-to-r from-primaryColor to-purple-600 rounded-xl flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-200">
+                    <img 
+                      src={me2} 
+                      alt="Omar Nassar" 
+                      className="w-10 h-10 object-cover rounded-lg"
+                    />
+                  </div>
+                  <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
+                </div>
+                <div className="hidden sm:block">
+                  <h2 className="text-xl font-bold text-headingColor group-hover:text-primaryColor transition-colors duration-200">
+                    Omar
+                  </h2>
+                  <p className="text-sm text-smallTextColor -mt-1">
+                    {currentContent.logoText}
+                  </p>
+                </div>
+              </a>
+            </div>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-1">
+              {navigationItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className={`relative px-4 py-2 rounded-xl font-medium transition-all duration-200 ${
+                    activeSection === item.href
+                      ? 'text-primaryColor bg-primaryColor/10'
+                      : 'text-smallTextColor hover:text-primaryColor hover:bg-gray-50'
+                  }`}
+                >
+                  {item.label}
+                  {activeSection === item.href && (
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-primaryColor rounded-full"></div>
+                  )}
+                </a>
+              ))}
+            </nav>
+
+            {/* Right Side - Language Toggle & Mobile Menu */}
+            <div className="flex items-center gap-3">
+              {/* Language Toggle */}
+              <button
+                onClick={toggleLanguage}
+                className="relative overflow-hidden bg-gradient-to-r from-primaryColor to-purple-600 text-white font-semibold px-4 py-2 rounded-xl hover:shadow-lg transition-all duration-200 group"
+              >
+                <span className="relative z-10">
+                  {language === "EN" ? "NL" : "EN"}
+                </span>
+                <div className="absolute inset-0 bg-white/20 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+              </button>
+
+              {/* Mobile Menu Toggle */}
+              <button
+                onClick={toggleMenu}
+                className="menu-toggle lg:hidden p-2 rounded-xl transition-colors duration-200"
+                aria-label="Toggle menu"
+              >
+                <div className="w-6 h-6 relative">
+                  <span className={`absolute h-0.5 w-full bg-smallTextColor transform transition-all duration-300 ${
+                    isMenuOpen ? 'rotate-45 top-3' : 'top-1'
+                  }`}></span>
+                  <span className={`absolute h-0.5 w-full bg-smallTextColor transform transition-all duration-300 top-3 ${
+                    isMenuOpen ? 'opacity-0' : 'opacity-100'
+                  }`}></span>
+                  <span className={`absolute h-0.5 w-full bg-smallTextColor transform transition-all duration-300 ${
+                    isMenuOpen ? '-rotate-45 top-3' : 'top-5'
+                  }`}></span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`fixed inset-0 z-40 lg:hidden transition-opacity duration-300 ${
+        isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+      }`}>
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        
+        {/* Mobile Menu Panel */}
+        <div className={`mobile-menu absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}>
+          
+          {/* Menu Header */}
+          <div className="flex items-center justify-between p-6 border-b border-gray-100">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-r from-primaryColor to-purple-600 rounded-lg flex items-center justify-center overflow-hidden">
+                <img 
+                  src={me2} 
+                  alt="Omar Nassar" 
+                  className="w-8 h-8 object-cover rounded-md"
+                />
               </div>
-            </a>
-          </div>
-          {/* ============= LOGO END ================= */}
-          {/* ============= MENU START ================= */}
-          <div className="menu" ref={menuRef} onClick={toggleMenu}>
-            <ul className="flex items-center gap-10">
-              <li>
-                <a
-                  onClick={handleClick}
-                  className={`text-smallTextColor font-[600] ${activeSection === "#about" ? "active" : ""}`}
-                  href="#about"
-                >
-                  {language === "EN" ? "About" : "Over mij"}
-                </a>
-              </li>
-              <li>
-                <a
-                  onClick={handleClick}
-                  className={`text-smallTextColor font-[600] ${activeSection === "#journey" ? "active" : ""}`}
-                  href="#journey"
-                >
-                  Journey
-                </a>
-              </li>
-              <li>
-                <a
-                  onClick={handleClick}
-                  className={`text-smallTextColor font-[600] ${activeSection === "#portfolio" ? "active" : ""}`}
-                  href="#portfolio"
-                >
-                  {language === "EN" ? "Portfolio" : "Portefeuille"}
-                </a>
-              </li>
-              <li>
-                <a
-                  onClick={handleClick}
-                  className={`text-smallTextColor font-[600] ${activeSection === "#skills" ? "active" : ""}`}
-                  href="#skills"
-                >
-                  {language === "EN" ? "Skills" : "Vaardigheden"}
-                </a>
-              </li>
-              <li>
-                <a
-                  onClick={handleClick}
-                  className={`text-smallTextColor font-[600] ${activeSection === "#contact" ? "active" : ""}`}
-                  href="#contact"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-          {/* ============= MENU END ================= */}
-          {/* ============= MENU RIGHT ================= */}
-          <div className="flex items-center gap-4">
+              <div>
+                <h3 className="font-semibold text-headingColor">Omar Nassar</h3>
+                <p className="text-xs text-smallTextColor">{currentContent.availableText}</p>
+              </div>
+            </div>
             <button
-              onClick={toggleLanguage}
-              className="text-white flex items-center justify-center border bg-primaryColor hover:bg-headingColor py-2 px-4 rounded-[10px] max-h-[35px]  max-w-[60px]"
-            >
-              {language === "EN" ? "NL" : "EN"}
-            </button>
-            <span
               onClick={toggleMenu}
-              className="text-2xl text-smallTextColor md:hidden cursor-pointer"
+              className="p-2 duration-200"
+              aria-label={currentContent.menuClose}
             >
-              <i className="ri-menu-line"></i>
-            </span>
+            </button>
           </div>
-          {/* ============= MENU END ================= */}
+
+          {/* Menu Navigation */}
+          <nav className="px-6 py-8 flex-1">
+            <ul className="space-y-4">
+              {navigationItems.map((item, index) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className={`flex items-center gap-4 py-4 px-4 rounded-2xl font-medium transition-all duration-200 ${
+                      activeSection === item.href
+                        ? 'text-white bg-gradient-to-r from-primaryColor to-purple-600 shadow-lg'
+                        : 'text-smallTextColor hover:text-primaryColor hover:bg-gray-50'
+                    }`}
+                    style={{
+                      animationDelay: `${index * 50}ms`
+                    }}
+                  >
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
+                      activeSection === item.href 
+                        ? 'bg-white/20' 
+                        : ''
+                    }`}>
+                      <i className={`${item.icon} text-xl ${
+                        activeSection === item.href ? 'text-white' : 'text-primaryColor'
+                      }`}></i>
+                    </div>
+                    <span className="font-semibold text-lg flex-1">{item.label}</span>
+                    {activeSection === item.href && (
+                      <i className="ri-arrow-right-s-line text-xl"></i>
+                    )}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Mobile Menu Footer - Email Contact */}
+          <div className="absolute bottom-0 left-0 right-0 p-6 bg-gray-50 border-t border-gray-100">
+            <div className="text-center">
+              <p className="text-sm text-smallTextColor mb-3">
+                {currentContent.emailLabel}
+              </p>
+              <a
+                href="mailto:omarnassar1127@gmail.com"
+                className="flex items-center justify-center gap-2 bg-gradient-to-r from-primaryColor to-purple-600 text-white font-medium px-4 py-3 rounded-xl hover:shadow-lg transition-all duration-200"
+              >
+                <i className="ri-mail-line text-lg"></i>
+                <span className="text-sm">omarnassar1127@gmail.com</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </header>
+
+      {/* Spacer for fixed header */}
+      <div className="h-20"></div>
+    </>
   );
 };
 
