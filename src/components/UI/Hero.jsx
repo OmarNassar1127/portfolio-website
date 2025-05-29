@@ -2,12 +2,11 @@ import React, { useEffect, useRef } from "react";
 import me from "../../assets/images/me.png";
 import CountUp from "react-countup";
 import Typed from "typed.js";
-import EnglishCV from "../../assets/cv/Omar-cv-en.pdf";
-import DutchCV from "../../assets/cv/Omar-cv-nl.pdf";
+import OmarCV from "../../assets/cv/Omar-cv.pdf";
 
 const Hero = ({ language }) => {
   const typedRef = useRef(null);
-  const cvLink = language === 'EN' ? EnglishCV : DutchCV;
+  const cvLink = language === 'EN' ? OmarCV : OmarCV;
 
   const text =
     language === "EN"
