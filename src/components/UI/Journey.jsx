@@ -15,9 +15,9 @@ const Journey = ({ language }) => {
       companies: "Companies",
       projects: "Projects",
       milestones: {
-        experience: "7+",
-        companies: "6+", 
-        projects: "25+"
+        experience: "5+",
+        companies: "4+", 
+        projects: "26+"
       }
     },
     NL: {
@@ -29,9 +29,9 @@ const Journey = ({ language }) => {
       companies: "Bedrijven",
       projects: "Projecten",
       milestones: {
-        experience: "7+",
-        companies: "6+",
-        projects: "25+"
+        experience: "5+",
+        companies: "4+",
+        projects: "26+"
       }
     }
   };
