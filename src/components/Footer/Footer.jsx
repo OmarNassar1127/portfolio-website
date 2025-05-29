@@ -14,7 +14,7 @@ const Footer = ({ language }) => {
       availability: "Available for freelance",
       navigation: {
         about: "About",
-        journey: "Journey", 
+        journey: "Journey",
         portfolio: "Portfolio",
         skills: "Skills",
         contact: "Contact"
@@ -33,7 +33,7 @@ const Footer = ({ language }) => {
       navigation: {
         about: "Over mij",
         journey: "Journey",
-        portfolio: "Portefeuille", 
+        portfolio: "Portefeuille",
         skills: "Vaardigheden",
         contact: "Contact"
       },
@@ -54,7 +54,7 @@ const Footer = ({ language }) => {
     },
     {
       href: "https://twitter.com/GodelTrabuco69",
-      icon: "ri-twitter-line", 
+      icon: "ri-twitter-line",
       label: "Twitter",
       platform: "@GodelTrabuco69",
       color: "from-blue-400 to-blue-500"
@@ -86,7 +86,7 @@ const Footer = ({ language }) => {
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ 
+      element.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
@@ -105,7 +105,7 @@ const Footer = ({ language }) => {
       {/* Main Footer Content */}
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          
+
           {/* CTA Section */}
           <div className="lg:col-span-6 xl:col-span-5">
             <div className="max-w-md">
@@ -115,8 +115,8 @@ const Footer = ({ language }) => {
               <p className="text-xl text-smallTextColor mb-8 leading-relaxed">
                 {currentContent.ctaSubtitle}
               </p>
-              
-              <a 
+
+              <a
                 href="#contact"
                 onClick={(e) => {
                   e.preventDefault();
@@ -148,7 +148,7 @@ const Footer = ({ language }) => {
           {/* Navigation & Social */}
           <div className="lg:col-span-6 xl:col-span-7">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12">
-              
+
               {/* Quick Links */}
               <div>
                 <h3 className="text-lg font-semibold text-headingColor mb-6">
@@ -215,20 +215,6 @@ const Footer = ({ language }) => {
               <span className="hidden sm:block">•</span>
               <span>{currentContent.madeWith}</span>
             </div>
-            
-            {/* Back to Top */}
-            <button
-              onClick={() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="group flex items-center gap-2 text-smallTextColor hover:text-primaryColor transition-all duration-200 bg-white hover:bg-primaryColor hover:text-white px-4 py-2 rounded-full border border-gray-200 hover:border-primaryColor"
-              aria-label="Back to top"
-            >
-              <span className="text-sm font-medium">
-                {language === "EN" ? "Top" : "Boven"}
-              </span>
-              <i className="ri-arrow-up-line text-sm group-hover:-translate-y-1 transition-transform duration-200"></i>
-            </button>
           </div>
         </div>
       </div>

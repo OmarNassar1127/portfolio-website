@@ -447,7 +447,6 @@ const Skills = ({ language }) => {
                 ? "Always learning new technologies"
                 : "Altijd nieuwe technologieën leren"}
             </span>
-            <i className="ri-arrow-right-line group-hover:translate-x-1 transition-transform duration-300"></i>
           </div>
         </div>
       </div>
