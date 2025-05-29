@@ -50,8 +50,8 @@ const Journey = ({ language }) => {
       color: "from-blue-500 to-blue-600",
       technologies: ["HTML/CSS", "JavaScript", "Web Design"],
       description: language === "EN"
-        ? "Started my programming journey learning the fundamentals of web development, focusing on HTML/CSS and JavaScript."
-        : "Begon mijn programmeertraject met het leren van de fundamenten van webontwikkeling, gericht op HTML/CSS en JavaScript.",
+        ? "Started my programming journey learning the fundamentals of web development, focusing on HTML/CSS, JavaScript, PHP and C#."
+        : "Begon mijn programmeertraject met het leren van de fundamenten van webontwikkeling, gericht op HTML/CSS, JavaScript, PHP en C#.",
     },
     {
       id: 2,
