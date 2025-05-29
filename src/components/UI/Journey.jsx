@@ -5,216 +5,241 @@ import uiImg from "../../assets/images/design.png";
 import appsdImg from "../../assets/images/apps.png";
 
 const Journey = ({ language }) => {
-  const text =
-    language === "EN"
-      ? "From learning my first lines of HTML in 2017 to developing AI-powered solutions today, my journey has been driven by curiosity and a passion for solving complex problems. Each role has shaped my expertise in both frontend and backend development, product management, and emerging technologies."
-      : "Van het leren van mijn eerste HTML-regels in 2017 tot het ontwikkelen van AI-aangedreven oplossingen vandaag, mijn reis is gedreven door nieuwsgierigheid en een passie voor het oplossen van complexe problemen. Elke rol heeft mijn expertise gevormd in zowel frontend- als backend-ontwikkeling, productmanagement en opkomende technologieën.";
+  const content = {
+    EN: {
+      badge: "Career Timeline",
+      title: "Development Journey",
+      subtitle: "From learning my first lines of HTML in 2017 to developing AI-powered solutions today, my journey has been driven by curiosity and a passion for solving complex problems.",
+      current: "Current",
+      years: "Years Experience",
+      companies: "Companies",
+      projects: "Projects",
+      milestones: {
+        experience: "5+",
+        companies: "4", 
+        projects: "26+"
+      }
+    },
+    NL: {
+      badge: "Carrière Tijdlijn",
+      title: "Ontwikkelingsreis", 
+      subtitle: "Van het leren van mijn eerste HTML-regels in 2017 tot het ontwikkelen van AI-aangedreven oplossingen vandaag, mijn reis is gedreven door nieuwsgierigheid en een passie voor het oplossen van complexe problemen.",
+      current: "Huidig",
+      years: "Jaar Ervaring",
+      companies: "Bedrijven",
+      projects: "Projecten",
+      milestones: {
+        experience: "5+",
+        companies: "4",
+        projects: "26+"
+      }
+    }
+  };
+
+  const currentContent = content[language];
 
   const journeyData = [
     {
       id: 1,
       year: "2017-2019",
-      title: language === "EN" ? "Foundation Years" : "Basis Jaren",
+      period: "2019",
+      title: language === "EN" ? "First Steps" : "Eerste Stappen",
       subtitle: "Frontend Development",
       company: "MBO Amstelland",
       icon: frontendImg,
+      color: "from-blue-500 to-blue-600",
       technologies: ["HTML/CSS", "JavaScript", "Web Design"],
       description: language === "EN"
-        ? "Started my programming journey learning the fundamentals of web development, focusing on HTML/CSS and JavaScript to create interactive web applications."
-        : "Begon mijn programmeertraject met het leren van de fundamenten van webontwikkeling, gericht op HTML/CSS en JavaScript voor interactieve webapplicaties.",
+        ? "Started my programming journey learning the fundamentals of web development, focusing on HTML/CSS and JavaScript."
+        : "Begon mijn programmeertraject met het leren van de fundamenten van webontwikkeling, gericht op HTML/CSS en JavaScript.",
     },
     {
       id: 2,
-      year: "2019-2020",
-      title: language === "EN" ? "Backend Expansion" : "Backend Uitbreiding",
+      year: "2019-2021",
+      period: "2021",
+      title: language === "EN" ? "Professional Start" : "Professionele Start",
       subtitle: "Full-Stack Development",
-      company: "MBO Amstelland",
+      company: "CSDM",
       icon: backendImg,
-      technologies: ["PHP", "MySQL", "C#", "WordPress"],
+      color: "from-green-500 to-green-600",
+      technologies: ["ReactJS", "PHP", "MySQL", "GraphQL"],
       description: language === "EN"
-        ? "Expanded into backend development, mastering database design, server-side programming, and building complete web applications with CRUD functionality."
-        : "Uitgebreid naar backend-ontwikkeling, het beheersen van database-ontwerp, server-side programmering en het bouwen van complete webapplicaties met CRUD-functionaliteit.",
+        ? "First professional role working with enterprise clients, developing modern React applications and backend systems."
+        : "Eerste professionele rol met enterprise klanten, ontwikkelen van moderne React applicaties en backend systemen.",
     },
     {
       id: 3,
-      year: "2020-2021",
-      title: "Frontend Developer",
-      subtitle: "Professional Start",
-      company: "CSDM",
-      icon: uiImg,
-      technologies: ["ReactJS", "GraphQL", "Modern Frontend"],
-      description: language === "EN"
-        ? "First professional role working with enterprise clients like Coca-Cola and Shell, developing modern React applications and implementing complex user interfaces."
-        : "Eerste professionele rol met enterprise klanten zoals Coca-Cola en Shell, ontwikkelen van moderne React applicaties en implementeren van complexe gebruikersinterfaces.",
-    },
-    {
-      id: 4,
-      year: "2021",
-      title: language === "EN" ? "Blockchain Explorer" : "Blockchain Verkenner",
-      subtitle: "Self-Development",
-      company: language === "EN" ? "Independent Study" : "Zelfstandige Studie",
-      icon: appsdImg,
-      technologies: ["Blockchain", "Smart Contracts", "Web3"],
-      description: language === "EN"
-        ? "Deep dive into blockchain technology and cryptocurrency, exploring smart contracts and decentralized applications to understand the future of digital finance."
-        : "Diepe duik in blockchain-technologie en cryptocurrency, verkennen van smart contracts en gedecentraliseerde applicaties om de toekomst van digitale financiën te begrijpen.",
-    },
-    {
-      id: 5,
-      year: "2021-2023",
-      title: "Product Manager",
-      subtitle: "Entrepreneurship",
-      company: "Bitsliced",
-      icon: frontendImg,
-      technologies: ["NFT", "Product Strategy", "Team Leadership"],
-      description: language === "EN"
-        ? "Co-founded and managed an NFT marketplace for real-world assets, leading product development and team coordination in the emerging Web3 space."
-        : "Mede-oprichter en manager van een NFT-marktplaats voor real-world assets, leidinggevend in productontwikkeling en teamcoördinatie in de opkomende Web3-ruimte.",
-    },
-    {
-      id: 6,
-      year: "2023-Present",
-      title: "Backend Developer",
-      subtitle: "AI Integration",
+      year: "2021-2024",
+      period: "2024",
+      title: language === "EN" ? "AI & Innovation" : "AI & Innovatie",
+      subtitle: "Product & Backend Development",
       company: "Vloto B.V.",
       icon: appsdImg,
-      technologies: ["Laravel", "AI/ML", "API Development"],
+      color: "from-purple-500 to-purple-600",
+      technologies: ["Laravel", "AI/ML", "API Development", "Product Management"],
       description: language === "EN"
-        ? "Currently building scalable backend systems for luxury car-sharing platform, focusing on API development, automation, and AI-powered features."
-        : "Momenteel bouwen van schaalbare backend-systemen voor luxe autodeel platform, gericht op API-ontwikkeling, automatisering en AI-aangedreven functies.",
+        ? "Building scalable backend systems and AI-powered features for luxury car-sharing platform."
+        : "Bouwen van schaalbare backend-systemen en AI-aangedreven functies voor luxe autodeel platform.",
       current: true
     }
   ];
 
   return (
-    <section id="journey" className="py-16 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-      {/* Subtle background decoration */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-primaryColor/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl"></div>
+    <section id="journey" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 opacity-40">
+        <div className="absolute top-20 left-10 sm:left-20 w-32 sm:w-72 h-32 sm:h-72 bg-primaryColor/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 sm:right-20 w-32 sm:w-72 h-32 sm:h-72 bg-blue-400/10 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-primaryColor/10 text-primaryColor px-4 py-2 rounded-full text-sm font-semibold mb-4">
-            <i className="ri-map-pin-time-line"></i>
-            {language === "EN" ? "Career Timeline" : "Carrière Tijdlijn"}
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 bg-primaryColor/10 text-primaryColor px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-4">
+            <i className="ri-map-pin-time-line text-sm sm:text-base"></i>
+            {currentContent.badge}
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-headingColor mb-6" data-aos="fade-up">
-            {language === "EN" ? "My Journey" : "Mijn Reis"}
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-headingColor mb-4 sm:mb-6" data-aos="fade-up">
+            {currentContent.title}
           </h2>
           
-          <p className="text-lg text-smallTextColor max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="200">
-            {text}
+          <p className="text-base sm:text-lg text-smallTextColor max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-4" data-aos="fade-up" data-aos-delay="200">
+            {currentContent.subtitle}
           </p>
         </div>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Vertical line for desktop */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-primaryColor to-blue-500"></div>
-          
-          <div className="space-y-8 md:space-y-16">
-            {journeyData.map((item, index) => (
-              <div 
-                key={item.id}
-                className={`relative grid md:grid-cols-2 gap-8 items-center ${
-                  index % 2 === 0 ? '' : 'md:flex-row-reverse'
-                }`}
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-              >
-                {/* Timeline dot */}
-                <div className="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                  <div className={`w-12 h-12 rounded-full bg-white border-4 border-primaryColor flex items-center justify-center shadow-lg ${
-                    item.current ? 'ring-4 ring-primaryColor/20' : ''
-                  }`}>
-                    <img src={item.icon} alt={item.title} className="w-6 h-6 object-contain" />
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className={`${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12 md:col-start-2'}`}>
-                  <div className={`relative bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 ${
-                    item.current ? 'ring-2 ring-primaryColor/20' : ''
-                  }`}>
-                    {/* Current badge */}
-                    {item.current && (
-                      <div className="absolute -top-3 -right-3">
-                        <span className="bg-primaryColor text-white px-3 py-1 rounded-full text-xs font-semibold">
-                          {language === "EN" ? "Current" : "Huidig"}
-                        </span>
-                      </div>
-                    )}
-
-                    {/* Year badge for mobile */}
-                    <div className="md:hidden mb-4">
-                      <div className="inline-flex items-center gap-2 bg-primaryColor text-white px-3 py-1 rounded-lg text-sm font-semibold">
-                        <img src={item.icon} alt={item.title} className="w-4 h-4 object-contain filter brightness-0 invert" />
-                        {item.year}
-                      </div>
-                    </div>
-
-                    {/* Year for desktop */}
-                    <div className="hidden md:block text-primaryColor font-bold text-lg mb-2">{item.year}</div>
+        {/* Mobile-First Timeline */}
+        <div className="max-w-4xl mx-auto">
+          <div className="relative">
+            {/* Timeline line - only visible on larger screens */}
+            <div className="hidden sm:block absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primaryColor to-purple-500"></div>
+            
+            {/* Mobile center line */}
+            <div className="sm:hidden absolute left-1/2 transform -translate-x-0.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primaryColor to-purple-500 opacity-30"></div>
+            
+            <div className="space-y-0 sm:space-y-8">
+              {journeyData.map((item, index) => (
+                <div key={item.id}>
+                  <div 
+                    className="relative"
+                    data-aos="fade-up"
+                    data-aos-delay={index * 150}
+                  >
+                    {/* Timeline dot for larger screens */}
+                    <div className="hidden sm:flex absolute left-6 top-6 w-4 h-4 bg-white border-4 border-primaryColor rounded-full z-10"></div>
                     
-                    <h3 className="text-xl font-bold text-headingColor mb-2">{item.title}</h3>
-                    <div className="flex items-center gap-2 mb-4">
-                      <span className="text-smallTextColor font-medium">{item.subtitle}</span>
-                      <span className="text-gray-300">•</span>
-                      <span className="text-primaryColor font-medium">{item.company}</span>
+                    {/* Mobile timeline dot */}
+                    <div className="sm:hidden absolute left-1/2 transform -translate-x-1/2 top-8 w-6 h-6 bg-white border-4 border-primaryColor rounded-full z-10 shadow-lg">
+                      <div className="w-full h-full bg-primaryColor rounded-full scale-50"></div>
+                    </div>
+                  
+                    {/* Card */}
+                    <div className={`bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 mx-4 sm:mx-0 sm:ml-20 ${
+                      item.current ? 'ring-2 ring-primaryColor/30 shadow-primaryColor/10' : ''
+                    }`}>
+                    
+                    {/* Mobile year badge */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div className={`inline-flex items-center gap-2 bg-gradient-to-r ${item.color} text-white px-3 py-1.5 rounded-xl text-sm font-bold`}>
+                        <img src={item.icon} alt={item.title} className="w-4 h-4 filter brightness-0 invert" />
+                        <span className="text-xs sm:text-sm">{item.period}</span>
+                      </div>
+                      
+                      {/* Current badge */}
+                      {item.current && (
+                        <div className="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-1 rounded-lg text-xs font-semibold">
+                          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                          {currentContent.current}
+                        </div>
+                      )}
                     </div>
 
-                    <p className="text-smallTextColor mb-4 leading-relaxed">{item.description}</p>
+                    {/* Content */}
+                    <div className="mb-4">
+                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-headingColor mb-2">
+                        {item.title}
+                      </h3>
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-3 text-sm sm:text-base">
+                        <span className="text-smallTextColor font-medium">{item.subtitle}</span>
+                        <span className="hidden sm:inline text-gray-300">•</span>
+                        <span className="text-primaryColor font-semibold">{item.company}</span>
+                      </div>
+                    </div>
+
+                    <p className="text-smallTextColor mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                      {item.description}
+                    </p>
 
                     {/* Technologies */}
                     <div className="flex flex-wrap gap-2">
                       {item.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-2 py-1 bg-primaryColor/10 text-primaryColor text-xs font-medium rounded-md"
+                          className="px-2 sm:px-3 py-1 bg-primaryColor/10 text-primaryColor text-xs sm:text-sm font-medium rounded-lg hover:bg-primaryColor/20 transition-colors duration-200"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
+                    </div>
                   </div>
+                  
+                  {/* Mobile Arrow - only show between items, not after last */}
+                  {index < journeyData.length - 1 && (
+                    <div className="sm:hidden flex justify-center py-4">
+                      <div className="flex flex-col items-center">
+                        <div className="w-8 h-8 bg-gradient-to-r from-primaryColor to-purple-600 rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                          <i className="ri-arrow-down-line text-white text-sm"></i>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
-
-                {/* Empty space for alternating layout on desktop */}
-                <div className={`hidden md:block ${index % 2 === 0 ? 'md:col-start-2' : ''}`}></div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Stats section */}
-        <div className="mt-20 bg-gradient-to-r from-primaryColor/5 to-blue-50 rounded-2xl p-8" data-aos="fade-up">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="w-16 h-16 mx-auto mb-4 bg-primaryColor rounded-2xl flex items-center justify-center">
-                <i className="ri-code-box-line text-2xl text-white"></i>
+        {/* Stats Section */}
+        <div className="mt-12 sm:mt-16 lg:mt-20" data-aos="fade-up">
+          <div className="bg-gradient-to-r from-primaryColor/5 to-blue-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8">
+            <div className="grid grid-cols-3 gap-4 sm:gap-8 text-center">
+              <div className="space-y-2 sm:space-y-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-r from-primaryColor to-purple-600 rounded-xl sm:rounded-2xl flex items-center justify-center">
+                  <i className="ri-code-box-line text-lg sm:text-2xl text-white"></i>
+                </div>
+                <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-headingColor">
+                  {currentContent.milestones.experience}
+                </h4>
+                <p className="text-xs sm:text-sm lg:text-base text-smallTextColor">
+                  {currentContent.years}
+                </p>
               </div>
-              <h4 className="text-2xl font-bold text-headingColor mb-2">6+</h4>
-              <p className="text-smallTextColor">{language === "EN" ? "Years Experience" : "Jaar Ervaring"}</p>
-            </div>
-            
-            <div>
-              <div className="w-16 h-16 mx-auto mb-4 bg-blue-500 rounded-2xl flex items-center justify-center">
-                <i className="ri-building-line text-2xl text-white"></i>
+              
+              <div className="space-y-2 sm:space-y-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl sm:rounded-2xl flex items-center justify-center">
+                  <i className="ri-building-line text-lg sm:text-2xl text-white"></i>
+                </div>
+                <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-headingColor">
+                  {currentContent.milestones.companies}
+                </h4>
+                <p className="text-xs sm:text-sm lg:text-base text-smallTextColor">
+                  {currentContent.companies}
+                </p>
               </div>
-              <h4 className="text-2xl font-bold text-headingColor mb-2">4+</h4>
-              <p className="text-smallTextColor">{language === "EN" ? "Companies" : "Bedrijven"}</p>
-            </div>
-            
-            <div>
-              <div className="w-16 h-16 mx-auto mb-4 bg-purple-500 rounded-2xl flex items-center justify-center">
-                <i className="ri-trophy-line text-2xl text-white"></i>
+              
+              <div className="space-y-2 sm:space-y-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl sm:rounded-2xl flex items-center justify-center">
+                  <i className="ri-trophy-line text-lg sm:text-2xl text-white"></i>
+                </div>
+                <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-headingColor">
+                  {currentContent.milestones.projects}
+                </h4>
+                <p className="text-xs sm:text-sm lg:text-base text-smallTextColor">
+                  {currentContent.projects}
+                </p>
               </div>
-              <h4 className="text-2xl font-bold text-headingColor mb-2">15+</h4>
-              <p className="text-smallTextColor">{language === "EN" ? "Projects" : "Projecten"}</p>
             </div>
           </div>
         </div>

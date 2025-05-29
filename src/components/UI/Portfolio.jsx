@@ -11,7 +11,7 @@ const Portfolio = ({ language }) => {
   const [sortOrder, setSortOrder] = useState("newest"); // newest or oldest
 
   const filterOptions = [
-    { key: "all", labelEN: "All Projects", labelNL: "Alle Projecten", count: data.length },
+    { key: "all", labelEN: "All (Public) Projects", labelNL: "Alle (Publieke) Projecten", count: data.length },
     { 
       key: "school-project", 
       labelEN: "School Projects", 

@@ -63,10 +63,10 @@ const Hero = ({ language }) => {
   ];
 
   const stats = [
-    { end: 120, labelEN: "APIs Developed", labelNL: "APIs Ontwikkeld", icon: "ri-code-box-line", color: "text-blue-600" },
-    { end: 10, labelEN: "Automations", labelNL: "Automatiseringen", icon: "ri-robot-line", color: "text-green-600" },
-    { end: 15, labelEN: "Projects", labelNL: "Projecten", icon: "ri-folder-line", color: "text-purple-600" },
-    { end: 4, labelEN: "AI Projects", labelNL: "AI-projecten", icon: "ri-brain-line", color: "text-pink-600" },
+    { end: 400, labelEN: "APIs Developed", labelNL: "APIs Ontwikkeld", icon: "ri-code-box-line", color: "text-blue-600" },
+    { end: 30, labelEN: "Automations", labelNL: "Automatiseringen", icon: "ri-robot-line", color: "text-green-600" },
+    { end: 26, labelEN: "Projects", labelNL: "Projecten", icon: "ri-folder-line", color: "text-purple-600" },
+    { end: 11, labelEN: "AI Projects", labelNL: "AI-projecten", icon: "ri-brain-line", color: "text-pink-600" },
   ];
 
   return (
