@@ -100,7 +100,7 @@ const Journey = ({ language }) => {
       year: "2023-Present",
       period: "2023-Nu",
       title: language === "EN" ? "Backend Developer" : "Backend Ontwikkelaar",
-      subtitle: "AI Integration & Automation",
+      subtitle: "Backend, AI Integration & Automation",
       company: "Vloto B.V.",
       icon: appsdImg,
       color: "from-teal-500 to-teal-600",
@@ -162,7 +162,7 @@ const Journey = ({ language }) => {
             <div className="sm:hidden absolute left-1/2 transform -translate-x-0.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primaryColor to-purple-500 opacity-30"></div>
             
             <div className="space-y-0 sm:space-y-8">
-              {journeyData.map((item, index) => (
+              {journeyData.slice().reverse().map((item, index) => (
                 <div key={item.id}>
                   <div 
                     className="relative"

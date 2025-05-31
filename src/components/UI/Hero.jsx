@@ -83,10 +83,10 @@ const Hero = ({ language }) => {
       <div className="absolute bottom-1/4 right-10 w-8 h-8 bg-purple-500/20 rotate-12 animate-float animation-delay-2000"></div>
 
       <div className="container relative z-10 pt-20 pb-16">
-        
+
         {/* ============= DESKTOP LAYOUT (lg and up) ================= */}
         <div className="hidden lg:flex items-center justify-between gap-12">
-          
+
           {/* Desktop - Hero Left Content */}
           <div className="lg:w-1/2 xl:w-2/5">
             <div className="space-y-8">
@@ -147,7 +147,7 @@ const Hero = ({ language }) => {
                 <a href="#contact">
                   <button className="group bg-gradient-to-r from-primaryColor to-blue-600 text-white font-semibold px-8 py-4 rounded-xl hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-3 modern-button">
                     <i className="ri-mail-line text-lg"></i>
-                    {language === "EN" ? "Let's Connect" : "Laten we Verbinden"}
+                    {language === "EN" ? "Let's Connect" : "Even kennismaken?"}
                     <i className="ri-arrow-right-line group-hover:translate-x-1 transition-transform duration-300"></i>
                   </button>
                 </a>
@@ -208,13 +208,13 @@ const Hero = ({ language }) => {
           >
             <div className="relative">
               {/* Decorative rings */}
-              <div 
+              <div
                 data-aos="fade-zoom-in"
                 data-aos-delay="200"
                 data-aos-duration="800"
                 className="absolute inset-0 rounded-full bg-gradient-to-r from-primaryColor/20 to-blue-600/20 animate-spin-slow"
               ></div>
-              <div 
+              <div
                 data-aos="fade-zoom-in"
                 data-aos-delay="200"
                 data-aos-duration="800"
@@ -231,7 +231,7 @@ const Hero = ({ language }) => {
               </div>
 
               {/* Floating badges - synced with image timing */}
-              <div 
+              <div
                 data-aos="fade-zoom-in"
                 data-aos-delay="200"
                 data-aos-duration="800"
@@ -239,7 +239,7 @@ const Hero = ({ language }) => {
               >
                 💻 Developer
               </div>
-              <div 
+              <div
                 data-aos="fade-zoom-in"
                 data-aos-delay="200"
                 data-aos-duration="800"
@@ -315,7 +315,7 @@ const Hero = ({ language }) => {
 
         {/* ============= MOBILE LAYOUT (below lg) ================= */}
         <div className="block lg:hidden space-y-12">
-          
+
           {/* Mobile Step 1: Greeting & Title */}
           <div className="text-center space-y-6">
             <h5
@@ -360,13 +360,13 @@ const Hero = ({ language }) => {
           >
             <div className="relative">
               {/* Decorative rings */}
-              <div 
+              <div
                 data-aos="fade-zoom-in"
                 data-aos-delay="400"
                 data-aos-duration="800"
                 className="absolute inset-0 rounded-full bg-gradient-to-r from-primaryColor/20 to-blue-600/20 animate-spin-slow"
               ></div>
-              <div 
+              <div
                 data-aos="fade-zoom-in"
                 data-aos-delay="400"
                 data-aos-duration="800"
@@ -383,7 +383,7 @@ const Hero = ({ language }) => {
               </div>
 
               {/* Floating badges - synced with image timing */}
-              <div 
+              <div
                 data-aos="fade-zoom-in"
                 data-aos-delay="400"
                 data-aos-duration="800"
@@ -391,7 +391,7 @@ const Hero = ({ language }) => {
               >
                 💻 Developer
               </div>
-              <div 
+              <div
                 data-aos="fade-zoom-in"
                 data-aos-delay="400"
                 data-aos-duration="800"
@@ -424,7 +424,7 @@ const Hero = ({ language }) => {
             <a href="#contact" className="w-full sm:w-auto">
               <button className="group w-full bg-gradient-to-r from-primaryColor to-blue-600 text-white font-semibold px-8 py-4 rounded-xl hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 modern-button">
                 <i className="ri-mail-line text-lg"></i>
-                {language === "EN" ? "Let's Connect" : "Laten we Verbinden"}
+                {language === "EN" ? "Let's Connect" : "Even kennismaken?"}
                 <i className="ri-arrow-right-line group-hover:translate-x-1 transition-transform duration-300"></i>
               </button>
             </a>
