@@ -186,7 +186,9 @@ const Header = ({ toggleLanguage, language }) => {
             {/* Right Side - Language Toggle & Mobile Menu */}
             <div className="flex items-center gap-3">
               {/* Language Toggle Switch */}
-              <div className="relative">
+              <div className={`relative transition-opacity duration-300 ${
+                isMenuOpen ? 'opacity-0 pointer-events-none lg:opacity-100 lg:pointer-events-auto' : 'opacity-100'
+              }`}>
                 <div className="flex bg-gray-100 p-1 rounded-xl">
                   <button
                     onClick={() => language !== "EN" && toggleLanguage()}
