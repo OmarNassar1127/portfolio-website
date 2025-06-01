@@ -43,6 +43,18 @@ const Portfolio = ({ language }) => {
 
   const sortProjects = (projects, order) => {
     return [...projects].sort((a, b) => {
+      // First sort by priority (if exists) - lower numbers come first
+      if (a.priority && b.priority) {
+        return a.priority - b.priority;
+      }
+      if (a.priority && !b.priority) {
+        return -1; // a with priority comes first
+      }
+      if (!a.priority && b.priority) {
+        return 1; // b with priority comes first
+      }
+      
+      // If no priority or same priority, sort by date
       const dateA = new Date(a.date);
       const dateB = new Date(b.date);
       return order === "newest" ? dateB - dateA : dateA - dateB;

@@ -21,6 +21,7 @@ import cSvg from "../../assets/images/SVG/SVGs/c.svg";
 import cplusSvg from "../../assets/images/SVG/SVGs/cplus.svg";
 import laravelSvg from "../../assets/images/SVG/SVGs/laravel.svg";
 import wordpressSvg from "../../assets/images/SVG/SVGs/wordpress-svgrepo-com.svg";
+import postgresqlSvg from "../../assets/images/SVG/SVGs/postgresql.svg";
 
 const Skills = ({ language }) => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -172,6 +173,14 @@ const Skills = ({ language }) => {
       proficiency: 88,
       description: language === "EN" ? "Relational database design" : "Relationele database ontwerp",
       color: "from-blue-400 to-blue-600"
+    },
+    {
+      name: "PostgreSQL",
+      category: "databases",
+      icon: postgresqlSvg,
+      proficiency: 82,
+      description: language === "EN" ? "Advanced relational database" : "Geavanceerde relationele database",
+      color: "from-blue-500 to-indigo-600"
     },
 
     // Tools
