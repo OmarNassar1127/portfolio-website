@@ -185,16 +185,31 @@ const Header = ({ toggleLanguage, language }) => {
 
             {/* Right Side - Language Toggle & Mobile Menu */}
             <div className="flex items-center gap-3">
-              {/* Language Toggle */}
-              <button
-                onClick={toggleLanguage}
-                className="relative overflow-hidden bg-gradient-to-r from-primaryColor to-purple-600 text-white font-semibold px-4 py-2 rounded-xl hover:shadow-lg transition-all duration-200 group"
-              >
-                <span className="relative z-10">
-                  {language === "EN" ? "NL" : "EN"}
-                </span>
-                <div className="absolute inset-0 bg-white/20 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
-              </button>
+              {/* Language Toggle Switch */}
+              <div className="relative">
+                <div className="flex bg-gray-100 p-1 rounded-xl">
+                  <button
+                    onClick={() => language !== "EN" && toggleLanguage()}
+                    className={`relative px-3 py-1.5 text-sm font-semibold rounded-lg transition-all duration-300 ${
+                      language === "EN"
+                        ? 'text-white bg-gradient-to-r from-primaryColor to-purple-600 shadow-md'
+                        : 'text-smallTextColor hover:text-primaryColor'
+                    }`}
+                  >
+                    EN
+                  </button>
+                  <button
+                    onClick={() => language !== "NL" && toggleLanguage()}
+                    className={`relative px-3 py-1.5 text-sm font-semibold rounded-lg transition-all duration-300 ${
+                      language === "NL"
+                        ? 'text-white bg-gradient-to-r from-primaryColor to-purple-600 shadow-md'
+                        : 'text-smallTextColor hover:text-primaryColor'
+                    }`}
+                  >
+                    NL
+                  </button>
+                </div>
+              </div>
 
               {/* Mobile Menu Toggle */}
               <button
