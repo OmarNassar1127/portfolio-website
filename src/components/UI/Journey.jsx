@@ -119,10 +119,10 @@ const Journey = ({ language }) => {
       company: language === "EN" ? "Various Clients" : "Verschillende Klanten",
       icon: frontendImg,
       color: "from-indigo-500 to-indigo-600",
-      technologies: ["Python", "NodeJS", "C#", "C++", "AI / ML", "N8N"],
+      technologies: ["Python", "NodeJS", "C#", "C++", "AI / ML", "N8N", "React"],
       description: language === "EN"
-        ? "Providing freelance development services alongside full-time role, working with diverse technologies including Python, NodeJS, C#, and C++ to deliver custom solutions for various clients."
-        : "Freelance ontwikkelingsdiensten verlenen naast fulltime rol, werkend met diverse technologieën waaronder Python, NodeJS, C# en C++ om aangepaste oplossingen te leveren voor verschillende klanten.",
+        ? "Providing freelance development services alongside full-time role, working with diverse technologies including Python, NodeJS, C#, C++, React, AI / ML and N8N, to deliver custom solutions for various clients."
+        : "Freelance ontwikkelingsdiensten verlenen naast fulltime rol, werkend met diverse technologieën waaronder Python, NodeJS, C#, C++, React, AI / ML en N8N om aangepaste oplossingen te leveren voor verschillende klanten.",
       current: true
     }
   ];
