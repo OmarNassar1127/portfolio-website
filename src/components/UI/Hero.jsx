@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import me from "../../assets/images/me.png";
 import CountUp from "react-countup";
 import Typed from "typed.js";
-import OmarCV from "../../assets/cv/Omar-cv.pdf";
+import OmarCV from "../../assets/cv/Omar-cv-1.pdf";
 
 const Hero = ({ language }) => {
   const typedRef = useRef(null);
