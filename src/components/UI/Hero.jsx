@@ -10,8 +10,8 @@ const Hero = ({ language }) => {
 
   const text =
     language === "EN"
-      ? "As a quick learner who thrives on challenges, I began in cryptocurrency trading, founding CIWW to educate on market strategies. At Vloto B.V., I'm a Backend Developer, building efficient APIs and enhancing automation. Recently, I've been focusing on AI projects, including a Private Document QA system using RAG and vector databases, and a neural network for recognizing nails even in blurry images. I'm passionate about shaping the future of digital technologies."
-      : "Als snelle leerling die gedijt op uitdagingen, begon ik in cryptocurrency-handel en richtte CIWW op om marktstrategieën te onderwijzen. Bij Vloto B.V. werk ik als Backend Developer, waar ik efficiënte API's bouw en automatisering verbeter. Recentelijk heb ik me gericht op AI-projecten, waaronder een Private Document QA-systeem met RAG en vectordatabases en een neuraal netwerk voor het herkennen van nagels. Ik ben gepassioneerd over het vormgeven van de toekomst van digitale technologieën.";
+      ? "Building the future of AI at Virelio Agency | Backend Developer crafting scalable systems at Vloto B.V. | From medical technical files to vector-powered document intelligence—I turn ambitious ideas into working technology that matters."
+      : "De toekomst van AI bouwen bij Virelio Agency | Backend Developer die schaalbare systemen creëert bij Vloto B.V. | Van medische technische dossiers tot vector-aangedreven document intelligentie—ik zet ambitieuze ideeën om in werkende technologie die ertoe doet.";
 
   useEffect(() => {
     const options = {
