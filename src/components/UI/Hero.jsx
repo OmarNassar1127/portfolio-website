@@ -10,8 +10,8 @@ const Hero = ({ language }) => {
 
   const text =
     language === "EN"
-      ? "Building the future of AI at Virelio Agency | Backend Developer crafting scalable systems at Vloto B.V. | From medical technical files to vector-powered document intelligence—I turn ambitious ideas into working technology that matters."
-      : "De toekomst van AI bouwen bij Virelio Agency | Backend Developer die schaalbare systemen creëert bij Vloto B.V. | Van medische technische dossiers tot vector-aangedreven document intelligentie—ik zet ambitieuze ideeën om in werkende technologie die ertoe doet.";
+      ? "Building the future of AI at Virelio Agency | Backend Developer crafting scalable systems at Vloto B.V. | From medical technical files to vector-powered document intelligence, I turn ambitious ideas into working technology that matters."
+      : "De toekomst van AI bouwen bij Virelio Agency | Backend Developer die schaalbare systemen creëert bij Vloto B.V. | Van medische technische dossiers tot vector-aangedreven document intelligentie, ik zet ambitieuze ideeën om in werkende technologie die ertoe doet.";
 
   useEffect(() => {
     const options = {
