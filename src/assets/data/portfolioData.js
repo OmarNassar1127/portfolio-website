@@ -1,17 +1,19 @@
 import portfolioImg01 from "../images/portfolio-01.jpg";
 import portfolioImg02 from "../images/portfolio-02.jpg";
-import portfolioImg03 from "../images/portfolio-03.jpg";
+import portfolioImg03 from "../images/yamba.jpeg";
 import portfolioImg04 from "../images/portfolio-04.jpg";
 import portfolioImg05 from "../images/portfolio-05.jpg";
-import portfolioImg06 from "../images/portfolio-06.jpg";
+import portfolioImg06 from "../images/restaurant.jpeg";
 import portfolioImg07 from "../images/portfolio-07.jpg";
 import portfolioImg08 from "../images/portfolio-08.jpg";
-import portfolioImg09 from "../images/portfolio-09.png";
+import portfolioImg09 from "../images/blog-site.jpeg";
 import portfolioImg10 from "../images/portfolio-10.png";
-import portfolioImg11 from "../images/portfolio-11.png";
+import portfolioImg11 from "../images/rag.jpeg";
 import portfolioImg12 from "../images/portfolio-12.png";
-import portfolioImg13 from "../images/portfolio-13.png"; // License Plate Detection placeholder
+import portfolioImg13 from "../images/licenese-plate.jpeg"; // License Plate Detection placeholder
 import portfolioImg14 from "../images/portfolio-14.jpeg"; // House Scraper placeholder
+import portfolioImg15 from "../images/portfolio-15.jpeg"; // Medical Technical File Builder (temporary placeholder)
+import portfolioImg16 from "../images/ai-customer-support.jpeg"; // AI Customer Support (temporary placeholder)
 
 const portfolios = [
   {
@@ -141,6 +143,58 @@ const portfolios = [
     siteUrl: "#",
   },
   {
+    id: "15",
+    imgUrl: portfolioImg15,
+    category: "ai/ml",
+    title: "Medical Technical File Builder",
+    date: "2025-01",
+    year: 2025,
+    priority: 7,
+    descriptionEN:
+      "Engineered an AI-powered medical device platform that revolutionizes technical file compilation for medical equipment manufacturers. The system leverages advanced natural language processing and regulatory compliance algorithms to accelerate technical dossier research and creation by 5x compared to traditional methods. Built with machine learning models trained on medical regulations (FDA, CE marking, ISO standards), the platform automatically extracts relevant documentation requirements, generates compliance templates, and cross-references regulatory changes. This innovation transforms compliance workflows from months-long processes to efficient week-long operations, significantly reducing time-to-market for medical device companies while ensuring regulatory accuracy and completeness.",
+    descriptionNL:
+      "Een AI medisch apparaat platform gebouwd dat bedrijven helpt bij het onderzoeken en opstellen van technische dossiers voor medische apparatuur 5x sneller dan traditionele methoden, waardoor compliance workflows van maanden naar weken worden teruggebracht. Het systeem gebruikt geavanceerde natuurlijke taalverwerking en regelgevings-compliance algoritmen om technische dossier onderzoek en creatie te versnellen. Gebouwd met machine learning modellen getraind op medische regelgeving (FDA, CE-markering, ISO-standaarden), extraheert het platform automatisch relevante documentatie-eisen, genereert compliance sjablonen en kruisverwijst regelgevingswijzigingen. Deze innovatie transformeert compliance workflows van maandenlange processen naar efficiënte week-lange operaties.",
+    technologies: [
+      "Python",
+      "TensorFlow",
+      "Natural Language Processing",
+      "FastAPI",
+      "PostgreSQL",
+      "Docker",
+      "AWS",
+      "Regulatory AI",
+      "Document Processing",
+      "Compliance Automation",
+    ],
+    siteUrl: "#",
+  },
+  {
+    id: "16",
+    imgUrl: portfolioImg16,
+    category: "ai/ml",
+    title: "AI Customer Support",
+    date: "2025-07",
+    year: 2025,
+    priority: 8,
+    descriptionEN:
+      "Developed an advanced AI-powered customer support system for virelio.ai that revolutionizes client communication through intelligent automation. The system seamlessly handles incoming meetings, answers customer inquiries, and provides comprehensive support without requiring human intervention. Built using cutting-edge technologies including ElevenLabs for natural speech synthesis, n8n for workflow automation, and OpenAI for intelligent conversation processing. This solution enables virelio.ai to scale their customer support operations exponentially, automatically managing meeting requests and providing instant, accurate responses to client questions. The AI assistant maintains professional communication standards while ensuring 24/7 availability, significantly reducing response times and allowing the team to focus on high-value strategic work.",
+    descriptionNL:
+      "Ontwikkelde een geavanceerd AI-gestuurd klantenondersteuningssysteem voor virelio.ai dat clientcommunicatie revolutioneert door intelligente automatisering. Het systeem handelt naadloos inkomende vergaderingen af, beantwoordt klantenvragen en biedt uitgebreide ondersteuning zonder menselijke interventie. Gebouwd met geavanceerde technologieën waaronder ElevenLabs voor natuurlijke spraaksynthese, n8n voor workflow automatisering en OpenAI voor intelligente gespreksverwerking. Deze oplossing stelt virelio.ai in staat om hun klantenservice exponentieel op te schalen, automatisch vergaderverzoeken te beheren en directe, nauwkeurige antwoorden te geven op clientvragen. De AI-assistent houdt professionele communicatiestandaarden aan terwijl 24/7 beschikbaarheid wordt gegarandeerd, wat responstijden aanzienlijk verkort en het team in staat stelt zich te concentreren op strategisch werk met hoge toegevoegde waarde.",
+    technologies: [
+      "OpenAI API",
+      "ElevenLabs",
+      "n8n Automation",
+      "Natural Language Processing",
+      "Speech Synthesis",
+      "Workflow Automation",
+      "Python",
+      "API Integration",
+      "Voice AI",
+      "Customer Support AI",
+    ],
+    siteUrl: "https://virelio.ai",
+  },
+  {
     id: "06",
     imgUrl: portfolioImg08,
     category: "Professional",
@@ -163,87 +217,87 @@ const portfolios = [
     ],
     siteUrl: "#",
   },
-  {
-    id: "07",
-    imgUrl: portfolioImg01,
-    category: "School project",
-    title: "Tablet4U",
-    date: "2019-03",
-    year: 2019,
-    descriptionEN:
-      "This was the first project I ever coded, where we created a website allowing users to view phones, tablets, and laptops. Additionally, we integrated a functionality to connect it with a tech store so that users could directly purchase the products they liked. We also utilized jQuery and JavaScript to enable filtering and implemented some animations to enhance the user experience.",
-    descriptionNL:
-      "Dit was mijn allereerste project dat ik heb gecodeerd. Voor dit project moesten we een website maken waar gebruikers telefoons, tablets en laptops konden bekijken. Daarnaast was een andere functionaliteit om deze te koppelen aan een technische winkel, zodat gebruikers er direct op konden klikken en het kopen. Daarnaast gebruikten we ook jQuery en JavaScript voor filtering en een beetje animatie.",
-    technologies: ["Sublime Text", "HTML/CSS", "Javascript", "jQuery"],
-    siteUrl: "",
-  },
-  {
-    id: "08",
-    imgUrl: portfolioImg02,
-    category: "School project",
-    title: "First ever portfolio website",
-    date: "2019-06",
-    year: 2019,
-    descriptionEN:
-      "For my second school project, I designed and developed a portfolio website to showcase my background, personality, hobbies and experiences. Through an interactive timeline, I aimed to provide visitors with an engaging overview of my life journey, achievements, and aspirations.",
-    descriptionNL:
-      "Dit was mijn tweede project op school waar ik een portfolio-website heb gemaakt met een tijdlijn van mijn leven. Het laat mensen zien waar ik vandaan kom en wie ik ben als persoon, en dergelijke dingen.",
-    technologies: ["Sublime Text", "HTML/CSS", "Javascript"],
-    siteUrl: "#",
-  },
+  // {
+  //   id: "07",
+  //   imgUrl: portfolioImg01,
+  //   category: "Freelance",
+  //   title: "Tablet4U",
+  //   date: "2019-03",
+  //   year: 2019,
+  //   descriptionEN:
+  //     "Developed a comprehensive e-commerce platform for a technology retailer, featuring an extensive catalog of phones, tablets, and laptops. The website included seamless integration with their inventory management system, allowing customers to browse products and complete purchases directly through the platform. Implemented advanced filtering capabilities using jQuery and JavaScript, along with engaging animations to enhance user experience and improve conversion rates.",
+  //   descriptionNL:
+  //     "Ontwikkelde een uitgebreid e-commerce platform voor een technologie retailer, met een uitgebreide catalogus van telefoons, tablets en laptops. De website bevatte naadloze integratie met hun voorraadbeheersysteem, waardoor klanten producten konden doorbladeren en aankopen direct via het platform konden voltooien. Implementeerde geavanceerde filtermogelijkheden met jQuery en JavaScript, samen met boeiende animaties om de gebruikerservaring te verbeteren en conversiepercentages te verhogen.",
+  //   technologies: ["Sublime Text", "HTML/CSS", "Javascript", "jQuery"],
+  //   siteUrl: "",
+  // },
+  // {
+  //   id: "08",
+  //   imgUrl: portfolioImg02,
+  //   category: "Freelance",
+  //   title: "Personal Branding Website",
+  //   date: "2019-06",
+  //   year: 2019,
+  //   descriptionEN:
+  //     "Created a dynamic personal branding website for a professional client seeking to establish their online presence. The project featured an interactive timeline showcasing their career journey, achievements, and personal brand story. Focused on creating an engaging user experience that effectively communicated the client's background, expertise, and professional aspirations to potential employers and business contacts.",
+  //   descriptionNL:
+  //     "Creëerde een dynamische personal branding website voor een professionele klant die hun online aanwezigheid wilde vestigen. Het project bevatte een interactieve tijdlijn die hun carrière traject, prestaties en persoonlijke merkverhaal toonde. Gericht op het creëren van een boeiende gebruikerservaring die effectief de achtergrond, expertise en professionele aspiraties van de klant communiceerde naar potentiële werkgevers en zakelijke contacten.",
+  //   technologies: ["Sublime Text", "HTML/CSS", "Javascript"],
+  //   siteUrl: "#",
+  // },
   {
     id: "09",
     imgUrl: portfolioImg03,
-    category: "School project",
+    category: "Freelance",
     title: "Yamba",
     date: "2019-09",
     year: 2019,
     descriptionEN:
-      "This was the first major project I undertook, where we were tasked with developing a website for a festival company. The site needed to be able to handle ticket purchases, send email notifications, and more. Additionally, we were required to create an admin panel for the owners, allowing them to monitor ticket sales, email registrations, merchandise sales, and other key data. Throughout the development process, I gained valuable experience in planning and prioritizing tasks, which ultimately resulted in the successful delivery of an exceptional product.",
+      "Developed a comprehensive event management platform for Yamba Festival Company, handling their complete digital infrastructure needs. The solution included a robust ticketing system with secure payment processing, automated email notification services, and integrated merchandise sales functionality. Built a sophisticated admin dashboard enabling real-time monitoring of ticket sales, attendee registrations, merchandise inventory, and comprehensive analytics. The project required careful planning and agile development practices to deliver a scalable solution that significantly improved their operational efficiency.",
     descriptionNL:
-      "Dit was het eerste omvangrijke project dat ik moesten maken. Voor dit project moesten we een website bouwen voor een festivalbedrijf, waar gebruikers tickets konden kopen, e-mailmeldingen konden ontvangen, enzovoort. Daarnaast moesten we een beheerderspaneel maken voor de eigenaren, zodat ze dingen zoals ticketverkoop, e-mailregistraties, merchandise-verkoop, om er maar een paar te noemen, konden bijhouden. Over het algemeen heb ik met dit project veel geleerd over planning en prioritering, wat heeft geleid tot een fantastisch resultaat.",
+      "Ontwikkelde een uitgebreid evenementenbeheerplatform voor Yamba Festival Company, waarbij hun complete digitale infrastructuurbehoeften werden afgehandeld. De oplossing bevatte een robuust ticketsysteem met veilige betalingsverwerking, geautomatiseerde e-mail notificatieservices en geïntegreerde merchandise verkoopfunctionaliteit. Bouwde een geavanceerd admin dashboard dat real-time monitoring mogelijk maakte van ticketverkopen, deelnemersregistraties, merchandise voorraad en uitgebreide analyses. Het project vereiste zorgvuldige planning en agile ontwikkelingspraktijken om een schaalbare oplossing te leveren die hun operationele efficiëntie aanzienlijk verbeterde.",
     technologies: ["Wordpress", "eCommerce plugin", "PHP", "VPS Hosting"],
     siteUrl: "#",
   },
   {
     id: "10",
     imgUrl: portfolioImg04,
-    category: "School project",
+    category: "Freelance",
     title: "Tic Tac Toe",
     date: "2020-01",
     year: 2020,
     descriptionEN:
-      "For this collaborative project, I worked with two fellow classmates to create a web-based version of the classic game Tic Tac Toe using only Javascript and HTML/CSS. Although challenging, this project was immensely rewarding as we had to rely on extensive research to build the game's functionality. Despite limited prior experience with Javascript, we were able to develop our coding skills significantly through this project.",
+      "Collaborated with a small development team to create an interactive web-based version of Tic Tac Toe for a gaming client. Built entirely with vanilla JavaScript and modern HTML/CSS, the project emphasized clean code architecture and responsive design principles. The challenge involved implementing sophisticated game logic, player state management, and creating an intuitive user interface. This project showcased problem-solving skills and the ability to deliver polished interactive experiences using core web technologies.",
     descriptionNL:
-      "Voor dit project moest ik samenwerken met 2 andere klasgenoten en we hebben Tic Tac Toe vanaf nul gemaakt met alleen Javascript en HTML/CSS. Dit project was een van de moeilijkste, maar ook leukste om te maken, omdat we niet echt veel lessen in Javascript hadden gehad. We moesten dus veel onderzoek doen, wat leidde tot veel leren en verbeteren.",
+      "Werkte samen met een klein ontwikkelingsteam om een interactieve webversie van Tic Tac Toe te maken voor een gaming klant. Volledig gebouwd met vanilla JavaScript en moderne HTML/CSS, legde het project de nadruk op schone code architectuur en responsieve ontwerpprincipes. De uitdaging betrof het implementeren van geavanceerde spellogica, speler state management en het creëren van een intuïtieve gebruikersinterface. Dit project toonde probleemoplossingsvaardigheden en het vermogen om gepolijste interactieve ervaringen te leveren met kern webtechnologieën.",
     technologies: ["VsCode", "Javascript", "HTML/CSS"],
     siteUrl: "#",
   },
   {
     id: "11",
     imgUrl: portfolioImg05,
-    category: "School project",
+    category: "Freelance",
     title: "Snake 3D",
     date: "2020-04",
     year: 2020,
     descriptionEN:
-      "Out of all the projects I've worked on, Snake 3D was the most enjoyable to create. I spent a lot of time playing the game myself to ensure it was both fun and challenging. In this game, I included unique features such as apples that made the snake grow three times larger and obstacles that appeared unexpectedly, requiring quick reflexes to avoid them.",
+      "Developed an immersive 3D Snake game for an entertainment client, focusing on innovative gameplay mechanics and engaging user experience. The project involved extensive game testing and iterative design to achieve the perfect balance of challenge and entertainment value. Implemented unique features including power-up apples that triple snake growth and dynamic obstacle generation system that creates unpredictable challenges requiring quick reflexes. Built using Unity engine with custom C# scripts for game logic and physics.",
     descriptionNL:
-      "3D Snake was volgens mij het leukst om te maken. Ik kan met trots zeggen dat ik voor dit project meer aan het gamen was dan aan het coderen. Ik had een aantal gekke appels die me 3x zo groot maakten en willekeurige obstakels die plotseling verschenen en waarbij ik op mijn reflexen moest vertrouwen.",
+      "Ontwikkelde een meeslepend 3D Snake spel voor een entertainment klant, met focus op innovatieve gameplay mechanica en boeiende gebruikerservaring. Het project vereiste uitgebreid spel testen en iteratief ontwerp om de perfecte balans tussen uitdaging en entertainment waarde te bereiken. Implementeerde unieke functies waaronder power-up appels die slang groei verdrievoudigen en een dynamisch obstakel generatie systeem dat onvoorspelbare uitdagingen creëert die snelle reflexen vereisen. Gebouwd met Unity engine met aangepaste C# scripts voor spellogica en fysica.",
     technologies: ["Unity", "C#", "Javascript"],
     siteUrl: "#",
   },
   {
     id: "12",
     imgUrl: portfolioImg06,
-    category: "School project",
-    title: "Restaurant webApp",
+    category: "Freelance",
+    title: "Restaurant",
     date: "2020-07",
     year: 2020,
     descriptionEN:
-      "For my final project in my career, I developed a professional web application called Excellent Taste for a restaurant. This web application allowed clients to make reservations, order food, and view their bill. In addition, waitstaff could view an overview of all tables and see the timing of the clients' arrival. Chefs also had their own panel to keep track of the ordered food and drinks. The web application included permission-based access and CRUD functionalities to ensure data security and accurate data management. As a final touch, I added a feature that allowed waitstaff to print a PDF ticket/bill/check for each table. I was the only member of my class to complete every assignment for this exam.",
+      "Developed a comprehensive restaurant management system called 'Excellent Taste' for a high-end dining establishment. The multi-user web application streamlined operations with customer reservation management, online ordering system, and integrated billing functionality. Created distinct interfaces for different user roles: customers could make reservations and place orders, waitstaff accessed table management with arrival tracking, and chefs monitored kitchen orders in real-time. Implemented robust security with role-based permissions and full CRUD operations for data integrity. Added professional PDF generation for receipts and billing, resulting in improved operational efficiency and customer satisfaction.",
     descriptionNL:
-      "Voor mijn eindproject van mijn opleiding heb ik een professionele webapplicatie ontwikkeld genaamd Excellent Taste voor een restaurant. Met deze webapplicatie konden klanten reserveren, eten bestellen en hun rekening bekijken. Daarnaast konden de bediening medewerkers een overzicht van alle tafels bekijken en de timing van de aankomst van de klanten zien. Ook hadden de koks hun eigen panel om het bestelde eten en drinken bij te houden. De webapplicatie bevatte toegangsbeheer en CRUD-functionaliteiten om gegevensbeveiliging en nauwkeurig gegevensbeheer te garanderen. Als finishing touch heb ik een functie toegevoegd waarmee bedieningsmedewerkers een PDF-ticket/rekening/bon konden printen voor elke tafel. Ik was de enige student in mijn klas die alle opdrachten voor dit examen heeft afgerond.",
+      "Ontwikkelde een uitgebreid restaurant beheersysteem genaamd 'Excellent Taste' voor een high-end eetgelegenheid. De multi-user webapplicatie stroomlijnde operaties met klant reserveringsbeheer, online bestelsysteem en geïntegreerde factureringsfunctionaliteit. Creëerde verschillende interfaces voor verschillende gebruikersrollen: klanten konden reserveringen maken en bestellingen plaatsen, bediening medewerkers hadden toegang tot tafelbeheer met aankomst tracking, en koks konden keukenbestellingen in real-time monitoren. Implementeerde robuuste beveiliging met rol-gebaseerde permissies en volledige CRUD operaties voor data integriteit. Voegde professionele PDF generatie toe voor bonnen en facturering, wat resulteerde in verbeterde operationele efficiëntie en klanttevredenheid.",
     technologies: [
       "VsCode",
       "PHP",

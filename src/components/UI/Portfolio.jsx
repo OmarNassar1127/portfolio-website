@@ -13,10 +13,10 @@ const Portfolio = ({ language }) => {
   const filterOptions = [
     { key: "all", labelEN: "All (Public) Projects", labelNL: "Alle (Publieke) Projecten", count: data.length },
     {
-      key: "school-project",
-      labelEN: "School Projects",
-      labelNL: "School Projecten",
-      count: data.filter(item => item.category === "School project").length
+      key: "freelance",
+      labelEN: "Freelance Projects",
+      labelNL: "Freelance Projecten",
+      count: data.filter(item => item.category === "Freelance").length
     },
     {
       key: "professional",
@@ -43,7 +43,17 @@ const Portfolio = ({ language }) => {
 
   const sortProjects = (projects, order) => {
     return [...projects].sort((a, b) => {
-      // First sort by priority (if exists) - lower numbers come first
+      // Sort by date first (respecting user's newest/oldest choice)
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      const dateComparison = order === "newest" ? dateB - dateA : dateA - dateB;
+      
+      // If dates are different, use date sorting
+      if (dateComparison !== 0) {
+        return dateComparison;
+      }
+      
+      // If dates are the same, then sort by priority (lower numbers come first)
       if (a.priority && b.priority) {
         return a.priority - b.priority;
       }
@@ -54,18 +64,16 @@ const Portfolio = ({ language }) => {
         return 1; // b with priority comes first
       }
       
-      // If no priority or same priority, sort by date
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return order === "newest" ? dateB - dateA : dateA - dateB;
+      // If no priority difference, maintain original order
+      return 0;
     });
   };
 
   useEffect(() => {
     let filteredData = data;
 
-    if (selectTab === "school-project") {
-      filteredData = data.filter(item => item.category === "School project");
+    if (selectTab === "freelance") {
+      filteredData = data.filter(item => item.category === "Freelance");
     } else if (selectTab === "professional") {
       filteredData = data.filter(item => item.category === "Professional");
     } else if (selectTab === "ai") {
@@ -78,7 +86,7 @@ const Portfolio = ({ language }) => {
 
   const getCategoryColor = (category) => {
     switch (category) {
-      case "School project":
+      case "Freelance":
         return "bg-blue-100 text-blue-800 border-blue-200";
       case "Professional":
         return "bg-green-100 text-green-800 border-green-200";
