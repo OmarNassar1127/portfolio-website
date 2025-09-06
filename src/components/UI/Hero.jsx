@@ -69,7 +69,7 @@ const Hero = ({ language }) => {
   ];
 
   return (
-    <section className="relative min-h-screen pt-0 overflow-hidden" id="about">
+    <section className="relative min-h-screen pt-0 overflow-hidden -mt-8" id="about">
       {/* Background decorative elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primaryColor/5 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
@@ -82,7 +82,7 @@ const Hero = ({ language }) => {
       <div className="absolute top-1/3 right-20 w-4 h-4 bg-blue-500/20 rounded-full animate-float animation-delay-1000"></div>
       <div className="absolute bottom-1/4 right-10 w-8 h-8 bg-purple-500/20 rotate-12 animate-float animation-delay-2000"></div>
 
-      <div className="container relative z-10 pt-20 pb-16">
+      <div className="container relative z-10 pt-8 pb-16">
 
         {/* ============= DESKTOP LAYOUT (lg and up) ================= */}
         <div className="hidden lg:flex items-center justify-between gap-12">
@@ -169,10 +169,8 @@ const Hero = ({ language }) => {
 
               {/* Social Media */}
               <div
-                data-aos="fade-up"
-                data-aos-duration="800"
-                data-aos-delay="200"
-                className="space-y-4"
+                className="space-y-4 animate-fade-in-up"
+                style={{ animationDelay: '0.8s' }}
               >
                 <h4 className="text-gray-600 font-semibold text-lg">
                   {language === "EN" ? "Connect with me" : "Verbind met mij"}
@@ -289,10 +287,8 @@ const Hero = ({ language }) => {
 
             {/* Achievement badges */}
             <div
-              data-aos="fade-up"
-              data-aos-duration="800"
-              data-aos-delay="200"
-              className="mt-8 space-y-3"
+              className="mt-8 space-y-3 animate-fade-in-up"
+              style={{ animationDelay: '1s' }}
             >
               <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-4">
                 <div className="flex items-center gap-3">
@@ -480,10 +476,8 @@ const Hero = ({ language }) => {
 
           {/* Mobile Step 6: Achievement Badge */}
           <div
-            data-aos="fade-up"
-            data-aos-duration="800"
-            data-aos-delay="600"
-            className="px-4"
+            className="px-4 animate-fade-in-up"
+            style={{ animationDelay: '1s' }}
           >
             <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-4">
               <div className="flex items-center justify-center gap-3">
@@ -504,10 +498,8 @@ const Hero = ({ language }) => {
 
           {/* Mobile Step 7: Social Media */}
           <div
-            data-aos="fade-up"
-            data-aos-duration="800"
-            data-aos-delay="600"
-            className="space-y-6 px-4"
+            className="space-y-6 px-4 animate-fade-in-up"
+            style={{ animationDelay: '0.8s' }}
           >
             <h4 className="text-gray-600 font-semibold text-lg text-center">
               {language === "EN" ? "Connect with me" : "Verbind met mij"}
