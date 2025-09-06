@@ -15,7 +15,7 @@ const Hero = ({ language }) => {
 
   useEffect(() => {
     const options = {
-      strings: ["Full-stack Development", "AI", "Machine Learning"],
+      strings: ["Full-stack Development", "AI  .", "Machine Learning"],
       typeSpeed: 40,
       backSpeed: 20,
       loop: true,
