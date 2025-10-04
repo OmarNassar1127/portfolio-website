@@ -95,8 +95,8 @@ const Skills = ({ language }) => {
       name: "C++",
       category: "backend",
       icon: cplusSvg,
-      proficiency: 30,
-      description: language === "EN" ? "Object-oriented programming" : "Object-georiënteerd programmeren",
+      proficiency: 60,
+      description: language === "EN" ? "System programming & algorithms" : "Systeemprogrammering & algoritmen",
       color: "from-indigo-500 to-purple-600"
     },
     {
