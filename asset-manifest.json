@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.09549a37.css",
-    "main.js": "/static/js/main.b6a2250a.js",
+    "main.js": "/static/js/main.216a0213.js",
     "static/media/portfolio-10.png": "/static/media/portfolio-10.e428f77ed3e8cd96c4ed.png",
     "static/media/remixicon.svg?t=1680703320261": "/static/media/remixicon.70a2c520013c3c5b5aff.svg",
     "static/media/portfolio-01.jpg": "/static/media/portfolio-01.443187793e15d82f1ca4.jpg",
@@ -27,6 +27,7 @@
     "static/media/portfolio-04.jpg": "/static/media/portfolio-04.e12a6dff440726ec8fda.jpg",
     "static/media/portfolio-12.png": "/static/media/portfolio-12.dfc45dcbdbb924d67aad.png",
     "static/media/postgresql.svg": "/static/media/postgresql.6fb83da449765ce30a34419a16f4533c.svg",
+    "static/media/nodejs.svg": "/static/media/nodejs.a560a6573db18047caefb78d9eda86cc.svg",
     "static/media/vscode.svg": "/static/media/vscode.ae90970b7990088d824d8e3a11d9024f.svg",
     "static/media/mysql.svg": "/static/media/mysql.60ec33723e9b175cb9581651f672b3fe.svg",
     "static/media/react.svg": "/static/media/react.4e0c97009b885bfa75c5412262a46f5f.svg",
@@ -34,7 +35,6 @@
     "static/media/python.svg": "/static/media/python.849d0b2b5f1ec20f077dd267498bd536.svg",
     "static/media/wordpress-svgrepo-com.svg": "/static/media/wordpress-svgrepo-com.afbd97f5dfb26b597d149530afb8d1cc.svg",
     "static/media/github.svg": "/static/media/github.3c903c66b2c5334c8c0b80567c4ea422.svg",
-    "static/media/nodejs.svg": "/static/media/nodejs.3eb147b0e1b7a5455b9bf254bc5884af.svg",
     "static/media/graphQL.svg": "/static/media/graphQL.14267f2ddb307badb38d0804e8151bcd.svg",
     "static/media/atlassian.svg": "/static/media/atlassian.2fb4977fdc6d4c18fab7a5407e0c923b.svg",
     "static/media/php.svg": "/static/media/php.cf57e350b14ec713f64a3ee6d6af804b.svg",
@@ -49,10 +49,10 @@
     "static/media/css.svg": "/static/media/css.4f50b33af1d2115e9ee75ed4b1570e17.svg",
     "static/media/html.svg": "/static/media/html.69274ea277b1ee86ba50abd24b291122.svg",
     "main.09549a37.css.map": "/static/css/main.09549a37.css.map",
-    "main.b6a2250a.js.map": "/static/js/main.b6a2250a.js.map"
+    "main.216a0213.js.map": "/static/js/main.216a0213.js.map"
   },
   "entrypoints": [
     "static/css/main.09549a37.css",
-    "static/js/main.b6a2250a.js"
+    "static/js/main.216a0213.js"
   ]
 }
