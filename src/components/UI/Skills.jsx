@@ -66,64 +66,14 @@ const Skills = ({ language }) => {
   ];
 
   const skillsData = [
-    // Frontend
+    // First Row - Main Backend Languages & Frameworks
     {
-      name: "HTML5",
-      category: "frontend",
-      icon: htmlSvg,
-      proficiency: 95,
-      description: language === "EN" ? "Semantic markup & accessibility" : "Semantische markup & toegankelijkheid",
-      color: "from-orange-400 to-red-500"
-    },
-    {
-      name: "CSS3",
-      category: "frontend",
-      icon: cssSvg,
-      proficiency: 90,
-      description: language === "EN" ? "Modern layouts & animations" : "Moderne layouts & animaties",
-      color: "from-blue-400 to-blue-600"
-    },
-    {
-      name: "JavaScript",
-      category: "frontend",
-      icon: javascriptSvg,
-      proficiency: 88,
-      description: language === "EN" ? "ES6+ & DOM manipulation" : "ES6+ & DOM manipulatie",
-      color: "from-yellow-400 to-orange-500"
-    },
-    {
-      name: "React",
-      category: "frontend",
-      icon: reactSvg,
-      proficiency: 85,
-      description: language === "EN" ? "Hooks, Context & state management" : "Hooks, Context & state management",
-      color: "from-cyan-400 to-blue-500"
-    },
-    {
-      name: "Tailwind CSS",
-      category: "frontend",
-      icon: tailwindSvg,
-      proficiency: 92,
-      description: language === "EN" ? "Utility-first CSS framework" : "Utility-first CSS framework",
-      color: "from-teal-400 to-cyan-500"
-    },
-    {
-      name: "Bootstrap",
-      category: "frontend",
-      icon: bootstrapSvg,
-      proficiency: 80,
-      description: language === "EN" ? "Responsive grid systems" : "Responsieve grid systemen",
-      color: "from-purple-400 to-purple-600"
-    },
-
-    // Backend
-    {
-      name: "PHP",
+      name: "Python",
       category: "backend",
-      icon: phpSvg,
-      proficiency: 90,
-      description: language === "EN" ? "Laravel & modern PHP practices" : "Laravel & moderne PHP praktijken",
-      color: "from-indigo-400 to-purple-600"
+      icon: pythonSvg,
+      proficiency: 85,
+      description: language === "EN" ? "Data science & automation" : "Data science & automatisering",
+      color: "from-blue-400 to-yellow-500"
     },
     {
       name: "Laravel",
@@ -142,12 +92,12 @@ const Skills = ({ language }) => {
       color: "from-green-400 to-green-600"
     },
     {
-      name: "GraphQL",
+      name: "C++",
       category: "backend",
-      icon: graphQLSvg,
-      proficiency: 75,
-      description: language === "EN" ? "Query language for APIs" : "Query taal voor APIs",
-      color: "from-pink-400 to-rose-500"
+      icon: cplusSvg,
+      proficiency: 30,
+      description: language === "EN" ? "Object-oriented programming" : "Object-georiënteerd programmeren",
+      color: "from-indigo-500 to-purple-600"
     },
     {
       name: "C#",
@@ -158,23 +108,31 @@ const Skills = ({ language }) => {
       color: "from-blue-500 to-indigo-600"
     },
     {
-      name: "C++",
-      category: "backend",
-      icon: cplusSvg,
-      proficiency: 30,
-      description: language === "EN" ? "Object-oriented programming" : "Object-georiënteerd programmeren",
-      color: "from-indigo-500 to-purple-600"
-    },
-    {
-      name: "Python",
-      category: "backend",
-      icon: pythonSvg,
+      name: "React",
+      category: "frontend",
+      icon: reactSvg,
       proficiency: 85,
-      description: language === "EN" ? "Data science & automation" : "Data science & automatisering",
-      color: "from-blue-400 to-yellow-500"
+      description: language === "EN" ? "Hooks, Context & state management" : "Hooks, Context & state management",
+      color: "from-cyan-400 to-blue-500"
     },
 
-    // Databases
+    // Second Row - PHP, GraphQL, MySQL, PostgreSQL, Tailwind
+    {
+      name: "PHP",
+      category: "backend",
+      icon: phpSvg,
+      proficiency: 90,
+      description: language === "EN" ? "Laravel & modern PHP practices" : "Laravel & moderne PHP praktijken",
+      color: "from-indigo-400 to-purple-600"
+    },
+    {
+      name: "GraphQL",
+      category: "backend",
+      icon: graphQLSvg,
+      proficiency: 75,
+      description: language === "EN" ? "Query language for APIs" : "Query taal voor APIs",
+      color: "from-pink-400 to-rose-500"
+    },
     {
       name: "MySQL",
       category: "databases",
@@ -191,16 +149,26 @@ const Skills = ({ language }) => {
       description: language === "EN" ? "Advanced relational database" : "Geavanceerde relationele database",
       color: "from-blue-500 to-indigo-600"
     },
-
-    // Tools
     {
-      name: "GitHub",
-      category: "tools",
-      icon: githubSvg,
-      proficiency: 90,
-      description: language === "EN" ? "Version control & collaboration" : "Versiebeheer & samenwerking",
-      color: "from-gray-600 to-gray-800"
+      name: "Tailwind CSS",
+      category: "frontend",
+      icon: tailwindSvg,
+      proficiency: 92,
+      description: language === "EN" ? "Utility-first CSS framework" : "Utility-first CSS framework",
+      color: "from-teal-400 to-cyan-500"
     },
+
+    // Frontend - JavaScript
+    {
+      name: "JavaScript",
+      category: "frontend",
+      icon: javascriptSvg,
+      proficiency: 88,
+      description: language === "EN" ? "ES6+ & DOM manipulation" : "ES6+ & DOM manipulatie",
+      color: "from-yellow-400 to-orange-500"
+    },
+
+    //Tools
     {
       name: "VS Code",
       category: "tools",
@@ -216,6 +184,40 @@ const Skills = ({ language }) => {
       proficiency: 78,
       description: language === "EN" ? "UI/UX design & prototyping" : "UI/UX ontwerp & prototyping",
       color: "from-purple-400 to-pink-500"
+    },
+    {
+      name: "GitHub",
+      category: "tools",
+      icon: githubSvg,
+      proficiency: 90,
+      description: language === "EN" ? "Version control & collaboration" : "Versiebeheer & samenwerking",
+      color: "from-gray-600 to-gray-800"
+    },
+
+    // Frontend - HTML, CSS, Bootstrap (Last)
+    {
+      name: "HTML5",
+      category: "frontend",
+      icon: htmlSvg,
+      proficiency: 95,
+      description: language === "EN" ? "Semantic markup & accessibility" : "Semantische markup & toegankelijkheid",
+      color: "from-orange-400 to-red-500"
+    },
+    {
+      name: "CSS3",
+      category: "frontend",
+      icon: cssSvg,
+      proficiency: 90,
+      description: language === "EN" ? "Modern layouts & animations" : "Moderne layouts & animaties",
+      color: "from-blue-400 to-blue-600"
+    },
+    {
+      name: "Bootstrap",
+      category: "frontend",
+      icon: bootstrapSvg,
+      proficiency: 80,
+      description: language === "EN" ? "Responsive grid systems" : "Responsieve grid systemen",
+      color: "from-purple-400 to-purple-600"
     },
     {
       name: "Jira",
