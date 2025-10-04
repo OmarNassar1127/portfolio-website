@@ -22,6 +22,7 @@ import cplusSvg from "../../assets/images/SVG/SVGs/cplus.svg";
 import laravelSvg from "../../assets/images/SVG/SVGs/laravel.svg";
 import wordpressSvg from "../../assets/images/SVG/SVGs/wordpress-svgrepo-com.svg";
 import postgresqlSvg from "../../assets/images/SVG/SVGs/postgresql.svg";
+import pythonSvg from "../../assets/images/SVG/SVGs/python.svg";
 
 const Skills = ({ language }) => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -163,6 +164,14 @@ const Skills = ({ language }) => {
       proficiency: 30,
       description: language === "EN" ? "Object-oriented programming" : "Object-georiënteerd programmeren",
       color: "from-indigo-500 to-purple-600"
+    },
+    {
+      name: "Python",
+      category: "backend",
+      icon: pythonSvg,
+      proficiency: 85,
+      description: language === "EN" ? "Data science & automation" : "Data science & automatisering",
+      color: "from-blue-400 to-yellow-500"
     },
 
     // Databases
