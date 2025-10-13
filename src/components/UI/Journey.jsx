@@ -114,15 +114,15 @@ const Journey = ({ language }) => {
       id: 6,
       year: "2023-Present",
       period: "2023-Nu",
-      title: language === "EN" ? "Freelance Developer" : "Freelance Ontwikkelaar",
-      subtitle: "Multi-Technology Projects",
-      company: language === "EN" ? "Various Clients" : "Verschillende Klanten",
+      title: language === "EN" ? "Personal Development" : "Persoonlijke Ontwikkeling",
+      subtitle: "Continuous Learning & Experimentation",
+      company: language === "EN" ? "Self-Directed Projects" : "Zelfstandige Projecten",
       icon: frontendImg,
       color: "from-indigo-500 to-indigo-600",
       technologies: ["Python", "NodeJS", "C#", "C++", "AI / ML", "N8N", "React"],
       description: language === "EN"
-        ? "Providing freelance development services alongside full-time role, working with diverse technologies including Python, NodeJS, C#, C++, React, AI / ML and N8N, to deliver custom solutions for various clients."
-        : "Freelance ontwikkelingsdiensten verlenen naast fulltime rol, werkend met diverse technologieën waaronder Python, NodeJS, C#, C++, React, AI / ML en N8N om aangepaste oplossingen te leveren voor verschillende klanten.",
+        ? "Pursuing continuous learning and skill development alongside full-time role, exploring diverse technologies including Python, NodeJS, C#, C++, React, AI / ML and N8N through personal projects and experimental implementations."
+        : "Continue leren en ontwikkelen van vaardigheden naast fulltime rol, verkennen van diverse technologieën waaronder Python, NodeJS, C#, C++, React, AI / ML en N8N door middel van persoonlijke projecten en experimentele implementaties.",
       current: true
     }
   ];

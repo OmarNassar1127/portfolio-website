@@ -13,12 +13,6 @@ const Portfolio = ({ language }) => {
   const filterOptions = [
     { key: "all", labelEN: "All (Public) Projects", labelNL: "Alle (Publieke) Projecten", count: data.length },
     {
-      key: "freelance",
-      labelEN: "Freelance Projects",
-      labelNL: "Freelance Projecten",
-      count: data.filter(item => item.category === "Freelance").length
-    },
-    {
       key: "professional",
       labelEN: "Professional",
       labelNL: "Professioneel",
@@ -72,9 +66,7 @@ const Portfolio = ({ language }) => {
   useEffect(() => {
     let filteredData = data;
 
-    if (selectTab === "freelance") {
-      filteredData = data.filter(item => item.category === "Freelance");
-    } else if (selectTab === "professional") {
+    if (selectTab === "professional") {
       filteredData = data.filter(item => item.category === "Professional");
     } else if (selectTab === "ai") {
       filteredData = data.filter(item => item.category === "ai/ml");
@@ -86,8 +78,6 @@ const Portfolio = ({ language }) => {
 
   const getCategoryColor = (category) => {
     switch (category) {
-      case "Freelance":
-        return "bg-blue-100 text-blue-800 border-blue-200";
       case "Professional":
         return "bg-green-100 text-green-800 border-green-200";
       case "ai/ml":
