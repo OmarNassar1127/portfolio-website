@@ -45,7 +45,7 @@ const portfolios = [
   {
     id: "02",
     imgUrl: portfolioImg13,
-    category: "Professional",
+    category: "ai/ml",
     title: "License Plate Detection System",
     date: "2024-09",
     year: 2024,
