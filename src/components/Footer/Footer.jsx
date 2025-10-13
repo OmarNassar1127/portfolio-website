@@ -11,7 +11,7 @@ const Footer = ({ language }) => {
       quickLinks: "Quick Links",
       connect: "Connect",
       location: "Based in Amsterdam",
-      availability: "Available for freelance",
+      availability: "Available for brainstorming",
       navigation: {
         about: "About",
         journey: "Journey",
@@ -29,7 +29,7 @@ const Footer = ({ language }) => {
       quickLinks: "Snelle Links",
       connect: "Verbinden",
       location: "Gevestigd in Amsterdam",
-      availability: "Beschikbaar voor freelance",
+      availability: "Beschikbaar voor brainstorming",
       navigation: {
         about: "Over mij",
         journey: "Journey",
