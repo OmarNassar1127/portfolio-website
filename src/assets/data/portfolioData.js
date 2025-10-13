@@ -45,7 +45,7 @@ const portfolios = [
   {
     id: "02",
     imgUrl: portfolioImg13,
-    category: "Professional",
+    category: "ai/ml",
     title: "License Plate Detection System",
     date: "2024-09",
     year: 2024,
@@ -248,7 +248,7 @@ const portfolios = [
   {
     id: "09",
     imgUrl: portfolioImg03,
-    category: "Freelance",
+    category: "Professional",
     title: "Yamba",
     date: "2019-09",
     year: 2019,
@@ -262,7 +262,7 @@ const portfolios = [
   {
     id: "10",
     imgUrl: portfolioImg04,
-    category: "Freelance",
+    category: "Professional",
     title: "Tic Tac Toe",
     date: "2020-01",
     year: 2020,
@@ -276,7 +276,7 @@ const portfolios = [
   {
     id: "11",
     imgUrl: portfolioImg05,
-    category: "Freelance",
+    category: "Professional",
     title: "Snake 3D",
     date: "2020-04",
     year: 2020,
@@ -290,7 +290,7 @@ const portfolios = [
   {
     id: "12",
     imgUrl: portfolioImg06,
-    category: "Freelance",
+    category: "Professional",
     title: "Restaurant",
     date: "2020-07",
     year: 2020,
