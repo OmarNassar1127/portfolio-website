@@ -61,11 +61,18 @@ const Hero = ({ language }) => {
     },
   ];
 
+  // const stats = [
+  //   { end: 16, labelEN: "AI Projects", labelNL: "AI-projecten", icon: "ri-brain-line", color: "text-pink-600" },
+  //   { end: 33, labelEN: "Projects", labelNL: "Projecten", icon: "ri-folder-line", color: "text-purple-600" },
+  //   { end: 200, labelEN: "Automations", labelNL: "Automatiseringen", icon: "ri-robot-line", color: "text-green-600" },
+  //   { end: 400, labelEN: "APIs Developed", labelNL: "APIs Ontwikkeld", icon: "ri-code-box-line", color: "text-blue-600" },
+  // ];
+
   const stats = [
-    { end: 400, labelEN: "APIs Developed", labelNL: "APIs Ontwikkeld", icon: "ri-code-box-line", color: "text-blue-600" },
-    { end: 30, labelEN: "Automations", labelNL: "Automatiseringen", icon: "ri-robot-line", color: "text-green-600" },
-    { end: 26, labelEN: "Projects", labelNL: "Projecten", icon: "ri-folder-line", color: "text-purple-600" },
-    { end: 11, labelEN: "AI Projects", labelNL: "AI-projecten", icon: "ri-brain-line", color: "text-pink-600" },
+    { end: 50, labelEN: "€50K+ Annual Savings Delivered", labelNL: "€50K+ Jaarlijkse Besparingen Geleverd", icon: "ri-money-euro-circle-line", color: "text-green-600", suffix: "K€" },
+    { end: 30, labelEN: "Production Systems", labelNL: "Productiesystemen", icon: "ri-server-line", color: "text-blue-600" },
+    { end: 50, labelEN: "50K+ Daily Active Users", labelNL: "50K+ Dagelijkse Actieve Gebruikers", icon: "ri-user-line", color: "text-purple-600", suffix: "K" },
+    { end: 98.9, labelEN: "System Uptime", labelNL: "Systeembeschikbaarheid", icon: "ri-check-line", color: "text-pink-600", suffix: "%" },
   ];
 
   return (
@@ -273,7 +280,8 @@ const Hero = ({ language }) => {
                           start={0}
                           end={stat.end}
                           duration={2.5}
-                          suffix={index < 3 ? "+" : ""}
+                          suffix={stat.suffix || "+"}
+                          decimals={stat.end % 1 !== 0 ? 1 : 0}
                         />
                       </h2>
                       <p className="text-gray-600 font-medium text-sm">
@@ -463,7 +471,8 @@ const Hero = ({ language }) => {
                       start={0}
                       end={stat.end}
                       duration={2.5}
-                      suffix={index < 3 ? "+" : ""}
+                      suffix={stat.suffix || "+"}
+                      decimals={stat.end % 1 !== 0 ? 1 : 0}
                     />
                   </h2>
                   <p className="text-gray-600 font-medium text-xs">
