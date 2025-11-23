@@ -71,7 +71,7 @@ const Hero = ({ language }) => {
   const stats = [
     { end: 50, labelEN: "€50K+ Annual Savings Delivered", labelNL: "€50K+ Jaarlijkse Besparingen Geleverd", icon: "ri-money-euro-circle-line", color: "text-green-600", suffix: "K€" },
     { end: 30, labelEN: "Production Systems", labelNL: "Productiesystemen", icon: "ri-server-line", color: "text-blue-600" },
-    { end: 50, labelEN: "50K+ Daily Active Users", labelNL: "50K+ Dagelijkse Actieve Gebruikers", icon: "ri-user-line", color: "text-purple-600", suffix: "K" },
+    { end: 30, labelEN: "30K+ Daily Active Users", labelNL: "30K+ Dagelijkse Actieve Gebruikers", icon: "ri-user-line", color: "text-purple-600", suffix: "K" },
     { end: 98.9, labelEN: "System Uptime", labelNL: "Systeembeschikbaarheid", icon: "ri-check-line", color: "text-pink-600", suffix: "%" },
   ];
 
