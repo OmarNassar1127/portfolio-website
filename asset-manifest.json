@@ -1,13 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.c1b86002.css",
-    "main.js": "/static/js/main.dedc59d4.js",
+    "main.css": "/static/css/main.81554fd1.css",
+    "main.js": "/static/js/main.dc27cfa7.js",
     "static/media/portfolio-10.png": "/static/media/portfolio-10.e428f77ed3e8cd96c4ed.png",
     "static/media/remixicon.svg?t=1680703320261": "/static/media/remixicon.70a2c520013c3c5b5aff.svg",
-    "static/media/portfolio-01.jpg": "/static/media/portfolio-01.443187793e15d82f1ca4.jpg",
     "static/media/portfolio-14.jpeg": "/static/media/portfolio-14.020f65b7e26dfc830e82.jpeg",
-    "static/media/portfolio-02.jpg": "/static/media/portfolio-02.b4f4561f38f51b353a06.jpg",
+    "static/media/ai_research.png": "/static/media/ai_research.e21fa173f0c2eb614dfc.png",
+    "static/media/ai_agents.png": "/static/media/ai_agents.8269cf137a99ae0c3f5a.png",
+    "static/media/ai_server.png": "/static/media/ai_server.81124609fdaf25d95862.png",
+    "static/media/ai_claude.png": "/static/media/ai_claude.3c4621523dcea8d6b74a.png",
+    "static/media/fraud-prevention.jpeg": "/static/media/fraud-prevention.8c4ce08b61d769920ab9.jpeg",
+    "static/media/ai_defgpt.png": "/static/media/ai_defgpt.5990e60f56acfd42bd11.png",
+    "static/media/ai_notulist.png": "/static/media/ai_notulist.c245dc5d938958ad1c23.png",
+    "static/media/ai_personal.png": "/static/media/ai_personal.c5e018b7e157415e3cd7.png",
+    "static/media/ai_linkedin.png": "/static/media/ai_linkedin.e4dd6ed57a12e06859b2.png",
+    "static/media/ai_website.png": "/static/media/ai_website.4b27ca64ff9eecb18aa4.png",
+    "static/media/ai_comm.png": "/static/media/ai_comm.eb857cfe449655898bb5.png",
     "static/media/portfolio-08.jpg": "/static/media/portfolio-08.ce687f72b8b1199a0749.jpg",
+    "static/media/ai_creative.png": "/static/media/ai_creative.fab6d29c2d1da568a973.png",
     "static/media/remixicon.eot?t=1680703320261": "/static/media/remixicon.84395c0272b9277a8dd4.eot",
     "static/media/remixicon.ttf?t=1680703320261": "/static/media/remixicon.b44cfa02ce58f6eb1f8d.ttf",
     "static/media/portfolio-07.jpg": "/static/media/portfolio-07.8fedff86faf7744d5829.jpg",
@@ -17,7 +27,6 @@
     "static/media/ai-customer-support.jpeg": "/static/media/ai-customer-support.ca7a8416b6871a2d2ce5.jpeg",
     "static/media/Omar-cv.pdf": "/static/media/Omar-cv.16708beab63954ff02be.pdf",
     "static/media/remixicon.woff2?t=1680703320261": "/static/media/remixicon.0e8f9f369f20b858578c.woff2",
-    "static/media/rag.jpeg": "/static/media/rag.5596b14ced58b89eff08.jpeg",
     "static/media/yamba.jpeg": "/static/media/yamba.1efaa89f30d7fb1a6c63.jpeg",
     "static/media/oracle.png": "/static/media/oracle.0c0b872e15e418cc46bd.png",
     "static/media/restaurant.jpeg": "/static/media/restaurant.b80c3cb3e72dea29e866.jpeg",
@@ -50,11 +59,11 @@
     "static/media/figma.svg": "/static/media/figma.2c2c9d7ff067a3272fbcb7e4700d15a6.svg",
     "static/media/css.svg": "/static/media/css.4f50b33af1d2115e9ee75ed4b1570e17.svg",
     "static/media/html.svg": "/static/media/html.69274ea277b1ee86ba50abd24b291122.svg",
-    "main.c1b86002.css.map": "/static/css/main.c1b86002.css.map",
-    "main.dedc59d4.js.map": "/static/js/main.dedc59d4.js.map"
+    "main.81554fd1.css.map": "/static/css/main.81554fd1.css.map",
+    "main.dc27cfa7.js.map": "/static/js/main.dc27cfa7.js.map"
   },
   "entrypoints": [
-    "static/css/main.c1b86002.css",
-    "static/js/main.dedc59d4.js"
+    "static/css/main.81554fd1.css",
+    "static/js/main.dc27cfa7.js"
   ]
 }
