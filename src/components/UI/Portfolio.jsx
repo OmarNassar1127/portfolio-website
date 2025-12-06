@@ -1,33 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import data from "../../assets/data/portfolioData";
 import Modal from "./Modal";
+import NeuralBackground from "./NeuralBackground";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Portfolio = ({ language }) => {
-  const [nextItems, setNextItems] = useState(12);
+  const [nextItems, setNextItems] = useState(6);
   const [portfolios, setPortfolios] = useState(data);
   const [selectTab, setSelectTab] = useState("all");
   const [showModal, setShowModal] = useState(false);
   const [activeID, setActiveID] = useState(null);
-  const [sortOrder, setSortOrder] = useState("newest"); // newest or oldest
+  const [sortOrder, setSortOrder] = useState("newest");
+  const loadMoreButtonRef = useRef(null);
+
+  // Filter out different categories for separate counts
+  const aiProjects = useMemo(() => data.filter(item => item.category === "ai/ml"), []);
+  const proProjects = useMemo(() => data.filter(item => item.category === "Professional"), []);
 
   const filterOptions = [
-    { key: "all", labelEN: "All (Public) Projects", labelNL: "Alle (Publieke) Projecten", count: data.length },
-    {
-      key: "professional",
-      labelEN: "Professional",
-      labelNL: "Professioneel",
-      count: data.filter(item => item.category === "Professional").length
-    },
-    {
-      key: "ai",
-      labelEN: "AI / ML",
-      labelNL: "AI / ML",
-      count: data.filter(item => item.category === "ai/ml").length
-    },
+    { key: "all", labelEN: "All Work", labelNL: "Alle Projecten" },
+    { key: "ai", labelEN: "AI & ML", labelNL: "AI & ML" },
+    { key: "professional", labelEN: "Web/App Dev", labelNL: "Web/App Dev" },
   ];
 
   const loadMoreHandler = () => {
-    setNextItems((prev) => prev + 3);
+    // Store the current scroll position relative to the button
+    const buttonPosition = loadMoreButtonRef.current?.getBoundingClientRect().top || 0;
+    const scrollY = window.scrollY || window.pageYOffset;
+    const targetScrollPosition = scrollY + buttonPosition;
+
+    setNextItems(portfolios.length);
+
+    // After state update, restore scroll position
+    setTimeout(() => {
+      window.scrollTo({
+        top: targetScrollPosition - 100, // Offset a bit so they can see new content
+        behavior: 'smooth'
+      });
+    }, 100);
   };
 
   const showModalHandler = (id) => {
@@ -37,28 +47,15 @@ const Portfolio = ({ language }) => {
 
   const sortProjects = (projects, order) => {
     return [...projects].sort((a, b) => {
-      // Sort by date first (respecting user's newest/oldest choice)
       const dateA = new Date(a.date);
       const dateB = new Date(b.date);
       const dateComparison = order === "newest" ? dateB - dateA : dateA - dateB;
-      
-      // If dates are different, use date sorting
-      if (dateComparison !== 0) {
-        return dateComparison;
-      }
-      
-      // If dates are the same, then sort by priority (lower numbers come first)
-      if (a.priority && b.priority) {
-        return a.priority - b.priority;
-      }
-      if (a.priority && !b.priority) {
-        return -1; // a with priority comes first
-      }
-      if (!a.priority && b.priority) {
-        return 1; // b with priority comes first
-      }
-      
-      // If no priority difference, maintain original order
+
+      if (dateComparison !== 0) return dateComparison;
+
+      if (a.priority && b.priority) return a.priority - b.priority;
+      if (a.priority) return -1;
+      if (b.priority) return 1;
       return 0;
     });
   };
@@ -67,25 +64,14 @@ const Portfolio = ({ language }) => {
     let filteredData = data;
 
     if (selectTab === "professional") {
-      filteredData = data.filter(item => item.category === "Professional");
+      filteredData = proProjects;
     } else if (selectTab === "ai") {
-      filteredData = data.filter(item => item.category === "ai/ml");
+      filteredData = aiProjects;
     }
 
     const sortedData = sortProjects(filteredData, sortOrder);
     setPortfolios(sortedData);
-  }, [selectTab, sortOrder]);
-
-  const getCategoryColor = (category) => {
-    switch (category) {
-      case "Professional":
-        return "bg-green-100 text-green-800 border-green-200";
-      case "ai/ml":
-        return "bg-purple-100 text-purple-800 border-purple-200";
-      default:
-        return "bg-gray-100 text-gray-800 border-gray-200";
-    }
-  };
+  }, [selectTab, sortOrder, aiProjects, proProjects]);
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -95,76 +81,132 @@ const Portfolio = ({ language }) => {
     });
   };
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100
+      }
+    }
+  };
+
   return (
-    <section id="portfolio" className="py-16 bg-gradient-to-br from-gray-50 to-white">
-      <div className="container mx-auto px-4">
+    <section id="portfolio" className={`relative py-16 transition-colors duration-700 overflow-hidden ${selectTab === 'ai' ? 'bg-slate-900' : 'bg-gradient-to-br from-gray-50 to-white'}`}>
+      {/* Neural Background for AI Mode */}
+      {selectTab === 'ai' && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="absolute inset-0 z-0"
+          style={{
+            maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)'
+          }}
+        >
+          <NeuralBackground />
+        </motion.div>
+      )}
+
+      <div className="container mx-auto px-4 relative z-10">
+
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-primaryColor/10 text-primaryColor px-4 py-2 rounded-full text-sm font-medium mb-4">
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-            </svg>
+        <div className="text-center mb-16 relative">
+          {selectTab === 'ai' && (
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primaryColor/20 rounded-full blur-[100px] pointer-events-none" />
+          )}
+
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4 backdrop-blur-sm
+              ${selectTab === 'ai'
+                ? 'bg-purple-900/30 text-purple-300 border border-purple-500/30'
+                : 'bg-primaryColor/10 text-primaryColor'}`}
+          >
+            {selectTab === 'ai' ? (
+              <i className="ri-brain-line text-lg animate-pulse"></i>
+            ) : (
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+              </svg>
+            )}
             {language === "EN" ? "Portfolio Timeline" : "Portfolio Tijdlijn"}
-          </div>
-          <h3 className="text-headingColor text-4xl md:text-5xl font-bold mb-4">
+          </motion.div>
+
+          <h3 className={`text-4xl md:text-5xl font-bold mb-4 ${selectTab === 'ai' ? 'text-white' : 'text-headingColor'}`}>
             {language === "EN" ? "My Projects" : "Mijn Projecten"}
           </h3>
-          <p className="text-smallTextColor text-lg max-w-2xl mx-auto">
+          <p className={`text-lg max-w-2xl mx-auto ${selectTab === 'ai' ? 'text-gray-400' : 'text-smallTextColor'}`}>
             {language === "EN"
               ? "A chronological journey through my development career, from first steps to AI innovations"
               : "Een chronologische reis door mijn ontwikkelingscarrière, van eerste stappen tot AI-innovaties"}
           </p>
         </div>
 
-        {/* Filter Controls */}
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-6 mb-12">
-          {/* Category Filters */}
-          <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+        {/* Controls Container */}
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-8 mb-16 relative z-10">
+
+          {/* Custom Tab Switcher */}
+          <div className="bg-white/5 backdrop-blur-md p-1.5 rounded-2xl border border-gray-200/20 shadow-xl flex flex-wrap gap-2">
             {filterOptions.map((option) => (
               <button
                 key={option.key}
                 onClick={() => setSelectTab(option.key)}
                 className={`
-                  group relative px-6 py-3 rounded-full font-medium transition-all duration-300 
-                  transform hover:scale-105 hover:-translate-y-1
+                  relative px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300
                   ${selectTab === option.key
-                    ? 'bg-primaryColor text-white shadow-lg shadow-primaryColor/25'
-                    : 'bg-white text-smallTextColor border border-gray-200 hover:border-primaryColor hover:text-primaryColor'
+                    ? selectTab === 'ai'
+                      ? 'text-white shadow-[0_0_20px_rgba(168,85,247,0.4)]'
+                      : 'text-white shadow-lg'
+                    : selectTab === 'ai'
+                      ? 'text-gray-400 hover:text-white hover:bg-white/5'
+                      : 'text-gray-600 hover:text-primaryColor hover:bg-gray-50'
                   }
                 `}
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  {language === "EN" ? option.labelEN : option.labelNL}
-                  <span className={`
-                    px-2 py-1 text-xs rounded-full
-                    ${selectTab === option.key
-                      ? 'bg-white/20 text-white'
-                      : 'bg-gray-100 text-gray-600'
-                    }
-                  `}>
-                    {option.count}
-                  </span>
-                </span>
                 {selectTab === option.key && (
-                  <div className="absolute inset-0 bg-primaryColor rounded-full opacity-10 animate-pulse" />
+                  <motion.div
+                    layoutId="activeTab"
+                    className={`absolute inset-0 rounded-xl ${selectTab === 'ai' ? 'bg-purple-600' : 'bg-primaryColor'}`}
+                  />
                 )}
+                <span className="relative z-10">{language === "EN" ? option.labelEN : option.labelNL}</span>
               </button>
             ))}
           </div>
 
           {/* Sort Controls */}
           <div className="flex items-center gap-3">
-            <span className="text-smallTextColor font-medium text-sm">
+            <span className={`font-medium text-sm ${selectTab === 'ai' ? 'text-gray-400' : 'text-smallTextColor'}`}>
               {language === "EN" ? "Sort by:" : "Sorteer op:"}
             </span>
-            <div className="flex bg-gray-100 rounded-lg p-1">
+            <div className={`rounded-lg p-1 ${selectTab === 'ai' ? 'bg-white/5 border border-white/10' : 'bg-gray-100'}`}>
               <button
                 onClick={() => setSortOrder("newest")}
                 className={`
                   px-4 py-2 text-sm font-medium rounded-md transition-all duration-200
                   ${sortOrder === "newest"
-                    ? 'bg-white text-primaryColor shadow-sm'
-                    : 'text-gray-600 hover:text-primaryColor'
+                    ? selectTab === 'ai'
+                      ? 'bg-purple-500/20 text-purple-300 shadow-sm'
+                      : 'bg-white text-primaryColor shadow-sm'
+                    : selectTab === 'ai'
+                      ? 'text-gray-400 hover:text-white'
+                      : 'text-gray-600 hover:text-primaryColor'
                   }
                 `}
               >
@@ -175,8 +217,12 @@ const Portfolio = ({ language }) => {
                 className={`
                   px-4 py-2 text-sm font-medium rounded-md transition-all duration-200
                   ${sortOrder === "oldest"
-                    ? 'bg-white text-primaryColor shadow-sm'
-                    : 'text-gray-600 hover:text-primaryColor'
+                    ? selectTab === 'ai'
+                      ? 'bg-purple-500/20 text-purple-300 shadow-sm'
+                      : 'bg-white text-primaryColor shadow-sm'
+                    : selectTab === 'ai'
+                      ? 'text-gray-400 hover:text-white'
+                      : 'text-gray-600 hover:text-primaryColor'
                   }
                 `}
               >
@@ -187,101 +233,124 @@ const Portfolio = ({ language }) => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {portfolios?.slice(0, nextItems)?.map((portfolio, index) => (
-            <div
-              key={portfolio.id}
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
-              data-aos-duration="600"
-              className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl 
-                       transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02]"
-            >
-              {/* Timeline Badge */}
-              <div className="absolute top-4 left-4 z-20">
-                <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-headingColor shadow-sm">
-                  {formatDate(portfolio.date)}
-                </div>
-              </div>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <AnimatePresence mode="popLayout">
+            {portfolios?.slice(0, nextItems)?.map((portfolio) => (
+              <motion.div
+                key={portfolio.id}
+                variants={itemVariants}
+                exit={{ opacity: 0, scale: 0.9 }}
+                className={`
+                  group relative rounded-2xl overflow-hidden transition-all duration-500 flex flex-col
+                  ${portfolio.category === 'ai/ml' && selectTab === 'ai'
+                    ? 'bg-gray-900/80 backdrop-blur-md border border-purple-500/30 shadow-[0_0_15px_rgba(139,92,246,0.1)] hover:shadow-[0_0_25px_rgba(139,92,246,0.3)] hover:-translate-y-2'
+                    : 'bg-white shadow-lg hover:shadow-2xl hover:-translate-y-2'
+                  }
+                `}
+              >
+                {/* Image Container */}
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src={portfolio.imgUrl}
+                    alt={portfolio.title}
+                  />
 
-              {/* Category Badge */}
-              <div className="absolute top-4 right-4 z-20">
-                <span className={`
-                  px-3 py-1 text-xs font-medium rounded-full border
-                  ${getCategoryColor(portfolio.category)}
-                `}>
-                  {portfolio.category}
-                </span>
-              </div>
+                  {/* Overlay Gradient */}
+                  <div className={`absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100
+                    ${portfolio.category === 'ai/ml'
+                      ? 'bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent'
+                      : 'bg-gradient-to-t from-black/60 via-transparent to-transparent'
+                    }`}
+                  />
 
-              {/* Image Container */}
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  src={portfolio.imgUrl}
-                  alt={portfolio.title}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-primaryColor/90 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
-                  <button
-                    onClick={() => showModalHandler(portfolio.id)}
-                    className="bg-white text-primaryColor px-6 py-3 rounded-full font-semibold 
-                             transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300
-                             hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white"
-                  >
-                    {language === "EN" ? "View Details" : "Bekijk Details"}
-                  </button>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <h4 className="text-xl font-bold text-headingColor mb-3 group-hover:text-primaryColor transition-colors duration-300">
-                  {portfolio.title}
-                </h4>
-
-                <p className="text-smallTextColor text-sm leading-relaxed mb-4 line-clamp-3">
-                  {language === "EN" ? portfolio.descriptionEN : portfolio.descriptionNL}
-                </p>
-
-                {/* Technology Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {portfolio.technologies.slice(0, 3).map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-lg font-medium"
+                  {/* View Details Button Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-20">
+                    <button
+                      onClick={() => showModalHandler(portfolio.id)}
+                      className={`
+                        px-6 py-3 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 focus:outline-none
+                        ${portfolio.category === 'ai/ml'
+                          ? 'bg-purple-600 text-white hover:bg-purple-700 shadow-[0_0_15px_rgba(147,51,234,0.5)]'
+                          : 'bg-white text-primaryColor hover:bg-gray-100 border-2 border-white'
+                        }
+                      `}
                     >
-                      {tech}
-                    </span>
-                  ))}
-                  {portfolio.technologies.length > 3 && (
-                    <span className="px-3 py-1 bg-primaryColor/10 text-primaryColor text-xs rounded-lg font-medium">
-                      +{portfolio.technologies.length - 3} {language === "EN" ? "more" : "meer"}
-                    </span>
-                  )}
+                      {language === "EN" ? "View Details" : "Bekijk Details"}
+                    </button>
+                  </div>
                 </div>
 
-                {/* Year Timeline */}
-                <div className="flex items-center gap-2 text-xs text-gray-500">
-                  <div className="w-2 h-2 bg-primaryColor rounded-full"></div>
-                  <span className="font-medium">{portfolio.year}</span>
-                  <div className="flex-1 h-px bg-gray-200"></div>
+                {/* Content Section */}
+                <div className="p-6 flex flex-col flex-1">
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {portfolio.technologies.slice(0, 3).map((tech, i) => (
+                      <span
+                        key={i}
+                        className={`text-xs px-2.5 py-1 rounded-lg font-medium border
+                          ${portfolio.category === 'ai/ml' && selectTab === 'ai'
+                            ? 'bg-purple-900/40 text-purple-300 border-purple-500/20'
+                            : 'bg-gray-100 text-gray-600 border-transparent group-hover:bg-primaryColor/10 group-hover:text-primaryColor'
+                          }
+                        `}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <h3 className={`text-xl font-bold mb-3 transition-colors duration-300
+                    ${portfolio.category === 'ai/ml' && selectTab === 'ai'
+                      ? 'text-white group-hover:text-purple-400'
+                      : 'text-headingColor group-hover:text-primaryColor'
+                    }
+                  `}>
+                    {portfolio.title}
+                  </h3>
+
+                  <p className={`text-sm leading-relaxed line-clamp-3 mb-4
+                    ${selectTab === 'ai' ? 'text-gray-400' : 'text-smallTextColor'}
+                  `}>
+                    {language === "EN" ? portfolio.descriptionEN : portfolio.descriptionNL}
+                  </p>
+
+                  {/* Date Footer - Consistent for all cards */}
+                  <div className={`flex items-center gap-2 pt-4 mt-auto border-t ${
+                    portfolio.category === 'ai/ml' && selectTab === 'ai'
+                      ? 'border-purple-500/10'
+                      : 'border-gray-100'
+                  }`}>
+                    <div className={`w-2 h-2 rounded-full ${
+                      portfolio.category === 'ai/ml' && selectTab === 'ai'
+                        ? 'bg-purple-500'
+                        : 'bg-primaryColor'
+                    }`} />
+                    <span className="text-xs text-gray-500 font-medium">{formatDate(portfolio.date)}</span>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
 
         {/* Load More Button */}
         {nextItems < portfolios.length && (
-          <div className="text-center mt-12">
+          <div ref={loadMoreButtonRef} className="text-center mt-16">
             <button
               onClick={loadMoreHandler}
-              className="bg-primaryColor text-white px-8 py-4 rounded-full font-semibold
-                       hover:bg-primaryColor/90 transform hover:scale-105 transition-all duration-300
-                       shadow-lg hover:shadow-xl"
+              className={`
+                px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl
+                ${selectTab === 'ai'
+                  ? 'bg-purple-600 hover:bg-purple-700 text-white shadow-[0_0_20px_rgba(147,51,234,0.3)]'
+                  : 'bg-primaryColor hover:bg-primaryColor/90 text-white'
+                }
+              `}
             >
               {language === "EN" ? "Load More Projects" : "Meer Projecten Laden"}
             </button>

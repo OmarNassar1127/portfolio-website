@@ -18,7 +18,9 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.2",
+    "react-tsparticles": "^2.12.2",
     "remixicon": "^3.1.1",
+    "tsparticles-slim": "^2.12.0",
     "typed-js": "^0.2.3",
     "typed.js": "^2.0.15",
     "web-vitals": "^2.1.4"
