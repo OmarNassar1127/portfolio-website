@@ -1,5 +1,3 @@
-import portfolioImg01 from "../images/portfolio-01.jpg";
-import portfolioImg02 from "../images/portfolio-02.jpg";
 import portfolioImg03 from "../images/yamba.jpeg";
 import portfolioImg04 from "../images/portfolio-04.jpg";
 import portfolioImg05 from "../images/portfolio-05.jpg";
@@ -8,7 +6,6 @@ import portfolioImg07 from "../images/portfolio-07.jpg";
 import portfolioImg08 from "../images/portfolio-08.jpg";
 import portfolioImg09 from "../images/blog-site.jpeg";
 import portfolioImg10 from "../images/portfolio-10.png";
-import portfolioImg11 from "../images/rag.jpeg";
 import portfolioImg12 from "../images/portfolio-12.png";
 import portfolioImg13 from "../images/licenese-plate.jpeg"; 
 import portfolioImg14 from "../images/portfolio-14.jpeg"; 
@@ -18,7 +15,6 @@ import portfolioImgFraud from "../images/fraud-prevention.jpeg";
 
 // New AI Assets - Core Set
 import portfolioImgCreative from "../images/ai_creative.png";
-import portfolioImgRAG from "../images/ai_rag.png";
 import portfolioImgAgents from "../images/ai_agents.png";
 import portfolioImgComm from "../images/ai_comm.png";
 import portfolioImgServer from "../images/ai_server.png";
@@ -29,9 +25,7 @@ import portfolioImgNotulist from "../images/ai_notulist.png";
 import portfolioImgWebsite from "../images/ai_website.png";
 import portfolioImgPersonal from "../images/ai_personal.png";
 import portfolioImgClaude from "../images/ai_claude.png";
-import portfolioImgLlama from "../images/ai_llama.png";
 import portfolioImgResearch from "../images/ai_research.png";
-import portfolioImgVoice from "../images/ai_voice.png";
 import portfolioImgDefGPT from "../images/ai_defgpt.png";
 
 // New Professional Projects
