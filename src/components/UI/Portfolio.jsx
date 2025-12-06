@@ -105,7 +105,24 @@ const Portfolio = ({ language }) => {
   };
 
   return (
-    <section id="portfolio" className={`relative py-16 transition-colors duration-700 overflow-hidden ${selectTab === 'ai' ? 'bg-slate-900' : 'bg-gradient-to-br from-gray-50 to-white'}`}>
+    <section id="portfolio" className={`relative transition-colors duration-700 overflow-hidden ${
+      selectTab === 'ai'
+        ? 'bg-gradient-to-b from-gray-50 via-slate-900 to-slate-900'
+        : 'bg-gradient-to-br from-gray-50 to-white'
+    }`}
+    style={selectTab === 'ai' ? { paddingTop: '8rem', paddingBottom: '4rem' } : { paddingTop: '4rem', paddingBottom: '4rem' }}>
+
+      {/* Smooth Top Fade Overlay for AI Mode */}
+      {selectTab === 'ai' && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.7 }}
+          className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-gray-50 to-transparent z-[5] pointer-events-none"
+        />
+      )}
+
       {/* Neural Background for AI Mode */}
       {selectTab === 'ai' && (
         <motion.div
@@ -114,12 +131,23 @@ const Portfolio = ({ language }) => {
           exit={{ opacity: 0 }}
           className="absolute inset-0 z-0"
           style={{
-            maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)'
+            maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)'
           }}
         >
           <NeuralBackground />
         </motion.div>
+      )}
+
+      {/* Smooth Bottom Fade Overlay for AI Mode */}
+      {selectTab === 'ai' && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.7 }}
+          className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 to-transparent z-[5] pointer-events-none"
+        />
       )}
 
       <div className="container mx-auto px-4 relative z-10">
@@ -133,9 +161,9 @@ const Portfolio = ({ language }) => {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4 backdrop-blur-sm
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4 backdrop-blur-md shadow-lg
               ${selectTab === 'ai'
-                ? 'bg-purple-900/30 text-purple-300 border border-purple-500/30'
+                ? 'bg-purple-900/80 text-white border border-purple-400/50'
                 : 'bg-primaryColor/10 text-primaryColor'}`}
           >
             {selectTab === 'ai' ? (
@@ -148,10 +176,20 @@ const Portfolio = ({ language }) => {
             {language === "EN" ? "Portfolio Timeline" : "Portfolio Tijdlijn"}
           </motion.div>
 
-          <h3 className={`text-4xl md:text-5xl font-bold mb-4 ${selectTab === 'ai' ? 'text-white' : 'text-headingColor'}`}>
+          <h3 className={`text-4xl md:text-5xl font-bold mb-4 ${
+            selectTab === 'ai'
+              ? 'text-gray-900'
+              : 'text-headingColor'
+          }`}
+          style={selectTab === 'ai' ? { textShadow: '0 2px 8px rgba(255,255,255,0.5)' } : {}}>
             {language === "EN" ? "My Projects" : "Mijn Projecten"}
           </h3>
-          <p className={`text-lg max-w-2xl mx-auto ${selectTab === 'ai' ? 'text-gray-400' : 'text-smallTextColor'}`}>
+          <p className={`text-lg max-w-2xl mx-auto font-medium ${
+            selectTab === 'ai'
+              ? 'text-gray-800'
+              : 'text-smallTextColor'
+          }`}
+          style={selectTab === 'ai' ? { textShadow: '0 1px 4px rgba(255,255,255,0.3)' } : {}}>
             {language === "EN"
               ? "A chronological journey through my development career, from first steps to AI innovations"
               : "Een chronologische reis door mijn ontwikkelingscarrière, van eerste stappen tot AI-innovaties"}
@@ -162,7 +200,11 @@ const Portfolio = ({ language }) => {
         <div className="flex flex-col lg:flex-row justify-between items-center gap-8 mb-16 relative z-10">
 
           {/* Custom Tab Switcher */}
-          <div className="bg-white/5 backdrop-blur-md p-1.5 rounded-2xl border border-gray-200/20 shadow-xl flex flex-wrap gap-2">
+          <div className={`backdrop-blur-md p-1.5 rounded-2xl shadow-xl flex flex-wrap gap-2 transition-all duration-300 ${
+            selectTab === 'ai'
+              ? 'bg-gray-800/80 border border-gray-700/50'
+              : 'bg-white/5 border border-gray-200/20'
+          }`}>
             {filterOptions.map((option) => (
               <button
                 key={option.key}
@@ -174,15 +216,16 @@ const Portfolio = ({ language }) => {
                       ? 'text-white shadow-[0_0_20px_rgba(168,85,247,0.4)]'
                       : 'text-white shadow-lg'
                     : selectTab === 'ai'
-                      ? 'text-gray-400 hover:text-white hover:bg-white/5'
+                      ? 'text-gray-300 hover:text-white hover:bg-white/10'
                       : 'text-gray-600 hover:text-primaryColor hover:bg-gray-50'
                   }
                 `}
               >
                 {selectTab === option.key && (
                   <motion.div
-                    layoutId="activeTab"
+                    layoutId={selectTab === 'ai' ? 'activeTabAI' : 'activeTabNormal'}
                     className={`absolute inset-0 rounded-xl ${selectTab === 'ai' ? 'bg-purple-600' : 'bg-primaryColor'}`}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
                 <span className="relative z-10">{language === "EN" ? option.labelEN : option.labelNL}</span>
@@ -192,20 +235,20 @@ const Portfolio = ({ language }) => {
 
           {/* Sort Controls */}
           <div className="flex items-center gap-3">
-            <span className={`font-medium text-sm ${selectTab === 'ai' ? 'text-gray-400' : 'text-smallTextColor'}`}>
+            <span className={`font-medium text-sm ${selectTab === 'ai' ? 'text-gray-200' : 'text-smallTextColor'}`}>
               {language === "EN" ? "Sort by:" : "Sorteer op:"}
             </span>
-            <div className={`rounded-lg p-1 ${selectTab === 'ai' ? 'bg-white/5 border border-white/10' : 'bg-gray-100'}`}>
+            <div className={`rounded-lg p-1 ${selectTab === 'ai' ? 'bg-gray-800/80 border border-gray-700/50' : 'bg-gray-100'}`}>
               <button
                 onClick={() => setSortOrder("newest")}
                 className={`
                   px-4 py-2 text-sm font-medium rounded-md transition-all duration-200
                   ${sortOrder === "newest"
                     ? selectTab === 'ai'
-                      ? 'bg-purple-500/20 text-purple-300 shadow-sm'
+                      ? 'bg-purple-600 text-white shadow-sm'
                       : 'bg-white text-primaryColor shadow-sm'
                     : selectTab === 'ai'
-                      ? 'text-gray-400 hover:text-white'
+                      ? 'text-gray-300 hover:text-white hover:bg-white/10'
                       : 'text-gray-600 hover:text-primaryColor'
                   }
                 `}
@@ -218,10 +261,10 @@ const Portfolio = ({ language }) => {
                   px-4 py-2 text-sm font-medium rounded-md transition-all duration-200
                   ${sortOrder === "oldest"
                     ? selectTab === 'ai'
-                      ? 'bg-purple-500/20 text-purple-300 shadow-sm'
+                      ? 'bg-purple-600 text-white shadow-sm'
                       : 'bg-white text-primaryColor shadow-sm'
                     : selectTab === 'ai'
-                      ? 'text-gray-400 hover:text-white'
+                      ? 'text-gray-300 hover:text-white hover:bg-white/10'
                       : 'text-gray-600 hover:text-primaryColor'
                   }
                 `}

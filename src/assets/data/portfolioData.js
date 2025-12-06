@@ -38,24 +38,6 @@ import portfolioImgDefGPT from "../images/ai_defgpt.png";
 
 const portfolios = [
   // --- New AI Projects ---
-  // ... (existing AI projects)
-
-  // --- Invoice Fraud Project (Priority 12) ---
-  {
-    id: "17",
-    imgUrl: portfolioImgFraud,
-    category: "Professional",
-    title: "Invoice Fraud Prevention Platform",
-    date: "2024-08",
-    year: 2024,
-    priority: 12,
-    descriptionEN: "Architected a comprehensive invoice fraud prevention platform that processes 50k+ monthly transactions. The system utilizes advanced behavioral pattern recognition to identify high-risk customers and employs dynamic risk profiles segmented by industry and transaction history. Integrated real-time dashboards for trend monitoring and an AI-powered automated dunning sequence that effectively recovered over €2M in outstanding payments. Features include periodic micro-invoicing based on risk scores—a novel approach that significantly reduced default rates by 73%.",
-    descriptionNL: "Een uitgebreid platform voor factuurfraudepreventie ontworpen dat 50k+ maandelijkse transacties verwerkt. Het systeem maakt gebruik van geavanceerde gedragspatroonherkenning om risicovolle klanten te identificeren en hanteert dynamische risicoprofielen gesegmenteerd per sector en transactiegeschiedenis. Geïntegreerde real-time dashboards voor trendmonitoring en een AI-gestuurde geautomatiseerde aanmaningsreeks die effectief meer dan €2M aan openstaande betalingen heeft teruggevorderd. Functies omvatten periodieke micro-facturering op basis van risicoscores—een innovatieve aanpak die het wanbetalingspercentage aanzienlijk met 73% verminderde.",
-    technologies: ["Node.js", "React", "TypeScript", "PostgreSQL", "Redis", "Machine Learning", "Payment APIs", "Risk Analytics", "Stripe", "REST APIs"],
-    siteUrl: "#",
-  },
-  
-  // --- Existing Projects ---
   {
     id: "ai-01",
     imgUrl: portfolioImgCreative,
