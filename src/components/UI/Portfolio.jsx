@@ -13,6 +13,18 @@ const Portfolio = ({ language }) => {
   const [sortOrder, setSortOrder] = useState("newest");
   const loadMoreButtonRef = useRef(null);
 
+  // Detect mobile for performance optimizations
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   // Filter out different categories for separate counts
   const aiProjects = useMemo(() => data.filter(item => item.category === "ai/ml"), []);
   const proProjects = useMemo(() => data.filter(item => item.category === "Professional"), []);
@@ -105,31 +117,41 @@ const Portfolio = ({ language }) => {
   };
 
   return (
-    <section id="portfolio" className={`relative py-16 transition-colors duration-500 overflow-hidden ${
+    <section id="portfolio" className={`relative py-16 overflow-hidden ${
       selectTab === 'ai'
         ? 'bg-gradient-to-b from-gray-50 via-slate-900 to-slate-900'
         : 'bg-gradient-to-br from-gray-50 to-white'
-    }`}>
+    }`}
+    style={{ transition: isMobile ? 'background-color 0.3s ease' : 'background 0.5s ease' }}>
 
-      {/* Combined Gradient Overlay for AI Mode - Single element for better performance */}
-      {selectTab === 'ai' && (
+      {/* Combined Gradient Overlay for AI Mode - Only on desktop */}
+      {selectTab === 'ai' && !isMobile && (
         <div
           className="absolute inset-0 z-[5] pointer-events-none"
           style={{
-            background: 'linear-gradient(to bottom, rgba(249, 250, 251, 1) 0%, transparent 10%, transparent 90%, rgba(249, 250, 251, 1) 100%)',
-            willChange: 'opacity'
+            background: 'linear-gradient(to bottom, rgba(249, 250, 251, 1) 0%, transparent 10%, transparent 90%, rgba(249, 250, 251, 1) 100%)'
           }}
         />
       )}
 
-      {/* Neural Background for AI Mode */}
-      {selectTab === 'ai' && (
+      {/* Simplified fade for mobile */}
+      {selectTab === 'ai' && isMobile && (
         <div
-          className="absolute inset-0 z-0 opacity-100 transition-opacity duration-500"
+          className="absolute inset-0 z-[5] pointer-events-none"
+          style={{
+            background: 'linear-gradient(to bottom, rgba(249, 250, 251, 1) 0%, transparent 15%, transparent 85%, rgba(249, 250, 251, 1) 100%)'
+          }}
+        />
+      )}
+
+      {/* Neural Background - DESKTOP ONLY for performance */}
+      {selectTab === 'ai' && !isMobile && (
+        <div
+          className="absolute inset-0 z-0 opacity-100"
           style={{
             maskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
-            willChange: 'opacity'
+            transition: 'opacity 0.5s ease'
           }}
         >
           <NeuralBackground />
@@ -186,11 +208,14 @@ const Portfolio = ({ language }) => {
         <div className="flex flex-col lg:flex-row justify-between items-center gap-8 mb-16 relative z-10">
 
           {/* Custom Tab Switcher */}
-          <div className={`backdrop-blur-md p-1.5 rounded-2xl shadow-xl flex flex-wrap gap-2 transition-all duration-300 ${
+          <div className={`p-1.5 rounded-2xl shadow-xl flex flex-wrap gap-2 ${
+            isMobile ? '' : 'backdrop-blur-md'
+          } ${
             selectTab === 'ai'
-              ? 'bg-gray-800/80 border border-gray-700/50'
-              : 'bg-white/5 border border-gray-200/20'
-          }`}>
+              ? 'bg-gray-800/90 border border-gray-700/50'
+              : 'bg-white border border-gray-200/20'
+          }`}
+          style={{ transition: 'background-color 0.2s ease, border-color 0.2s ease' }}>
             {filterOptions.map((option) => (
               <button
                 key={option.key}
@@ -224,7 +249,8 @@ const Portfolio = ({ language }) => {
             <span className={`font-medium text-sm ${selectTab === 'ai' ? 'text-gray-200' : 'text-smallTextColor'}`}>
               {language === "EN" ? "Sort by:" : "Sorteer op:"}
             </span>
-            <div className={`rounded-lg p-1 ${selectTab === 'ai' ? 'bg-gray-800/80 border border-gray-700/50' : 'bg-gray-100'}`}>
+            <div className={`rounded-lg p-1 ${selectTab === 'ai' ? 'bg-gray-800/90 border border-gray-700/50' : 'bg-gray-100'}`}
+            style={{ transition: 'background-color 0.2s ease, border-color 0.2s ease' }}>
               <button
                 onClick={() => setSortOrder("newest")}
                 className={`

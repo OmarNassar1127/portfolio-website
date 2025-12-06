@@ -13,12 +13,14 @@ const Modal = ({ activeID, setShowModal, language }) => {
 
   return (
     <div
-      className="w-full h-full fixed top-0 left-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center"
+      className="w-full h-full fixed top-0 left-0 z-50 bg-black/70 flex items-center justify-center"
       onClick={() => setShowModal(false)}
+      style={{ WebkitTapHighlightColor: 'transparent' }}
     >
       <motion.div
-        initial={{ opacity: 0, scale: 0.9, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.15 }}
         onClick={(e) => e.stopPropagation()}
         className={`
           w-11/12 md:max-w-[700px] relative rounded-2xl overflow-hidden max-h-[90vh] overflow-y-auto shadow-2xl
@@ -27,6 +29,10 @@ const Modal = ({ activeID, setShowModal, language }) => {
             : 'bg-white'
           }
         `}
+        style={{
+          touchAction: 'pan-y',
+          WebkitOverflowScrolling: 'touch'
+        }}
       >
         {/* Close Button */}
         <button
