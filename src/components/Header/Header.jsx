@@ -251,17 +251,17 @@ const Header = ({ toggleLanguage, language }) => {
         }`}>
           
           {/* Menu Header */}
-          <div className="flex items-center justify-between p-6 border-b border-gray-100">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-primaryColor to-purple-600 rounded-lg flex items-center justify-center overflow-hidden">
-                <img 
-                  src={me2} 
-                  alt="Omar Nassar" 
-                  className="w-8 h-8 object-cover rounded-md"
+          <div className="flex items-center justify-between p-4 border-b border-gray-100">
+            <div className="flex items-center gap-2">
+              <div className="w-9 h-9 bg-gradient-to-r from-primaryColor to-purple-600 rounded-lg flex items-center justify-center overflow-hidden">
+                <img
+                  src={me2}
+                  alt="Omar Nassar"
+                  className="w-7 h-7 object-cover rounded-md"
                 />
               </div>
               <div>
-                <h3 className="font-semibold text-headingColor">Omar Nassar</h3>
+                <h3 className="font-semibold text-headingColor text-sm">Omar Nassar</h3>
                 <p className="text-xs text-smallTextColor">{currentContent.availableText}</p>
               </div>
             </div>
@@ -274,14 +274,14 @@ const Header = ({ toggleLanguage, language }) => {
           </div>
 
           {/* Menu Navigation */}
-          <nav className="px-6 py-8 flex-1">
-            <ul className="space-y-4">
+          <nav className="px-4 py-4 flex-1 overflow-y-auto pb-32">
+            <ul className="space-y-1">
               {navigationItems.map((item, index) => (
                 <li key={item.href}>
                   <a
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className={`flex items-center gap-4 py-4 px-4 rounded-2xl font-medium transition-all duration-200 ${
+                    className={`flex items-center gap-3 py-2.5 px-3 rounded-xl font-medium transition-all duration-200 ${
                       activeSection === item.href
                         ? 'text-white bg-gradient-to-r from-primaryColor to-purple-600 shadow-lg'
                         : 'text-smallTextColor hover:text-primaryColor hover:bg-gray-50'
@@ -290,18 +290,20 @@ const Header = ({ toggleLanguage, language }) => {
                       animationDelay: `${index * 50}ms`
                     }}
                   >
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                      activeSection === item.href 
-                        ? 'bg-white/20' 
+                    <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${
+                      activeSection === item.href
+                        ? 'bg-white/20'
                         : ''
                     }`}>
-                      <i className={`${item.icon} text-xl ${
+                      <i className={`${item.icon} text-lg ${
                         activeSection === item.href ? 'text-white' : 'text-primaryColor'
                       }`}></i>
                     </div>
-                    <span className="font-semibold text-lg flex-1">{item.label}</span>
+                    <span className={`font-semibold text-base flex-1 ${
+                      activeSection === item.href ? 'text-white' : ''
+                    }`}>{item.label}</span>
                     {activeSection === item.href && (
-                      <i className="ri-arrow-right-s-line text-xl"></i>
+                      <i className="ri-arrow-right-s-line text-lg text-white"></i>
                     )}
                   </a>
                 </li>
@@ -309,18 +311,21 @@ const Header = ({ toggleLanguage, language }) => {
             </ul>
           </nav>
 
+          {/* Gradient Fade before Footer */}
+          <div className="absolute bottom-24 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent pointer-events-none z-10"></div>
+
           {/* Mobile Menu Footer - Email Contact */}
-          <div className="absolute bottom-0 left-0 right-0 p-6 bg-gray-50 border-t border-gray-100">
+          <div className="absolute bottom-0 left-0 right-0 p-4 bg-white shadow-[0_-4px_12px_rgba(0,0,0,0.08)] z-20">
             <div className="text-center">
-              <p className="text-sm text-smallTextColor mb-3">
+              <p className="text-xs text-smallTextColor mb-2">
                 {currentContent.emailLabel}
               </p>
               <a
                 href="mailto:omarnassar1127@gmail.com"
-                className="flex items-center justify-center gap-2 bg-gradient-to-r from-primaryColor to-purple-600 text-white font-medium px-4 py-3 rounded-xl hover:shadow-lg transition-all duration-200"
+                className="flex items-center justify-center gap-2 bg-gradient-to-r from-primaryColor to-purple-600 text-white font-medium px-3 py-2 rounded-xl hover:shadow-lg transition-all duration-200"
               >
-                <i className="ri-mail-line text-lg"></i>
-                <span className="text-sm">omarnassar1127@gmail.com</span>
+                <i className="ri-mail-line text-base"></i>
+                <span className="text-xs">omarnassar1127@gmail.com</span>
               </a>
             </div>
           </div>
