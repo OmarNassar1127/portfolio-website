@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.9dfe3664.css",
-    "main.js": "/static/js/main.b28f6181.js",
+    "main.css": "/static/css/main.c1b86002.css",
+    "main.js": "/static/js/main.dedc59d4.js",
     "static/media/portfolio-10.png": "/static/media/portfolio-10.e428f77ed3e8cd96c4ed.png",
     "static/media/remixicon.svg?t=1680703320261": "/static/media/remixicon.70a2c520013c3c5b5aff.svg",
     "static/media/portfolio-01.jpg": "/static/media/portfolio-01.443187793e15d82f1ca4.jpg",
@@ -19,8 +19,10 @@
     "static/media/remixicon.woff2?t=1680703320261": "/static/media/remixicon.0e8f9f369f20b858578c.woff2",
     "static/media/rag.jpeg": "/static/media/rag.5596b14ced58b89eff08.jpeg",
     "static/media/yamba.jpeg": "/static/media/yamba.1efaa89f30d7fb1a6c63.jpeg",
+    "static/media/oracle.png": "/static/media/oracle.0c0b872e15e418cc46bd.png",
     "static/media/restaurant.jpeg": "/static/media/restaurant.b80c3cb3e72dea29e866.jpeg",
     "static/media/me2.png": "/static/media/me2.e5fbf88fb1324be1ad2d.png",
+    "static/media/udemy.png": "/static/media/udemy.62914fc680e68edbc3da.png",
     "static/media/licenese-plate.jpeg": "/static/media/licenese-plate.f1ce3c7c2f7c626dd39a.jpeg",
     "static/media/me.png": "/static/media/me.872066dbeabf1ead9912.png",
     "static/media/blog-site.jpeg": "/static/media/blog-site.bac60f87e8e1a0e75cdd.jpeg",
@@ -48,11 +50,11 @@
     "static/media/figma.svg": "/static/media/figma.2c2c9d7ff067a3272fbcb7e4700d15a6.svg",
     "static/media/css.svg": "/static/media/css.4f50b33af1d2115e9ee75ed4b1570e17.svg",
     "static/media/html.svg": "/static/media/html.69274ea277b1ee86ba50abd24b291122.svg",
-    "main.9dfe3664.css.map": "/static/css/main.9dfe3664.css.map",
-    "main.b28f6181.js.map": "/static/js/main.b28f6181.js.map"
+    "main.c1b86002.css.map": "/static/css/main.c1b86002.css.map",
+    "main.dedc59d4.js.map": "/static/js/main.dedc59d4.js.map"
   },
   "entrypoints": [
-    "static/css/main.9dfe3664.css",
-    "static/js/main.b28f6181.js"
+    "static/css/main.c1b86002.css",
+    "static/js/main.dedc59d4.js"
   ]
 }
