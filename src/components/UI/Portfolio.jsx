@@ -105,49 +105,35 @@ const Portfolio = ({ language }) => {
   };
 
   return (
-    <section id="portfolio" className={`relative transition-colors duration-700 overflow-hidden ${
+    <section id="portfolio" className={`relative py-16 transition-colors duration-500 overflow-hidden ${
       selectTab === 'ai'
         ? 'bg-gradient-to-b from-gray-50 via-slate-900 to-slate-900'
         : 'bg-gradient-to-br from-gray-50 to-white'
-    }`}
-    style={selectTab === 'ai' ? { paddingTop: '8rem', paddingBottom: '4rem' } : { paddingTop: '4rem', paddingBottom: '4rem' }}>
+    }`}>
 
-      {/* Smooth Top Fade Overlay for AI Mode */}
+      {/* Combined Gradient Overlay for AI Mode - Single element for better performance */}
       {selectTab === 'ai' && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.7 }}
-          className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-gray-50 to-transparent z-[5] pointer-events-none"
+        <div
+          className="absolute inset-0 z-[5] pointer-events-none"
+          style={{
+            background: 'linear-gradient(to bottom, rgba(249, 250, 251, 1) 0%, transparent 10%, transparent 90%, rgba(249, 250, 251, 1) 100%)',
+            willChange: 'opacity'
+          }}
         />
       )}
 
       {/* Neural Background for AI Mode */}
       {selectTab === 'ai' && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="absolute inset-0 z-0"
+        <div
+          className="absolute inset-0 z-0 opacity-100 transition-opacity duration-500"
           style={{
-            maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)'
+            maskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
+            willChange: 'opacity'
           }}
         >
           <NeuralBackground />
-        </motion.div>
-      )}
-
-      {/* Smooth Bottom Fade Overlay for AI Mode */}
-      {selectTab === 'ai' && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.7 }}
-          className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 to-transparent z-[5] pointer-events-none"
-        />
+        </div>
       )}
 
       <div className="container mx-auto px-4 relative z-10">
