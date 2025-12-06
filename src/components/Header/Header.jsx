@@ -11,8 +11,9 @@ const Header = ({ toggleLanguage, language }) => {
       navigation: {
         about: "About",
         journey: "Journey",
-        portfolio: "Portfolio", 
+        portfolio: "Portfolio",
         skills: "Skills",
+        certifications: "Certifications",
         contact: "Contact"
       },
       logoText: "Personal",
@@ -25,7 +26,8 @@ const Header = ({ toggleLanguage, language }) => {
         about: "Over mij",
         journey: "Journey",
         portfolio: "Portefeuille",
-        skills: "Vaardigheden", 
+        skills: "Vaardigheden",
+        certifications: "Certificeringen",
         contact: "Contact"
       },
       logoText: "Persoonlijk",
@@ -42,6 +44,7 @@ const Header = ({ toggleLanguage, language }) => {
     { href: "#journey", label: currentContent.navigation.journey, icon: "ri-road-map-line" },
     { href: "#portfolio", label: currentContent.navigation.portfolio, icon: "ri-briefcase-line" },
     { href: "#skills", label: currentContent.navigation.skills, icon: "ri-code-line" },
+    { href: "#certifications", label: currentContent.navigation.certifications, icon: "ri-award-line" },
     { href: "#contact", label: currentContent.navigation.contact, icon: "ri-mail-line" }
   ];
 

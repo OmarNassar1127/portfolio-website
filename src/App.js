@@ -9,6 +9,7 @@ import Journey from "./components/UI/Journey";
 import Portfolio from "./components/UI/Portfolio";
 import Contact from "./components/UI/Contact";
 import Skills from "./components/UI/Skills";
+import Certifications from "./components/UI/Certifications";
 import Loader from "./components/UI/Loader";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -67,6 +68,7 @@ function App() {
               <Journey language={language} />
               <Portfolio language={language} />
               <Skills language={language} />
+              <Certifications language={language} />
               <Contact language={language} />
             </main>
             <Footer language={language} />
