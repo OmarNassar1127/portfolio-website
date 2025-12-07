@@ -9,7 +9,7 @@ const Loader = ({ onLoadingComplete }) => {
   // Configuration - Scale relative to viewport
   const config = {
     triggerChance: 0.15, // Chance for input nodes to fire
-    signalSpeed: 0.08,   // Base speed
+    signalSpeed: 0.02,   // Even slower signals (was 0.04)
     trailLength: 10,     // Length of signal trail
   };
 
@@ -19,7 +19,8 @@ const Loader = ({ onLoadingComplete }) => {
       setProgress((prev) => {
         // Slow down as we get closer to 100
         const remaining = 100 - prev;
-        const increment = Math.random() * (remaining > 20 ? 3 : 1) + 0.2;
+        // Faster loading progress (reverted/tuned up)
+        const increment = Math.random() * (remaining > 20 ? 3 : 1) + 0.5;
         const newProgress = Math.min(prev + increment, 100);
 
         if (newProgress >= 100) {
@@ -29,14 +30,14 @@ const Loader = ({ onLoadingComplete }) => {
         }
         return newProgress;
       });
-    }, 60);
+    }, 50); // Slightly slower than 40ms, faster than 80ms
 
     return () => clearInterval(interval);
   }, []);
 
   const startExitSequence = () => {
     setIsExiting(true);
-    setTimeout(onLoadingComplete, 1500); // Allow time for exit animation
+    setTimeout(onLoadingComplete, 500); // Reduced to 1 second per user request
   };
 
   useEffect(() => {
@@ -74,9 +75,9 @@ const Loader = ({ onLoadingComplete }) => {
       connections = [];
 
       // Calculate Responsive Dimensions
-      // We want the network to take up about 80% of width and 60% of height max
+      // We want the network to take up about 80% of width and 55% of height max (reduced height to give space for text)
       const networkWidth = Math.min(width * 0.9, 1000);
-      const networkHeight = Math.min(height * 0.7, 600);
+      const networkHeight = Math.min(height * 0.55, 500);
 
       const layersConfig = [
         { count: 3, type: 'input', color: colors.input },
@@ -92,11 +93,13 @@ const Loader = ({ onLoadingComplete }) => {
         const layerX = startX + layerIndex * layerSpacing;
         const nodeSpacing = networkHeight / (layerConf.count + 1);
         const startY = (height - (layerConf.count - 1) * nodeSpacing) / 2;
+        // Shift nodes up slightly to make room for bottom text
+        const offsetY = -height * 0.05;
 
         for (let i = 0; i < layerConf.count; i++) {
           nodes.push({
             x: layerX,
-            y: startY + i * nodeSpacing,
+            y: startY + i * nodeSpacing + offsetY,
             layerIndex: layerIndex,
             type: layerConf.type,
             color: layerConf.color,
@@ -144,7 +147,7 @@ const Loader = ({ onLoadingComplete }) => {
           signals.push({
             conn: conn,
             progress: 0,
-            speed: config.signalSpeed + Math.random() * 0.02,
+            speed: config.signalSpeed + Math.random() * 0.01, // Reduced variance
             trail: []
           });
         }
@@ -318,7 +321,7 @@ const Loader = ({ onLoadingComplete }) => {
       <AnimatePresence>
         {!isExiting && (
           <motion.div
-            className="relative z-10 text-center pointer-events-none mt-[35vh] md:mt-[40vh]"
+            className="absolute bottom-12 md:bottom-20 z-10 text-center pointer-events-none w-full px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
@@ -355,8 +358,8 @@ const Loader = ({ onLoadingComplete }) => {
       <motion.div
         className="absolute inset-0 bg-white pointer-events-none z-50"
         initial={{ opacity: 0 }}
-        animate={isExiting ? { opacity: [0, 1, 0] } : { opacity: 0 }}
-        transition={{ duration: 1.5, times: [0, 0.1, 1], ease: "circOut" }}
+        animate={isExiting ? { opacity: [0, 1, 1] } : { opacity: 0 }}
+        transition={{ duration: 0.5, times: [0, 0.1, 1], ease: "circOut" }}
       />
     </motion.div>
   );

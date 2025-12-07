@@ -52,7 +52,7 @@ function App() {
 
   return (
     <>
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         {isLoading ? (
           <Loader key="loader" onLoadingComplete={handleLoadingComplete} />
         ) : (
