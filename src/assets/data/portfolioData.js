@@ -166,7 +166,7 @@ const portfolios = [
     id: "ai-15",
     imgUrl: portfolioImgDefGPT,
     category: "ai/ml",
-    title: "DefGPT Pro - Enterprise AI Platform",
+    title: "Enterprise AI Platform",
     date: "2023-04",
     year: 2023,
     priority: 1,
