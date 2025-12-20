@@ -47,28 +47,30 @@ const Hero = ({ language, isDarkMode }) => {
       }`}
       id="about"
     >
-      {/* Subtle glassy background bubbles - contained within section */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
-        {/* Purple/violet bubble - top right */}
-        <div
-          className={`absolute top-20 -right-10 sm:top-10 sm:-right-10 md:-top-10 md:-right-20 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] rounded-full blur-[80px] sm:blur-[100px] animate-float-slow ${
-            isDarkMode ? 'bg-violet-500/20' : 'bg-violet-400/25'
-          }`}
-        />
-        {/* Blue bubble - left */}
-        <div
-          className={`absolute top-1/2 left-0 sm:top-1/3 sm:-left-10 md:-left-20 w-[180px] h-[180px] sm:w-[250px] sm:h-[250px] md:w-[350px] md:h-[350px] rounded-full blur-[80px] sm:blur-[100px] animate-float-slow-reverse ${
-            isDarkMode ? 'bg-blue-500/15' : 'bg-blue-400/20'
-          }`}
-        />
-        {/* Pink/rose bubble - bottom */}
-        <div
-          className={`absolute bottom-10 right-0 sm:bottom-20 sm:right-10 w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[300px] md:h-[300px] rounded-full blur-[80px] sm:blur-[100px] animate-float-slow ${
-            isDarkMode ? 'bg-rose-500/15' : 'bg-rose-400/20'
-          }`}
-          style={{ animationDelay: '2s' }}
-        />
-      </div>
+      {/* Subtle glassy background bubbles - desktop only */}
+      {!isMobile && (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
+          {/* Purple/violet bubble - top right */}
+          <div
+            className={`absolute -top-10 -right-20 w-[400px] h-[400px] rounded-full blur-[100px] animate-float-slow ${
+              isDarkMode ? 'bg-violet-500/20' : 'bg-violet-400/25'
+            }`}
+          />
+          {/* Blue bubble - left */}
+          <div
+            className={`absolute top-1/3 -left-20 w-[350px] h-[350px] rounded-full blur-[100px] animate-float-slow-reverse ${
+              isDarkMode ? 'bg-blue-500/15' : 'bg-blue-400/20'
+            }`}
+          />
+          {/* Pink/rose bubble - bottom */}
+          <div
+            className={`absolute bottom-20 right-10 w-[300px] h-[300px] rounded-full blur-[100px] animate-float-slow ${
+              isDarkMode ? 'bg-rose-500/15' : 'bg-rose-400/20'
+            }`}
+            style={{ animationDelay: '2s' }}
+          />
+        </div>
+      )}
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 relative" style={{ zIndex: 1 }}>
         <div className="max-w-6xl mx-auto">
