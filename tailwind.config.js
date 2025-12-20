@@ -43,6 +43,8 @@ module.exports = {
         'glow': 'glow 2s ease-in-out infinite alternate',
         'float': 'float 6s ease-in-out infinite',
         'gradient-x': 'gradient-x 3s ease infinite',
+        'float-slow': 'floatSlow 8s ease-in-out infinite',
+        'float-slow-reverse': 'floatSlowReverse 10s ease-in-out infinite',
       },
       keyframes: {
         glow: {
@@ -56,6 +58,14 @@ module.exports = {
         'gradient-x': {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
+        },
+        floatSlow: {
+          '0%, 100%': { transform: 'translate(0, 0)' },
+          '50%': { transform: 'translate(20px, -20px)' },
+        },
+        floatSlowReverse: {
+          '0%, 100%': { transform: 'translate(0, 0)' },
+          '50%': { transform: 'translate(-20px, 15px)' },
         },
       },
     },

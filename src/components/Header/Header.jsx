@@ -433,8 +433,6 @@ const Header = ({ toggleLanguage, language, isDarkMode, toggleDarkMode }) => {
         </div>
       </div>
 
-      {/* Spacer for fixed header */}
-      <div className="h-6"></div>
     </>
   );
 };
