@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { toast } from "react-toastify";
 
-const Contact = ({ language }) => {
+const Contact = ({ language, isDarkMode }) => {
   const form = useRef();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -13,26 +13,26 @@ const Contact = ({ language }) => {
 
   const content = {
     EN: {
-      title: "Get in touch!",
-      namePlaceholder: "Enter your name",
-      emailPlaceholder: "Enter your email",
-      subjectPlaceholder: "Subject",
-      messagePlaceholder: "Write your message",
+      title: "Let's Build Something Great",
+      namePlaceholder: "Your name",
+      emailPlaceholder: "Your email",
+      subjectPlaceholder: "What's this about?",
+      messagePlaceholder: "Tell me about your project or idea...",
       sendButton: "Send Message",
-      successToast: "Thank you for your message!",
-      errorToast: "Sorry, something went wrong. Please try again",
-      mapTitle: "Find me in Amsterdam"
+      successToast: "Message received! I'll get back to you soon.",
+      errorToast: "Something went wrong. Please try again.",
+      mapTitle: "Based in Amsterdam"
     },
     NL: {
-      title: "Neem contact op!",
-      namePlaceholder: "Vul uw naam in",
-      emailPlaceholder: "Voer uw e-mailadres in",
-      subjectPlaceholder: "Onderwerp",
-      messagePlaceholder: "Schrijf uw bericht",
+      title: "Laten We Iets Geweldigs Bouwen",
+      namePlaceholder: "Uw naam",
+      emailPlaceholder: "Uw e-mail",
+      subjectPlaceholder: "Waar gaat het over?",
+      messagePlaceholder: "Vertel me over uw project of idee...",
       sendButton: "Verstuur Bericht",
-      successToast: "Bedankt voor uw bericht!",
-      errorToast: "Sorry, er is iets misgegaan. Probeer het opnieuw",
-      mapTitle: "Vind mij in Amsterdam"
+      successToast: "Bericht ontvangen! Ik neem snel contact op.",
+      errorToast: "Er ging iets mis. Probeer het opnieuw.",
+      mapTitle: "Gevestigd in Amsterdam"
     }
   };
 
@@ -102,14 +102,14 @@ const Contact = ({ language }) => {
   };
 
   return (
-    <section 
-      id="contact" 
-      className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-gray-100"
+    <section
+      id="contact"
+      className={`py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDarkMode ? 'bg-dark-surface' : 'bg-gradient-to-br from-gray-50 to-gray-100'}`}
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-headingColor mb-4">
+          <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-headingColor'}`}>
             {currentContent.title}
           </h2>
           <div className="w-24 h-1 bg-primaryColor mx-auto rounded-full"></div>
@@ -119,12 +119,12 @@ const Contact = ({ language }) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Map Section */}
           <div className="order-2 lg:order-1">
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-              <div className="p-6 border-b border-gray-100">
-                <h3 className="text-xl font-semibold text-headingColor mb-2">
+            <div className={`rounded-2xl shadow-xl overflow-hidden ${isDarkMode ? 'bg-dark-card' : 'bg-white'}`}>
+              <div className={`p-6 border-b ${isDarkMode ? 'border-dark-border' : 'border-gray-100'}`}>
+                <h3 className={`text-xl font-semibold mb-2 ${isDarkMode ? 'text-white' : 'text-headingColor'}`}>
                   {currentContent.mapTitle}
                 </h3>
-                <p className="text-smallTextColor">
+                <p className={isDarkMode ? 'text-gray-400' : 'text-smallTextColor'}>
                   Amsterdam-Zuid, Netherlands
                 </p>
               </div>
@@ -143,7 +143,7 @@ const Contact = ({ language }) => {
 
           {/* Contact Form */}
           <div className="order-1 lg:order-2">
-            <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8">
+            <div className={`rounded-2xl shadow-xl p-6 sm:p-8 ${isDarkMode ? 'bg-dark-card' : 'bg-white'}`}>
               <form ref={form} onSubmit={sendEmail} className="space-y-6">
                 {/* Name Input */}
                 <div>
@@ -158,7 +158,11 @@ const Contact = ({ language }) => {
                     onChange={handleInputChange}
                     required
                     placeholder={currentContent.namePlaceholder}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primaryColor focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-primaryColor focus:border-transparent transition-all duration-200 ${
+                      isDarkMode
+                        ? 'bg-dark-border border-dark-border text-white placeholder-gray-500 focus:bg-dark-surface'
+                        : 'bg-gray-50 border-gray-200 focus:bg-white'
+                    }`}
                   />
                 </div>
 
@@ -175,7 +179,11 @@ const Contact = ({ language }) => {
                     onChange={handleInputChange}
                     required
                     placeholder={currentContent.emailPlaceholder}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primaryColor focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-primaryColor focus:border-transparent transition-all duration-200 ${
+                      isDarkMode
+                        ? 'bg-dark-border border-dark-border text-white placeholder-gray-500 focus:bg-dark-surface'
+                        : 'bg-gray-50 border-gray-200 focus:bg-white'
+                    }`}
                   />
                 </div>
 
@@ -192,7 +200,11 @@ const Contact = ({ language }) => {
                     onChange={handleInputChange}
                     required
                     placeholder={currentContent.subjectPlaceholder}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primaryColor focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-primaryColor focus:border-transparent transition-all duration-200 ${
+                      isDarkMode
+                        ? 'bg-dark-border border-dark-border text-white placeholder-gray-500 focus:bg-dark-surface'
+                        : 'bg-gray-50 border-gray-200 focus:bg-white'
+                    }`}
                   />
                 </div>
 
@@ -209,7 +221,11 @@ const Contact = ({ language }) => {
                     required
                     rows={5}
                     placeholder={currentContent.messagePlaceholder}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primaryColor focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white resize-none"
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-primaryColor focus:border-transparent transition-all duration-200 resize-none ${
+                      isDarkMode
+                        ? 'bg-dark-border border-dark-border text-white placeholder-gray-500 focus:bg-dark-surface'
+                        : 'bg-gray-50 border-gray-200 focus:bg-white'
+                    }`}
                   />
                 </div>
 

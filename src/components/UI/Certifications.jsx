@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import oracleLogo from "../../assets/images/oracle.png";
 import udemyLogo from "../../assets/images/udemy.png";
 
-const Certifications = ({ language }) => {
+const Certifications = ({ language, isDarkMode }) => {
   const [filter, setFilter] = useState("all");
 
   const certificationsData = [
@@ -172,7 +172,7 @@ const Certifications = ({ language }) => {
   return (
     <section
       id="certifications"
-      className="pb-16 relative overflow-hidden bg-gradient-to-b from-white to-gray-50"
+      className={`pb-16 relative overflow-hidden transition-colors duration-300 ${isDarkMode ? 'bg-dark-bg' : 'bg-gradient-to-b from-white to-gray-50'}`}
     >
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-primaryColor opacity-5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
@@ -185,10 +185,10 @@ const Certifications = ({ language }) => {
             <i className="ri-award-line"></i>
             {t.badge}
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-headingColor mb-4">
+          <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-headingColor'}`}>
             {t.title}
           </h2>
-          <p className="text-smallTextColor text-lg max-w-2xl mx-auto">
+          <p className={`text-lg max-w-2xl mx-auto ${isDarkMode ? 'text-gray-400' : 'text-smallTextColor'}`}>
             {t.subtitle}
           </p>
         </div>
@@ -206,7 +206,9 @@ const Certifications = ({ language }) => {
               className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
                 filter === category.id
                   ? "bg-gradient-to-r from-primaryColor to-blue-600 text-white shadow-lg scale-105"
-                  : "bg-white text-smallTextColor border-2 border-gray-200 hover:border-primaryColor hover:text-primaryColor"
+                  : isDarkMode
+                    ? "bg-dark-card text-gray-300 border-2 border-dark-border hover:border-primaryColor hover:text-primaryColor"
+                    : "bg-white text-smallTextColor border-2 border-gray-200 hover:border-primaryColor hover:text-primaryColor"
               }`}
             >
               {category.label}
@@ -219,7 +221,11 @@ const Certifications = ({ language }) => {
           {filteredCertifications.map((cert, index) => (
             <div
               key={cert.id}
-              className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-primaryColor hover:-translate-y-2"
+              className={`group relative rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden hover:border-primaryColor hover:-translate-y-2 ${
+                isDarkMode
+                  ? 'bg-dark-card border border-dark-border'
+                  : 'bg-white border border-gray-100'
+              }`}
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
@@ -227,34 +233,40 @@ const Certifications = ({ language }) => {
               <div className="p-6 pb-4">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-shrink-0">{getLogo(cert.logo)}</div>
-                  <span className="text-sm text-gray-500 font-medium">
+                  <span className={`text-sm font-medium ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                     {cert.date}
                   </span>
                 </div>
 
                 {/* Issuer */}
-                <p className="text-sm text-smallTextColor mb-3">
-                  <span className="font-semibold text-headingColor">
+                <p className={`text-sm mb-3 ${isDarkMode ? 'text-gray-400' : 'text-smallTextColor'}`}>
+                  <span className={`font-semibold ${isDarkMode ? 'text-white' : 'text-headingColor'}`}>
                     {cert.issuer}
                   </span>
                 </p>
 
                 {/* Title */}
-                <h3 className="text-lg font-bold text-headingColor mb-4 line-clamp-3 min-h-[4.5rem]">
+                <h3 className={`text-lg font-bold mb-4 line-clamp-3 min-h-[4.5rem] ${
+                  isDarkMode ? 'text-white' : 'text-headingColor'
+                }`}>
                   {cert.title}
                 </h3>
 
                 {/* Skills Tags */}
                 {cert.skills && cert.skills.length > 0 && (
                   <div className="mb-4">
-                    <p className="text-xs text-smallTextColor mb-2 font-medium">
+                    <p className={`text-xs mb-2 font-medium ${isDarkMode ? 'text-gray-400' : 'text-smallTextColor'}`}>
                       {t.skills}
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {cert.skills.map((skill, idx) => (
                         <span
                           key={idx}
-                          className="inline-block px-3 py-1 bg-gray-100 text-smallTextColor text-xs rounded-full"
+                          className={`inline-block px-3 py-1 text-xs rounded-full ${
+                            isDarkMode
+                              ? 'bg-dark-border text-gray-300'
+                              : 'bg-gray-100 text-smallTextColor'
+                          }`}
                         >
                           {skill}
                         </span>
@@ -263,19 +275,6 @@ const Certifications = ({ language }) => {
                   </div>
                 )}
               </div>
-
-              {/* Card Footer with Credential Link */}
-              {/* <div className="px-6 pb-6">
-                <a
-                  href={cert.credentialUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`block w-full text-center py-3 rounded-lg font-medium transition-all duration-300 bg-gradient-to-r ${cert.color} text-white hover:shadow-lg hover:scale-105`}
-                >
-                  <i className="ri-external-link-line mr-2"></i>
-                  {t.showCredential}
-                </a>
-              </div> */}
 
               {/* Decorative corner accent */}
               <div
@@ -292,8 +291,8 @@ const Certifications = ({ language }) => {
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            <i className="ri-search-line text-6xl text-gray-300 mb-4"></i>
-            <p className="text-smallTextColor text-lg">
+            <i className={`ri-search-line text-6xl mb-4 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}></i>
+            <p className={`text-lg ${isDarkMode ? 'text-gray-400' : 'text-smallTextColor'}`}>
               {language === "EN"
                 ? "No certifications found in this category."
                 : "Geen certificeringen gevonden in deze categorie."}

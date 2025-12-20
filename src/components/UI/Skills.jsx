@@ -24,7 +24,7 @@ import wordpressSvg from "../../assets/images/SVG/SVGs/wordpress-svgrepo-com.svg
 import postgresqlSvg from "../../assets/images/SVG/SVGs/postgresql.svg";
 import pythonSvg from "../../assets/images/SVG/SVGs/python.svg";
 
-const Skills = ({ language }) => {
+const Skills = ({ language, isDarkMode }) => {
   const [activeCategory, setActiveCategory] = useState("all");
 
   const skillCategories = [
@@ -331,7 +331,7 @@ const Skills = ({ language }) => {
   };
 
   return (
-    <section id="skills" className="py-12 bg-gradient-to-br from-white via-gray-50 to-blue-50 relative overflow-hidden">
+    <section id="skills" className={`py-12 relative overflow-hidden transition-colors duration-300 ${isDarkMode ? 'bg-dark-bg' : 'bg-gradient-to-br from-white via-gray-50 to-blue-50'}`}>
       {/* Background decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 right-10 w-72 h-72 bg-primaryColor/5 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
@@ -355,7 +355,7 @@ const Skills = ({ language }) => {
           <h2
             data-aos="fade-up"
             data-aos-duration="800"
-            className="text-headingColor font-bold text-3xl md:text-4xl mb-4"
+            className={`font-bold text-3xl md:text-4xl mb-4 ${isDarkMode ? 'text-white' : 'text-headingColor'}`}
           >
             {language === "EN" ? "My Skills" : "Mijn Vaardigheden"}
           </h2>
@@ -364,11 +364,11 @@ const Skills = ({ language }) => {
             data-aos="fade-up"
             data-aos-duration="800"
             data-aos-delay="200"
-            className="lg:max-w-2xl mx-auto text-gray-600 text-base leading-relaxed"
+            className={`lg:max-w-2xl mx-auto text-base leading-relaxed ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}
           >
             {language === "EN"
-              ? "Technical skills and proficiencies across different technologies and tools."
-              : "Technische vaardigheden en expertise in verschillende technologieën en tools."}
+              ? "From AI frameworks to full stack development. A versatile toolkit refined through years of building production systems."
+              : "Van AI-frameworks tot full stack development. Een veelzijdige toolkit verfijnd door jaren van het bouwen van productiesystemen."}
           </p>
         </div>
 
@@ -384,11 +384,13 @@ const Skills = ({ language }) => {
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
               className={`
-                group relative px-4 py-3 rounded-xl font-semibold transition-all duration-300 
+                group relative px-4 py-3 rounded-xl font-semibold transition-all duration-300
                 transform hover:scale-105 hover:-translate-y-1 flex items-center gap-2
                 ${activeCategory === category.id
                   ? `bg-gradient-to-r ${category.color} text-white shadow-lg shadow-primaryColor/25`
-                  : 'bg-white/80 backdrop-blur-sm border border-gray-200 text-gray-700 hover:border-primaryColor hover:text-primaryColor'
+                  : isDarkMode
+                    ? 'bg-dark-card border border-dark-border text-gray-300 hover:border-primaryColor hover:text-primaryColor'
+                    : 'bg-white/80 backdrop-blur-sm border border-gray-200 text-gray-700 hover:border-primaryColor hover:text-primaryColor'
                 }
               `}
             >
@@ -400,7 +402,9 @@ const Skills = ({ language }) => {
                 px-2 py-1 text-xs rounded-full font-bold
                 ${activeCategory === category.id
                   ? 'bg-white/20 text-white'
-                  : 'bg-gray-100 text-gray-600'
+                  : isDarkMode
+                    ? 'bg-dark-border text-gray-400'
+                    : 'bg-gray-100 text-gray-600'
                 }
               `}>
                 {getOverallProficiency(category.id)}%
@@ -421,7 +425,11 @@ const Skills = ({ language }) => {
               data-aos="fade-up"
               data-aos-duration="500"
               data-aos-delay={index * 50}
-              className="group bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl p-4 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 transition-all duration-400"
+              className={`group rounded-xl p-4 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 transition-all duration-400 ${
+                isDarkMode
+                  ? 'bg-dark-card border border-dark-border'
+                  : 'bg-white/80 backdrop-blur-sm border border-gray-200'
+              }`}
             >
               {/* Skill Icon */}
               <div className="flex items-center justify-center mb-3">
@@ -444,7 +452,9 @@ const Skills = ({ language }) => {
 
               {/* Skill Info */}
               <div className="text-center mb-3">
-                <h3 className="text-base font-bold text-headingColor mb-1 group-hover:text-primaryColor transition-colors duration-300">
+                <h3 className={`text-base font-bold mb-1 group-hover:text-primaryColor transition-colors duration-300 ${
+                  isDarkMode ? 'text-white' : 'text-headingColor'
+                }`}>
                   {skill.name}
                 </h3>
               </div>
@@ -452,14 +462,14 @@ const Skills = ({ language }) => {
               {/* Proficiency Bar */}
               <div className="mb-3">
                 <div className="flex justify-between items-center mb-1">
-                  <span className="text-xs font-medium text-gray-700">
+                  <span className={`text-xs font-medium ${isDarkMode ? 'text-gray-400' : 'text-gray-700'}`}>
                     {language === "EN" ? "Skill" : "Vaardigheid"}
                   </span>
                   <span className="text-xs font-bold text-primaryColor">
                     {skill.proficiency}%
                   </span>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                <div className={`w-full rounded-full h-2 overflow-hidden ${isDarkMode ? 'bg-dark-border' : 'bg-gray-200'}`}>
                   <div
                     className={`h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000 ease-out relative`}
                     style={{ width: `${skill.proficiency}%` }}
@@ -473,10 +483,13 @@ const Skills = ({ language }) => {
               <div className="flex justify-center">
                 <span className={`
                   px-2 py-1 rounded-full text-xs font-bold
-                  ${skill.proficiency >= 90 ? 'bg-green-100 text-green-800' :
-                    skill.proficiency >= 80 ? 'bg-blue-100 text-blue-800' :
-                      skill.proficiency >= 70 ? 'bg-yellow-100 text-yellow-800' :
-                        'bg-orange-100 text-orange-800'
+                  ${skill.proficiency >= 90
+                    ? isDarkMode ? 'bg-green-900/30 text-green-400' : 'bg-green-100 text-green-800'
+                    : skill.proficiency >= 80
+                      ? isDarkMode ? 'bg-blue-900/30 text-blue-400' : 'bg-blue-100 text-blue-800'
+                      : skill.proficiency >= 70
+                        ? isDarkMode ? 'bg-yellow-900/30 text-yellow-400' : 'bg-yellow-100 text-yellow-800'
+                        : isDarkMode ? 'bg-orange-900/30 text-orange-400' : 'bg-orange-100 text-orange-800'
                   }
                 `}>
                   {skill.proficiency >= 90 ? (language === "EN" ? "Advanced" : "Gevorderd") :
@@ -488,7 +501,7 @@ const Skills = ({ language }) => {
 
               {/* Decorative corner element */}
               <div className={`
-                absolute top-3 right-3 w-6 h-6 bg-gradient-to-r ${skill.color} 
+                absolute top-3 right-3 w-6 h-6 bg-gradient-to-r ${skill.color}
                 rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300
               `}></div>
             </div>
@@ -500,28 +513,32 @@ const Skills = ({ language }) => {
           data-aos="fade-up"
           data-aos-duration="800"
           data-aos-delay="500"
-          className="mt-10 bg-gradient-to-r from-primaryColor/5 to-blue-50 rounded-2xl p-6 md:p-8"
+          className={`mt-10 rounded-2xl p-6 md:p-8 ${
+            isDarkMode
+              ? 'bg-dark-card border border-dark-border'
+              : 'bg-gradient-to-r from-primaryColor/5 to-blue-50'
+          }`}
         >
           <div className="text-center mb-6">
-            <h3 className="text-2xl font-bold text-headingColor mb-3">
+            <h3 className={`text-2xl font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-headingColor'}`}>
               {language === "EN" ? "Skills Overview" : "Vaardigheden Overzicht"}
             </h3>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {skillCategories.filter(cat => cat.id !== "all").map((category) => (
               <div key={category.id} className="text-center">
                 <div className={`
-                  w-12 h-12 bg-gradient-to-r ${category.color} rounded-xl 
+                  w-12 h-12 bg-gradient-to-r ${category.color} rounded-xl
                   flex items-center justify-center mx-auto mb-3 shadow-lg
                   hover:scale-110 transition-transform duration-300
                 `}>
                   <i className={`${category.icon} text-lg text-white`}></i>
                 </div>
-                <h4 className="font-bold text-base text-headingColor mb-1">
+                <h4 className={`font-bold text-base mb-1 ${isDarkMode ? 'text-white' : 'text-headingColor'}`}>
                   {getOverallProficiency(category.id)}%
                 </h4>
-                <p className="text-gray-600 text-xs">
+                <p className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                   {language === "EN" ? category.labelEN : category.labelNL}
                 </p>
               </div>

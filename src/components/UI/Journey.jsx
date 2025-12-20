@@ -4,34 +4,34 @@ import backendImg from "../../assets/images/backend.png";
 import uiImg from "../../assets/images/design.png";
 import appsdImg from "../../assets/images/apps.png";
 
-const Journey = ({ language }) => {
+const Journey = ({ language, isDarkMode }) => {
   const content = {
     EN: {
       badge: "Career Timeline",
-      title: "From Developer to AI Engineer",
-      subtitle: "What started as curiosity about code in 2017 has evolved into architecting production AI systems that transform businesses. From multi-agent workflows to enterprise RAG platforms, I've shipped 30+ AI systems serving 30K+ daily users with €2M+ measurable business impact.",
+      title: "Building the Future, One System at a Time",
+      subtitle: "From mastering frontend fundamentals to architecting enterprise AI solutions. My journey spans the full spectrum of modern software development, shaping my expertise in turning complex challenges into production-ready systems.",
       current: "Current",
       years: "Years in Tech",
-      companies: "AI Systems Live",
-      projects: "Business Impact",
+      companies: "Companies",
+      projects: "Projects Shipped",
       milestones: {
         experience: "7+",
-        companies: "30+",
-        projects: "€2M+"
+        companies: "5+",
+        projects: "50+"
       }
     },
     NL: {
       badge: "Carrière Tijdlijn",
-      title: "Van Developer naar AI Engineer",
-      subtitle: "Wat begon als nieuwsgierigheid naar code in 2017 is geëvolueerd tot het architecteren van productie AI-systemen die bedrijven transformeren. Van multi-agent workflows tot enterprise RAG-platformen, ik heb 30+ AI-systemen opgeleverd die 30K+ dagelijkse gebruikers bedienen met €2M+ meetbare bedrijfsimpact.",
+      title: "De Toekomst Bouwen, Systeem voor Systeem",
+      subtitle: "Van frontend fundamenten tot enterprise AI-oplossingen. Mijn reis omvat het volledige spectrum van moderne softwareontwikkeling en vormde mijn expertise in het omzetten van complexe uitdagingen naar productie-klare systemen.",
       current: "Huidig",
       years: "Jaar in Tech",
-      companies: "AI Systemen Live",
-      projects: "Bedrijfsimpact",
+      companies: "Bedrijven",
+      projects: "Projecten Opgeleverd",
       milestones: {
         experience: "7+",
-        companies: "30+",
-        projects: "€2M+"
+        companies: "5+",
+        projects: "50+"
       }
     }
   };
@@ -128,7 +128,7 @@ const Journey = ({ language }) => {
   ];
 
   return (
-    <section id="journey" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section id="journey" className={`py-12 sm:py-16 lg:py-20 relative overflow-hidden transition-colors duration-300 ${isDarkMode ? 'bg-dark-surface' : 'bg-gradient-to-br from-gray-50 to-white'}`}>
       {/* Background decorations */}
       <div className="absolute inset-0 opacity-40">
         <div className="absolute top-20 left-10 sm:left-20 w-32 sm:w-72 h-32 sm:h-72 bg-primaryColor/10 rounded-full blur-3xl"></div>
@@ -138,16 +138,22 @@ const Journey = ({ language }) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 bg-primaryColor/10 text-primaryColor px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-4">
+          <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-4 ${
+            isDarkMode ? 'bg-primaryColor/20 text-primaryColor' : 'bg-primaryColor/10 text-primaryColor'
+          }`}>
             <i className="ri-map-pin-time-line text-sm sm:text-base"></i>
             {currentContent.badge}
           </div>
-          
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-headingColor mb-4 sm:mb-6" data-aos="fade-up">
+
+          <h2 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 ${
+            isDarkMode ? 'text-white' : 'text-headingColor'
+          }`} data-aos="fade-up">
             {currentContent.title}
           </h2>
-          
-          <p className="text-base sm:text-lg text-smallTextColor max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-4" data-aos="fade-up" data-aos-delay="200">
+
+          <p className={`text-base sm:text-lg max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-4 ${
+            isDarkMode ? 'text-gray-400' : 'text-smallTextColor'
+          }`} data-aos="fade-up" data-aos-delay="200">
             {currentContent.subtitle}
           </p>
         </div>
@@ -170,17 +176,21 @@ const Journey = ({ language }) => {
                     data-aos-delay={index * 100}
                   >
                     {/* Timeline dot for larger screens */}
-                    <div className="hidden sm:flex absolute left-6 top-6 w-4 h-4 bg-white border-4 border-primaryColor rounded-full z-10"></div>
-                    
+                    <div className={`hidden sm:flex absolute left-6 top-6 w-4 h-4 border-4 border-primaryColor rounded-full z-10 ${
+                      isDarkMode ? 'bg-dark-card' : 'bg-white'
+                    }`}></div>
+
                     {/* Mobile timeline dot */}
-                    <div className="sm:hidden absolute left-1/2 transform -translate-x-1/2 top-8 w-6 h-6 bg-white border-4 border-primaryColor rounded-full z-10 shadow-lg">
+                    <div className={`sm:hidden absolute left-1/2 transform -translate-x-1/2 top-8 w-6 h-6 border-4 border-primaryColor rounded-full z-10 shadow-lg ${
+                      isDarkMode ? 'bg-dark-card' : 'bg-white'
+                    }`}>
                       <div className="w-full h-full bg-primaryColor rounded-full scale-50"></div>
                     </div>
-                  
+
                     {/* Card */}
-                    <div className={`bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 mx-4 sm:mx-0 sm:ml-20 ${
-                      item.current ? 'ring-2 ring-primaryColor/30 shadow-primaryColor/10' : ''
-                    }`}>
+                    <div className={`rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 mx-4 sm:mx-0 sm:ml-20 ${
+                      isDarkMode ? 'bg-dark-card border border-dark-border' : 'bg-white'
+                    } ${item.current ? 'ring-2 ring-primaryColor/30 shadow-primaryColor/10' : ''}`}>
                     
                     {/* Mobile year badge */}
                     <div className="flex items-center justify-between mb-4">
@@ -191,7 +201,9 @@ const Journey = ({ language }) => {
                       
                       {/* Current badge */}
                       {item.current && (
-                        <div className="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-1 rounded-lg text-xs font-semibold">
+                        <div className={`flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-semibold ${
+                          isDarkMode ? 'bg-green-900/30 text-green-400' : 'bg-green-100 text-green-700'
+                        }`}>
                           <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                           {currentContent.current}
                         </div>
@@ -200,17 +212,21 @@ const Journey = ({ language }) => {
 
                     {/* Content */}
                     <div className="mb-4">
-                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-headingColor mb-2">
+                      <h3 className={`text-lg sm:text-xl lg:text-2xl font-bold mb-2 ${
+                        isDarkMode ? 'text-white' : 'text-headingColor'
+                      }`}>
                         {item.title}
                       </h3>
                       <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-3 text-sm sm:text-base">
-                        <span className="text-smallTextColor font-medium">{item.subtitle}</span>
-                        <span className="hidden sm:inline text-gray-300">•</span>
+                        <span className={`font-medium ${isDarkMode ? 'text-gray-400' : 'text-smallTextColor'}`}>{item.subtitle}</span>
+                        <span className={`hidden sm:inline ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>•</span>
                         <span className="text-primaryColor font-semibold">{item.company}</span>
                       </div>
                     </div>
 
-                    <p className="text-smallTextColor mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                    <p className={`mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base ${
+                      isDarkMode ? 'text-gray-400' : 'text-smallTextColor'
+                    }`}>
                       {item.description}
                     </p>
 
@@ -219,7 +235,11 @@ const Journey = ({ language }) => {
                       {item.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-2 sm:px-3 py-1 bg-primaryColor/10 text-primaryColor text-xs sm:text-sm font-medium rounded-lg hover:bg-primaryColor/20 transition-colors duration-200"
+                          className={`px-2 sm:px-3 py-1 text-xs sm:text-sm font-medium rounded-lg transition-colors duration-200 ${
+                            isDarkMode
+                              ? 'bg-primaryColor/20 text-primaryColor hover:bg-primaryColor/30'
+                              : 'bg-primaryColor/10 text-primaryColor hover:bg-primaryColor/20'
+                          }`}
                         >
                           {tech}
                         </span>
@@ -246,16 +266,24 @@ const Journey = ({ language }) => {
 
         {/* Stats Section */}
         <div className="mt-12 sm:mt-16 lg:mt-20" data-aos="fade-up">
-          <div className="bg-gradient-to-r from-primaryColor/5 to-blue-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8">
+          <div className={`rounded-2xl sm:rounded-3xl p-6 sm:p-8 ${
+            isDarkMode
+              ? 'bg-dark-card border border-dark-border'
+              : 'bg-gradient-to-r from-primaryColor/5 to-blue-50'
+          }`}>
             <div className="grid grid-cols-3 gap-4 sm:gap-8 text-center">
               <div className="space-y-2 sm:space-y-4">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-r from-primaryColor to-purple-600 rounded-xl sm:rounded-2xl flex items-center justify-center">
                   <i className="ri-time-line text-lg sm:text-2xl text-white"></i>
                 </div>
-                <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-headingColor">
+                <h4 className={`text-xl sm:text-2xl lg:text-3xl font-bold ${
+                  isDarkMode ? 'text-white' : 'text-headingColor'
+                }`}>
                   {currentContent.milestones.experience}
                 </h4>
-                <p className="text-xs sm:text-sm lg:text-base text-smallTextColor">
+                <p className={`text-xs sm:text-sm lg:text-base ${
+                  isDarkMode ? 'text-gray-400' : 'text-smallTextColor'
+                }`}>
                   {currentContent.years}
                 </p>
               </div>
@@ -264,10 +292,14 @@ const Journey = ({ language }) => {
                 <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl sm:rounded-2xl flex items-center justify-center">
                   <i className="ri-robot-line text-lg sm:text-2xl text-white"></i>
                 </div>
-                <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-headingColor">
+                <h4 className={`text-xl sm:text-2xl lg:text-3xl font-bold ${
+                  isDarkMode ? 'text-white' : 'text-headingColor'
+                }`}>
                   {currentContent.milestones.companies}
                 </h4>
-                <p className="text-xs sm:text-sm lg:text-base text-smallTextColor">
+                <p className={`text-xs sm:text-sm lg:text-base ${
+                  isDarkMode ? 'text-gray-400' : 'text-smallTextColor'
+                }`}>
                   {currentContent.companies}
                 </p>
               </div>
@@ -276,10 +308,14 @@ const Journey = ({ language }) => {
                 <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl sm:rounded-2xl flex items-center justify-center">
                   <i className="ri-money-euro-circle-line text-lg sm:text-2xl text-white"></i>
                 </div>
-                <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-headingColor">
+                <h4 className={`text-xl sm:text-2xl lg:text-3xl font-bold ${
+                  isDarkMode ? 'text-white' : 'text-headingColor'
+                }`}>
                   {currentContent.milestones.projects}
                 </h4>
-                <p className="text-xs sm:text-sm lg:text-base text-smallTextColor">
+                <p className={`text-xs sm:text-sm lg:text-base ${
+                  isDarkMode ? 'text-gray-400' : 'text-smallTextColor'
+                }`}>
                   {currentContent.projects}
                 </p>
               </div>
