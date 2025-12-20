@@ -19,7 +19,7 @@ function App() {
 
   const [language, setLanguage] = useState("EN");
   const [isLoading, setIsLoading] = useState(true);
-  const [isDarkMode, setIsDarkMode] = useState(true); // Default to dark mode for tech aesthetic
+  const [isDarkMode, setIsDarkMode] = useState(false); // Default to light mode
 
   const toggleLanguage = () => {
     if (language === "EN") {
