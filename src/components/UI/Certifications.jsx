@@ -265,7 +265,7 @@ const Certifications = ({ language }) => {
               </div>
 
               {/* Card Footer with Credential Link */}
-              <div className="px-6 pb-6">
+              {/* <div className="px-6 pb-6">
                 <a
                   href={cert.credentialUrl}
                   target="_blank"
@@ -275,7 +275,7 @@ const Certifications = ({ language }) => {
                   <i className="ri-external-link-line mr-2"></i>
                   {t.showCredential}
                 </a>
-              </div>
+              </div> */}
 
               {/* Decorative corner accent */}
               <div
