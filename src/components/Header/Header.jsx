@@ -154,34 +154,14 @@ const Header = ({ toggleLanguage, language, isDarkMode, toggleDarkMode }) => {
               </div>
             </a>
 
-            {/* Right Side */}
-            <div className="flex items-center gap-2">
-              <button
-                onClick={toggleDarkMode}
-                className={`p-2 rounded-xl transition-all ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}
-              >
-                {isDarkMode ? <i className="ri-sun-line text-lg"></i> : <i className="ri-moon-line text-lg"></i>}
-              </button>
-
-              <div className={`flex p-0.5 rounded-lg ${isDarkMode ? 'bg-dark-card' : 'bg-gray-100'}`}>
-                <button
-                  onClick={() => language !== "EN" && toggleLanguage()}
-                  className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all ${language === "EN" ? 'text-white bg-primaryColor' : isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}
-                >EN</button>
-                <button
-                  onClick={() => language !== "NL" && toggleLanguage()}
-                  className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all ${language === "NL" ? 'text-white bg-primaryColor' : isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}
-                >NL</button>
+            {/* Right Side - Only hamburger menu */}
+            <button onClick={toggleMenu} className={`menu-toggle p-2 rounded-xl ${isDarkMode ? 'hover:bg-dark-card' : 'hover:bg-gray-100'}`}>
+              <div className="w-6 h-6 relative">
+                <span className={`absolute h-0.5 w-full transition-all duration-300 ${isDarkMode ? 'bg-gray-300' : 'bg-gray-600'} ${isMenuOpen ? 'rotate-45 top-3' : 'top-1'}`}></span>
+                <span className={`absolute h-0.5 w-full transition-all duration-300 top-3 ${isDarkMode ? 'bg-gray-300' : 'bg-gray-600'} ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+                <span className={`absolute h-0.5 w-full transition-all duration-300 ${isDarkMode ? 'bg-gray-300' : 'bg-gray-600'} ${isMenuOpen ? '-rotate-45 top-3' : 'top-5'}`}></span>
               </div>
-
-              <button onClick={toggleMenu} className={`menu-toggle p-2 rounded-xl ${isDarkMode ? 'hover:bg-dark-card' : 'hover:bg-gray-100'}`}>
-                <div className="w-6 h-6 relative">
-                  <span className={`absolute h-0.5 w-full transition-all duration-300 ${isDarkMode ? 'bg-gray-300' : 'bg-gray-600'} ${isMenuOpen ? 'rotate-45 top-3' : 'top-1'}`}></span>
-                  <span className={`absolute h-0.5 w-full transition-all duration-300 top-3 ${isDarkMode ? 'bg-gray-300' : 'bg-gray-600'} ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-                  <span className={`absolute h-0.5 w-full transition-all duration-300 ${isDarkMode ? 'bg-gray-300' : 'bg-gray-600'} ${isMenuOpen ? '-rotate-45 top-3' : 'top-5'}`}></span>
-                </div>
-              </button>
-            </div>
+            </button>
           </div>
         </div>
       </header>
@@ -343,7 +323,7 @@ const Header = ({ toggleLanguage, language, isDarkMode, toggleDarkMode }) => {
           </div>
 
           {/* Menu Navigation */}
-          <nav className="px-4 py-4 flex-1 overflow-y-auto pb-32">
+          <nav className="px-4 py-4 flex-1 overflow-y-auto pb-44">
             <ul className="space-y-1">
               {navigationItems.map((item, index) => (
                 <li key={item.href}>
@@ -380,6 +360,52 @@ const Header = ({ toggleLanguage, language, isDarkMode, toggleDarkMode }) => {
                 </li>
               ))}
             </ul>
+
+            {/* Settings Section */}
+            <div className={`mt-6 pt-6 border-t ${isDarkMode ? 'border-dark-border' : 'border-gray-100'}`}>
+              <p className={`text-xs font-semibold uppercase tracking-wider mb-3 px-3 ${isDarkMode ? 'text-gray-500' : 'text-gray-400'}`}>
+                {language === "EN" ? "Settings" : "Instellingen"}
+              </p>
+
+              {/* Dark Mode Toggle */}
+              <button
+                onClick={toggleDarkMode}
+                className={`flex items-center gap-3 w-full py-2.5 px-3 rounded-xl font-medium transition-all duration-200 ${
+                  isDarkMode
+                    ? 'text-gray-400 hover:text-accent-cyan hover:bg-dark-card'
+                    : 'text-smallTextColor hover:text-primaryColor hover:bg-gray-50'
+                }`}
+              >
+                <div className="w-9 h-9 rounded-lg flex items-center justify-center">
+                  <i className={`${isDarkMode ? 'ri-sun-line' : 'ri-moon-line'} text-lg ${isDarkMode ? 'text-accent-cyan' : 'text-primaryColor'}`}></i>
+                </div>
+                <span className="font-semibold text-base flex-1 text-left">
+                  {isDarkMode ? (language === "EN" ? "Light Mode" : "Lichte Modus") : (language === "EN" ? "Dark Mode" : "Donkere Modus")}
+                </span>
+              </button>
+
+              {/* Language Toggle */}
+              <div className={`flex items-center gap-3 py-2.5 px-3 rounded-xl ${
+                isDarkMode ? 'text-gray-400' : 'text-smallTextColor'
+              }`}>
+                <div className="w-9 h-9 rounded-lg flex items-center justify-center">
+                  <i className={`ri-global-line text-lg ${isDarkMode ? 'text-accent-cyan' : 'text-primaryColor'}`}></i>
+                </div>
+                <span className="font-semibold text-base">
+                  {language === "EN" ? "Language" : "Taal"}
+                </span>
+                <div className={`ml-auto flex p-0.5 rounded-lg ${isDarkMode ? 'bg-dark-card' : 'bg-gray-100'}`}>
+                  <button
+                    onClick={() => language !== "EN" && toggleLanguage()}
+                    className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all ${language === "EN" ? 'text-white bg-primaryColor' : isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}
+                  >EN</button>
+                  <button
+                    onClick={() => language !== "NL" && toggleLanguage()}
+                    className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all ${language === "NL" ? 'text-white bg-primaryColor' : isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}
+                  >NL</button>
+                </div>
+              </div>
+            </div>
           </nav>
 
           {/* Gradient Fade before Footer */}
