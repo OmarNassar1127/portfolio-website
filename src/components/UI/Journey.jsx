@@ -15,7 +15,7 @@ const Journey = ({ language, isDarkMode }) => {
       projects: "Projects Shipped",
       milestones: {
         experience: "7+",
-        companies: "5+",
+        companies: "3",
         projects: "50+"
       }
     },
@@ -28,7 +28,7 @@ const Journey = ({ language, isDarkMode }) => {
       projects: "Projecten Opgeleverd",
       milestones: {
         experience: "7+",
-        companies: "5+",
+        companies: "3",
         projects: "50+"
       }
     }
