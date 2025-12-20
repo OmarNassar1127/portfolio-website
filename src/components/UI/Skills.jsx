@@ -23,6 +23,7 @@ import laravelSvg from "../../assets/images/SVG/SVGs/laravel.svg";
 import wordpressSvg from "../../assets/images/SVG/SVGs/wordpress-svgrepo-com.svg";
 import postgresqlSvg from "../../assets/images/SVG/SVGs/postgresql.svg";
 import pythonSvg from "../../assets/images/SVG/SVGs/python.svg";
+import n8nSvg from "../../assets/images/SVG/SVGs/n8n.svg";
 
 const Skills = ({ language, isDarkMode }) => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -137,6 +138,22 @@ const Skills = ({ language, isDarkMode }) => {
       proficiency: 85,
       description: language === "EN" ? "Local LLM deployment" : "Lokale LLM deployment",
       color: "from-blue-400 to-purple-500"
+    },
+    {
+      name: "PyTorch",
+      category: "ai",
+      iconClass: "ri-fire-line",
+      proficiency: 75,
+      description: language === "EN" ? "Deep learning & neural networks" : "Deep learning & neurale netwerken",
+      color: "from-orange-500 to-red-600"
+    },
+    {
+      name: "TensorFlow",
+      category: "ai",
+      iconClass: "ri-cpu-line",
+      proficiency: 72,
+      description: language === "EN" ? "ML model training & deployment" : "ML model training & deployment",
+      color: "from-orange-400 to-yellow-500"
     },
     // First Row - Main Backend Languages & Frameworks
     {
@@ -314,6 +331,46 @@ const Skills = ({ language, isDarkMode }) => {
       proficiency: 85,
       description: language === "EN" ? "CMS & custom development" : "CMS & custom ontwikkeling",
       color: "from-blue-600 to-indigo-700"
+    },
+    {
+      name: "Docker",
+      category: "tools",
+      iconClass: "ri-ship-line",
+      proficiency: 82,
+      description: language === "EN" ? "Containerization & deployment" : "Containerisatie & deployment",
+      color: "from-blue-400 to-cyan-500"
+    },
+    {
+      name: "Azure",
+      category: "tools",
+      iconClass: "ri-cloud-line",
+      proficiency: 78,
+      description: language === "EN" ? "Cloud services & DevOps" : "Cloud services & DevOps",
+      color: "from-blue-500 to-blue-700"
+    },
+    {
+      name: "FastAPI",
+      category: "backend",
+      iconClass: "ri-flashlight-line",
+      proficiency: 88,
+      description: language === "EN" ? "High-performance Python APIs" : "High-performance Python APIs",
+      color: "from-teal-400 to-green-500"
+    },
+    {
+      name: "Redis",
+      category: "databases",
+      iconClass: "ri-database-line",
+      proficiency: 80,
+      description: language === "EN" ? "In-memory caching & queues" : "In-memory caching & queues",
+      color: "from-red-500 to-red-700"
+    },
+    {
+      name: "n8n",
+      category: "tools",
+      icon: n8nSvg,
+      proficiency: 92,
+      description: language === "EN" ? "Workflow automation" : "Workflow automatisering",
+      color: "from-orange-400 to-pink-500"
     }
   ];
 
