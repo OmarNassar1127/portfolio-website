@@ -9,7 +9,6 @@ const Journey = ({ language, isDarkMode }) => {
     EN: {
       badge: "Career Timeline",
       title: "Building the Future, One System at a Time",
-      subtitle: "From mastering frontend fundamentals to architecting enterprise AI solutions. My journey spans the full spectrum of modern software development, shaping my expertise in turning complex challenges into production-ready systems.",
       current: "Current",
       years: "Years in Tech",
       companies: "Companies",
@@ -23,7 +22,6 @@ const Journey = ({ language, isDarkMode }) => {
     NL: {
       badge: "Carrière Tijdlijn",
       title: "De Toekomst Bouwen, Systeem voor Systeem",
-      subtitle: "Van frontend fundamenten tot enterprise AI-oplossingen. Mijn reis omvat het volledige spectrum van moderne softwareontwikkeling en vormde mijn expertise in het omzetten van complexe uitdagingen naar productie-klare systemen.",
       current: "Huidig",
       years: "Jaar in Tech",
       companies: "Bedrijven",
@@ -104,10 +102,10 @@ const Journey = ({ language, isDarkMode }) => {
       company: "Vloto B.V.",
       icon: appsdImg,
       color: "from-teal-500 to-teal-600",
-      technologies: ["Laravel", "AI/ML", "WhatsApp API", "Email Automation", "RESTful APIs", "Process Optimization"],
+      technologies: ["Laravel", "AI/ML", "WhatsApp API", "Voice AI", "RESTful APIs", "Process Optimization"],
       description: language === "EN"
-        ? "Joined luxury car-sharing service with fleet from Audi e-tron Q8 to Polestar 2 Dual Motor. Developed intelligent automation systems including AI-powered WhatsApp assistant for customer support, automated email flows with smart auto-replies, and streamlined fine processing workflows. Enhanced internal dashboard with real-time analytics, implemented discount coupon systems, and optimized booking algorithms to improve fleet utilization by 30%."
-        : "Toegetreden tot luxe autodeel-service met vloot van Audi e-tron Q8 tot Polestar 2 Dual Motor. Intelligente automatiseringssystemen ontwikkeld waaronder AI-aangedreven WhatsApp-assistent voor klantenservice, geautomatiseerde e-mailflows met slimme auto-antwoorden, en gestroomlijnde boeteverwerkingsworkflows. Intern dashboard verbeterd met real-time analytics, kortingscouponsystemen geïmplementeerd, en boekingsalgoritmen geoptimaliseerd om vlootbenutting met 30% te verbeteren.",
+        ? "Joined luxury car-sharing service with fleet from Audi e-tron to Polestar 2 Dual Motor. Built AI-powered WhatsApp assistant and voice assistant serving 20K+ customers, reducing customer support calls by 70% in the first 3 months. Developed fraud prevention system recovering €50K+, streamlined fine processing workflows, enhanced internal dashboard with real-time analytics, and optimized booking algorithms improving fleet utilization by 30%."
+        : "Toegetreden tot luxe autodeel-service met vloot van Audi e-tron tot Polestar 2 Dual Motor. AI-aangedreven WhatsApp-assistent en voice assistant gebouwd voor 20K+ klanten, waardoor klantenservice-oproepen met 70% zijn verminderd in de eerste 3 maanden. Fraudepreventiesysteem ontwikkeld dat €50K+ recupereert, boeteverwerkingsworkflows gestroomlijnd, intern dashboard verbeterd met real-time analytics, en boekingsalgoritmen geoptimaliseerd met 30% betere vlootbenutting.",
       current: true
     },
     {
@@ -119,10 +117,10 @@ const Journey = ({ language, isDarkMode }) => {
       company: "Virelio Agency",
       icon: frontendImg,
       color: "from-purple-600 to-pink-600",
-      technologies: ["LangChain", "RAG", "Multi-Agent Systems", "CrewAI", "GPT-4", "Qdrant", "Voice AI", "Python"],
+      technologies: ["LangChain", "RAG", "Multi-Agent Systems", "CrewAI", "GPT-4", "Qdrant", "Python", "Azure"],
       description: language === "EN"
-        ? "Building production AI systems at Virelio Agency. Shipped Microsoft ecosystem integrations, multi-agent workflows, enterprise RAG platforms with 95% accuracy, and voice assistants handling live bookings. From fraud prevention systems recovering €2M+ to medical compliance platforms reducing 3-month processes to 1 week."
-        : "Productie AI-systemen bouwen bij Virelio Agency. Microsoft ecosystem integraties, multi-agent workflows, enterprise RAG-platformen met 95% accuracy, en voice assistants die live boekingen afhandelen. Van fraude preventie systemen die €2M+ recupereren tot medische compliance platformen die 3-maanden processen terugbrengen naar 1 week.",
+        ? "Co-founded AI agency delivering production-grade solutions for enterprises. Built Microsoft ecosystem integrations with Teams, SharePoint, and Outlook automation. Developed multi-agent workflows orchestrating complex business processes, enterprise RAG platforms achieving 95% accuracy on domain-specific queries, and medical compliance platforms reducing 3-month certification processes to 1 week. Shipped custom LLM integrations, intelligent document processing pipelines, and AI-powered analytics dashboards."
+        : "AI-bureau mede-opgericht dat productie-klare oplossingen levert voor enterprises. Microsoft ecosystem integraties gebouwd met Teams, SharePoint en Outlook automatisering. Multi-agent workflows ontwikkeld die complexe bedrijfsprocessen orkestreren, enterprise RAG-platformen met 95% accuracy op domein-specifieke queries, en medische compliance platformen die 3-maanden certificeringsprocessen terugbrengen naar 1 week. Custom LLM-integraties, intelligente documentverwerkingspipelines en AI-aangedreven analytics dashboards opgeleverd.",
       current: true
     }
   ];
@@ -151,11 +149,99 @@ const Journey = ({ language, isDarkMode }) => {
             {currentContent.title}
           </h2>
 
-          <p className={`text-base sm:text-lg max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-4 ${
-            isDarkMode ? 'text-gray-400' : 'text-smallTextColor'
-          }`} data-aos="fade-up" data-aos-delay="200">
-            {currentContent.subtitle}
-          </p>
+          {/* Info Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto px-4" data-aos="fade-up" data-aos-delay="200">
+            {/* Card 1 - What I Do */}
+            <div className={`relative p-6 rounded-2xl border shadow-sm ${
+              isDarkMode
+                ? 'bg-dark-card/50 border-dark-border hover:border-primaryColor/30'
+                : 'bg-white border-gray-200 hover:border-primaryColor/30 shadow-md'
+            } transition-all duration-300`}>
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-primaryColor to-purple-600 flex items-center justify-center">
+                  <i className="ri-code-s-slash-line text-xl text-white"></i>
+                </div>
+                <div className="flex-1 text-left">
+                  <h3 className={`font-bold text-lg mb-2 ${isDarkMode ? 'text-white' : 'text-headingColor'}`}>
+                    {language === "EN" ? "What I Build" : "Wat Ik Bouw"}
+                  </h3>
+                  <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-gray-400' : 'text-smallTextColor'}`}>
+                    {language === "EN" ? (
+                      <>
+                        <span className={`font-semibold ${isDarkMode ? 'text-white' : 'text-headingColor'}`}>Senior AI Specialist</span> & <span className={`font-semibold ${isDarkMode ? 'text-white' : 'text-headingColor'}`}>Full Stack Developer</span> building enterprise-ready AI solutions and custom software systems that scale. Currently powering customer support for <span className="text-primaryColor font-semibold">30,000+ daily users</span>.
+                      </>
+                    ) : (
+                      <>
+                        <span className={`font-semibold ${isDarkMode ? 'text-white' : 'text-headingColor'}`}>Senior AI Specialist</span> & <span className={`font-semibold ${isDarkMode ? 'text-white' : 'text-headingColor'}`}>Full Stack Developer</span> die enterprise-ready AI-oplossingen en schaalbare custom software systemen bouwt. Momenteel de klantenservice aandrijvend voor <span className="text-primaryColor font-semibold">30.000+ dagelijkse gebruikers</span>.
+                      </>
+                    )}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2 - My Edge */}
+            <div className={`relative p-6 rounded-2xl border shadow-sm ${
+              isDarkMode
+                ? 'bg-dark-card/50 border-dark-border hover:border-primaryColor/30'
+                : 'bg-white border-gray-200 hover:border-primaryColor/30 shadow-md'
+            } transition-all duration-300`}>
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-accent-cyan to-blue-600 flex items-center justify-center">
+                  <i className="ri-lightbulb-flash-line text-xl text-white"></i>
+                </div>
+                <div className="flex-1 text-left">
+                  <h3 className={`font-bold text-lg mb-2 ${isDarkMode ? 'text-white' : 'text-headingColor'}`}>
+                    {language === "EN" ? "My Edge" : "Mijn Voorsprong"}
+                  </h3>
+                  <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-gray-400' : 'text-smallTextColor'}`}>
+                    {language === "EN" ? (
+                      <>
+                        With my background as an <span className={`font-semibold ${isDarkMode ? 'text-white' : 'text-headingColor'}`}>entrepreneur</span> and <span className={`font-semibold ${isDarkMode ? 'text-white' : 'text-headingColor'}`}>technical builder</span>, I understand both the tech and business side, giving me an edge when solving complex problems.
+                      </>
+                    ) : (
+                      <>
+                        Met mijn achtergrond als <span className={`font-semibold ${isDarkMode ? 'text-white' : 'text-headingColor'}`}>ondernemer</span> en <span className={`font-semibold ${isDarkMode ? 'text-white' : 'text-headingColor'}`}>technische bouwer</span>, begrijp ik zowel de tech- als de businesskant, wat me een voorsprong geeft bij het oplossen van complexe problemen.
+                      </>
+                    )}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3 - Specialization - Full Width */}
+            <div className={`md:col-span-2 relative p-6 rounded-2xl border ${
+              isDarkMode
+                ? 'bg-gradient-to-r from-primaryColor/10 to-accent-cyan/10 border-primaryColor/20'
+                : 'bg-gradient-to-r from-primaryColor/5 to-blue-50 border-primaryColor/20'
+            }`}>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
+                <div className="flex items-center gap-3">
+                  <i className={`ri-robot-2-line text-2xl ${isDarkMode ? 'text-primaryColor' : 'text-primaryColor'}`}></i>
+                  <span className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-smallTextColor'}`}>
+                    {language === "EN" ? "Bread & butter:" : "Specialisatie:"}
+                  </span>
+                </div>
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  <span className={`px-4 py-2 rounded-full text-sm font-bold ${
+                    isDarkMode ? 'bg-primaryColor/20 text-white border border-primaryColor/30' : 'bg-primaryColor/10 text-primaryColor'
+                  }`}>
+                    {language === "EN" ? "Multi-Agent Systems" : "Multi-Agent Systemen"}
+                  </span>
+                  <span className={`px-4 py-2 rounded-full text-sm font-bold ${
+                    isDarkMode ? 'bg-accent-cyan/20 text-white border border-accent-cyan/30' : 'bg-blue-100 text-blue-700'
+                  }`}>
+                    {language === "EN" ? "RAG Architectures" : "RAG-Architecturen"}
+                  </span>
+                  <span className={`px-4 py-2 rounded-full text-sm font-bold ${
+                    isDarkMode ? 'bg-green-500/20 text-white border border-green-500/30' : 'bg-green-100 text-green-700'
+                  }`}>
+                    LLM Integration
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Mobile-First Timeline */}

@@ -34,9 +34,9 @@ const Hero = ({ language, isDarkMode }) => {
   }, []);
 
   const stats = [
-    { value: "€2M+", label: language === "EN" ? "Business Impact" : "Bedrijfsimpact" },
-    { value: "30+", label: language === "EN" ? "AI Systems Built" : "AI Systemen Gebouwd" },
-    { value: "95%", label: language === "EN" ? "RAG Accuracy" : "RAG Nauwkeurigheid" },
+    { value: "€50K", label: language === "EN" ? "Monthly Impact" : "Maandelijkse Impact" },
+    { value: "30+", label: language === "EN" ? "Systems Built" : "Systemen Gebouwd" },
+    { value: "200+", label: language === "EN" ? "Automations Built" : "Automatiseringen Gebouwd" },
     { value: "7+", label: language === "EN" ? "Years in Tech" : "Jaar in Tech" },
   ];
 
@@ -163,7 +163,7 @@ const Hero = ({ language, isDarkMode }) => {
             className={`rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 ${
               isDarkMode
                 ? 'bg-dark-card border border-dark-border'
-                : 'bg-gray-50 border border-gray-100'
+                : 'bg-white border border-gray-200 shadow-md'
             }`}
           >
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-4">
