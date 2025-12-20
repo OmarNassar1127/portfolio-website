@@ -298,7 +298,7 @@ const Hero = ({ language }) => {
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                 style={{ transform: "translateZ(50px)" }}
               >
-                🤖 AI Enthusiast
+                🤖 AI Specialist
               </motion.div>
             </motion.div>
           </motion.div>
@@ -429,7 +429,7 @@ const Hero = ({ language }) => {
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 2, repeat: Infinity, delay: 1 }}
               >
-                🤖 AI Enthusiast
+                🤖 AI Specialist
               </motion.div>
             </div>
           </motion.div>
