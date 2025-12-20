@@ -19,6 +19,7 @@ function App() {
 
   const [language, setLanguage] = useState("EN");
   const [isLoading, setIsLoading] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(true); // Default to dark mode for tech aesthetic
 
   const toggleLanguage = () => {
     if (language === "EN") {
@@ -28,11 +29,24 @@ function App() {
     }
   };
 
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
+  // Apply dark mode class to document
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
   useEffect(() => {
     // Only init AOS after loading is done to prevent animation glitches
     if (!isLoading) {
       Aos.init();
-      
+
       // Mobile-specific fix for hero section
       if (window.innerWidth <= 768) {
         setTimeout(() => {
@@ -52,7 +66,7 @@ function App() {
 
   return (
     <>
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {isLoading ? (
           <Loader key="loader" onLoadingComplete={handleLoadingComplete} />
         ) : (
@@ -60,19 +74,28 @@ function App() {
             key="content"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
+            className={`overflow-x-hidden ${isDarkMode ? 'dark' : ''}`}
           >
-            <Header toggleLanguage={toggleLanguage} language={language} />
-            <main>
-              <Hero language={language} />
-              <Journey language={language} />
-              <Portfolio language={language} />
-              <Skills language={language} />
-              <Certifications language={language} />
-              <Contact language={language} />
+            <Header
+              toggleLanguage={toggleLanguage}
+              language={language}
+              isDarkMode={isDarkMode}
+              toggleDarkMode={toggleDarkMode}
+            />
+            <main className="bg-[var(--color-bg)] transition-colors duration-300 overflow-x-hidden">
+              <Hero language={language} isDarkMode={isDarkMode} />
+              <Journey language={language} isDarkMode={isDarkMode} />
+              <Portfolio language={language} isDarkMode={isDarkMode} />
+              <Skills language={language} isDarkMode={isDarkMode} />
+              <Certifications language={language} isDarkMode={isDarkMode} />
+              <Contact language={language} isDarkMode={isDarkMode} />
             </main>
-            <Footer language={language} />
-            <ToastContainer />
+            <Footer language={language} isDarkMode={isDarkMode} />
+            <ToastContainer
+              theme={isDarkMode ? 'dark' : 'light'}
+              position="bottom-right"
+            />
           </motion.div>
         )}
       </AnimatePresence>

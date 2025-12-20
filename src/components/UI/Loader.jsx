@@ -4,363 +4,279 @@ import { motion, AnimatePresence } from "framer-motion";
 const Loader = ({ onLoadingComplete }) => {
   const [progress, setProgress] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
-  const canvasRef = useRef(null);
+  const [showName, setShowName] = useState(false);
+  const hasCompletedRef = useRef(false);
 
-  // Configuration - Scale relative to viewport
-  const config = {
-    triggerChance: 0.15, // Chance for input nodes to fire
-    signalSpeed: 0.02,   // Even slower signals (was 0.04)
-    trailLength: 10,     // Length of signal trail
-  };
+  const firstName = "Omar";
+  const lastName = "Nassar";
 
   useEffect(() => {
-    // Non-linear progress simulation
+    // Show name after a brief delay
+    const nameTimeout = setTimeout(() => setShowName(true), 200);
+
+    // Progress simulation
     const interval = setInterval(() => {
       setProgress((prev) => {
-        // Slow down as we get closer to 100
+        if (hasCompletedRef.current) return prev;
+
         const remaining = 100 - prev;
-        // Faster loading progress (reverted/tuned up)
-        const increment = Math.random() * (remaining > 20 ? 3 : 1) + 0.5;
+        const increment = Math.random() * (remaining > 30 ? 4 : 1.5) + 0.8;
         const newProgress = Math.min(prev + increment, 100);
 
-        if (newProgress >= 100) {
+        if (newProgress >= 100 && !hasCompletedRef.current) {
+          hasCompletedRef.current = true;
           clearInterval(interval);
-          startExitSequence();
+          setTimeout(() => {
+            setIsExiting(true);
+            setTimeout(() => {
+              onLoadingComplete();
+            }, 500);
+          }, 200);
           return 100;
         }
         return newProgress;
       });
-    }, 50); // Slightly slower than 40ms, faster than 80ms
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const startExitSequence = () => {
-    setIsExiting(true);
-    setTimeout(onLoadingComplete, 500); // Reduced to 1 second per user request
-  };
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-
-    // State
-    let width = window.innerWidth;
-    let height = window.innerHeight;
-    let nodes = [];
-    let connections = [];
-    let signals = [];
-    let animationFrameId;
-    let time = 0;
-
-    // Colors
-    const colors = {
-      bg: "#050510", // Very dark blue/black
-      input: { base: "#FF8C00", glow: "#FFA500" }, // Dark Orange / Orange
-      hidden: { base: "#00CED1", glow: "#00FFFF" }, // Dark Turquoise / Cyan
-      output: { base: "#C71585", glow: "#FF1493" }, // Medium Violet Red / Deep Pink
-      connection: "rgba(100, 116, 139, 0.15)", // Slate 500 equivalent, low opacity
-      signal: "#FFFFFF"
-    };
-
-    // Initialization Function (Responsive)
-    const initModel = () => {
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = width;
-      canvas.height = height;
-
-      nodes = [];
-      connections = [];
-
-      // Calculate Responsive Dimensions
-      // We want the network to take up about 80% of width and 55% of height max (reduced height to give space for text)
-      const networkWidth = Math.min(width * 0.9, 1000);
-      const networkHeight = Math.min(height * 0.55, 500);
-
-      const layersConfig = [
-        { count: 3, type: 'input', color: colors.input },
-        { count: 5, type: 'hidden', color: colors.hidden },
-        { count: 5, type: 'hidden', color: colors.hidden },
-        { count: 2, type: 'output', color: colors.output }
-      ];
-
-      const layerSpacing = networkWidth / (layersConfig.length);
-      const startX = (width - (layersConfig.length - 1) * layerSpacing) / 2;
-
-      layersConfig.forEach((layerConf, layerIndex) => {
-        const layerX = startX + layerIndex * layerSpacing;
-        const nodeSpacing = networkHeight / (layerConf.count + 1);
-        const startY = (height - (layerConf.count - 1) * nodeSpacing) / 2;
-        // Shift nodes up slightly to make room for bottom text
-        const offsetY = -height * 0.05;
-
-        for (let i = 0; i < layerConf.count; i++) {
-          nodes.push({
-            x: layerX,
-            y: startY + i * nodeSpacing + offsetY,
-            layerIndex: layerIndex,
-            type: layerConf.type,
-            color: layerConf.color,
-            baseRadius: Math.max(4, Math.min(width, height) * 0.006), // Responsive radius
-            activation: 0,
-            pulseOffset: Math.random() * Math.PI * 2
-          });
-        }
-      });
-
-      // Connect Layers
-      nodes.forEach(node => {
-        const nextLayerNodes = nodes.filter(n => n.layerIndex === node.layerIndex + 1);
-        nextLayerNodes.forEach(target => {
-          connections.push({
-            from: node,
-            to: target,
-            active: 0 // 0 to 1, fades out
-          });
-        });
-      });
-    };
-
-    window.addEventListener("resize", initModel);
-    initModel();
-
-    // Render Loop
-    const render = () => {
-      // Clear with trail effect for "Cyberpunk" feel
-      ctx.fillStyle = isExiting ? "rgba(5, 5, 16, 0.3)" : "rgba(5, 5, 16, 1)";
-      ctx.fillRect(0, 0, width, height);
-      time += 0.05;
-
-      // 1. Logic: Spawn Signals
-      if (!isExiting && Math.random() < config.triggerChance) {
-        const inputs = nodes.filter(n => n.layerIndex === 0);
-        const source = inputs[Math.floor(Math.random() * inputs.length)];
-        source.activation = 1;
-
-        // Find connections
-        const nodeConns = connections.filter(c => c.from === source);
-        if (nodeConns.length > 0) {
-          const conn = nodeConns[Math.floor(Math.random() * nodeConns.length)];
-          conn.active = 1; // Highlight connection
-          signals.push({
-            conn: conn,
-            progress: 0,
-            speed: config.signalSpeed + Math.random() * 0.01, // Reduced variance
-            trail: []
-          });
-        }
-      }
-
-      // 2. Logic: Move Signals
-      for (let i = signals.length - 1; i >= 0; i--) {
-        const sig = signals[i];
-        sig.progress += sig.speed;
-
-        // Record trail
-        const currentPos = {
-          x: sig.conn.from.x + (sig.conn.to.x - sig.conn.from.x) * sig.progress,
-          y: sig.conn.from.y + (sig.conn.to.y - sig.conn.from.y) * sig.progress
-        };
-        sig.trail.push(currentPos);
-        if (sig.trail.length > config.trailLength) sig.trail.shift();
-
-        if (sig.progress >= 1) {
-          // Hit target
-          sig.conn.to.activation = 1;
-
-          // Should propagate?
-          if (!isExiting && sig.conn.to.layerIndex < 3) { // 3 is output layer index
-            const nextConns = connections.filter(c => c.from === sig.conn.to);
-            if (nextConns.length > 0) {
-              const nextConn = nextConns[Math.floor(Math.random() * nextConns.length)];
-              nextConn.active = 1;
-              signals.push({
-                conn: nextConn,
-                progress: 0,
-                speed: config.signalSpeed,
-                trail: []
-              });
-            }
-          }
-          signals.splice(i, 1);
-        }
-      }
-
-      // 3. Logic: Exit Animation
-      if (isExiting) {
-        nodes.forEach(node => {
-          const centerX = width / 2;
-          const centerY = height / 2;
-          node.x += (centerX - node.x) * 0.1;
-          node.y += (centerY - node.y) * 0.1;
-        });
-      }
-
-      // 4. Draw Connections
-      connections.forEach(conn => {
-        // Decay activity
-        if (conn.active > 0) conn.active -= 0.02;
-
-        ctx.beginPath();
-        ctx.moveTo(conn.from.x, conn.from.y);
-        ctx.lineTo(conn.to.x, conn.to.y);
-
-        if (conn.active > 0.1) {
-          ctx.strokeStyle = `rgba(136, 115, 239, ${conn.active * 0.5})`; // Primary highlight
-          ctx.lineWidth = 1.5;
-        } else {
-          ctx.strokeStyle = colors.connection;
-          ctx.lineWidth = 0.5;
-        }
-        ctx.stroke();
-      });
-
-      // 5. Draw Signals (Trails)
-      signals.forEach(sig => {
-        if (sig.trail.length < 2) return;
-
-        ctx.beginPath();
-        ctx.moveTo(sig.trail[0].x, sig.trail[0].y);
-        for (let j = 1; j < sig.trail.length; j++) {
-          ctx.lineTo(sig.trail[j].x, sig.trail[j].y);
-        }
-
-        // Gradient Trail
-        const grad = ctx.createLinearGradient(
-          sig.trail[0].x, sig.trail[0].y,
-          sig.trail[sig.trail.length - 1].x, sig.trail[sig.trail.length - 1].y
-        );
-        grad.addColorStop(0, "rgba(255, 255, 255, 0)");
-        grad.addColorStop(1, "rgba(255, 255, 255, 1)");
-
-        ctx.strokeStyle = grad;
-        ctx.lineWidth = 2;
-        ctx.lineCap = "round";
-        ctx.stroke();
-
-        // Head
-        const head = sig.trail[sig.trail.length - 1];
-        ctx.shadowBlur = 8;
-        ctx.shadowColor = "#fff";
-        ctx.fillStyle = "#fff";
-        ctx.beginPath();
-        ctx.arc(head.x, head.y, 2, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.shadowBlur = 0;
-      });
-
-      // 6. Draw Nodes
-      nodes.forEach(node => {
-        // Decay activation
-        if (node.activation > 0) node.activation -= 0.03;
-        if (node.activation < 0) node.activation = 0;
-
-        // Pulse calculation
-        const pulse = Math.sin(time + node.pulseOffset) * 0.1 + 1;
-        const currentRadius = node.baseRadius * pulse + (node.activation * 3);
-
-        // 1. Glow (if active)
-        if (node.activation > 0.1 || node.type === 'output') { // Output always glows a bit
-          const glowStrength = node.activation > 0.1 ? node.activation : 0.3;
-          const glowSize = currentRadius * 3;
-          const g = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, glowSize);
-          g.addColorStop(0, node.color.glow + Math.floor(glowStrength * 255).toString(16).padStart(2, '0')); // Hex opacity hack
-          g.addColorStop(1, "rgba(0,0,0,0)");
-
-          ctx.fillStyle = g;
-          ctx.beginPath();
-          ctx.arc(node.x, node.y, glowSize, 0, Math.PI * 2);
-          ctx.fill();
-        }
-
-        // 2. Core (Glassy look)
-        ctx.fillStyle = "#000"; // Black core to cover lines
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, currentRadius, 0, Math.PI * 2);
-        ctx.fill();
-
-        // 3. Colored Rim/Surface
-        ctx.strokeStyle = node.activation > 0.5 ? "#fff" : node.color.base;
-        ctx.lineWidth = 2;
-        ctx.stroke();
-
-        // 4. Inner "Gloss"
-        ctx.fillStyle = node.color.base;
-        ctx.globalAlpha = 0.3 + node.activation * 0.7; // Brighten on hit
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, currentRadius - 1, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.globalAlpha = 1;
-      });
-
-      animationFrameId = requestAnimationFrame(render);
-    };
-
-    render();
+    }, 50);
 
     return () => {
-      window.removeEventListener("resize", initModel);
-      cancelAnimationFrame(animationFrameId);
+      clearInterval(interval);
+      clearTimeout(nameTimeout);
     };
-  }, [isExiting, config.signalSpeed, config.triggerChance, config.trailLength]);
+  }, []);
+
+  // Letter animation variants
+  const letterVariants = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+      rotateX: -90,
+    },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      rotateX: 0,
+      transition: {
+        duration: 0.6,
+        delay: i * 0.08,
+        ease: [0.215, 0.61, 0.355, 1],
+      },
+    }),
+    exit: (i) => ({
+      opacity: 0,
+      y: -30,
+      filter: "blur(10px)",
+      transition: {
+        duration: 0.3,
+        delay: i * 0.02,
+      },
+    }),
+  };
+
+  // Floating particles - fewer on mobile for performance
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const particleCount = isMobile ? 12 : 30;
+
+  const particles = Array.from({ length: particleCount }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: Math.random() * 3 + 1,
+    duration: Math.random() * 3 + 2,
+    delay: Math.random() * 2,
+  }));
+
+  // Don't render anything if we've completed
+  if (hasCompletedRef.current && isExiting) {
+    return (
+      <motion.div
+        className="fixed inset-0 z-50 bg-[#0a0a0f]"
+        initial={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+      />
+    );
+  }
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#050510] overflow-hidden"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden"
+      style={{ background: "linear-gradient(135deg, #0a0a0f 0%, #12121a 50%, #0a0a0f 100%)" }}
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.3 }}
     >
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 block z-0"
-      />
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 opacity-30">
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `
+              radial-gradient(circle at 20% 50%, rgba(136, 115, 239, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 50% 80%, rgba(255, 0, 110, 0.08) 0%, transparent 40%)
+            `,
+          }}
+        />
+      </div>
 
-      <AnimatePresence>
-        {!isExiting && (
+      {/* Floating particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {particles.map((particle) => (
           <motion.div
-            className="absolute bottom-12 md:bottom-20 z-10 text-center pointer-events-none w-full px-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-            transition={{ duration: 0.5 }}
-          >
-            {/* HUD Elements */}
-            <div className="flex items-center justify-center gap-6 mb-4 text-[10px] md:text-xs font-mono text-cyan-500/60 tracking-[0.2em] uppercase">
-              <span>Input: Active</span>
-              <span>Hidden: Processing</span>
-              <span>Output: Pending</span>
-            </div>
+            key={particle.id}
+            className="absolute rounded-full bg-white/20"
+            style={{
+              width: particle.size,
+              height: particle.size,
+              left: `${particle.x}%`,
+              top: `${particle.y}%`,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              opacity: [0.2, 0.5, 0.2],
+            }}
+            transition={{
+              duration: particle.duration,
+              delay: particle.delay,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
 
-            <h2 className="text-4xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 tracking-tighter mb-4"
-              style={{ textShadow: "0 0 30px rgba(255,255,255,0.3)" }}>
-              {Math.floor(progress)}%
-            </h2>
+      {/* Grid lines */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px',
+          }}
+        />
+      </div>
 
-            <div className="flex flex-col items-center gap-2">
-              <div className="w-64 h-[2px] bg-gray-800 rounded-full overflow-hidden relative">
+      {/* Main content */}
+      <div className="relative z-10 flex flex-col items-center">
+        {/* Name reveal */}
+        <AnimatePresence mode="wait">
+          {showName && !isExiting && (
+            <motion.div
+              className="mb-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              {/* First name */}
+              <div className="flex justify-center overflow-hidden mb-2">
+                {firstName.split("").map((letter, i) => (
+                  <motion.span
+                    key={`first-${i}`}
+                    custom={i}
+                    variants={letterVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    className="text-5xl sm:text-7xl md:text-8xl font-bold text-white inline-block"
+                    style={{
+                      textShadow: "0 0 40px rgba(136, 115, 239, 0.5)",
+                      transformStyle: "preserve-3d",
+                    }}
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
+              </div>
+
+              {/* Last name */}
+              <div className="flex justify-center overflow-hidden">
+                {lastName.split("").map((letter, i) => (
+                  <motion.span
+                    key={`last-${i}`}
+                    custom={i + firstName.length}
+                    variants={letterVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    className="text-5xl sm:text-7xl md:text-8xl font-bold inline-block"
+                    style={{
+                      background: "linear-gradient(135deg, #8873ef 0%, #00d4ff 50%, #ff006e 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                      transformStyle: "preserve-3d",
+                    }}
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Role text */}
+        <AnimatePresence>
+          {showName && !isExiting && (
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ delay: 0.8, duration: 0.5 }}
+              className="text-gray-400 text-sm sm:text-base tracking-[0.3em] uppercase mb-12"
+            >
+              Full Stack Developer & AI Engineer
+            </motion.p>
+          )}
+        </AnimatePresence>
+
+        {/* Progress section */}
+        <AnimatePresence>
+          {!isExiting && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="flex flex-col items-center"
+            >
+              {/* Progress bar */}
+              <div className="relative w-48 sm:w-64 h-[2px] bg-white/10 rounded-full overflow-hidden mb-4">
                 <motion.div
-                  className="absolute top-0 left-0 h-full bg-cyan-400 shadow-[0_0_10px_#22d3ee]"
-                  style={{ width: `${progress}%` }}
+                  className="absolute top-0 left-0 h-full rounded-full"
+                  style={{
+                    width: `${progress}%`,
+                    background: "linear-gradient(90deg, #8873ef, #00d4ff, #ff006e)",
+                    boxShadow: "0 0 20px rgba(136, 115, 239, 0.5), 0 0 40px rgba(0, 212, 255, 0.3)",
+                  }}
+                  transition={{ duration: 0.1 }}
+                />
+
+                {/* Glow effect at the end */}
+                <motion.div
+                  className="absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full"
+                  style={{
+                    left: `calc(${progress}% - 8px)`,
+                    background: "radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%)",
+                    filter: "blur(2px)",
+                  }}
                 />
               </div>
-              <p className="text-xs font-mono text-gray-500 animate-pulse">
-                TRAINING NEURAL MODEL
-              </p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
-      {/* Cinematic Flash Overlay */}
-      <motion.div
-        className="absolute inset-0 bg-white pointer-events-none z-50"
-        initial={{ opacity: 0 }}
-        animate={isExiting ? { opacity: [0, 1, 1] } : { opacity: 0 }}
-        transition={{ duration: 0.5, times: [0, 0.1, 1], ease: "circOut" }}
-      />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+
+      {/* Corner accents */}
+      <div className="absolute top-8 left-8 w-12 h-12 border-l-2 border-t-2 border-white/10" />
+      <div className="absolute top-8 right-8 w-12 h-12 border-r-2 border-t-2 border-white/10" />
+      <div className="absolute bottom-8 left-8 w-12 h-12 border-l-2 border-b-2 border-white/10" />
+      <div className="absolute bottom-8 right-8 w-12 h-12 border-r-2 border-b-2 border-white/10" />
     </motion.div>
   );
 };

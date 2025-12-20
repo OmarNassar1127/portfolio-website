@@ -199,8 +199,8 @@ const Portfolio = ({ language }) => {
           }`}
           style={selectTab === 'ai' ? { textShadow: '0 1px 4px rgba(255,255,255,0.3)' } : {}}>
             {language === "EN"
-              ? "A chronological journey through my development career, from first steps to AI innovations"
-              : "Een chronologische reis door mijn ontwikkelingscarrière, van eerste stappen tot AI-innovaties"}
+              ? "A curated selection of projects showcasing full stack development, AI integration, and end-to-end system design."
+              : "Een selectie van projecten die full stack development, AI-integratie en end-to-end systeemontwerp tonen."}
           </p>
         </div>
 
