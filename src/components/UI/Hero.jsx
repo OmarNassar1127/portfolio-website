@@ -118,17 +118,39 @@ const Hero = ({ language, isDarkMode }) => {
                 </button>
               </a>
 
-              <a href={cvLink} target="_blank" rel="noopener noreferrer">
-                <button
-                  className={`px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base transition-all duration-300 flex items-center gap-2 active:scale-[0.98] ${
-                    isDarkMode
-                      ? 'text-gray-400 hover:text-primaryColor'
-                      : 'text-gray-500 hover:text-primaryColor'
+              <a
+                href={cvLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center gap-2 px-4 py-2 overflow-hidden"
+              >
+                {/* Animated underline */}
+                <span
+                  className={`absolute bottom-1 left-4 right-4 h-[1px] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ${
+                    isDarkMode ? 'bg-primaryColor' : 'bg-primaryColor'
                   }`}
-                >
-                  <i className="ri-download-2-line"></i>
-                  CV
-                </button>
+                />
+
+                {/* Icon with bounce animation */}
+                <span className={`relative transition-all duration-300 group-hover:-translate-y-0.5 ${
+                  isDarkMode ? 'text-gray-400 group-hover:text-primaryColor' : 'text-gray-500 group-hover:text-primaryColor'
+                }`}>
+                  <i className="ri-download-2-line text-lg"></i>
+                </span>
+
+                {/* Text */}
+                <span className={`relative font-medium text-sm sm:text-base transition-colors duration-300 ${
+                  isDarkMode ? 'text-gray-400 group-hover:text-white' : 'text-gray-500 group-hover:text-gray-900'
+                }`}>
+                  Download CV
+                </span>
+
+                {/* Arrow that appears on hover */}
+                <span className={`relative opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ${
+                  isDarkMode ? 'text-primaryColor' : 'text-primaryColor'
+                }`}>
+                  <i className="ri-arrow-right-up-line text-sm"></i>
+                </span>
               </a>
             </div>
           </motion.div>
