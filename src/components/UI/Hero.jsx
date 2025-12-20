@@ -47,15 +47,30 @@ const Hero = ({ language, isDarkMode }) => {
       }`}
       id="about"
     >
-      {/* Subtle gradient orb - smaller on mobile for performance */}
-      {isDarkMode && !isMobile && (
+      {/* Subtle glassy background bubbles - contained within section */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
+        {/* Purple/violet bubble - top right */}
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primaryColor/5 via-transparent to-transparent rounded-full blur-3xl pointer-events-none"
-          style={{ willChange: 'transform' }}
+          className={`absolute -top-20 -right-20 w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full blur-[100px] animate-float-slow ${
+            isDarkMode ? 'bg-violet-500/15' : 'bg-violet-400/20'
+          }`}
         />
-      )}
+        {/* Blue bubble - left */}
+        <div
+          className={`absolute top-1/3 -left-20 w-[250px] h-[250px] md:w-[350px] md:h-[350px] rounded-full blur-[100px] animate-float-slow-reverse ${
+            isDarkMode ? 'bg-blue-500/10' : 'bg-blue-400/15'
+          }`}
+        />
+        {/* Pink/rose bubble - bottom right */}
+        <div
+          className={`absolute bottom-20 right-10 w-[200px] h-[200px] md:w-[300px] md:h-[300px] rounded-full blur-[100px] animate-float-slow ${
+            isDarkMode ? 'bg-rose-500/10' : 'bg-rose-400/15'
+          }`}
+          style={{ animationDelay: '2s' }}
+        />
+      </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 relative" style={{ zIndex: 1 }}>
         <div className="max-w-6xl mx-auto">
 
           {/* Main Content - Centered */}
