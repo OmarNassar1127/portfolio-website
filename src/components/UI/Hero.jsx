@@ -36,8 +36,8 @@ const Hero = ({ language }) => {
 
   const text =
     language === "EN"
-      ? "Building the future of AI at Virelio Agency | Backend Developer crafting scalable systems at Vloto B.V. | From medical technical files to vector-powered document intelligence, I turn ambitious ideas into working technology that matters."
-      : "De toekomst van AI bouwen bij Virelio Agency | Backend Developer die schaalbare systemen creëert bij Vloto B.V. | Van medische technische dossiers tot vector-aangedreven document intelligentie, ik zet ambitieuze ideeën om in werkende technologie die ertoe doet.";
+      ? "Omar is a Full-Stack AI Engineer who ships AI from concept to production. From Microsoft ecosystem integrations to multi-agent systems, from enterprise RAG platforms with 95% accuracy to voice and chat assistants serving 30K+ daily users — I build AI that delivers measurable impact."
+      : "Omar is een Full-Stack AI Engineer die AI van concept naar productie brengt. Van Microsoft ecosystem integraties tot multi-agent systemen, van enterprise RAG-platformen met 95% accuracy tot voice- en chatassistants die 30K+ dagelijkse gebruikers bedienen — ik bouw AI die meetbare impact levert.";
 
   useEffect(() => {
     const options = {
@@ -290,7 +290,7 @@ const Hero = ({ language }) => {
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 style={{ transform: "translateZ(50px)" }}
               >
-                💻 Developer
+                🤖 AI Specialist
               </motion.div>
               <motion.div
                 className="absolute -bottom-4 -left-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg"
@@ -298,7 +298,7 @@ const Hero = ({ language }) => {
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                 style={{ transform: "translateZ(50px)" }}
               >
-                🤖 AI Specialist
+                💻 Developer
               </motion.div>
             </motion.div>
           </motion.div>
@@ -422,14 +422,14 @@ const Hero = ({ language }) => {
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                💻 Developer
+                🤖 AI Specialist
               </motion.div>
               <motion.div
                 className="absolute -bottom-2 -left-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg"
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 2, repeat: Infinity, delay: 1 }}
               >
-                🤖 AI Specialist
+                💻 Developer
               </motion.div>
             </div>
           </motion.div>
