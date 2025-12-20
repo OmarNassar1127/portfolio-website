@@ -66,7 +66,7 @@ function App() {
 
   return (
     <>
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {isLoading ? (
           <Loader key="loader" onLoadingComplete={handleLoadingComplete} />
         ) : (
@@ -74,7 +74,7 @@ function App() {
             key="content"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
             className={`overflow-x-hidden ${isDarkMode ? 'dark' : ''}`}
           >
             <Header

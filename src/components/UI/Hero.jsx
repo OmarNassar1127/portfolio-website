@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
 import OmarCV from "../../assets/cv/Omar-cv.pdf";
 import { motion } from "framer-motion";
@@ -6,6 +6,12 @@ import { motion } from "framer-motion";
 const Hero = ({ language, isDarkMode }) => {
   const typedRef = useRef(null);
   const cvLink = OmarCV;
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check for mobile on mount
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
 
   const text =
     language === "EN"
@@ -41,9 +47,12 @@ const Hero = ({ language, isDarkMode }) => {
       }`}
       id="about"
     >
-      {/* Subtle gradient orb */}
-      {isDarkMode && (
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-primaryColor/5 via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
+      {/* Subtle gradient orb - smaller on mobile for performance */}
+      {isDarkMode && !isMobile && (
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primaryColor/5 via-transparent to-transparent rounded-full blur-3xl pointer-events-none"
+          style={{ willChange: 'transform' }}
+        />
       )}
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
@@ -51,10 +60,11 @@ const Hero = ({ language, isDarkMode }) => {
 
           {/* Main Content - Centered */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: isMobile ? 15 : 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: isMobile ? 0.4 : 0.8, ease: "easeOut" }}
             className="text-center mb-8 sm:mb-12"
+            style={{ willChange: 'opacity, transform' }}
           >
             {/* Small greeting */}
             <p className={`text-xs sm:text-sm font-medium tracking-wide uppercase mb-4 sm:mb-6 ${
@@ -89,34 +99,28 @@ const Hero = ({ language, isDarkMode }) => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
               <a href="#contact" className="w-full sm:w-auto">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base transition-all duration-300 bg-primaryColor text-white hover:bg-primaryColor/90 hover:shadow-glow-purple"
+                <button
+                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base transition-all duration-300 bg-primaryColor text-white hover:bg-primaryColor/90 hover:shadow-glow-purple active:scale-[0.98]"
                 >
                   {language === "EN" ? "Get in touch" : "Neem contact op"}
-                </motion.button>
+                </button>
               </a>
 
               <a href="#portfolio" className="w-full sm:w-auto">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className={`w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base transition-all duration-300 border ${
+                <button
+                  className={`w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base transition-all duration-300 border active:scale-[0.98] ${
                     isDarkMode
                       ? 'text-white border-primaryColor/50 hover:border-primaryColor hover:bg-primaryColor/10'
                       : 'text-primaryColor border-primaryColor/30 hover:border-primaryColor hover:bg-primaryColor/5'
                   }`}
                 >
                   {language === "EN" ? "View work" : "Bekijk werk"}
-                </motion.button>
+                </button>
               </a>
 
               <a href={cvLink} target="_blank" rel="noopener noreferrer">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className={`px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base transition-all duration-300 flex items-center gap-2 ${
+                <button
+                  className={`px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base transition-all duration-300 flex items-center gap-2 active:scale-[0.98] ${
                     isDarkMode
                       ? 'text-gray-400 hover:text-primaryColor'
                       : 'text-gray-500 hover:text-primaryColor'
@@ -124,16 +128,16 @@ const Hero = ({ language, isDarkMode }) => {
                 >
                   <i className="ri-download-2-line"></i>
                   CV
-                </motion.button>
+                </button>
               </a>
             </div>
           </motion.div>
 
           {/* Stats Row - Clean and minimal */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            transition={{ duration: isMobile ? 0.3 : 0.8, delay: isMobile ? 0.1 : 0.3, ease: "easeOut" }}
             className={`rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 ${
               isDarkMode
                 ? 'bg-dark-card border border-dark-border'
@@ -162,7 +166,7 @@ const Hero = ({ language, isDarkMode }) => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: isMobile ? 0.3 : 0.8, delay: isMobile ? 0.15 : 0.5 }}
             className="flex items-center justify-center gap-4 sm:gap-6 mt-8 sm:mt-12"
           >
             {[
