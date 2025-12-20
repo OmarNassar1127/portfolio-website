@@ -16,10 +16,10 @@ const Header = ({ toggleLanguage, language }) => {
         certifications: "Certifications",
         contact: "Contact"
       },
-      logoText: "Personal",
+      logoText: "AI Engineer",
       menuClose: "Close menu",
       emailLabel: "Get in touch",
-      availableText: "Available for projects"
+      availableText: "Available for AI projects"
     },
     NL: {
       navigation: {
@@ -30,10 +30,10 @@ const Header = ({ toggleLanguage, language }) => {
         certifications: "Certificeringen",
         contact: "Contact"
       },
-      logoText: "Persoonlijk",
+      logoText: "AI Engineer",
       menuClose: "Menu sluiten",
       emailLabel: "Neem contact op",
-      availableText: "Beschikbaar voor projecten"
+      availableText: "Beschikbaar voor AI projecten"
     }
   };
 

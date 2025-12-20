@@ -41,7 +41,7 @@ const Hero = ({ language }) => {
 
   useEffect(() => {
     const options = {
-      strings: ["Full-stack Development", "AI  .", "Machine Learning"],
+      strings: ["Multi-Agent Systems", "RAG Architecture", "AI Engineering", "Production AI"],
       typeSpeed: 40,
       backSpeed: 20,
       loop: true,
@@ -88,10 +88,10 @@ const Hero = ({ language }) => {
   ];
 
   const stats = [
-    { end: 50, labelEN: "€50K+ Annual Savings Delivered", labelNL: "€50K+ Jaarlijkse Besparingen Geleverd", icon: "ri-money-euro-circle-line", color: "text-green-600", suffix: "K€" },
-    { end: 30, labelEN: "Production Systems", labelNL: "Productiesystemen", icon: "ri-server-line", color: "text-blue-600" },
-    { end: 30, labelEN: "30K+ Daily Active Users", labelNL: "30K+ Dagelijkse Actieve Gebruikers", icon: "ri-user-line", color: "text-purple-600", suffix: "K" },
-    { end: 98.9, labelEN: "System Uptime", labelNL: "Systeembeschikbaarheid", icon: "ri-check-line", color: "text-pink-600", suffix: "%" },
+    { end: 2, labelEN: "€2M+ Business Impact", labelNL: "€2M+ Bedrijfsimpact", icon: "ri-money-euro-circle-line", color: "text-green-600", suffix: "M€+" },
+    { end: 30, labelEN: "AI Systems in Production", labelNL: "AI Systemen in Productie", icon: "ri-robot-line", color: "text-blue-600", suffix: "+" },
+    { end: 95, labelEN: "RAG Accuracy Rate", labelNL: "RAG Nauwkeurigheid", icon: "ri-brain-line", color: "text-purple-600", suffix: "%" },
+    { end: 30, labelEN: "30K+ Daily Users Served", labelNL: "30K+ Dagelijkse Gebruikers", icon: "ri-user-line", color: "text-pink-600", suffix: "K" },
   ];
 
   // Animation Variants

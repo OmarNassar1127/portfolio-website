@@ -36,6 +36,13 @@ const Skills = ({ language }) => {
       color: "from-gray-500 to-gray-700"
     },
     {
+      id: "ai",
+      labelEN: "AI & ML",
+      labelNL: "AI & ML",
+      icon: "ri-robot-line",
+      color: "from-purple-600 to-pink-600"
+    },
+    {
       id: "frontend",
       labelEN: "Frontend",
       labelNL: "Frontend",
@@ -66,13 +73,78 @@ const Skills = ({ language }) => {
   ];
 
   const skillsData = [
+    // AI & ML Skills - Primary Focus
+    {
+      name: "LangChain",
+      category: "ai",
+      iconClass: "ri-link-m",
+      proficiency: 92,
+      description: language === "EN" ? "RAG & agent orchestration" : "RAG & agent orchestratie",
+      color: "from-green-400 to-emerald-600"
+    },
+    {
+      name: "OpenAI/GPT",
+      category: "ai",
+      iconClass: "ri-openai-fill",
+      proficiency: 95,
+      description: language === "EN" ? "GPT-4, embeddings & fine-tuning" : "GPT-4, embeddings & fine-tuning",
+      color: "from-gray-700 to-gray-900"
+    },
+    {
+      name: "CrewAI",
+      category: "ai",
+      iconClass: "ri-team-line",
+      proficiency: 90,
+      description: language === "EN" ? "Multi-agent systems" : "Multi-agent systemen",
+      color: "from-blue-500 to-indigo-600"
+    },
+    {
+      name: "LangGraph",
+      category: "ai",
+      iconClass: "ri-flow-chart",
+      proficiency: 88,
+      description: language === "EN" ? "Agent workflows & state" : "Agent workflows & state",
+      color: "from-purple-500 to-violet-600"
+    },
+    {
+      name: "RAG Systems",
+      category: "ai",
+      iconClass: "ri-database-2-line",
+      proficiency: 95,
+      description: language === "EN" ? "Vector search & retrieval" : "Vector search & retrieval",
+      color: "from-cyan-500 to-blue-600"
+    },
+    {
+      name: "Qdrant",
+      category: "ai",
+      iconClass: "ri-shape-line",
+      proficiency: 88,
+      description: language === "EN" ? "Vector database" : "Vector database",
+      color: "from-red-400 to-pink-500"
+    },
+    {
+      name: "Claude/Anthropic",
+      category: "ai",
+      iconClass: "ri-brain-line",
+      proficiency: 90,
+      description: language === "EN" ? "Claude API & agents" : "Claude API & agents",
+      color: "from-orange-400 to-amber-500"
+    },
+    {
+      name: "Llama/Ollama",
+      category: "ai",
+      iconClass: "ri-server-line",
+      proficiency: 85,
+      description: language === "EN" ? "Local LLM deployment" : "Lokale LLM deployment",
+      color: "from-blue-400 to-purple-500"
+    },
     // First Row - Main Backend Languages & Frameworks
     {
       name: "Python",
       category: "backend",
       icon: pythonSvg,
-      proficiency: 85,
-      description: language === "EN" ? "Data science & automation" : "Data science & automatisering",
+      proficiency: 90,
+      description: language === "EN" ? "AI/ML & backend development" : "AI/ML & backend ontwikkeling",
       color: "from-blue-400 to-yellow-500"
     },
     {
@@ -354,15 +426,19 @@ const Skills = ({ language }) => {
               {/* Skill Icon */}
               <div className="flex items-center justify-center mb-3">
                 <div className={`
-                  w-12 h-12 bg-gradient-to-r ${skill.color} rounded-xl 
+                  w-12 h-12 bg-gradient-to-r ${skill.color} rounded-xl
                   flex items-center justify-center shadow-md group-hover:shadow-lg
                   transform group-hover:scale-110 transition-all duration-300
                 `}>
-                  <img
-                    src={skill.icon}
-                    alt={skill.name}
-                    className="w-6 h-6 filter brightness-0 invert"
-                  />
+                  {skill.icon ? (
+                    <img
+                      src={skill.icon}
+                      alt={skill.name}
+                      className="w-6 h-6 filter brightness-0 invert"
+                    />
+                  ) : (
+                    <i className={`${skill.iconClass} text-xl text-white`}></i>
+                  )}
                 </div>
               </div>
 

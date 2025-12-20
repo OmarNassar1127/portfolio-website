@@ -5,13 +5,13 @@ const Footer = ({ language }) => {
 
   const content = {
     EN: {
-      ctaTitle: "Ready to work together?",
-      ctaSubtitle: "Let's create something amazing",
+      ctaTitle: "Let's build AI that works",
+      ctaSubtitle: "From concept to production — multi-agent systems, RAG platforms, or custom AI solutions",
       ctaButton: "Start a conversation",
       quickLinks: "Quick Links",
       connect: "Connect",
       location: "Based in Amsterdam",
-      availability: "Available for brainstorming",
+      availability: "Available for AI projects",
       navigation: {
         about: "About",
         journey: "Journey",
@@ -23,13 +23,13 @@ const Footer = ({ language }) => {
       madeWith: "Made with ❤️ in Amsterdam"
     },
     NL: {
-      ctaTitle: "Klaar om samen te werken?",
-      ctaSubtitle: "Laten we iets geweldigs creëren",
+      ctaTitle: "Laten we AI bouwen die werkt",
+      ctaSubtitle: "Van concept tot productie — multi-agent systemen, RAG-platformen, of custom AI-oplossingen",
       ctaButton: "Start een gesprek",
       quickLinks: "Snelle Links",
       connect: "Verbinden",
       location: "Gevestigd in Amsterdam",
-      availability: "Beschikbaar voor brainstorming",
+      availability: "Beschikbaar voor AI projecten",
       navigation: {
         about: "Over mij",
         journey: "Journey",

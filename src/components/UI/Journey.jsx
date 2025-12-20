@@ -8,30 +8,30 @@ const Journey = ({ language }) => {
   const content = {
     EN: {
       badge: "Career Timeline",
-      title: "Development Journey",
-      subtitle: "What started as curiosity about HTML in 2017 has evolved into architecting AI-powered solutions that transform businesses. From building NFT marketplaces to developing intelligent WhatsApp assistants and automating complex financial processes, my journey bridges the gap between cutting-edge technology and real-world impact.",
+      title: "From Developer to AI Engineer",
+      subtitle: "What started as curiosity about code in 2017 has evolved into architecting production AI systems that transform businesses. From multi-agent workflows to enterprise RAG platforms, I've shipped 30+ AI systems serving 30K+ daily users with €2M+ measurable business impact.",
       current: "Current",
-      years: "Years Experience",
-      companies: "Companies",
-      projects: "Projects",
+      years: "Years in Tech",
+      companies: "AI Systems Live",
+      projects: "Business Impact",
       milestones: {
-        experience: "5+",
-        companies: "4+", 
-        projects: "26+"
+        experience: "7+",
+        companies: "30+",
+        projects: "€2M+"
       }
     },
     NL: {
       badge: "Carrière Tijdlijn",
-      title: "Ontwikkelingsreis", 
-      subtitle: "Wat begon als nieuwsgierigheid naar HTML in 2017 is geëvolueerd tot het architecteren van AI-aangedreven oplossingen die bedrijven transformeren. Van het bouwen van NFT-marktplaatsen tot het ontwikkelen van intelligente WhatsApp-assistenten en het automatiseren van complexe financiële processen, mijn reis overbrugt de kloof tussen geavanceerde technologie en echte impact.",
+      title: "Van Developer naar AI Engineer",
+      subtitle: "Wat begon als nieuwsgierigheid naar code in 2017 is geëvolueerd tot het architecteren van productie AI-systemen die bedrijven transformeren. Van multi-agent workflows tot enterprise RAG-platformen, ik heb 30+ AI-systemen opgeleverd die 30K+ dagelijkse gebruikers bedienen met €2M+ meetbare bedrijfsimpact.",
       current: "Huidig",
-      years: "Jaar Ervaring",
-      companies: "Bedrijven",
-      projects: "Projecten",
+      years: "Jaar in Tech",
+      companies: "AI Systemen Live",
+      projects: "Bedrijfsimpact",
       milestones: {
-        experience: "5+",
-        companies: "4+",
-        projects: "26+"
+        experience: "7+",
+        companies: "30+",
+        projects: "€2M+"
       }
     }
   };
@@ -114,15 +114,15 @@ const Journey = ({ language }) => {
       id: 6,
       year: "2023-Present",
       period: "2023-Nu",
-      title: language === "EN" ? "Personal Development" : "Persoonlijke Ontwikkeling",
-      subtitle: "Continuous Learning & Experimentation",
-      company: language === "EN" ? "Self-Directed Projects" : "Zelfstandige Projecten",
+      title: language === "EN" ? "AI Engineer & Co-Founder" : "AI Engineer & Co-Founder",
+      subtitle: "Production AI Systems",
+      company: "Virelio Agency",
       icon: frontendImg,
-      color: "from-indigo-500 to-indigo-600",
-      technologies: ["Python", "NodeJS", "C#", "C++", "AI / ML", "N8N", "React"],
+      color: "from-purple-600 to-pink-600",
+      technologies: ["LangChain", "RAG", "Multi-Agent Systems", "CrewAI", "GPT-4", "Qdrant", "Voice AI", "Python"],
       description: language === "EN"
-        ? "Pursuing continuous learning and skill development alongside full-time role, exploring diverse technologies including Python, NodeJS, C#, C++, React, AI / ML and N8N through personal projects and experimental implementations."
-        : "Continue leren en ontwikkelen van vaardigheden naast fulltime rol, verkennen van diverse technologieën waaronder Python, NodeJS, C#, C++, React, AI / ML en N8N door middel van persoonlijke projecten en experimentele implementaties.",
+        ? "Building production AI systems at Virelio Agency. Shipped Microsoft ecosystem integrations, multi-agent workflows, enterprise RAG platforms with 95% accuracy, and voice assistants handling live bookings. From fraud prevention systems recovering €2M+ to medical compliance platforms reducing 3-month processes to 1 week."
+        : "Productie AI-systemen bouwen bij Virelio Agency. Microsoft ecosystem integraties, multi-agent workflows, enterprise RAG-platformen met 95% accuracy, en voice assistants die live boekingen afhandelen. Van fraude preventie systemen die €2M+ recupereren tot medische compliance platformen die 3-maanden processen terugbrengen naar 1 week.",
       current: true
     }
   ];
@@ -250,7 +250,7 @@ const Journey = ({ language }) => {
             <div className="grid grid-cols-3 gap-4 sm:gap-8 text-center">
               <div className="space-y-2 sm:space-y-4">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-r from-primaryColor to-purple-600 rounded-xl sm:rounded-2xl flex items-center justify-center">
-                  <i className="ri-code-box-line text-lg sm:text-2xl text-white"></i>
+                  <i className="ri-time-line text-lg sm:text-2xl text-white"></i>
                 </div>
                 <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-headingColor">
                   {currentContent.milestones.experience}
@@ -259,10 +259,10 @@ const Journey = ({ language }) => {
                   {currentContent.years}
                 </p>
               </div>
-              
+
               <div className="space-y-2 sm:space-y-4">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl sm:rounded-2xl flex items-center justify-center">
-                  <i className="ri-building-line text-lg sm:text-2xl text-white"></i>
+                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl sm:rounded-2xl flex items-center justify-center">
+                  <i className="ri-robot-line text-lg sm:text-2xl text-white"></i>
                 </div>
                 <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-headingColor">
                   {currentContent.milestones.companies}
@@ -271,10 +271,10 @@ const Journey = ({ language }) => {
                   {currentContent.companies}
                 </p>
               </div>
-              
+
               <div className="space-y-2 sm:space-y-4">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl sm:rounded-2xl flex items-center justify-center">
-                  <i className="ri-trophy-line text-lg sm:text-2xl text-white"></i>
+                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl sm:rounded-2xl flex items-center justify-center">
+                  <i className="ri-money-euro-circle-line text-lg sm:text-2xl text-white"></i>
                 </div>
                 <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-headingColor">
                   {currentContent.milestones.projects}
