@@ -104,26 +104,6 @@ const Modal = ({ activeID, setShowModal, language }) => {
             </div>
           </div>
 
-          {/* Links / Live Site Button if available */}
-          {portfolio.siteUrl && portfolio.siteUrl !== "#" && (
-            <div className="mt-8 pt-6 border-t border-gray-100/10">
-              <a
-                href={portfolio.siteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`
-                  inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300
-                  ${isAI
-                    ? 'bg-purple-600 text-white hover:bg-purple-700 shadow-[0_0_20px_rgba(147,51,234,0.3)]'
-                    : 'bg-primaryColor text-white hover:bg-gray-800'
-                  }
-                `}
-              >
-                {language === "EN" ? "Visit Live Site" : "Bezoek Website"}
-                <i className="ri-external-link-line"></i>
-              </a>
-            </div>
-          )}
         </div>
       </motion.div>
     </div>
