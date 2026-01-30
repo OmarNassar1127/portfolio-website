@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.1b7cbc00.css",
-    "main.js": "/static/js/main.6ceab22f.js",
+    "main.js": "/static/js/main.771ed5c7.js",
     "static/media/portfolio-10.png": "/static/media/portfolio-10.e428f77ed3e8cd96c4ed.png",
     "static/media/remixicon.svg?t=1680703320261": "/static/media/remixicon.70a2c520013c3c5b5aff.svg",
     "static/media/portfolio-14.jpeg": "/static/media/portfolio-14.020f65b7e26dfc830e82.jpeg",
@@ -36,7 +36,6 @@
     "static/media/blog-site.jpeg": "/static/media/blog-site.bac60f87e8e1a0e75cdd.jpeg",
     "static/media/portfolio-04.jpg": "/static/media/portfolio-04.e12a6dff440726ec8fda.jpg",
     "static/media/portfolio-12.png": "/static/media/portfolio-12.dfc45dcbdbb924d67aad.png",
-    "static/media/slouch.jpg": "/static/media/slouch.f1d3ad8e9de16067676e.jpg",
     "static/media/postgresql.svg": "/static/media/postgresql.6fb83da449765ce30a34419a16f4533c.svg",
     "static/media/nodejs.svg": "/static/media/nodejs.a560a6573db18047caefb78d9eda86cc.svg",
     "static/media/vscode.svg": "/static/media/vscode.ae90970b7990088d824d8e3a11d9024f.svg",
@@ -61,10 +60,10 @@
     "static/media/n8n.svg": "/static/media/n8n.a7485ee98a82fc3840e6ab4ffa7c76c0.svg",
     "static/media/html.svg": "/static/media/html.69274ea277b1ee86ba50abd24b291122.svg",
     "main.1b7cbc00.css.map": "/static/css/main.1b7cbc00.css.map",
-    "main.6ceab22f.js.map": "/static/js/main.6ceab22f.js.map"
+    "main.771ed5c7.js.map": "/static/js/main.771ed5c7.js.map"
   },
   "entrypoints": [
     "static/css/main.1b7cbc00.css",
-    "static/js/main.6ceab22f.js"
+    "static/js/main.771ed5c7.js"
   ]
 }
