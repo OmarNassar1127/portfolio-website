@@ -309,9 +309,11 @@ const Portfolio = ({ language }) => {
                 `}
               >
                 {/* Image Container */}
-                <div className="relative h-64 overflow-hidden">
+                <div className={`relative h-64 overflow-hidden ${
+                  portfolio.category === 'ai/ml' ? 'bg-gray-900' : 'bg-gray-100'
+                }`}>
                   <img
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
                     src={portfolio.imgUrl}
                     alt={portfolio.title}
                   />
