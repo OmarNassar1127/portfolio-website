@@ -27,11 +27,25 @@ import portfolioImgPersonal from "../images/ai_personal.png";
 import portfolioImgClaude from "../images/ai_claude.png";
 import portfolioImgResearch from "../images/ai_research.png";
 import portfolioImgDefGPT from "../images/ai_defgpt.png";
+import portfolioImgSlouch from "../images/slouch.jpg";
 
 // New Professional Projects
 
 const portfolios = [
   // --- New AI Projects ---
+  {
+    id: "ai-slouch",
+    imgUrl: portfolioImgSlouch,
+    category: "ai/ml",
+    title: "Slouch - AI Posture Coach",
+    date: "2026-01",
+    year: 2026,
+    priority: 3,
+    descriptionEN: "Built an AI-powered posture detection web application that runs 100% client-side using MediaPipe Pose. The app uses your webcam to analyze body posture in real-time, detecting slouching through torso metrics (shoulder width, hip alignment, tilt). Features include smart calibration system, time-delayed alerts to filter quick movements, sensitivity presets (Easy/Medium/Hard), visual feedback with progress bars, and gentle audio nudges. Zero data leaves the device - all AI processing happens locally in the browser. Includes a modern glassmorphism UI, session statistics tracking, and waitlist integration with Supabase.",
+    descriptionNL: "Een AI-gestuurde houding detectie webapplicatie gebouwd die 100% client-side draait met MediaPipe Pose. De app gebruikt je webcam om lichaamshouding real-time te analyseren en detecteert slechte houding via torso-metrieken (schouderbreedte, heup-uitlijning, kanteling). Functies omvatten slim kalibratiesysteem, vertraagde waarschuwingen om snelle bewegingen te filteren, gevoeligheidsvoorinstellingen (Makkelijk/Gemiddeld/Moeilijk), visuele feedback met voortgangsbalken en subtiele audio-signalen. Geen data verlaat het apparaat - alle AI-verwerking gebeurt lokaal in de browser. Inclusief moderne glassmorphism UI, sessie statistieken tracking en wachtlijst integratie met Supabase.",
+    technologies: ["MediaPipe", "React", "TypeScript", "Vite", "Tailwind CSS", "Supabase", "Computer Vision", "Client-side AI"],
+    siteUrl: "https://slouch.pro",
+  },
   {
     id: "ai-01",
     imgUrl: portfolioImgCreative,
