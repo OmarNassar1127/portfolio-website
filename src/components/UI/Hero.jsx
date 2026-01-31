@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
 import OmarCV from "../../assets/cv/Omar-cv.pdf";
 import { motion } from "framer-motion";
+import LiquidGlass, { LiquidGlassCard } from "./LiquidGlass";
 
 const Hero = ({ language, isDarkMode }) => {
   const typedRef = useRef(null);
@@ -47,29 +48,9 @@ const Hero = ({ language, isDarkMode }) => {
       }`}
       id="about"
     >
-      {/* Subtle glassy background bubbles - desktop only */}
+      {/* Liquid Glass Background - animated morphing blobs */}
       {!isMobile && (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
-          {/* Purple/violet bubble - top right */}
-          <div
-            className={`absolute -top-10 -right-20 w-[400px] h-[400px] rounded-full blur-[100px] animate-float-slow ${
-              isDarkMode ? 'bg-violet-500/20' : 'bg-violet-400/25'
-            }`}
-          />
-          {/* Blue bubble - left */}
-          <div
-            className={`absolute top-1/3 -left-20 w-[350px] h-[350px] rounded-full blur-[100px] animate-float-slow-reverse ${
-              isDarkMode ? 'bg-blue-500/15' : 'bg-blue-400/20'
-            }`}
-          />
-          {/* Pink/rose bubble - bottom */}
-          <div
-            className={`absolute bottom-20 right-10 w-[300px] h-[300px] rounded-full blur-[100px] animate-float-slow ${
-              isDarkMode ? 'bg-rose-500/15' : 'bg-rose-400/20'
-            }`}
-            style={{ animationDelay: '2s' }}
-          />
-        </div>
+        <LiquidGlass isDarkMode={isDarkMode} intensity="medium" />
       )}
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 relative" style={{ zIndex: 1 }}>
@@ -172,33 +153,35 @@ const Hero = ({ language, isDarkMode }) => {
             </div>
           </motion.div>
 
-          {/* Stats Row - Clean and minimal */}
+          {/* Stats Row - Liquid Glass Style */}
           <motion.div
             initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: isMobile ? 0.3 : 0.8, delay: isMobile ? 0.1 : 0.3, ease: "easeOut" }}
-            className={`rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 ${
-              isDarkMode
-                ? 'bg-dark-card border border-dark-border'
-                : 'bg-white border border-gray-200 shadow-md'
-            }`}
           >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-4">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2 ${
-                    isDarkMode ? 'text-white' : 'text-gray-900'
-                  }`}>
-                    {stat.value}
+            <LiquidGlassCard 
+              isDarkMode={isDarkMode} 
+              hover={true} 
+              glow={true}
+              className="p-4 sm:p-6 md:p-8 lg:p-10"
+            >
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-4">
+                {stats.map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2 ${
+                      isDarkMode ? 'text-white' : 'text-gray-900'
+                    }`}>
+                      {stat.value}
+                    </div>
+                    <div className={`text-xs sm:text-sm font-medium ${
+                      isDarkMode ? 'text-gray-400' : 'text-gray-500'
+                    }`}>
+                      {stat.label}
+                    </div>
                   </div>
-                  <div className={`text-xs sm:text-sm font-medium ${
-                    isDarkMode ? 'text-gray-500' : 'text-gray-500'
-                  }`}>
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </LiquidGlassCard>
           </motion.div>
 
           {/* Social links - subtle */}
