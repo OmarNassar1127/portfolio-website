@@ -27,7 +27,8 @@ import portfolioImgPersonal from "../images/ai_personal.png";
 import portfolioImgClaude from "../images/ai_claude.png";
 import portfolioImgResearch from "../images/ai_research.png";
 import portfolioImgDefGPT from "../images/ai_defgpt.png";
-import portfolioImgSlouch from "../images/slouch_new.png";
+import portfolioImgSlouch from "../images/slouch.jpg";
+import portfolioImgWhatsApp from "../images/ai_comm.png";
 
 // New Professional Projects
 
@@ -45,6 +46,19 @@ const portfolios = [
     descriptionNL: "Een AI-gestuurde houding detectie webapplicatie gebouwd die 100% client-side draait met MediaPipe Pose. De app gebruikt je webcam om lichaamshouding real-time te analyseren en detecteert slechte houding via torso-metrieken (schouderbreedte, heup-uitlijning, kanteling). Functies omvatten slim kalibratiesysteem, vertraagde waarschuwingen om snelle bewegingen te filteren, gevoeligheidsvoorinstellingen (Makkelijk/Gemiddeld/Moeilijk), visuele feedback met voortgangsbalken en subtiele audio-signalen. Geen data verlaat het apparaat - alle AI-verwerking gebeurt lokaal in de browser. Inclusief moderne glassmorphism UI, sessie statistieken tracking en wachtlijst integratie met Supabase.",
     technologies: ["MediaPipe", "React", "TypeScript", "Vite", "Tailwind CSS", "Supabase", "Computer Vision", "Client-side AI"],
     siteUrl: "https://slouch.pro",
+  },
+  {
+    id: "ai-whatsapp-agent",
+    imgUrl: portfolioImgWhatsApp,
+    category: "ai/ml",
+    title: "WhatsApp AI Business Agent",
+    date: "2026-01",
+    year: 2026,
+    priority: 2,
+    descriptionEN: "Developed an intelligent WhatsApp business assistant that handles customer inquiries, appointment booking, and lead capture 24/7. The AI agent integrates with WhatsApp Business API to provide instant responses in the business's own tone and style. Features include automated appointment scheduling with calendar integration, smart FAQ handling trained on business-specific knowledge, no-show reduction through automated reminders, and seamless handoff to human agents when needed. Built for service businesses like barbershops, restaurants, and healthcare practices. The system processes natural language queries in Dutch and English, maintaining conversation context across sessions.",
+    descriptionNL: "Een intelligente WhatsApp business assistent ontwikkeld die klantvragen, afspraakboekingen en leadgeneratie 24/7 afhandelt. De AI-agent integreert met WhatsApp Business API voor directe antwoorden in de eigen toon en stijl van het bedrijf. Functies omvatten geautomatiseerde afspraakplanning met agenda-integratie, slimme FAQ-afhandeling getraind op bedrijfsspecifieke kennis, vermindering van no-shows door automatische herinneringen, en naadloze overdracht naar menselijke medewerkers indien nodig. Gebouwd voor servicebedrijven zoals kappers, restaurants en zorgpraktijken. Het systeem verwerkt natuurlijke taalverzoeken in het Nederlands en Engels, en behoudt gesprekscontext over sessies heen.",
+    technologies: ["WhatsApp Business API", "OpenAI GPT-4", "Node.js", "FastAPI", "Python", "RAG", "Calendar API", "NLP"],
+    siteUrl: "#",
   },
   {
     id: "ai-01",
