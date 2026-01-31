@@ -27,8 +27,8 @@ import portfolioImgPersonal from "../images/ai_personal.png";
 import portfolioImgClaude from "../images/ai_claude.png";
 import portfolioImgResearch from "../images/ai_research.png";
 import portfolioImgDefGPT from "../images/ai_defgpt.png";
-import portfolioImgSlouch from "../images/slouch.jpg";
-import portfolioImgWhatsApp from "../images/ai_comm.png";
+import portfolioImgSlouch from "../images/slouch_glass.png";
+import portfolioImgWhatsApp from "../images/whatsapp_agent.png";
 
 // New Professional Projects
 
