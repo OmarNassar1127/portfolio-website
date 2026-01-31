@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.2df2bb5e.css",
-    "main.js": "/static/js/main.d1b75e4d.js",
+    "main.css": "/static/css/main.1b7cbc00.css",
+    "main.js": "/static/js/main.306d918f.js",
     "static/media/portfolio-10.png": "/static/media/portfolio-10.e428f77ed3e8cd96c4ed.png",
     "static/media/remixicon.svg?t=1680703320261": "/static/media/remixicon.70a2c520013c3c5b5aff.svg",
     "static/media/portfolio-14.jpeg": "/static/media/portfolio-14.020f65b7e26dfc830e82.jpeg",
@@ -12,6 +12,7 @@
     "static/media/fraud-prevention.jpeg": "/static/media/fraud-prevention.8c4ce08b61d769920ab9.jpeg",
     "static/media/ai_defgpt.png": "/static/media/ai_defgpt.5990e60f56acfd42bd11.png",
     "static/media/ai_notulist.png": "/static/media/ai_notulist.c245dc5d938958ad1c23.png",
+    "static/media/slouch_new.png": "/static/media/slouch_new.a885fd32a98afff21713.png",
     "static/media/ai_personal.png": "/static/media/ai_personal.c5e018b7e157415e3cd7.png",
     "static/media/ai_linkedin.png": "/static/media/ai_linkedin.e4dd6ed57a12e06859b2.png",
     "static/media/ai_website.png": "/static/media/ai_website.4b27ca64ff9eecb18aa4.png",
@@ -59,11 +60,11 @@
     "static/media/css.svg": "/static/media/css.4f50b33af1d2115e9ee75ed4b1570e17.svg",
     "static/media/n8n.svg": "/static/media/n8n.a7485ee98a82fc3840e6ab4ffa7c76c0.svg",
     "static/media/html.svg": "/static/media/html.69274ea277b1ee86ba50abd24b291122.svg",
-    "main.2df2bb5e.css.map": "/static/css/main.2df2bb5e.css.map",
-    "main.d1b75e4d.js.map": "/static/js/main.d1b75e4d.js.map"
+    "main.1b7cbc00.css.map": "/static/css/main.1b7cbc00.css.map",
+    "main.306d918f.js.map": "/static/js/main.306d918f.js.map"
   },
   "entrypoints": [
-    "static/css/main.2df2bb5e.css",
-    "static/js/main.d1b75e4d.js"
+    "static/css/main.1b7cbc00.css",
+    "static/js/main.306d918f.js"
   ]
 }
