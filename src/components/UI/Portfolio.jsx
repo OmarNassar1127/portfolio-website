@@ -415,13 +415,15 @@ const Portfolio = ({ language }) => {
         )}
       </div>
 
-      {showModal && (
-        <Modal
-          setShowModal={setShowModal}
-          activeID={activeID}
-          language={language}
-        />
-      )}
+      <AnimatePresence>
+        {showModal && (
+          <Modal
+            setShowModal={setShowModal}
+            activeID={activeID}
+            language={language}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 };
