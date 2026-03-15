@@ -1,11 +1,45 @@
 import React, { useState } from "react";
 import oracleLogo from "../../assets/images/oracle.png";
 import udemyLogo from "../../assets/images/udemy.png";
+import anthropicLogo from "../../assets/images/anthropicresearch_logo.jpeg";
 
 const Certifications = ({ language, isDarkMode }) => {
   const [filter, setFilter] = useState("all");
 
   const certificationsData = [
+    {
+      id: 7,
+      title: "Model Context Protocol: Advanced Topics",
+      issuer: "Anthropic",
+      date: "Mar 2026",
+      credentialUrl: "https://www.credential.net/kuqi7egxxvg8",
+      category: "AI/ML",
+      logo: "anthropic",
+      skills: ["Model Context Protocol", "Claude", "AI Agents"],
+      color: "from-orange-500 to-orange-600",
+    },
+    {
+      id: 8,
+      title: "Certificate of Completion: Agent Skills",
+      issuer: "Anthropic",
+      date: "Mar 2026",
+      credentialUrl: "https://www.credential.net/e5ox2qj3xwi6",
+      category: "AI/ML",
+      logo: "anthropic",
+      skills: ["AI Agents", "Claude", "Prompt Engineering"],
+      color: "from-orange-500 to-orange-600",
+    },
+    {
+      id: 9,
+      title: "Claude Code in Action",
+      issuer: "Anthropic",
+      date: "Mar 2026",
+      credentialUrl: "https://www.credential.net/97f6bmdcy376",
+      category: "AI/ML",
+      logo: "anthropic",
+      skills: ["Claude Code", "AI-Assisted Development", "Claude"],
+      color: "from-orange-500 to-orange-600",
+    },
     {
       id: 1,
       title: "Inspect Rich Documents with Gemini Multimodality and Multimodal RAG Skill Badge",
@@ -156,6 +190,15 @@ const Certifications = ({ language, isDarkMode }) => {
     />
   );
 
+  const AnthropicLogo = () => (
+    <img
+      src={anthropicLogo}
+      alt="Anthropic"
+      className="w-12 h-12 object-contain rounded-lg"
+      style={{ background: 'transparent' }}
+    />
+  );
+
   const getLogo = (logo) => {
     switch (logo) {
       case "google":
@@ -164,6 +207,8 @@ const Certifications = ({ language, isDarkMode }) => {
         return <OracleLogo />;
       case "udemy":
         return <UdemyLogo />;
+      case "anthropic":
+        return <AnthropicLogo />;
       default:
         return null;
     }
