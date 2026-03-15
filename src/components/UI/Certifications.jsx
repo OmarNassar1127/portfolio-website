@@ -15,7 +15,7 @@ const Certifications = ({ language, isDarkMode }) => {
       credentialUrl: "https://www.credential.net/kuqi7egxxvg8",
       category: "AI/ML",
       logo: "anthropic",
-      skills: ["Model Context Protocol", "Claude", "AI Agents"],
+      skills: ["MCP Servers", "Tool Integration", "Agentic Workflows"],
       color: "from-orange-500 to-orange-600",
     },
     {
@@ -26,7 +26,7 @@ const Certifications = ({ language, isDarkMode }) => {
       credentialUrl: "https://www.credential.net/e5ox2qj3xwi6",
       category: "AI/ML",
       logo: "anthropic",
-      skills: ["AI Agents", "Claude", "Prompt Engineering"],
+      skills: ["Autonomous Agents", "Multi-Step Reasoning", "Tool Use"],
       color: "from-orange-500 to-orange-600",
     },
     {
@@ -37,7 +37,7 @@ const Certifications = ({ language, isDarkMode }) => {
       credentialUrl: "https://www.credential.net/97f6bmdcy376",
       category: "AI/ML",
       logo: "anthropic",
-      skills: ["Claude Code", "AI-Assisted Development", "Claude"],
+      skills: ["AI-Powered Development", "CLI Automation", "Pair Programming"],
       color: "from-orange-500 to-orange-600",
     },
     {
@@ -90,9 +90,9 @@ const Certifications = ({ language, isDarkMode }) => {
       issuer: "Oracle",
       date: "Nov 2024",
       credentialUrl: "#",
-      category: "Cloud",
+      category: "AI/ML",
       logo: "oracle",
-      skills: ["Oracle Cloud", "Artificial Intelligence (AI)"],
+      skills: ["Oracle Cloud", "Generative AI", "LLM Deployment"],
       color: "from-red-500 to-red-600",
     },
     {
