@@ -1,0 +1,87 @@
+# Omar Nassar — AI Engineer & Full Stack Developer
+
+> Senior AI Engineer based in Amsterdam, Netherlands. Building enterprise-ready AI solutions, multi-agent systems, and RAG architectures that scale. Founder of Virelio, an AI agency delivering custom AI agent teams for businesses.
+
+## About
+
+Omar Nassar is a Senior AI Engineer and Full Stack Developer with 7+ years of experience building production AI systems. He specializes in multi-agent architectures, Retrieval-Augmented Generation (RAG) platforms, and enterprise AI deployments. Omar is the founder of Virelio, an Amsterdam-based AI agency that builds custom AI agent teams — delivering working agents in 2 weeks.
+
+Key metrics: EUR 50K monthly business impact, 30+ systems built, 200+ automations deployed.
+
+## Links
+
+- Portfolio: https://omardev.xyz
+- Virelio Agency: https://virelio.nl
+- Virelio AI Platform: https://virelio.ai
+- GitHub: https://github.com/OmarNassar1127
+- LinkedIn: https://www.linkedin.com/in/omar-nassar-93a176155/
+- Slouch (AI Posture Coach): https://slouch.pro
+- Contact: omarnassar1127@gmail.com
+
+## Expertise
+
+### AI & Machine Learning
+- Multi-agent systems (CrewAI, LangGraph, AutoGPT)
+- RAG architecture (Qdrant, Meilisearch, LangChain)
+- Large Language Models (GPT-4, Claude, Llama 3, Gemini)
+- Computer Vision (MediaPipe, OpenCV, TensorFlow)
+- Natural Language Processing
+- Prompt Engineering & AI Workflow Automation
+- On-premise AI deployment (Ollama, local LLMs)
+- Voice AI (ElevenLabs, Whisper, WebRTC)
+
+### Full Stack Development
+- Frontend: React, Next.js, TypeScript, Tailwind CSS
+- Backend: Laravel (PHP), Node.js, FastAPI (Python), Express
+- Databases: PostgreSQL, MySQL, SQLite, Qdrant, MongoDB
+- Infrastructure: Docker, AWS, Azure, Raspberry Pi, PM2
+
+## Featured Projects
+
+### Enterprise AI Platform
+First fully private, on-premise AI platform serving 80,000+ employees. Multi-agent LLM architecture with local 70B Llama models via Ollama and Qdrant for vector storage. Achieves <2s inference on standard hardware. Zero data leaves the premises.
+
+### WhatsApp AI Business Agent
+Intelligent WhatsApp business assistant handling customer inquiries, appointment booking, and lead capture 24/7. Integrates with WhatsApp Business API. Processes natural language in Dutch and English with persistent conversation context.
+
+### Slouch — AI Posture Coach
+AI-powered posture detection web app running 100% client-side using MediaPipe Pose. Real-time webcam analysis detects slouching through torso metrics. Zero data leaves the device. Available at https://slouch.pro
+
+### Enterprise RAG & Knowledge Base Platform
+Comprehensive RAG platform indexing millions of proprietary documents. 95% retrieval accuracy, sub-second response times, 10+ internal data source integrations. Built with Llama 3, Qdrant, FastAPI, and LangChain.
+
+### Invoice Fraud Prevention Platform
+Fraud prevention ecosystem that reduced payment defaults by 73%, improved cash flow by 45%. Processes 50k+ monthly transactions with AI-powered risk scoring. Recovered EUR 2M+ in outstanding payments.
+
+### AI Customer Support (virelio.ai)
+AI-powered customer support system with ElevenLabs speech synthesis, n8n workflow automation, and OpenAI for conversation processing. 24/7 availability for meeting management and client inquiries.
+
+### Full-Stack Multi-Agent System
+Autonomous agent system with 6 specialized agents (research, code, review). Reduced project execution time by 80% through parallelized workflows. Built with CrewAI and LangGraph.
+
+### Medical Technical File Builder
+AI platform accelerating medical device technical dossier creation 5x. Uses NLP and regulatory compliance algorithms for FDA, CE marking, and ISO standards.
+
+## Virelio — AI Agents on Demand
+
+Virelio is an Amsterdam-based AI agency founded by Omar Nassar. The agency builds custom AI agent teams for businesses with a focus on rapid delivery (most agents live in 2 weeks).
+
+Services:
+- AI Agent Development — Custom autonomous teams that integrate with existing tools
+- Sales Automation — Lead qualification, prospect follow-up, pipeline management
+- Customer Service Automation — Support agents resolving inquiries 24/7
+- Knowledge Base Systems — AI-powered institutional knowledge management
+- Operations Automation — Back-office process automation
+
+Website: https://virelio.nl | https://virelio.ai
+
+## Certifications
+- Google: Inspect Rich Documents with Gemini Multimodality and Multimodal RAG (Oct 2025)
+- Google: Prompt Design in Vertex AI (Oct 2025)
+- Google: Machine Learning Operations (MLOps) for Generative AI (Feb 2025)
+- Google: Advanced Generative AI for Developers (Jan 2025)
+- Oracle: OCI Generative AI Professional (Nov 2024)
+
+## Languages
+- English (professional)
+- Dutch (professional)

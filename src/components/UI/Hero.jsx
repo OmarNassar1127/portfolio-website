@@ -209,16 +209,17 @@ const Hero = ({ language, isDarkMode }) => {
             className="flex items-center justify-center gap-4 sm:gap-6 mt-8 sm:mt-12"
           >
             {[
-              { href: "https://github.com/OmarNassar1127", icon: "ri-github-fill" },
-              { href: "https://www.linkedin.com/in/omar-nassar-93a176155/", icon: "ri-linkedin-fill" },
-              { href: "https://twitter.com/GodelTrabuco69", icon: "ri-twitter-fill" },
-              { href: "mailto:omarnassar1127@gmail.com", icon: "ri-mail-line" },
+              { href: "https://github.com/OmarNassar1127", icon: "ri-github-fill", label: "GitHub" },
+              { href: "https://www.linkedin.com/in/omar-nassar-93a176155/", icon: "ri-linkedin-fill", label: "LinkedIn" },
+              { href: "https://twitter.com/GodelTrabuco69", icon: "ri-twitter-fill", label: "Twitter" },
+              { href: "mailto:omarnassar1127@gmail.com", icon: "ri-mail-line", label: "Email" },
             ].map((social, index) => (
               <a
                 key={index}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={social.label}
                 className={`text-xl sm:text-2xl transition-colors duration-200 ${
                   isDarkMode
                     ? 'text-gray-600 hover:text-white'
